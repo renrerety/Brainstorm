@@ -380,6 +380,8 @@
 "Assets/Scripts/MainMenu.cs"
 "Assets/Scripts/VolumeSlider.cs"
 "Assets/Sprites/PlayerMovement.cs"
+"Assets/TerrainTile.cs"
+"Assets/WorldScrolling.cs"
 -langversion:9.0
 
 /deterministic
