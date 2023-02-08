@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class AIMaster : MonoBehaviour
 {
+    [SerializeField] int speed;
+    [SerializeField] int hp;
+
+    SpriteRenderer spriteRenderer;
     Transform player;
     Rigidbody2D rb;
-    [SerializeField] int speed;
-
     
+
+    public void TakeDamage(int damage)
+    {
+        hp -= damage;
+    }
+    IEnumerator Flicker()
+    {
+        yield return new WaitForSeconds(0.5f);
+    }
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
@@ -30,6 +42,5 @@ public class AIMaster : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = false;
         }
-
     }
 }
