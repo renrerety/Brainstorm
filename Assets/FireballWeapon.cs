@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class FireballWeapon : WeaponMaster
 {
+    [SerializeField] AudioClip fireballClip;
+
     Transform nearestEnemy;
     float temp = 100f;
     int index;
@@ -19,13 +21,16 @@ public class FireballWeapon : WeaponMaster
     public override void Update()
     {
         base.Update();
-        FindNearestEnemy();
     }
     public override void Attack()
     {
+        FindNearestEnemy();
+
         GameObject fireball = TakeFireballFromPool();
         fireball.transform.position = playerTransform.position;
         fireball.transform.right = nearestEnemy.position - transform.position;
+
+        fireball.GetComponent<AudioSource>().PlayOneShot(fireballClip);
 
         timer = cooldown;
     }
@@ -48,6 +53,7 @@ public class FireballWeapon : WeaponMaster
         }
         GameObject fireball = fireballPoolList[index++];
         fireball.SetActive(true);
+        fireball.GetComponent<Fireball>().damage = damage;
         return fireball;
     }
     public void ReturnFireballToPool(GameObject fireball)
@@ -60,12 +66,13 @@ public class FireballWeapon : WeaponMaster
     {
         foreach (GameObject enemy in EnemySpawner.Instance.activeEnemyList)
         {
-            float distance = Vector2.Distance(transform.position, enemy.transform.position);
+            float distance = Vector2.Distance(playerTransform.position, enemy.transform.position);
             if (distance < temp)
             {
                 nearestEnemy = enemy.transform;
                 temp = distance;
             }
         }
+        temp = 100;
     }
 }

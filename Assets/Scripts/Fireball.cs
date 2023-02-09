@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
+    [HideInInspector] public int damage;
+
     Transform player;
+
     [SerializeField] int speed;
     [SerializeField] int max_range;
+    
 
     private void Start()
     {
@@ -28,7 +32,8 @@ public class Fireball : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("Hit");
+            collision.GetComponent<AIZombie>().TakeDamage(damage);
+            
             player.GetComponentInChildren<FireballWeapon>().ReturnFireballToPool(gameObject);
         }
     }

@@ -305,53 +305,6 @@ Transform:
   m_Father: {fileID: 1972805154}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &570496134
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 570496135}
-  - component: {fileID: 570496136}
-  m_Layer: 0
-  m_Name: Weapon_Fireball
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &570496135
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570496134}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1972805154}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &570496136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570496134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a8f89f448d636d44bfb0263c28cbcb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  weaponObj: {fileID: 8314440669984832251, guid: 2730488081ad60341bf05cfcaa0d13ca, type: 3}
-  cooldown: 5
 --- !u!1 &585411995
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245d14704d2aa884d876052d66410706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRadius: 20
+  factory: {fileID: 0}
+  spawnRadius: 15
   spawnInterval: 5
   activeEnemyList: []
 --- !u!1 &641015625
@@ -631,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weakEnemy: {fileID: 1903743500657717813, guid: 8f496cc2c3ca5894aa8e31eae713035e, type: 3}
-  strongEnemy: {fileID: 7422279665518506191, guid: 94187a71dd95f814e9fa6343aaff83db, type: 3}
+  strongEnemy: {fileID: 1903743500657717813, guid: 8f496cc2c3ca5894aa8e31eae713035e, type: 3}
 --- !u!1 &780039620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,7 +1487,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 519420032}
-  - {fileID: 570496135}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

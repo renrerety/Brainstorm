@@ -7,8 +7,9 @@ public abstract class WeaponMaster : MonoBehaviour
     public Transform playerTransform;
     public GameObject weaponObj;
     public float cooldown;
+    public int damage;
 
-    protected float timer;
+    public float timer;
     public abstract void Attack();
 
     public virtual void Update()

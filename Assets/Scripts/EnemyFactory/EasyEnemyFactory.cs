@@ -36,7 +36,7 @@ public class EasyEnemyFactory : AbstractFactory
     }
     void CreatePool()
     {
-        for(int i = 0; i < 200; i++)
+        for(int i = 0; i < 500; i++)
         {
             weakEnemyList.Add(Instantiate(weakEnemy,gameObject.transform));
             strongEnemyList.Add(Instantiate(strongEnemy,gameObject.transform));
@@ -58,10 +58,12 @@ public class EasyEnemyFactory : AbstractFactory
         }
         GameObject enemy = weakEnemyList[weakIndex++];
         enemy.SetActive(true);
+        enemy.GetComponent<AIMaster>().enemyDifficulty = EnemyDifficulty.easy;
         return enemy;
     }
-    public void ReturnWeakEnemyToPool(GameObject enemy)
+    public void ReturnEnemyToPool(GameObject enemy)
     {
+        EnemySpawner.Instance.activeEnemyList.Remove(enemy);
         enemy.SetActive(false);
         enemy.transform.position = Vector3.zero;
     }
@@ -72,12 +74,8 @@ public class EasyEnemyFactory : AbstractFactory
             strongIndex = 0;
         }
         GameObject enemy = strongEnemyList[strongIndex++];
+        enemy.GetComponent<AIMaster>().enemyDifficulty = EnemyDifficulty.easy;
         enemy.SetActive(true);
         return enemy;
-    }
-    public void ReturnStrongEnemyToPool(GameObject enemy)
-    {
-        enemy.SetActive(false);
-        enemy.transform.position = Vector3.zero;
     }
 }

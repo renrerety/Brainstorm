@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public static EnemySpawner Instance { get; private set; }
 
-    AbstractFactory factory;
+    public AbstractFactory factory;
     [SerializeField] float spawnRadius;
     [SerializeField] float spawnInterval;
 
@@ -54,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
                     enemy = factory.CreateStrongEnemy();
                 }
 
-                Vector3 randomPos = Random.insideUnitCircle * spawnRadius;
+                Vector3 randomPos = Random.insideUnitCircle.normalized * spawnRadius;
                 enemy.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + randomPos;
                 activeEnemyList.Add(enemy);
             }
