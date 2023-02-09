@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     [HideInInspector] public int damage;
 
@@ -25,7 +25,7 @@ public class Fireball : MonoBehaviour
         }
         if (Vector2.Distance(transform.position, player.position) > max_range)
         {
-            player.GetComponentInChildren<FireballWeapon>().ReturnFireballToPool(gameObject);
+            player.GetComponentInChildren<FireballWeapon>().ReturnWeaponToPool(gameObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,7 +34,7 @@ public class Fireball : MonoBehaviour
         {
             collision.GetComponent<AIZombie>().TakeDamage(damage);
             
-            player.GetComponentInChildren<FireballWeapon>().ReturnFireballToPool(gameObject);
+            player.GetComponentInChildren<FireballWeapon>().ReturnWeaponToPool(gameObject);
         }
     }
 }
