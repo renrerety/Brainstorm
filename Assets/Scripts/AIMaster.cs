@@ -55,8 +55,6 @@ public abstract class AIMaster : MonoBehaviour
 
         float moveX = transform.position.x - player.transform.position.x;
 
-        Debug.Log(moveX);
-
         if (moveX > 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;

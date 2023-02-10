@@ -26,7 +26,7 @@ public abstract class WeaponMaster : MonoBehaviour
     }
     public virtual void Start()
     {
-        Debug.Log("start");
+        CreatePool();
         timer = cooldown;
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }

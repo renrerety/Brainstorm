@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
         }
         if (Vector2.Distance(transform.position, player.position) > max_range)
         {
-            player.GetComponentInChildren<FireballWeapon>().ReturnWeaponToPool(gameObject);
+            player.GetComponentInChildren<WeaponMaster>().ReturnWeaponToPool(gameObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

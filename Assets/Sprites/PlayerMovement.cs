@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+    public static Vector3 lastDirection = new Vector3();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+
 
         if(horizontal < 0)
         {
@@ -33,6 +36,9 @@ public class PlayerMovement : MonoBehaviour
         {
             GetComponent<Animator>().SetBool("IsMoving", false);
         }
+
+        lastDirection = new Vector3(0, (int)(horizontal), (int)vertical);
+        Debug.Log(lastDirection);
 
         Vector3 movement = new Vector3(horizontal * speed, vertical * speed, 0) * Time.deltaTime;
         transform.Translate(movement);
