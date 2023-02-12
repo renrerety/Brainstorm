@@ -102,6 +102,7 @@ MonoBehaviour:
   damage: 0
   speed: 5
   max_range: 20
+  maxHit: 2
 --- !u!61 &1755393595072038788
 BoxCollider2D:
   m_ObjectHideFlags: 0

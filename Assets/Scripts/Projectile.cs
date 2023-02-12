@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Projectile : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] int speed;
     [SerializeField] int max_range;
+    [SerializeField] int maxHit;
+
+    int hit;
     
 
     private void Start()
@@ -30,11 +34,18 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (hit < maxHit)
         {
-            collision.GetComponent<AIZombie>().TakeDamage(damage);
-            
-            player.GetComponentInChildren<FireballWeapon>().ReturnWeaponToPool(gameObject);
+            if (collision.CompareTag("Enemy"))
+            {
+                collision.GetComponent<AIZombie>().TakeDamage(damage);
+                hit++;
+            }
         }
+        else
+        {
+            player.GetComponentInChildren<WeaponMaster>().ReturnWeaponToPool(gameObject);
+        }
+       
     }
 }

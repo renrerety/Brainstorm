@@ -8,8 +8,20 @@ public class ThrowingKnifeWeapon : WeaponMaster
     {
         GameObject knife = TakeWeaponFromPool();
 
-        //knife.transform.rotation = new Quaternion(PlayerMovement.lastDirection.y * 180,PlayerMovement.lastDirection.z * 180 , PlayerMovement.lastDirection.x * 180, 0);
-        knife.transform.Rotate(new Vector3(0, PlayerMovement.lastDirection.y * 180, PlayerMovement.lastDirection.z*90));
+        int yRot;
+        int zRot;
+  
+        if (PlayerMovement.lastDirection.y == -1)
+        {
+            yRot = 180;
+        }
+        else
+        {
+            yRot = 0;
+        }
+        zRot = (int)(PlayerMovement.lastDirection.z * 90);
+
+        knife.transform.Rotate(new Vector3(0, yRot, zRot));
         knife.transform.position = playerTransform.position;
 
         timer = cooldown;

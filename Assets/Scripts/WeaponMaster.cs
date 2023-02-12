@@ -10,7 +10,7 @@ public abstract class WeaponMaster : MonoBehaviour
     public float cooldown;
     public int damage;
 
-    public float timer;
+    [HideInInspector] public float timer;
 
     int index;
     List<GameObject> weaponPoolList = new List<GameObject>();

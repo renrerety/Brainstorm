@@ -31,13 +31,31 @@ public class PlayerMovement : MonoBehaviour
         if(horizontal != 0 || vertical != 0)
         {
             GetComponent<Animator>().SetBool("IsMoving", true);
+           
         }
         else
         {
             GetComponent<Animator>().SetBool("IsMoving", false);
         }
 
-        lastDirection = new Vector3(0, (int)(horizontal), (int)vertical);
+        if(horizontal > 0)
+        {
+            lastDirection = new Vector3(0, Mathf.CeilToInt(horizontal), Mathf.CeilToInt(vertical));
+        }
+        else if (horizontal < 0)
+        {
+            lastDirection = new Vector3(0, Mathf.FloorToInt(horizontal), Mathf.FloorToInt(vertical));
+        }
+        if (vertical > 0)
+        {
+            lastDirection = new Vector3(0, Mathf.CeilToInt(horizontal), Mathf.CeilToInt(vertical));
+        }
+        else if (vertical < 0)
+        {
+            lastDirection = new Vector3(0, Mathf.FloorToInt(horizontal), Mathf.FloorToInt(vertical));
+        }
+
+
         Debug.Log(lastDirection);
 
         Vector3 movement = new Vector3(horizontal * speed, vertical * speed, 0) * Time.deltaTime;
