@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using TNRD;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public abstract class AIMaster : MonoBehaviour
 {
     public EnemyDifficulty enemyDifficulty;
     public EnemyType enemyType;
+
     public IMovement movementStrategy;
 
     [SerializeField] int speed;
@@ -13,7 +18,7 @@ public abstract class AIMaster : MonoBehaviour
     [SerializeField] AudioClip enemyHit;
 
     SpriteRenderer spriteRenderer;
-    Transform player;
+    public Transform player;
 
     public void TakeDamage(int damage)
     {
@@ -45,15 +50,33 @@ public abstract class AIMaster : MonoBehaviour
                 break;
         }
     }
-    private void Start()
+    public virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    private void Update()
+
+    public virtual void Update()
     {
-        movementStrategy.Move();
+        FlipTowardsPlayer();
     }
+
+    private void FlipTowardsPlayer()
+    {
+        float moveX = transform.position.x - player.transform.position.x;
+
+        if (moveX > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+    }
+}
+public class Strategy
+{
+    SerializableInterface<IMovement> strategy;
 }
 public enum EnemyType
 {
