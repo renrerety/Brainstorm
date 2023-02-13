@@ -6,6 +6,7 @@ public abstract class AIMaster : MonoBehaviour
 {
     public EnemyDifficulty enemyDifficulty;
     public EnemyType enemyType;
+    public IMovement movementStrategy;
 
     [SerializeField] int speed;
     [SerializeField] int hp;
@@ -51,18 +52,7 @@ public abstract class AIMaster : MonoBehaviour
     }
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.position, Time.deltaTime * speed);
-
-        float moveX = transform.position.x - player.transform.position.x;
-
-        if (moveX > 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
+        movementStrategy.Move();
     }
 }
 public enum EnemyType

@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDifficulty: 0
   enemyType: 0
+  movementStrategy: {fileID: 11400000, guid: 959dc5313fbcab4499c74e9a2e35de48, type: 2}
   speed: 1
   hp: 20
   enemyHit: {fileID: 8300000, guid: b68e8f88720539643a0573adb8088598, type: 3}
