@@ -33,6 +33,7 @@ public class PowerUp_Clock : PowerUpMaster, IPowerUp
         foreach (GameObject enemy in EnemySpawner.Instance.activeEnemyList)
         {
             enemy.GetComponent<AIMaster>().movementStrategy = walkStrategy;
+            enemy.GetComponent<SpriteRenderer>().color = Color.white;
         }
         Destroy(gameObject);
     }

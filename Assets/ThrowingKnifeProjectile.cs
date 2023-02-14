@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class Projectile : MonoBehaviour
+public class ThrowingKnifeProjectile : MonoBehaviour
 {
     public int damage;
 
@@ -29,8 +28,14 @@ public class Projectile : MonoBehaviour
         }
         if (Vector2.Distance(transform.position, player.position) > max_range)
         {
-            player.GetComponentInChildren<WeaponMaster>().ReturnWeaponToPool(gameObject);
+            ThrowingKnifePool.Instance.ReturnThrowingKnifeToPool(gameObject);
         }
+
+        if (hit >= maxHit)
+        {
+            ThrowingKnifePool.Instance.ReturnThrowingKnifeToPool(gameObject);
+        }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -42,10 +47,5 @@ public class Projectile : MonoBehaviour
                 hit++;
             }
         }
-        else
-        {
-            player.GetComponentInChildren<WeaponMaster>().ReturnWeaponToPool(gameObject);
-        }
-       
     }
 }

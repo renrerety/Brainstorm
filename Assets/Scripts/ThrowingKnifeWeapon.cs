@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName ="Custom/Weapons/Throwing Knife")]
 public class ThrowingKnifeWeapon : WeaponMaster
 {
     public override void Attack()
     {
-        GameObject knife = TakeWeaponFromPool();
+        
+        Debug.Log("Attack knife");
+        GameObject knife = ThrowingKnifePool.Instance.TakeThrowingKnifeFromPool();
 
         int yRot;
         int zRot;
@@ -25,5 +28,10 @@ public class ThrowingKnifeWeapon : WeaponMaster
         knife.transform.position = playerTransform.position;
 
         timer = cooldown;
+    }
+
+    public override void ReturnWeaponToPool(GameObject weapon)
+    {
+        ThrowingKnifePool.Instance.ReturnThrowingKnifeToPool(weapon);
     }
 }

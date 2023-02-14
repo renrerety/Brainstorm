@@ -36,14 +36,23 @@ public class AIMaster : MonoBehaviour
     }
     IEnumerator Flicker()
     {
+        Color temp = spriteRenderer.color;
+        
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.5f);
-        spriteRenderer.color = Color.white;
+        spriteRenderer.color = temp;
     }
     IEnumerator Die()
     {
         yield return new WaitForSeconds(0.5f);
         
+        RandomDrop();
+        DropXp();
+        ReturnToPool();
+    }
+
+    private void RandomDrop()
+    {
         int rng = Random.Range(0, 101);
         if (rng <= 10)
         {
@@ -71,7 +80,10 @@ public class AIMaster : MonoBehaviour
             GameObject obj = Instantiate(powerUp);
             obj.transform.position = gameObject.transform.position;
         }
+    }
 
+    private void ReturnToPool()
+    {
         switch (enemyDifficulty)
         {
             case EnemyDifficulty.easy:
@@ -82,8 +94,14 @@ public class AIMaster : MonoBehaviour
             case EnemyDifficulty.hard:
                 break;
         }
-        
     }
+
+    private void DropXp()
+    {
+        GameObject xp = XpPool.Instance.TakeXpFromPool();
+        xp.transform.position = gameObject.transform.position;
+    }
+
     public virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;

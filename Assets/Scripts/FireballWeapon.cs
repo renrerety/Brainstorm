@@ -4,37 +4,32 @@ using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[CreateAssetMenu(menuName ="Custom/Weapons/Fireball")]
 public class FireballWeapon : WeaponMaster
 {
     [SerializeField] AudioClip fireballClip;
 
     Transform nearestEnemy;
     float temp = 100f;
-    
-    
 
-    public override void Start()
-    {
-        base.Start();
-        CreatePool();
-    }
-    public override void Update()
-    {
-        base.Update();
-    }
     public override void Attack()
     {
         FindNearestEnemy();
 
-        GameObject fireball = TakeWeaponFromPool();
+        GameObject fireball = FireballPool.Instance.TakeFireballFromPool();
         fireball.transform.position = playerTransform.position;
-        fireball.transform.right = nearestEnemy.position - transform.position;
+        fireball.transform.right = nearestEnemy.position - playerTransform.position;
 
         fireball.GetComponent<AudioSource>().PlayOneShot(fireballClip);
 
         timer = cooldown;
     }
-    
+
+    public override void ReturnWeaponToPool(GameObject weapon)
+    {
+        FireballPool.Instance.ReturnFireballToPool(weapon);
+    }
+
     void FindNearestEnemy()
     {
         foreach (GameObject enemy in EnemySpawner.Instance.activeEnemyList)
