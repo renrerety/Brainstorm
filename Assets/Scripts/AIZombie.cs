@@ -9,11 +9,11 @@ public class AIZombie : AIMaster
     public override void Update()
     {
         base.Update();
-        movementStrategy.Move(gameObject.transform, player);
+        
     }
     public override void Start()
     {
         base.Start();
-        movementStrategy = new WalkTowardsPlayer();
+        
     }
 }

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1903743500657717819}
   - component: {fileID: 1903743500657717818}
   - component: {fileID: 1903743500657717816}
-  - component: {fileID: 1903743500657717817}
   - component: {fileID: 1903743500657717822}
   - component: {fileID: 5940394764359573117}
   - component: {fileID: 6338680307671341345}
+  - component: {fileID: -5179899721504821846}
   m_Layer: 0
   m_Name: Zombie_01
   m_TagString: Enemy
@@ -109,34 +109,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1903743500657717817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903743500657717813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34db27a8456e6cf4a8425f0356ba765b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyDifficulty: 0
-  enemyType: 0
-  movementStrategy:
-    mode: 0
-    unityReference: {fileID: 11400000, guid: 341aea2d8413f4b4291a96243c61d1c6, type: 2}
-    rawReference:
-      rid: -2
-  speed: 1
-  hp: 20
-  enemyHit: {fileID: 8300000, guid: b68e8f88720539643a0573adb8088598, type: 3}
-  player: {fileID: 0}
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
 --- !u!50 &1903743500657717822
 Rigidbody2D:
   serializedVersion: 4
@@ -280,3 +252,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5179899721504821846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903743500657717813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702c0dacf33da6840b81ca2234647ec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDifficulty: 0
+  enemyType: 0
+  speed: 1
+  hp: 10
+  enemyHit: {fileID: 8300000, guid: b68e8f88720539643a0573adb8088598, type: 3}
+  player: {fileID: 0}
+  powerUps:
+  - {fileID: 3895817023703774224, guid: 9ec8ea74e3d04dc4097f7586ae58f7a0, type: 3}
+  - {fileID: 3895817023703774224, guid: 9ec8ea74e3d04dc4097f7586ae58f7a0, type: 3}
+  - {fileID: 3895817023703774224, guid: 9ec8ea74e3d04dc4097f7586ae58f7a0, type: 3}
+  - {fileID: 3895817023703774224, guid: 9ec8ea74e3d04dc4097f7586ae58f7a0, type: 3}
+  - {fileID: 3895817023703774224, guid: 9ec8ea74e3d04dc4097f7586ae58f7a0, type: 3}

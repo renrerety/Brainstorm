@@ -5,7 +5,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Projectile : MonoBehaviour
 {
-    [HideInInspector] public int damage;
+    public int damage;
 
     Transform player;
 
@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
         {
             if (collision.CompareTag("Enemy"))
             {
-                collision.GetComponent<AIZombie>().TakeDamage(damage);
+                collision.GetComponent<AIMaster>().TakeDamage(damage);
                 hit++;
             }
         }

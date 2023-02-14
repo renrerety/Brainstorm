@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using TNRD;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public abstract class AIMaster : MonoBehaviour
+public class AIMaster : MonoBehaviour
 {
     public EnemyDifficulty enemyDifficulty;
     public EnemyType enemyType;
@@ -19,6 +21,8 @@ public abstract class AIMaster : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
     public Transform player;
+
+    [SerializeField] GameObject[] powerUps = new GameObject[5];
 
     public void TakeDamage(int damage)
     {
@@ -39,6 +43,35 @@ public abstract class AIMaster : MonoBehaviour
     IEnumerator Die()
     {
         yield return new WaitForSeconds(0.5f);
+        
+        int rng = Random.Range(0, 101);
+        if (rng <= 10)
+        {
+            GameObject powerUp;
+            rng = Random.Range(1, 5);
+            switch (rng)
+            {
+                case 1:
+                    powerUp = powerUps[0];
+                    break;
+                case 2:
+                    powerUp = powerUps[1];
+                    break;
+                case 3:
+                    powerUp = powerUps[2];
+                    break;
+                case 4:
+                    powerUp = powerUps[3];
+                    break;
+                default:
+                    powerUp = powerUps[0];
+                    break;
+            }
+
+            GameObject obj = Instantiate(powerUp);
+            obj.transform.position = gameObject.transform.position;
+        }
+
         switch (enemyDifficulty)
         {
             case EnemyDifficulty.easy:
@@ -49,14 +82,18 @@ public abstract class AIMaster : MonoBehaviour
             case EnemyDifficulty.hard:
                 break;
         }
+        
     }
     public virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        movementStrategy = new WalkTowardsPlayer();
     }
 
     public virtual void Update()
     {
+        movementStrategy.Move(gameObject.transform, player);
         FlipTowardsPlayer();
     }
 
@@ -73,10 +110,6 @@ public abstract class AIMaster : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
     }
-}
-public class Strategy
-{
-    SerializableInterface<IMovement> strategy;
 }
 public enum EnemyType
 {

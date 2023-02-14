@@ -59,6 +59,7 @@ public class EasyEnemyFactory : AbstractFactory
         GameObject enemy = weakEnemyList[weakIndex++];
         enemy.SetActive(true);
         enemy.GetComponent<AIMaster>().enemyDifficulty = EnemyDifficulty.easy;
+        enemy.transform.parent = null;
         return enemy;
     }
     public void ReturnEnemyToPool(GameObject enemy)
@@ -66,6 +67,7 @@ public class EasyEnemyFactory : AbstractFactory
         EnemySpawner.Instance.activeEnemyList.Remove(enemy);
         enemy.SetActive(false);
         enemy.transform.position = Vector3.zero;
+        enemy.transform.parent = gameObject.transform;
     }
     GameObject TakeStrongEnemyFromPool()
     {
