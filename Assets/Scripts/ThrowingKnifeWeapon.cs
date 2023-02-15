@@ -30,6 +30,23 @@ public class ThrowingKnifeWeapon : WeaponMaster
         timer = cooldown;
     }
 
+    public override void LevelUp()
+    {
+        foreach (WeaponMaster weapon in PlayerWeapons.Instance.weapons)
+                {
+                    if (weapon.name == "Throwing Knife")
+                    {
+                        weapon.maxHit += 2;
+                        weapon.cooldown -= 0.2f;
+                        if (weapon.cooldown < 1)
+                        {
+                            weapon.cooldown = 1;
+                        }
+                        weapon.damage += 2;
+                    }
+                }
+    }
+
     public override void ReturnWeaponToPool(GameObject weapon)
     {
         ThrowingKnifePool.Instance.ReturnThrowingKnifeToPool(weapon);

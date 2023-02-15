@@ -99,10 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cdbb62bf9f9714cb57c0ac646022bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 10
+  fireballClip: {fileID: 8300000, guid: 55d62d9dc29464a4080932778b49edd4, type: 3}
   speed: 5
   max_range: 20
-  maxHit: 1
+  maxHit: 2
 --- !u!61 &1755393595072038788
 BoxCollider2D:
   m_ObjectHideFlags: 0

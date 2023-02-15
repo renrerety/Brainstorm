@@ -13,7 +13,8 @@ public class PlayerLevel : MonoBehaviour
 
     [SerializeField] private Slider xpSlider;
     [SerializeField] private Text levelText;
-
+    [SerializeField] private GameObject levelUpPanel;
+    
     public void AddXp(float xpToAdd)
     {
         xp += xpToAdd;
@@ -39,6 +40,8 @@ public class PlayerLevel : MonoBehaviour
             level++;
             xp = 0;
             CalculateRequiredXp();
+            
+            levelUpPanel.SetActive(true);
         }
 
         levelText.text = level.ToString();

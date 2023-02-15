@@ -10,10 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af79eec0989ba434fb9aeaf42d7acacb, type: 3}
-  m_Name: ThrowingKnife
+  m_Name: ThrowingKnifeWeapon
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
   weaponObj: {fileID: 4081422539227622916, guid: f0e7ec26d44923f4db837bcaed676f6c, type: 3}
   cooldown: 2
   damage: 10
-  timer: 1.8450489
+  name: Throwing Knife
+  desc: Fire in the last input direction
+  levelUpDesc: '+Pass through more ennemies
+
+    +Damage Up
+
+    +Cooldown Reduced'
+  level: 1
+  image: {fileID: 21300000, guid: 8bcf97616f7a21d469a5c6b2576744ce, type: 3}
+  timer: 0.9191964

@@ -19,10 +19,25 @@ public class FireballWeapon : WeaponMaster
         GameObject fireball = FireballPool.Instance.TakeFireballFromPool();
         fireball.transform.position = playerTransform.position;
         fireball.transform.right = nearestEnemy.position - playerTransform.position;
-
-        fireball.GetComponent<AudioSource>().PlayOneShot(fireballClip);
-
+        
         timer = cooldown;
+    }
+
+    public override void LevelUp()
+    {
+        foreach (WeaponMaster weapon in PlayerWeapons.Instance.weapons)
+        {
+            if (weapon.name == "Fireball")
+            {
+                weapon.maxHit += 2;
+                weapon.cooldown -= 0.2f;
+                if (weapon.cooldown < 1)
+                {
+                    weapon.cooldown = 1;
+                }
+                weapon.damage += 2;
+            }
+        }
     }
 
     public override void ReturnWeaponToPool(GameObject weapon)

@@ -10,14 +10,19 @@ public class ThrowingKnifeProjectile : MonoBehaviour
 
     [SerializeField] int speed;
     [SerializeField] int max_range;
-    [SerializeField] int maxHit;
-
+    public int maxHit;
     int hit;
+    
+    private WeaponMaster throwingKnifeWeapon;
     
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        foreach (WeaponMaster weapon in PlayerWeapons.Instance.weapons)
+        {
+            throwingKnifeWeapon = weapon;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -31,7 +36,7 @@ public class ThrowingKnifeProjectile : MonoBehaviour
             ThrowingKnifePool.Instance.ReturnThrowingKnifeToPool(gameObject);
         }
 
-        if (hit >= maxHit)
+        if (hit >= throwingKnifeWeapon.maxHit)
         {
             ThrowingKnifePool.Instance.ReturnThrowingKnifeToPool(gameObject);
         }
@@ -39,11 +44,11 @@ public class ThrowingKnifeProjectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (hit < maxHit)
+        if (hit < throwingKnifeWeapon.maxHit)
         {
             if (collision.CompareTag("Enemy"))
             {
-                collision.GetComponent<AIMaster>().TakeDamage(damage);
+                collision.GetComponent<AIMaster>().TakeDamage(throwingKnifeWeapon.damage);
                 hit++;
             }
         }

@@ -16,6 +16,14 @@ MonoBehaviour:
   weaponObj: {fileID: 8314440669984832251, guid: 2730488081ad60341bf05cfcaa0d13ca, type: 3}
   cooldown: 3
   damage: 10
-  prefab: {fileID: 0}
-  timer: 3
+  name: Fireball
+  desc: Fire at the nearest enemy
+  levelUpDesc: '+Pass through more ennemies
+
+    +Damage Up
+
+    +Cooldown Reduced'
+  level: 1
+  image: {fileID: 21300000, guid: 4a5d9af4cd530d0409bf96098414124b, type: 3}
+  timer: 0.33334574
   fireballClip: {fileID: 8300000, guid: 55d62d9dc29464a4080932778b49edd4, type: 3}
