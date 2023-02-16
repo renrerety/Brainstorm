@@ -1589,7 +1589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weakEnemy: {fileID: 1903743500657717813, guid: 8f496cc2c3ca5894aa8e31eae713035e, type: 3}
-  strongEnemy: {fileID: 1903743500657717813, guid: 8f496cc2c3ca5894aa8e31eae713035e, type: 3}
+  strongEnemy: {fileID: 4379532488627730502, guid: 2fc232df10071204abc5ee88d353df09, type: 3}
 --- !u!1 &780039620
 GameObject:
   m_ObjectHideFlags: 0
