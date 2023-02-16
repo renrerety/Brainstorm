@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpAmount: 10
+  expClip: {fileID: 8300000, guid: 673b45c969a9c5a45969d40a9166fbc5, type: 3}

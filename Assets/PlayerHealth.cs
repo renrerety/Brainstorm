@@ -24,9 +24,10 @@ public class PlayerHealth : MonoBehaviour
 
     public IEnumerator TakeDamageOverTime(float damage)
     {
-        if (dot)
+        yield return new WaitForSeconds(0.1f);
+        
+        if (dot) 
         {
-            yield return new WaitForSeconds(0.5f);
             TakeDamage(damage);
             StartCoroutine(TakeDamageOverTime(damage));
         }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class XpGem : MonoBehaviour
 {
     [SerializeField] private float xpAmount;
+    [SerializeField] private AudioClip expClip;
 
     private void OnTriggerEnter2D(Collider2D col)
     {

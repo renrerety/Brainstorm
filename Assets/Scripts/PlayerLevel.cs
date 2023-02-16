@@ -14,10 +14,12 @@ public class PlayerLevel : MonoBehaviour
     [SerializeField] private Slider xpSlider;
     [SerializeField] private Text levelText;
     [SerializeField] private GameObject levelUpPanel;
+    [SerializeField] private AudioClip xpClip;
     
     public void AddXp(float xpToAdd)
     {
         xp += xpToAdd;
+        GetComponent<AudioSource>().PlayOneShot(xpClip);
         
         CheckLevelUp();
         UpdateXpSlider();
