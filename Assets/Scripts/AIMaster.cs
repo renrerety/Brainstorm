@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,7 @@ public class AIMaster : MonoBehaviour
 
     public IMovement movementStrategy;
 
+    [SerializeField] float damage;
     [SerializeField] int speed;
     [SerializeField] int hp;
     [SerializeField] AudioClip enemyHit;
@@ -126,6 +128,24 @@ public class AIMaster : MonoBehaviour
         else
         {
             GetComponent<SpriteRenderer>().flipX = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Col");
+            PlayerHealth.Instance.dot = true;
+            PlayerHealth.Instance.StartCoroutine(PlayerHealth.Instance.TakeDamageOverTime(damage));
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            PlayerHealth.Instance.StopDamageOverTime();
         }
     }
 }

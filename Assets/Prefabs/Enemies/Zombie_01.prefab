@@ -266,6 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDifficulty: 0
   enemyType: 0
+  damage: 5
   speed: 1
   hp: 10
   enemyHit: {fileID: 8300000, guid: b68e8f88720539643a0573adb8088598, type: 3}

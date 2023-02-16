@@ -54,10 +54,6 @@ public class PlayerMovement : MonoBehaviour
         {
             lastDirection = new Vector3(0, Mathf.FloorToInt(horizontal), Mathf.FloorToInt(vertical));
         }
-
-
-        Debug.Log(lastDirection);
-
         Vector3 movement = new Vector3(horizontal * speed, vertical * speed, 0) * Time.deltaTime;
         transform.Translate(movement);
     }
