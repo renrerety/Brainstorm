@@ -35,6 +35,17 @@ public class PlayerWeapons : MonoBehaviour
     [SerializeField] [TextArea] string throwingKnifeLevelUpDesc;
     [SerializeField] Sprite throwingKnifeImage;
     
+    [Header("Torch Refs")]
+    [SerializeField] GameObject  torchWeaponObj;
+    [SerializeField] float torchCooldown;
+    [SerializeField] public int torchDamage;
+    [SerializeField] private int torchDuration;
+    public int torchMaxHit;
+    [SerializeField] string torchName;
+    [SerializeField] string torchDesc;
+    [SerializeField] [TextArea] string torchLevelUpDesc;
+    [SerializeField] Sprite torchImage;
+    
     
 
     private void Awake()
@@ -80,6 +91,11 @@ public class PlayerWeapons : MonoBehaviour
             case "Throwing Knife":
                 weaponInst = ScriptableObject.CreateInstance<ThrowingKnifeWeapon>();
                 weaponInst.Init(throwingKnifeWeaponObj,throwingKnifeCooldown,throwingKnifeDamage,throwingKnifeMaxHit,throwingKnifeName,throwingKnifeDesc,throwingKnifeLevelUpDesc,throwingKnifeImage);
+                break;
+            case "Torch":
+                weaponInst = ScriptableObject.CreateInstance<TorchWeapon>();
+                weaponInst.Init(torchWeaponObj,torchCooldown,torchDamage,torchMaxHit,torchName,torchDesc,torchLevelUpDesc,torchImage);
+                (weaponInst as TorchWeapon).duration = torchDuration;
                 break;
             default:
                 weaponInst = ScriptableObject.CreateInstance<FireballWeapon>();

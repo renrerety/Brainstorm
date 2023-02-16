@@ -24,10 +24,12 @@ public class LevelUpPanel : MonoBehaviour
     public void ClosePanel()
     {
         gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void OpenPanel()
     {
         gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 }

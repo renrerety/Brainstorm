@@ -39,10 +39,12 @@ public class MenuManager : MonoBehaviour
         if (popupMenu.activeSelf)
         {
             popupMenu.SetActive(false);
+            Time.timeScale = 1;
         }
         else
         {
             popupMenu.SetActive(true);
+            Time.timeScale = 0;
             if (SceneManager.GetActiveScene().name != "Title")
             {
                 back_button.gameObject.SetActive(true);

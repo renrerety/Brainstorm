@@ -40,8 +40,8 @@ public class PlayerLevel : MonoBehaviour
             level++;
             xp = 0;
             CalculateRequiredXp();
-            
             levelUpPanel.SetActive(true);
+            Time.timeScale = 0;
         }
 
         levelText.text = level.ToString();
