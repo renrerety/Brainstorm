@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IMovement
 {
-    public void Move(Transform enemy, Transform player);
+    public void Move(Transform enemy, Transform player,float speed);
 }

@@ -37,24 +37,21 @@ public class TorchWeapon : WeaponMaster
 
     public override void LevelUp()
     {
-        foreach (WeaponMaster weapon in PlayerWeapons.Instance.weapons)
-        {
-            if (weapon.name == "Torch")
-            {
-                (weapon as TorchWeapon).circle.transform.localScale = new Vector3(
+
+        WeaponMaster weapon = PlayerWeapons.Instance.FindWeapon("Torch");
+        
+        (weapon as TorchWeapon).circle.transform.localScale = new Vector3(
                     (weapon as TorchWeapon).circle.transform.localScale.x + 0.5f,
                     (weapon as TorchWeapon).circle.transform.localScale.y + 0.5f,
                     (weapon as TorchWeapon).circle.transform.localScale.z + 0.5f);
 
-                (weapon as TorchWeapon).duration += 0.5f;
-                if ((weapon as TorchWeapon).duration > 2.5f)
-                {
-                    (weapon as TorchWeapon).duration = 2.5f;
-                }
-                
-                weapon.damage += 1;
-            }
+        (weapon as TorchWeapon).duration += 0.5f;
+        if ((weapon as TorchWeapon).duration > 2.5f)
+        {
+            (weapon as TorchWeapon).duration = 2.5f;
         }
+                
+        weapon.damage += 1;
     }
 
     public override void ReturnWeaponToPool(GameObject weapon)

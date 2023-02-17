@@ -29,14 +29,10 @@ public class FireballProjectile : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        
-        foreach (WeaponMaster weapon in PlayerWeapons.Instance.weapons)
-        {
-            if (weapon.name == "Fireball")
-            {
-                fireballWeapon = weapon;
-            }
-        }
+
+        WeaponMaster weapon = PlayerWeapons.Instance.FindWeapon("Fireball");
+        fireballWeapon = weapon;
+
     }
     // Update is called once per frame
     void Update()

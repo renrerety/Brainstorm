@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
-public class LevelUpPanel : MonoBehaviour
+public class WeaponRefs : MonoBehaviour
 {
-    public static LevelUpPanel Instance;
+    public static WeaponRefs Instance;
+    [SerializeField] public List<WeaponMaster> weaponRefs = new List<WeaponMaster>();
 
     private void Awake()
     {
@@ -17,17 +19,5 @@ public class LevelUpPanel : MonoBehaviour
         {
             Instance = this;
         }
-    }
-
-    public void ClosePanel()
-    {
-        gameObject.SetActive(false);
-        Time.timeScale = 1;
-    }
-
-    public void OpenPanel()
-    {
-        gameObject.SetActive(true);
-        Time.timeScale = 0;
     }
 }

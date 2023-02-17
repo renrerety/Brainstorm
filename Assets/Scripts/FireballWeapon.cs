@@ -25,21 +25,16 @@ public class FireballWeapon : WeaponMaster
 
     public override void LevelUp()
     {
-        foreach (WeaponMaster weapon in PlayerWeapons.Instance.weapons)
+        WeaponMaster weapon = PlayerWeapons.Instance.FindWeapon("Fireball");
+        weapon.maxHit += 2;
+        weapon.cooldown -= 0.2f;
+        if (weapon.cooldown < 1)
         {
-            if (weapon.name == "Fireball")
-            {
-                weapon.maxHit += 2;
-                weapon.cooldown -= 0.2f;
-                if (weapon.cooldown < 1)
-                {
-                    weapon.cooldown = 1;
-                }
-                weapon.damage += 2;
-            }
+            weapon.cooldown = 1;
         }
+        weapon.damage += 2;
     }
-
+    
     public override void ReturnWeaponToPool(GameObject weapon)
     {
         FireballPool.Instance.ReturnFireballToPool(weapon);

@@ -14,12 +14,13 @@ public class LevelOption : MonoBehaviour
 
     private void OnEnable()
     {
-        int rng = UnityEngine.Random.Range(0, LevelUpPanel.Instance.weaponRefs.Count);
-        weapon = LevelUpPanel.Instance.weaponRefs[rng];
+        int rng = UnityEngine.Random.Range(0, WeaponRefs.Instance.weaponRefs.Count);
+        weapon = WeaponRefs.Instance.weaponRefs[rng];
         
         image.sprite = weapon.image;
         name.text = weapon.name;
         desc.text = weapon.desc;
+        
         
         foreach (WeaponMaster playerWeapon in PlayerWeapons.Instance.weapons)
         {
@@ -42,7 +43,7 @@ public class LevelOption : MonoBehaviour
                 return;
             }
         }
-        PlayerWeapons.Instance.AddWeaponToList(weapon);
+        PlayerWeapons.Instance.AddWeaponToList(weapon.name);
         LevelUpPanel.Instance.ClosePanel();
     }
 

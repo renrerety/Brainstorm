@@ -17,7 +17,7 @@ public class AIMaster : MonoBehaviour
     public IMovement movementStrategy;
 
     [SerializeField] float damage;
-    [SerializeField] int speed;
+    [SerializeField] float speed;
     [SerializeField] int hp;
     [SerializeField] AudioClip enemyHit;
 
@@ -113,7 +113,7 @@ public class AIMaster : MonoBehaviour
 
     public virtual void Update()
     {
-        movementStrategy.Move(gameObject.transform, player);
+        movementStrategy.Move(gameObject.transform, player,speed);
         FlipTowardsPlayer();
     }
 
@@ -135,7 +135,6 @@ public class AIMaster : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Col");
             PlayerHealth.Instance.dot = true;
             PlayerHealth.Instance.StartCoroutine(PlayerHealth.Instance.TakeDamageOverTime(damage));
         }
