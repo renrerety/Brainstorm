@@ -16,6 +16,8 @@ MonoBehaviour:
   weaponObj: {fileID: 5916770647547581669, guid: 0c18852680b6bf644b66d4cd4e6f6194, type: 3}
   cooldown: 4
   damage: 3
+  delay: 0
+  duration: 1
   name: Torch
   desc: Create a fire ring around you
   levelUpDesc: '+Bigger radius
@@ -28,4 +30,3 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 73f829587fa0d89418aa71243000f964, type: 3}
   timer: 0
   circle: {fileID: 0}
-  duration: 0

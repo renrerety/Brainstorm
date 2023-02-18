@@ -9,7 +9,8 @@ public abstract class WeaponMaster : ScriptableObject
     public GameObject weaponObj;
     public float cooldown;
     public int damage;
-    //public int max_hit;
+    public float delay;
+    public float duration;
 
     public string name;
     public string desc;
@@ -25,9 +26,11 @@ public abstract class WeaponMaster : ScriptableObject
     public abstract void Attack();
     public abstract void LevelUp();
 
-    public void Init(GameObject weaponObj,float cooldown,int damage,int maxHit,string name,string desc,string levelUpDesc,Sprite image)
+    public void Init(GameObject weaponObj,float delay,float duration, float cooldown,int damage,int maxHit,string name,string desc,string levelUpDesc,Sprite image)
     {
         this.weaponObj = weaponObj;
+        this.delay = delay;
+        this.duration = duration;
         this.cooldown = cooldown;
         this.damage = damage;
         this.maxHit = maxHit;

@@ -8,7 +8,6 @@ using UnityEngine;
 public class TorchWeapon : WeaponMaster
 {
     public GameObject circle;
-    public float duration;
 
     private bool isActivated = false;
     public override void Attack()

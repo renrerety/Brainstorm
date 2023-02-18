@@ -20,4 +20,17 @@ public class WeaponRefs : MonoBehaviour
             Instance = this;
         }
     }
+
+    public WeaponMaster FindWeaponRef(string name)
+    {
+        foreach (WeaponMaster weapon in weaponRefs)
+        {
+            if (weapon.name == name)
+            {
+                return weapon;
+            }
+        }
+
+        return null;
+    }
 }

@@ -3802,7 +3802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef332b05c9ecde4f8882b1b00026072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 3
 --- !u!95 &1972805156
 Animator:
   serializedVersion: 4
@@ -3902,61 +3902,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons: []
-  fireballWeaponObj: {fileID: 8314440669984832251, guid: 2730488081ad60341bf05cfcaa0d13ca, type: 3}
-  fireballCooldown: 3
-  fireballDamage: 10
-  fireballMaxHit: 2
-  fireballName: Fireball
-  fireballDesc: Fire towards nearest enemy
-  fireballLevelUpDesc: '+Pass through more ennemies
-
-    +Damage Up
-
-    +Cooldown
-    Reduced'
-  fireballImage: {fileID: 21300000, guid: 4a5d9af4cd530d0409bf96098414124b, type: 3}
-  throwingKnifeWeaponObj: {fileID: 4081422539227622916, guid: f0e7ec26d44923f4db837bcaed676f6c, type: 3}
-  throwingKnifeCooldown: 2
-  throwingKnifeDamage: 5
-  throwingKnifeMaxHit: 2
-  throwingKnifeName: Throwing Knife
-  throwingKnifeDesc: Fire towards last input direction
-  throwingKnifeLevelUpDesc: '+Pass through more ennemies
-
-    +Damage Up
-
-    +Cooldown
-    Reduced'
-  throwingKnifeImage: {fileID: 21300000, guid: 8bcf97616f7a21d469a5c6b2576744ce, type: 3}
-  torchWeaponObj: {fileID: 5916770647547581669, guid: 0c18852680b6bf644b66d4cd4e6f6194, type: 3}
-  torchCooldown: 4
-  torchDamage: 3
-  torchDuration: 1
-  torchMaxHit: 1
-  torchName: Torch
-  torchDesc: Create a fire ring around you
-  torchLevelUpDesc: '+Bigger radius
-
-    +Damage up
-
-    +Longer duration'
-  torchImage: {fileID: 21300000, guid: 73f829587fa0d89418aa71243000f964, type: 3}
-  bombWeaponObj: {fileID: 1360641312}
-  bombCooldown: 4
-  bombDamage: 5
-  bombDelay: 3
-  bombMaxHit: 1
-  bombName: Bomb
-  bombDesc: Drop bombs on the ground
-  bombLevelUpDesc: '+Damage up
-
-    +Bigger explosion size
-
-    +Cooldown and delay
-    reduced
-
-'
-  bombImage: {fileID: 21300000, guid: 8d916698d1cd5e648abe26e0db0832a9, type: 3}
 --- !u!61 &1972805161
 BoxCollider2D:
   m_ObjectHideFlags: 0

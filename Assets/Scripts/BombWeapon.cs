@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Custom/Weapons/Bomb")]
 public class BombWeapon : WeaponMaster
 {
-    public float delay;
     public override void Attack()
     {
         GameObject bomb =  BombPool.Instance.TakeBombFromPool();
