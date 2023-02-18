@@ -59,25 +59,8 @@ public class AIMaster : MonoBehaviour
         if (rng <= 1)
         {
             GameObject powerUp;
-            rng = Random.Range(1, 5);
-            switch (rng)
-            {
-                case 1:
-                    powerUp = powerUps[0];
-                    break;
-                case 2:
-                    powerUp = powerUps[1];
-                    break;
-                case 3:
-                    powerUp = powerUps[2];
-                    break;
-                case 4:
-                    powerUp = powerUps[3];
-                    break;
-                default:
-                    powerUp = powerUps[0];
-                    break;
-            }
+            rng = Random.Range(0, powerUps.Length);
+            powerUp = powerUps[rng];
 
             GameObject obj = Instantiate(powerUp);
             obj.transform.position = gameObject.transform.position;

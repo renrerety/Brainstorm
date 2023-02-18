@@ -5,7 +5,7 @@ using Cinemachine;
 using TNRD;
 using UnityEngine;
 
-public class PowerUp_Clock : PowerUpMaster, IPowerUp
+public class PowerUp_Clock : PowerUpMaster
 {
     private IMovement stopStrategy;
 

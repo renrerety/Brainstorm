@@ -53,6 +53,7 @@ public class XpPool : MonoBehaviour
     public void ReturnXpToPool(GameObject xp)
     {
         xp.SetActive(false);
+        xp.GetComponent<XpGem>().moveToward = false;
         xp.transform.position = Vector3.zero;
         xp.transform.rotation = quaternion.identity;
     }

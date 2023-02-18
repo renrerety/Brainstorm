@@ -273,7 +273,4 @@ MonoBehaviour:
   player: {fileID: 0}
   powerUps:
   - {fileID: 3895817023703774224, guid: 9ec8ea74e3d04dc4097f7586ae58f7a0, type: 3}
-  - {fileID: 3895817023703774224, guid: 9ec8ea74e3d04dc4097f7586ae58f7a0, type: 3}
-  - {fileID: 3895817023703774224, guid: 9ec8ea74e3d04dc4097f7586ae58f7a0, type: 3}
-  - {fileID: 3895817023703774224, guid: 9ec8ea74e3d04dc4097f7586ae58f7a0, type: 3}
-  - {fileID: 3895817023703774224, guid: 9ec8ea74e3d04dc4097f7586ae58f7a0, type: 3}
+  - {fileID: 3317625934763218199, guid: f01ea1e17c222dd43945f6e6dbf4cf5e, type: 3}
