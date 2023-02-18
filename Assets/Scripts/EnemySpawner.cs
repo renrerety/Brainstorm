@@ -35,9 +35,9 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SwapFactory()
     {
         factory = EasyEnemyFactory.Instance;
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(300);
         factory = MediumEnemyFactory.Instance;
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(300);
         StartCoroutine(SwapFactory());
     }
 

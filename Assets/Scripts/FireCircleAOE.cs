@@ -23,7 +23,7 @@ public class FireCircleAOE : MonoBehaviour
     IEnumerator DamageOverTime(AIMaster enemy)
     {
         enemy.TakeDamage(PlayerWeapons.Instance.FindWeapon("Torch").damage);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         StartCoroutine(DamageOverTime(enemy));
     }
 }

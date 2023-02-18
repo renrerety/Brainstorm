@@ -39,9 +39,14 @@ public class AIMaster : MonoBehaviour
     IEnumerator Flicker()
     {
         Color temp = spriteRenderer.color;
-        
         spriteRenderer.color = Color.red;
+
+        float speedTemp = speed;
+        speed = 0;
+        
         yield return new WaitForSeconds(0.5f);
+
+        speed = speedTemp;
         spriteRenderer.color = temp;
     }
     IEnumerator Die()
