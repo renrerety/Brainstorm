@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EasyEnemyFactory : AbstractFactory
+public class MediumEnemyFactory : AbstractFactory
 {
-    public static EasyEnemyFactory Instance;
+    public static MediumEnemyFactory Instance;
 
     private void Awake()
     {

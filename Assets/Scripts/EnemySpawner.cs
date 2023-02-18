@@ -28,8 +28,17 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        factory = EasyEnemyFactory.Instance;
+        StartCoroutine(SwapFactory());
         StartCoroutine(SpawnWave());
+    }
+
+    IEnumerator SwapFactory()
+    {
+        factory = EasyEnemyFactory.Instance;
+        yield return new WaitForSeconds(10);
+        factory = MediumEnemyFactory.Instance;
+        yield return new WaitForSeconds(10);
+        StartCoroutine(SwapFactory());
     }
 
     // Update is called once per frame
@@ -43,15 +52,15 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             GameObject enemy;
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < factory.waveSize; i++)
             {
-                if (i != 3)
+                if (i > factory.waveSize - (factory.waveSize / 4))
                 {
-                    enemy = factory.CreateWeakEnemy();
+                    enemy = factory.CreateStrongEnemy();
                 }
                 else
                 {
-                    enemy = factory.CreateStrongEnemy();
+                    enemy = factory.CreateWeakEnemy();
                 }
 
                 Vector3 randomPos = Random.insideUnitCircle.normalized * spawnRadius;

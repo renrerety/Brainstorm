@@ -1681,8 +1681,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45744249740ce74a9fd8614e959035a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weakEnemy: {fileID: 1903743500657717813, guid: 8f496cc2c3ca5894aa8e31eae713035e, type: 3}
-  strongEnemy: {fileID: 4379532488627730502, guid: 2fc232df10071204abc5ee88d353df09, type: 3}
+  weakEnemy: {fileID: 8999577890411439925, guid: 4f0d5feb0923677489626bbed8ef3023, type: 3}
+  strongEnemy: {fileID: 5244772559631427704, guid: 9826f46c2d763a743aac19b052a445f7, type: 3}
+  waveSize: 5
 --- !u!1 &780039620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,6 +1693,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 780039621}
+  - component: {fileID: 780039622}
   m_Layer: 0
   m_Name: MediumEnemyFactory
   m_TagString: Untagged
@@ -1714,6 +1716,21 @@ Transform:
   m_Father: {fileID: 650129439}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &780039622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780039620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922b3fe21eb723d4ebf2daac62857a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weakEnemy: {fileID: 1903743500657717813, guid: 8f496cc2c3ca5894aa8e31eae713035e, type: 3}
+  strongEnemy: {fileID: 4379532488627730502, guid: 2fc232df10071204abc5ee88d353df09, type: 3}
+  waveSize: 10
 --- !u!1 &817025898
 GameObject:
   m_ObjectHideFlags: 0
