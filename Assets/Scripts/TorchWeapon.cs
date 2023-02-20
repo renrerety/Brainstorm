@@ -17,6 +17,7 @@ public class TorchWeapon : WeaponMaster
             if (circle == null)
             {
                 circle = Instantiate(weaponObj, GameObject.FindGameObjectWithTag("Player").transform);
+                circle.GetComponent<FireCircleAOE>()._playerWeapons = _playerWeapons;
                 circle.transform.localPosition = Vector3.zero;
                 circle.transform.rotation = quaternion.identity;
                 MonoBehaviourRef.Instance.StartCoroutine(ActivateCircle());
@@ -37,7 +38,7 @@ public class TorchWeapon : WeaponMaster
     public override void LevelUp()
     {
 
-        WeaponMaster weapon = PlayerWeapons.Instance.FindWeapon("Torch");
+        WeaponMaster weapon = _playerWeapons.FindWeapon("Torch");
         
         (weapon as TorchWeapon).circle.transform.localScale = new Vector3(
                     (weapon as TorchWeapon).circle.transform.localScale.x + 0.5f,

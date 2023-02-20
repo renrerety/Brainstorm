@@ -6,24 +6,11 @@ using UnityEngine;
 
 public class XpPool : MonoBehaviour
 {
-    public static XpPool Instance;
 
     [SerializeField] private GameObject xpGem;
     private List<GameObject> xpPoolList = new List<GameObject>();
     private int index;
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
-
+    
     private void Start()
     {
         CreatePool();
@@ -34,6 +21,7 @@ public class XpPool : MonoBehaviour
         for (int i = 0; i < 200; i++)
         {
             GameObject xp = Instantiate(xpGem,gameObject.transform);
+            xp.GetComponent<XpGem>()._xpPool = this;
             xpPoolList.Add(xp);
             xp.SetActive(false);
         }

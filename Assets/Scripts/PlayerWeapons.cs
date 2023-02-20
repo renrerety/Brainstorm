@@ -4,28 +4,22 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using Zenject;
 
 public class PlayerWeapons : MonoBehaviour
 {
-    public static PlayerWeapons Instance;
+    //public static PlayerWeapons Instance;
 
     [SerializeField] public List<ScriptableObject> weapons = new List<ScriptableObject>();
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
 
-    // Start is called before the first frame update
+    [Inject] private FireballPool _fireballPool;
+    [Inject] private ThrowingKnifePool _throwingKnifePool;
+    [Inject] private BombPool _bombPool;
+
+// Start is called before the first frame update
     void Start()
     {
-        AddWeaponToList("Fireball");
+        AddWeaponToList("Bomb");
     }
 
     // Update is called once per frame
@@ -61,21 +55,24 @@ public class PlayerWeapons : MonoBehaviour
         {
             case "Fireball":
                 weaponInst = ScriptableObject.CreateInstance<FireballWeapon>();
+                (weaponInst as FireballWeapon)._fireballPool = _fireballPool;
                 break;
             case "Throwing Knife":
                 weaponInst = ScriptableObject.CreateInstance<ThrowingKnifeWeapon>();
+                (weaponInst as ThrowingKnifeWeapon)._throwingKnifePool = _throwingKnifePool;
                 break;
             case "Torch":
                 weaponInst = ScriptableObject.CreateInstance<TorchWeapon>();
                 break;
             case "Bomb":
                 weaponInst = ScriptableObject.CreateInstance<BombWeapon>();
+                (weaponInst as BombWeapon)._bombPool = _bombPool;
                 break;
             default:
                 weaponInst = ScriptableObject.CreateInstance<FireballWeapon>();
                 break;
         }
-        
+        weaponInst._playerWeapons = this;
         weaponInst.Init(weaponRef.weaponObj,weaponRef.delay,weaponRef.duration,weaponRef.cooldown,weaponRef.damage,weaponRef.maxHit,weaponRef.name,weaponRef.desc,weaponRef.levelUpDesc,weaponRef.image);
         
         

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using Zenject;
 
 [CreateAssetMenu(menuName ="Custom/Weapons/Fireball")]
 public class FireballWeapon : WeaponMaster
 {
+    public FireballPool _fireballPool;
     [SerializeField] AudioClip fireballClip;
-
     Transform nearestEnemy;
     float temp = 100f;
 
@@ -16,7 +17,7 @@ public class FireballWeapon : WeaponMaster
     {
         FindNearestEnemy();
 
-        GameObject fireball = FireballPool.Instance.TakeFireballFromPool();
+        GameObject fireball = _fireballPool.TakeFireballFromPool();
         fireball.transform.position = playerTransform.position;
         fireball.transform.right = nearestEnemy.position - playerTransform.position;
         
@@ -25,7 +26,7 @@ public class FireballWeapon : WeaponMaster
 
     public override void LevelUp()
     {
-        WeaponMaster weapon = PlayerWeapons.Instance.FindWeapon("Fireball");
+        WeaponMaster weapon =_playerWeapons.FindWeapon("Fireball");
         weapon.maxHit += 2;
         weapon.cooldown -= 0.2f;
         if (weapon.cooldown < 1)
@@ -37,7 +38,7 @@ public class FireballWeapon : WeaponMaster
     
     public override void ReturnWeaponToPool(GameObject weapon)
     {
-        FireballPool.Instance.ReturnFireballToPool(weapon);
+        _fireballPool.ReturnFireballToPool(weapon);
     }
 
     void FindNearestEnemy()

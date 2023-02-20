@@ -5,11 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Custom/Weapons/Throwing Knife")]
 public class ThrowingKnifeWeapon : WeaponMaster
 {
+    [HideInInspector] public ThrowingKnifePool _throwingKnifePool;
     public override void Attack()
     {
         
         Debug.Log("Attack knife");
-        GameObject knife = ThrowingKnifePool.Instance.TakeThrowingKnifeFromPool();
+        GameObject knife = _throwingKnifePool.TakeThrowingKnifeFromPool();
 
         int yRot;
         int zRot;
@@ -32,7 +33,7 @@ public class ThrowingKnifeWeapon : WeaponMaster
 
     public override void LevelUp()
     {
-        foreach (WeaponMaster weapon in PlayerWeapons.Instance.weapons)
+        foreach (WeaponMaster weapon in _playerWeapons.weapons)
                 {
                     if (weapon.name == "Throwing Knife")
                     {
@@ -49,6 +50,6 @@ public class ThrowingKnifeWeapon : WeaponMaster
 
     public override void ReturnWeaponToPool(GameObject weapon)
     {
-        ThrowingKnifePool.Instance.ReturnThrowingKnifeToPool(weapon);
+        _throwingKnifePool.ReturnThrowingKnifeToPool(weapon);
     }
 }

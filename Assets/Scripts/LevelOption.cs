@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class LevelOption : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class LevelOption : MonoBehaviour
     [SerializeField] private Image image;
     [SerializeField] private Text name;
     [SerializeField] private Text desc;
+
+    [Inject] private PlayerWeapons _playerWeapons;
 
     private void OnEnable()
     {
@@ -22,7 +25,7 @@ public class LevelOption : MonoBehaviour
         desc.text = weapon.desc;
         
         
-        foreach (WeaponMaster playerWeapon in PlayerWeapons.Instance.weapons)
+        foreach (WeaponMaster playerWeapon in _playerWeapons.weapons)
         {
             if (weapon.name == playerWeapon.name)
             {
@@ -33,7 +36,7 @@ public class LevelOption : MonoBehaviour
 
     public void SelectWeapon()
     {
-        foreach (WeaponMaster playerWeapon in PlayerWeapons.Instance.weapons)
+        foreach (WeaponMaster playerWeapon in _playerWeapons.weapons)
         {
             if (weapon.name == playerWeapon.name)
             {
@@ -43,7 +46,7 @@ public class LevelOption : MonoBehaviour
                 return;
             }
         }
-        PlayerWeapons.Instance.AddWeaponToList(weapon.name);
+        _playerWeapons.AddWeaponToList(weapon.name);
         LevelUpPanel.Instance.ClosePanel();
     }
 

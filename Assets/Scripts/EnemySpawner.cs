@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using Zenject;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float spawnInterval;
 
     public List<GameObject> activeEnemyList = new List<GameObject>();
+
+    [Inject] private EasyEnemyFactory _easyEnemyFactory;
+    [Inject] private MediumEnemyFactory _mediumEnemyFactory;
+    
 
     private void Awake()
     {
@@ -34,9 +39,9 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SwapFactory()
     {
-        factory = EasyEnemyFactory.Instance;
+        factory = _easyEnemyFactory;
         yield return new WaitForSeconds(300);
-        factory = MediumEnemyFactory.Instance;
+        factory = _mediumEnemyFactory;
         yield return new WaitForSeconds(300);
         StartCoroutine(SwapFactory());
     }

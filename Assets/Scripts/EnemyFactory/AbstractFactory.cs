@@ -1,7 +1,9 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
+using Zenject;
 
 public abstract class AbstractFactory : MonoBehaviour
 {
@@ -13,6 +15,11 @@ public abstract class AbstractFactory : MonoBehaviour
     int strongIndex;
     List<GameObject> weakEnemyList = new List<GameObject>();
     List<GameObject> strongEnemyList = new List<GameObject>();
+
+    [Inject] public PlayerHealth _playerHealth;
+    [Inject] private EasyEnemyFactory _easyEnemyFactory;
+    [Inject] private MediumEnemyFactory _mediumEnemyFactory;
+    [Inject] private XpPool _xpPool;
 
     private void Start()
     {
@@ -31,8 +38,19 @@ public abstract class AbstractFactory : MonoBehaviour
     {
         for(int i = 0; i < 500; i++)
         {
-            weakEnemyList.Add(Instantiate(weakEnemy,gameObject.transform));
-            strongEnemyList.Add(Instantiate(strongEnemy,gameObject.transform));
+            GameObject weakEnemyInst = Instantiate(weakEnemy, gameObject.transform);
+            AIMaster weakMaster =  weakEnemyInst.GetComponent<AIMaster>();
+            weakMaster._easyEnemyFactory = _easyEnemyFactory;
+            weakMaster._mediumEnemyFactory = _mediumEnemyFactory;
+            weakMaster._xpPool = _xpPool;
+            weakEnemyList.Add(weakEnemyInst);
+
+            GameObject strongEnemyInst = Instantiate(strongEnemy, gameObject.transform);
+            AIMaster strongMaster = strongEnemyInst.GetComponent<AIMaster>();
+            strongMaster._easyEnemyFactory = _easyEnemyFactory;
+            strongMaster._mediumEnemyFactory = _mediumEnemyFactory;
+            strongMaster._xpPool = _xpPool;
+            strongEnemyList.Add(strongEnemyInst);
         }
         foreach (GameObject enemy in weakEnemyList)
         {
@@ -52,6 +70,7 @@ public abstract class AbstractFactory : MonoBehaviour
         GameObject enemy = weakEnemyList[weakIndex++];
         enemy.SetActive(true);
         enemy.GetComponent<AIMaster>().enemyDifficulty = EnemyDifficulty.easy;
+        enemy.GetComponent<AIMaster>()._playerHealth = _playerHealth;
         enemy.transform.parent = null;
         return enemy;
     }

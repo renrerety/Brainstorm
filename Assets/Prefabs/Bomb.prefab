@@ -99,7 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce032d2a68131d498347b31e5fcfb79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 2902391627380136026}
+  _playerWeapons: {fileID: 0}
+  explosionObj: {fileID: 2902391627380136026}
+  _bombPool: {fileID: 0}
 --- !u!82 &7966975272841395001
 AudioSource:
   m_ObjectHideFlags: 0
@@ -341,3 +343,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5dbd7cf5e3e46a43a272755a3febe78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerWeapons: {fileID: 0}
+  _bombPool: {fileID: 0}

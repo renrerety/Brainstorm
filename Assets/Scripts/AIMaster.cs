@@ -7,6 +7,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 public class AIMaster : MonoBehaviour
@@ -21,10 +22,17 @@ public class AIMaster : MonoBehaviour
     [SerializeField] int hp;
     [SerializeField] AudioClip enemyHit;
 
+    public EasyEnemyFactory _easyEnemyFactory;
+    public MediumEnemyFactory _mediumEnemyFactory;
+    public XpPool _xpPool;
+
     SpriteRenderer spriteRenderer;
     public Transform player;
 
     [SerializeField] GameObject[] powerUps = new GameObject[5];
+
+    
+    public PlayerHealth _playerHealth;
 
     public void TakeDamage(int damage)
     {
@@ -77,7 +85,7 @@ public class AIMaster : MonoBehaviour
         switch (enemyDifficulty)
         {
             case EnemyDifficulty.easy:
-                EasyEnemyFactory.Instance.ReturnEnemyToPool(gameObject);
+                _easyEnemyFactory.ReturnEnemyToPool(gameObject);
                 break;
             case EnemyDifficulty.medium:
                 break;
@@ -88,7 +96,7 @@ public class AIMaster : MonoBehaviour
 
     private void DropXp()
     {
-        GameObject xp = XpPool.Instance.TakeXpFromPool();
+        GameObject xp = _xpPool.TakeXpFromPool();
         xp.transform.position = gameObject.transform.position;
     }
 
@@ -123,8 +131,8 @@ public class AIMaster : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            PlayerHealth.Instance.dot = true;
-            PlayerHealth.Instance.StartCoroutine(PlayerHealth.Instance.TakeDamageOverTime(damage));
+            _playerHealth.dot = true;
+            _playerHealth.StartCoroutine(_playerHealth.TakeDamageOverTime(damage));
         }
     }
 
@@ -132,7 +140,7 @@ public class AIMaster : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            PlayerHealth.Instance.StopDamageOverTime();
+            _playerHealth.StopDamageOverTime();
         }
     }
 }

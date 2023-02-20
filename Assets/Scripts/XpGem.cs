@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class XpGem : MonoBehaviour
 {
+    public XpPool _xpPool;
+    
     [SerializeField] private float xpAmount;
     [SerializeField] private AudioClip expClip;
 
@@ -33,7 +35,7 @@ public class XpGem : MonoBehaviour
             if (Vector3.Distance(transform.position,player.position)<0.5f)
             {
                 player.GetComponent<PlayerLevel>().AddXp(xpAmount);
-                XpPool.Instance.ReturnXpToPool(gameObject);
+                _xpPool.ReturnXpToPool(gameObject);
             }
         }
     }

@@ -2,31 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class ThrowingKnifePool : MonoBehaviour
 {
-    public static ThrowingKnifePool Instance;
     public List<GameObject> throwingKnifePoolList = new List<GameObject>();
     [SerializeField] private GameObject ThrowingKnife;
 
     private int index;
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
+    [Inject] private PlayerWeapons _playerWeapons;
     private void CreatePool()
     {
         for (int i = 0; i < 50; i++)
         {
             GameObject throwingKnife = Instantiate(ThrowingKnife,gameObject.transform);
+            ThrowingKnifeProjectile tkProjectile = throwingKnife.GetComponent<ThrowingKnifeProjectile>();
+            
+            tkProjectile._throwingKnifePool = this;
+            tkProjectile._playerWeapons = _playerWeapons;
+            
             throwingKnife.SetActive(false);
             throwingKnifePoolList.Add(throwingKnife);
         }

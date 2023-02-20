@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public abstract class WeaponMaster : ScriptableObject
 {
+    [Inject] public PlayerWeapons _playerWeapons;
     public Transform playerTransform;
     public GameObject weaponObj;
     public float cooldown;

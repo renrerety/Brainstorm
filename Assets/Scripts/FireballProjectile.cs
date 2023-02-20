@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Zenject;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class FireballProjectile : MonoBehaviour
 {
+    public FireballPool _fireballPool;
     public int damage;
 
     Transform player;
@@ -15,12 +17,11 @@ public class FireballProjectile : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] int max_range;
     public int maxHit;
-
-    private WeaponMaster fireballWeapon;
-
     int hit;
 
-
+    private WeaponMaster fireballWeapon;
+    public PlayerWeapons _playerWeapons;
+    
     private void OnEnable()
     {
         GetComponent<AudioSource>().PlayOneShot(fireballClip);
@@ -30,7 +31,7 @@ public class FireballProjectile : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        WeaponMaster weapon = PlayerWeapons.Instance.FindWeapon("Fireball");
+        WeaponMaster weapon = _playerWeapons.FindWeapon("Fireball");
         fireballWeapon = weapon;
 
     }
@@ -43,13 +44,13 @@ public class FireballProjectile : MonoBehaviour
         }
         if (Vector2.Distance(transform.position, player.position) > max_range)
         {
-            FireballPool.Instance.ReturnFireballToPool(gameObject);
+            _fireballPool.ReturnFireballToPool(gameObject);
         }
 
         if (hit >= fireballWeapon.maxHit)
         {
            
-            FireballPool.Instance.ReturnFireballToPool(gameObject);
+            _fireballPool.ReturnFireballToPool(gameObject);
         }
         
     }

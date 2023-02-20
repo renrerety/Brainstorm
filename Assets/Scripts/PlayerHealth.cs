@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public static PlayerHealth Instance;
+    //public static PlayerHealth Instance;
 
     public float hp;
     public float maxHp;
@@ -50,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
         hp = maxHp;
         UpdateHpBar();
     }
-
+/*
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -62,4 +62,5 @@ public class PlayerHealth : MonoBehaviour
             Instance = this;
         }
     }
+    */
 }

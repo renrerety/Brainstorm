@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class ThrowingKnifeProjectile : MonoBehaviour
 {
+    [HideInInspector] public PlayerWeapons _playerWeapons;
+    [HideInInspector] public ThrowingKnifePool _throwingKnifePool;
+    
     public int damage;
 
     Transform player;
@@ -19,7 +23,7 @@ public class ThrowingKnifeProjectile : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        foreach (WeaponMaster weapon in PlayerWeapons.Instance.weapons)
+        foreach (WeaponMaster weapon in _playerWeapons.weapons)
         {
             throwingKnifeWeapon = weapon;
         }
@@ -33,12 +37,12 @@ public class ThrowingKnifeProjectile : MonoBehaviour
         }
         if (Vector2.Distance(transform.position, player.position) > max_range)
         {
-            ThrowingKnifePool.Instance.ReturnThrowingKnifeToPool(gameObject);
+            _throwingKnifePool.ReturnThrowingKnifeToPool(gameObject);
         }
 
         if (hit >= throwingKnifeWeapon.maxHit)
         {
-            ThrowingKnifePool.Instance.ReturnThrowingKnifeToPool(gameObject);
+            _throwingKnifePool.ReturnThrowingKnifeToPool(gameObject);
         }
         
     }

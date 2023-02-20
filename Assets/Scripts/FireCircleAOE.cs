@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class FireCircleAOE : MonoBehaviour
 {
-    
+    public PlayerWeapons _playerWeapons;
     private bool enemyInZone;
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -22,7 +23,7 @@ public class FireCircleAOE : MonoBehaviour
 
     IEnumerator DamageOverTime(AIMaster enemy)
     {
-        enemy.TakeDamage(PlayerWeapons.Instance.FindWeapon("Torch").damage);
+        enemy.TakeDamage(_playerWeapons.FindWeapon("Torch").damage);
         yield return new WaitForSeconds(1f);
         StartCoroutine(DamageOverTime(enemy));
     }
