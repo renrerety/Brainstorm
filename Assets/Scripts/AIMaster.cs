@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using TNRD;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -31,8 +32,8 @@ public class AIMaster : MonoBehaviour
 
     [SerializeField] GameObject[] powerUps = new GameObject[5];
 
-    
     public PlayerHealth _playerHealth;
+    public PlayerHealthProxy _playerHealthProxy;
 
     public void TakeDamage(int damage)
     {

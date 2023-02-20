@@ -19,7 +19,7 @@ public class PlayerWeapons : MonoBehaviour
 // Start is called before the first frame update
     void Start()
     {
-        AddWeaponToList("Bomb");
+        AddWeaponToList("Shield");
     }
 
     // Update is called once per frame
@@ -67,6 +67,9 @@ public class PlayerWeapons : MonoBehaviour
             case "Bomb":
                 weaponInst = ScriptableObject.CreateInstance<BombWeapon>();
                 (weaponInst as BombWeapon)._bombPool = _bombPool;
+                break;
+            case "Shield":
+                weaponInst = ScriptableObject.CreateInstance<ShieldWeapon>();
                 break;
             default:
                 weaponInst = ScriptableObject.CreateInstance<FireballWeapon>();

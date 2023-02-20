@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IPlayerHealth
 {
-    //public static PlayerHealth Instance;
-
+    [Inject] private PlayerHealthProxy _playerHealthProxy;
     public float hp;
     public float maxHp;
 
@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
         
         if (dot) 
         {
-            TakeDamage(damage);
+            _playerHealthProxy.TakeDamage(damage);
             StartCoroutine(TakeDamageOverTime(damage));
         }
     }
@@ -50,17 +50,9 @@ public class PlayerHealth : MonoBehaviour
         hp = maxHp;
         UpdateHpBar();
     }
-/*
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else if (Instance == null)
-        {
-            Instance = this;
-        }
-    }
-    */
+}
+
+public interface IPlayerHealth
+{
+    public void TakeDamage(float damage);
 }

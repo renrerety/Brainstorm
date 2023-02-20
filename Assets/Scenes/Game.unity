@@ -1420,6 +1420,7 @@ GameObject:
   - component: {fileID: 571954500}
   - component: {fileID: 571954501}
   - component: {fileID: 571954502}
+  - component: {fileID: 571954503}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1461,6 +1462,7 @@ MonoBehaviour:
   - {fileID: 571954500}
   - {fileID: 571954501}
   - {fileID: 571954502}
+  - {fileID: 571954503}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1575,6 +1577,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 608e8b8267fb8db43b242634f148b232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &571954503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571954492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab23abd92e696a45a93266aba2e933f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &585411995
@@ -3908,6 +3922,7 @@ GameObject:
   - component: {fileID: 1972805160}
   - component: {fileID: 1972805163}
   - component: {fileID: 1972805165}
+  - component: {fileID: 1972805166}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4209,6 +4224,18 @@ MonoBehaviour:
   dot: 1
   hpBar: {fileID: 491518165}
   fill: {fileID: 1446774595}
+--- !u!114 &1972805166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972805152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9017bb2f99ff34eab1f8852f55e557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1997870818
 GameObject:
   m_ObjectHideFlags: 0
@@ -4566,3 +4593,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: da7080e58a3f3d340aca5c9eb11e325c, type: 2}
   - {fileID: 11400000, guid: 9913ff132987e1048b4c62a4dcc4dd52, type: 2}
   - {fileID: 11400000, guid: 04a5cc118db957b4fbe37eab2854d67c, type: 2}
+  - {fileID: 11400000, guid: 721ce994813b35d4b8290a95e3231e0d, type: 2}

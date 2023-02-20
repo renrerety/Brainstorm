@@ -16,6 +16,7 @@ public abstract class AbstractFactory : MonoBehaviour
     List<GameObject> weakEnemyList = new List<GameObject>();
     List<GameObject> strongEnemyList = new List<GameObject>();
 
+    [Inject] public PlayerHealthProxy _playerHealthProxy;
     [Inject] public PlayerHealth _playerHealth;
     [Inject] private EasyEnemyFactory _easyEnemyFactory;
     [Inject] private MediumEnemyFactory _mediumEnemyFactory;
@@ -43,22 +44,20 @@ public abstract class AbstractFactory : MonoBehaviour
             weakMaster._easyEnemyFactory = _easyEnemyFactory;
             weakMaster._mediumEnemyFactory = _mediumEnemyFactory;
             weakMaster._xpPool = _xpPool;
+            weakMaster._playerHealth = _playerHealth;
+            weakMaster._playerHealthProxy = _playerHealthProxy;
             weakEnemyList.Add(weakEnemyInst);
+            weakEnemyInst.SetActive(false);
 
             GameObject strongEnemyInst = Instantiate(strongEnemy, gameObject.transform);
             AIMaster strongMaster = strongEnemyInst.GetComponent<AIMaster>();
             strongMaster._easyEnemyFactory = _easyEnemyFactory;
             strongMaster._mediumEnemyFactory = _mediumEnemyFactory;
+            strongMaster._playerHealth = _playerHealth;
+            strongMaster._playerHealthProxy = _playerHealthProxy;
             strongMaster._xpPool = _xpPool;
             strongEnemyList.Add(strongEnemyInst);
-        }
-        foreach (GameObject enemy in weakEnemyList)
-        {
-            enemy.SetActive(false);
-        }
-        foreach (GameObject enemy in strongEnemyList)
-        {
-            enemy.SetActive(false);
+            strongEnemyInst.SetActive(false);
         }
     }
     GameObject TakeWeakEnemyFromPool()
@@ -70,7 +69,7 @@ public abstract class AbstractFactory : MonoBehaviour
         GameObject enemy = weakEnemyList[weakIndex++];
         enemy.SetActive(true);
         enemy.GetComponent<AIMaster>().enemyDifficulty = EnemyDifficulty.easy;
-        enemy.GetComponent<AIMaster>()._playerHealth = _playerHealth;
+        enemy.GetComponent<AIMaster>()._playerHealthProxy = _playerHealthProxy;
         enemy.transform.parent = null;
         return enemy;
     }
