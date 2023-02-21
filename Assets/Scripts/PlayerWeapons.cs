@@ -16,10 +16,12 @@ public class PlayerWeapons : MonoBehaviour
     [Inject] private ThrowingKnifePool _throwingKnifePool;
     [Inject] private BombPool _bombPool;
 
+    public int criticalChance;
+
 // Start is called before the first frame update
     void Start()
     {
-        AddWeaponToList("Shield");
+        AddWeaponToList("Fireball");
     }
 
     // Update is called once per frame

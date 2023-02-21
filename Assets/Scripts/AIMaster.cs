@@ -25,6 +25,7 @@ public class AIMaster : MonoBehaviour
 
     public EasyEnemyFactory _easyEnemyFactory;
     public MediumEnemyFactory _mediumEnemyFactory;
+    public DamagePopupPool _damagePopupPool;
     public XpPool _xpPool;
 
     SpriteRenderer spriteRenderer;
@@ -34,12 +35,21 @@ public class AIMaster : MonoBehaviour
 
     public PlayerHealth _playerHealth;
     public PlayerHealthProxy _playerHealthProxy;
+    public PlayerWeapons _playerWeapons;
 
     public void TakeDamage(int damage)
     {
         hp -= damage;
         GetComponent<AudioSource>().PlayOneShot(enemyHit);
         StartCoroutine(Flicker());
+
+        bool isCritical = Random.Range(0f, 100f) < _playerWeapons.criticalChance ? true : false;
+        if (isCritical)
+        {
+            damage += damage/4;
+        }
+
+        _damagePopupPool.TakePooledObject(transform.position,damage,isCritical);
         if (hp <= 0)
         {
             StartCoroutine(Die());

@@ -21,6 +21,8 @@ public abstract class AbstractFactory : MonoBehaviour
     [Inject] private EasyEnemyFactory _easyEnemyFactory;
     [Inject] private MediumEnemyFactory _mediumEnemyFactory;
     [Inject] private XpPool _xpPool;
+    [Inject] private DamagePopupPool _damagePopupPool;
+    [Inject] public PlayerWeapons _playerWeapons;
 
     private void Start()
     {
@@ -46,6 +48,8 @@ public abstract class AbstractFactory : MonoBehaviour
             weakMaster._xpPool = _xpPool;
             weakMaster._playerHealth = _playerHealth;
             weakMaster._playerHealthProxy = _playerHealthProxy;
+            weakMaster._damagePopupPool = _damagePopupPool;
+            weakMaster._playerWeapons = _playerWeapons;
             weakEnemyList.Add(weakEnemyInst);
             weakEnemyInst.SetActive(false);
 
@@ -56,6 +60,7 @@ public abstract class AbstractFactory : MonoBehaviour
             strongMaster._playerHealth = _playerHealth;
             strongMaster._playerHealthProxy = _playerHealthProxy;
             strongMaster._xpPool = _xpPool;
+            strongMaster._damagePopupPool = _damagePopupPool;
             strongEnemyList.Add(strongEnemyInst);
             strongEnemyInst.SetActive(false);
         }

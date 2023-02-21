@@ -1,24 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using Zenject;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     public static Vector3 lastDirection = new Vector3();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Inject] private DamagePopupPool _damagePopupPool;
+    
 
     // Update is called once per frame
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
+        
 
         if(horizontal < 0)
         {
