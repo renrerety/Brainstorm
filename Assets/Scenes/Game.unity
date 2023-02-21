@@ -615,6 +615,7 @@ Transform:
   - {fileID: 1611878937}
   - {fileID: 1059562507}
   - {fileID: 1360641313}
+  - {fileID: 1513611389}
   m_Father: {fileID: 696109139}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1799,6 +1800,7 @@ MonoBehaviour:
   _playerHealthProxy: {fileID: 0}
   _playerHealth: {fileID: 0}
   _playerWeapons: {fileID: 0}
+  _enemySpawner: {fileID: 0}
 --- !u!1 &780039620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,6 +1851,7 @@ MonoBehaviour:
   _playerHealthProxy: {fileID: 0}
   _playerHealth: {fileID: 0}
   _playerWeapons: {fileID: 0}
+  _enemySpawner: {fileID: 0}
 --- !u!1 &817025898
 GameObject:
   m_ObjectHideFlags: 0
@@ -2956,6 +2959,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446774593}
   m_CullTransparentMesh: 1
+--- !u!1 &1513611388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1513611389}
+  - component: {fileID: 1513611390}
+  m_Layer: 0
+  m_Name: LightningPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1513611389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513611388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 86926085}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1513611390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513611388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a6d59f3fb999c4cbd0e27db2c3bf3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningPoolList: []
+  lightningRef: {fileID: 5450115732084115972, guid: a591186bb58ba014faf3a97af4e7811d, type: 3}
 --- !u!1 &1533849317
 GameObject:
   m_ObjectHideFlags: 0
@@ -3963,7 +4012,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972805152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46, y: 0.49, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4716,3 +4765,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9913ff132987e1048b4c62a4dcc4dd52, type: 2}
   - {fileID: 11400000, guid: 04a5cc118db957b4fbe37eab2854d67c, type: 2}
   - {fileID: 11400000, guid: 721ce994813b35d4b8290a95e3231e0d, type: 2}
+  - {fileID: 11400000, guid: fa97d843f59c9134c979128ea262b870, type: 2}

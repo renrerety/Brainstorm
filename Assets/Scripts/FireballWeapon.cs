@@ -15,7 +15,7 @@ public class FireballWeapon : WeaponMaster
 
     public override void Attack()
     {
-        FindNearestEnemy();
+        Transform nearestEnemy = _enemySpawner.FindNearestEnemy();
 
         GameObject fireball = _fireballPool.TakeFireballFromPool();
         fireball.transform.position = playerTransform.position;
@@ -39,19 +39,5 @@ public class FireballWeapon : WeaponMaster
     public override void ReturnWeaponToPool(GameObject weapon)
     {
         _fireballPool.ReturnFireballToPool(weapon);
-    }
-
-    void FindNearestEnemy()
-    {
-        foreach (GameObject enemy in EnemySpawner.Instance.activeEnemyList)
-        {
-            float distance = Vector2.Distance(playerTransform.position, enemy.transform.position);
-            if (distance < temp)
-            {
-                nearestEnemy = enemy.transform;
-                temp = distance;
-            }
-        }
-        temp = 100;
     }
 }

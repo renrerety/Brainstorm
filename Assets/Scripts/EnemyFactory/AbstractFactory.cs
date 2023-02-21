@@ -23,6 +23,7 @@ public abstract class AbstractFactory : MonoBehaviour
     [Inject] private XpPool _xpPool;
     [Inject] private DamagePopupPool _damagePopupPool;
     [Inject] public PlayerWeapons _playerWeapons;
+    [Inject] public EnemySpawner _enemySpawner;
 
     private void Start()
     {
@@ -50,6 +51,7 @@ public abstract class AbstractFactory : MonoBehaviour
             weakMaster._playerHealthProxy = _playerHealthProxy;
             weakMaster._damagePopupPool = _damagePopupPool;
             weakMaster._playerWeapons = _playerWeapons;
+            weakMaster._enemySpawner = _enemySpawner;
             weakEnemyList.Add(weakEnemyInst);
             weakEnemyInst.SetActive(false);
 
@@ -62,6 +64,7 @@ public abstract class AbstractFactory : MonoBehaviour
             strongMaster._xpPool = _xpPool;
             strongMaster._damagePopupPool = _damagePopupPool;
             strongMaster._playerWeapons = _playerWeapons;
+            strongMaster._enemySpawner = _enemySpawner;
             strongEnemyList.Add(strongEnemyInst);
             strongEnemyInst.SetActive(false);
         }
@@ -81,7 +84,7 @@ public abstract class AbstractFactory : MonoBehaviour
     }
     public void ReturnEnemyToPool(GameObject enemy)
     {
-        EnemySpawner.Instance.activeEnemyList.Remove(enemy);
+        _enemySpawner.activeEnemyList.Remove(enemy);
         enemy.SetActive(false);
         enemy.transform.position = Vector3.zero;
         enemy.transform.parent = gameObject.transform;

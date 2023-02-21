@@ -6,7 +6,7 @@ using Zenject;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public static EnemySpawner Instance { get; private set; }
+    //public static EnemySpawner Instance { get; private set; }
 
     public AbstractFactory factory;
     [SerializeField] float spawnRadius;
@@ -16,25 +16,16 @@ public class EnemySpawner : MonoBehaviour
 
     [Inject] private EasyEnemyFactory _easyEnemyFactory;
     [Inject] private MediumEnemyFactory _mediumEnemyFactory;
-    
 
-    private void Awake()
-    {
-        if(Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else if(Instance == null)
-        {
-            Instance = this;
-        }
-    }
+    private Transform playerTransform;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(SwapFactory());
         StartCoroutine(SpawnWave());
+
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     IEnumerator SwapFactory()
@@ -49,8 +40,9 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
     IEnumerator SpawnWave()
     {
         yield return new WaitForSeconds(2);
@@ -72,7 +64,35 @@ public class EnemySpawner : MonoBehaviour
                 enemy.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + randomPos;
                 activeEnemyList.Add(enemy);
             }
+
             yield return new WaitForSeconds(spawnInterval);
         }
+
+    }
+
+    public Transform FindNearestEnemy()
+    {
+        float temp = 200;
+        Transform nearestEnemy = null;
+        foreach (GameObject enemy in activeEnemyList)
+        {
+            float distance = Vector2.Distance(playerTransform.position, enemy.transform.position);
+            if (distance < temp)
+            {
+                nearestEnemy = enemy.transform;
+                temp = distance;
+            }
+        }
+
+        temp = 100;
+        return nearestEnemy.transform;
+    }
+
+    public Transform FindRandomEnemy()
+    {
+        int rng = (int)Random.Range(0f, activeEnemyList.Count);
+        return activeEnemyList[rng].transform;
     }
 }
+
+    

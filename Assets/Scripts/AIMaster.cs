@@ -28,6 +28,7 @@ public class AIMaster : MonoBehaviour
     public MediumEnemyFactory _mediumEnemyFactory;
     public DamagePopupPool _damagePopupPool;
     public XpPool _xpPool;
+    public EnemySpawner _enemySpawner;
 
     SpriteRenderer spriteRenderer;
     public Transform player;
@@ -90,8 +91,9 @@ public class AIMaster : MonoBehaviour
             GameObject powerUp;
             rng = Random.Range(0, powerUps.Length);
             powerUp = powerUps[rng];
-
+            
             GameObject obj = Instantiate(powerUp);
+            obj.GetComponent<PowerUpMaster>()._enemySpawner = _enemySpawner;
             obj.transform.position = gameObject.transform.position;
         }
     }

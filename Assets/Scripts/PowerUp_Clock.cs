@@ -24,13 +24,13 @@ public class PowerUp_Clock : PowerUpMaster
 
     IEnumerator FreezeEnemies()
     {
-        foreach (GameObject enemy in EnemySpawner.Instance.activeEnemyList)
+        foreach (GameObject enemy in _enemySpawner.activeEnemyList)
         {
             enemy.GetComponent<AIMaster>().movementStrategy = stopStrategy;
             enemy.GetComponent<SpriteRenderer>().color = Color.blue;
         }
         yield return new WaitForSeconds(5);
-        foreach (GameObject enemy in EnemySpawner.Instance.activeEnemyList)
+        foreach (GameObject enemy in _enemySpawner.activeEnemyList)
         {
             enemy.GetComponent<AIMaster>().movementStrategy = walkStrategy;
             enemy.GetComponent<SpriteRenderer>().color = Color.white;
