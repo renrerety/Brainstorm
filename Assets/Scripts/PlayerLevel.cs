@@ -22,6 +22,10 @@ public class PlayerLevel : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(xpClip);
         
         CheckLevelUp();
+    }
+
+    private void Update()
+    {
         UpdateXpSlider();
     }
 

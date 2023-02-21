@@ -14,7 +14,6 @@ public class ThrowingKnifeProjectile : MonoBehaviour
 
     [SerializeField] int speed;
     [SerializeField] int max_range;
-    public int maxHit;
     int hit;
     
     private WeaponMaster throwingKnifeWeapon;
@@ -23,10 +22,7 @@ public class ThrowingKnifeProjectile : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        foreach (WeaponMaster weapon in _playerWeapons.weapons)
-        {
-            throwingKnifeWeapon = weapon;
-        }
+        throwingKnifeWeapon = _playerWeapons.FindWeapon("Throwing Knife");
     }
     // Update is called once per frame
     void Update()

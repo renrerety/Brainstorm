@@ -18,6 +18,7 @@ public class AIMaster : MonoBehaviour
 
     public IMovement movementStrategy;
 
+    [SerializeField] private float knockbackForce;
     [SerializeField] float damage;
     [SerializeField] float speed;
     [SerializeField] int hp;
@@ -36,6 +37,8 @@ public class AIMaster : MonoBehaviour
     public PlayerHealth _playerHealth;
     public PlayerHealthProxy _playerHealthProxy;
     public PlayerWeapons _playerWeapons;
+
+    private Rigidbody2D rb;
 
     public void TakeDamage(int damage)
     {
@@ -62,7 +65,9 @@ public class AIMaster : MonoBehaviour
 
         float speedTemp = speed;
         speed = 0;
-        
+
+        Vector2 direction = (transform.position - player.position).normalized;
+        rb.AddForce(direction * knockbackForce,ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.5f);
 
         speed = speedTemp;
@@ -113,6 +118,7 @@ public class AIMaster : MonoBehaviour
 
     public virtual void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
         movementStrategy = new WalkTowardsPlayer();

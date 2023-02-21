@@ -124,14 +124,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDifficulty: 0
   enemyType: 0
+  knockbackForce: 1
   damage: 2
   speed: 1
   hp: 5
   enemyHit: {fileID: 8300000, guid: b68e8f88720539643a0573adb8088598, type: 3}
+  _easyEnemyFactory: {fileID: 0}
+  _mediumEnemyFactory: {fileID: 0}
+  _damagePopupPool: {fileID: 0}
+  _xpPool: {fileID: 0}
   player: {fileID: 0}
   powerUps:
   - {fileID: 3895817023703774224, guid: 9ec8ea74e3d04dc4097f7586ae58f7a0, type: 3}
   - {fileID: 3317625934763218199, guid: f01ea1e17c222dd43945f6e6dbf4cf5e, type: 3}
+  _playerHealth: {fileID: 0}
+  _playerHealthProxy: {fileID: 0}
+  _playerWeapons: {fileID: 0}
 --- !u!61 &5298414902714360037
 BoxCollider2D:
   m_ObjectHideFlags: 0
