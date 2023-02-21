@@ -61,6 +61,7 @@ public abstract class AbstractFactory : MonoBehaviour
             strongMaster._playerHealthProxy = _playerHealthProxy;
             strongMaster._xpPool = _xpPool;
             strongMaster._damagePopupPool = _damagePopupPool;
+            strongMaster._playerWeapons = _playerWeapons;
             strongEnemyList.Add(strongEnemyInst);
             strongEnemyInst.SetActive(false);
         }
