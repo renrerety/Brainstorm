@@ -22,7 +22,7 @@ public class DamagePopupPool : MonoBehaviour
 
     public void TakePooledObject(Vector3 position,int damageAmount,bool isCritical)
     {
-        if (index > damagePopupList.Count)
+        if (index >= damagePopupList.Count)
         {
             index = 0;
         }

@@ -24,21 +24,21 @@ public class AIMaster : MonoBehaviour
     [SerializeField] int hp;
     [SerializeField] AudioClip enemyHit;
 
-    public EasyEnemyFactory _easyEnemyFactory;
-    public MediumEnemyFactory _mediumEnemyFactory;
-    public DamagePopupPool _damagePopupPool;
-    public XpPool _xpPool;
-    public EnemySpawner _enemySpawner;
+    [HideInInspector] public EasyEnemyFactory _easyEnemyFactory;
+    [HideInInspector] public MediumEnemyFactory _mediumEnemyFactory;
+    [HideInInspector] public DamagePopupPool _damagePopupPool;
+    [HideInInspector] public XpPool _xpPool;
+    [HideInInspector] public EnemySpawner _enemySpawner;
 
     SpriteRenderer spriteRenderer;
-    public Transform player;
+    [HideInInspector] public Transform player;
 
     [SerializeField] GameObject[] powerUps = new GameObject[5];
 
-    public PlayerHealth _playerHealth;
-    public PlayerHealthProxy _playerHealthProxy;
-    public PlayerWeapons _playerWeapons;
-    public KillCounter _killCounter;
+    [HideInInspector] public PlayerHealth _playerHealth;
+    [HideInInspector] public PlayerHealthProxy _playerHealthProxy;
+    [HideInInspector] public PlayerWeapons _playerWeapons;
+    [HideInInspector] public KillCounter _killCounter;
 
     private Rigidbody2D rb;
 

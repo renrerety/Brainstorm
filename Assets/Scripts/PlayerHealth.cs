@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 
@@ -10,29 +11,33 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
     [Inject] private PlayerHealthProxy _playerHealthProxy;
     public float hp;
     public float maxHp;
-
-    public bool dot = true;
-
+    
+    [SerializeField] private float damageCooldown;
     [SerializeField] private Slider hpBar;
     [SerializeField] private Image fill;
     [SerializeField] private GameObject gameOverPanel;
 
     private AudioSource _audioSource;
     [SerializeField] private AudioClip playerHitClip;
-
-    public void TakeDamage(float damage)
+    
+    private SpriteRenderer _spriteRenderer;
+    IEnumerator Flicker()
     {
-        hp -= damage;
-        _audioSource.PlayOneShot(playerHitClip);
-        if (hp <= 0)
-        {
-            Die();
-        }
+        _spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        _spriteRenderer.color = Color.white;
     }
-
+    
+    private float damageTimer;
     private void Update()
     {
         UpdateHpBar();
+        
+        damageTimer -= Time.deltaTime;
+        if (damageTimer <= 0)
+        {
+            canTakeDamage = true;
+        }
     }
 
     private void Die()
@@ -41,14 +46,32 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
         gameOverPanel.GetComponent<GameOver>().gameOver = true;
         gameOverPanel.SetActive(true);
     }
+    
+    
+    private bool canTakeDamage;
+    public void TakeDamage(float damage)
+    {
+        if (canTakeDamage)
+        {
+            hp -= damage;
+            _audioSource.PlayOneShot(playerHitClip);
+            StartCoroutine(Flicker());
+            canTakeDamage = false;
+            damageTimer = damageCooldown;
+            if (hp <= 0)
+            {
+                Die();
+            }
+        }
+    }
 
+    public bool dot = true;
     public IEnumerator TakeDamageOverTime(float damage)
     {
-        yield return new WaitForSeconds(0.2f);
-        
         if (dot) 
         {
             _playerHealthProxy.TakeDamage(damage);
+            yield return new WaitForSeconds(0.2f);
             StartCoroutine(TakeDamageOverTime(damage));
         }
     }
@@ -67,8 +90,11 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
 
     private void Start()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _audioSource = GetComponent<AudioSource>();
+        
         hp = maxHp;
+        
         UpdateHpBar();
     }
 }

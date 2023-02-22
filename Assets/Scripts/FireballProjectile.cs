@@ -25,15 +25,12 @@ public class FireballProjectile : MonoBehaviour
     private void OnEnable()
     {
         GetComponent<AudioSource>().PlayOneShot(fireballClip);
+        fireballWeapon = _playerWeapons.FindWeapon("Fireball");
     }
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
-        WeaponMaster weapon = _playerWeapons.FindWeapon("Fireball");
-        fireballWeapon = weapon;
-
     }
     // Update is called once per frame
     void Update()

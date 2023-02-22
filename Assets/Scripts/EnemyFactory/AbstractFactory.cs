@@ -16,15 +16,15 @@ public abstract class AbstractFactory : MonoBehaviour
     List<GameObject> weakEnemyList = new List<GameObject>();
     List<GameObject> strongEnemyList = new List<GameObject>();
 
-    [Inject] public PlayerHealthProxy _playerHealthProxy;
-    [Inject] public PlayerHealth _playerHealth;
-    [Inject] private EasyEnemyFactory _easyEnemyFactory;
-    [Inject] private MediumEnemyFactory _mediumEnemyFactory;
-    [Inject] private XpPool _xpPool;
-    [Inject] private DamagePopupPool _damagePopupPool;
-    [Inject] public PlayerWeapons _playerWeapons;
-    [Inject] public EnemySpawner _enemySpawner;
-    [Inject] private KillCounter _killCounter;
+    [HideInInspector] [Inject] public PlayerHealthProxy _playerHealthProxy;
+    [HideInInspector] [Inject] public PlayerHealth _playerHealth;
+    [HideInInspector] [Inject] private EasyEnemyFactory _easyEnemyFactory;
+    [HideInInspector] [Inject] private MediumEnemyFactory _mediumEnemyFactory;
+    [HideInInspector] [Inject] private XpPool _xpPool;
+    [HideInInspector] [Inject] private DamagePopupPool _damagePopupPool;
+    [HideInInspector] [Inject] public PlayerWeapons _playerWeapons;
+    [HideInInspector] [Inject] public EnemySpawner _enemySpawner;
+    [HideInInspector] [Inject] private KillCounter _killCounter;
 
     private void Start()
     {

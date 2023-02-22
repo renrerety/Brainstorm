@@ -29,7 +29,7 @@ public class LightningPool : MonoBehaviour
 
     public GameObject GetPooledObject(Vector3 position)
     {
-        if (index > lightningPoolList.Count)
+        if (index >= lightningPoolList.Count)
         {
             index = 0;
         }

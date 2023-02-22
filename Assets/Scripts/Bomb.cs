@@ -20,7 +20,10 @@ public class Bomb : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(Explode());
+        if (_playerWeapons.FindWeapon("Bomb"))
+        {
+            StartCoroutine(Explode());
+        }
     }
 
     IEnumerator Explode()

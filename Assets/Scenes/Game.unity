@@ -2487,8 +2487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45744249740ce74a9fd8614e959035a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weakEnemy: {fileID: 8999577890411439925, guid: 4f0d5feb0923677489626bbed8ef3023, type: 3}
-  strongEnemy: {fileID: 5244772559631427704, guid: 9826f46c2d763a743aac19b052a445f7, type: 3}
+  weakEnemy: {fileID: 7243359876181220711, guid: 71e5f1719373394408af06fd249eeccc, type: 3}
+  strongEnemy: {fileID: 8999577890411439925, guid: 4f0d5feb0923677489626bbed8ef3023, type: 3}
   waveSize: 10
   _playerHealthProxy: {fileID: 0}
   _playerHealth: {fileID: 0}
@@ -6045,7 +6045,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000000014901161, y: -0.01342231}
+  m_Offset: {x: 0.006469369, y: -0.07380402}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -6056,7 +6056,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5060594, y: 0.9731554}
+  m_Size: {x: 0.25159335, y: 0.44697118}
   m_EdgeRadius: 0
 --- !u!50 &1972805158
 Rigidbody2D:
@@ -6124,7 +6124,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -1081301190453542932, guid: 3d14dacfe773c524698248dc8dddc89d, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.388
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6222,11 +6222,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   maxHp: 100
-  dot: 1
+  damageCooldown: 0.1
   hpBar: {fileID: 491518165}
   fill: {fileID: 1446774595}
   gameOverPanel: {fileID: 1246845185}
   playerHitClip: {fileID: 8300000, guid: 78932dcaa88c0754f834af6999712bce, type: 3}
+  dot: 1
 --- !u!114 &1972805166
 MonoBehaviour:
   m_ObjectHideFlags: 0
