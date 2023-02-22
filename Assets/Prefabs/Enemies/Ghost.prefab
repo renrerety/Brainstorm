@@ -126,13 +126,14 @@ MonoBehaviour:
   enemyType: 0
   knockbackForce: 1
   damage: 2
-  speed: 1
+  speed: 0.9
   hp: 5
   enemyHit: {fileID: 8300000, guid: b68e8f88720539643a0573adb8088598, type: 3}
   _easyEnemyFactory: {fileID: 0}
   _mediumEnemyFactory: {fileID: 0}
   _damagePopupPool: {fileID: 0}
   _xpPool: {fileID: 0}
+  _enemySpawner: {fileID: 0}
   player: {fileID: 0}
   powerUps:
   - {fileID: 3895817023703774224, guid: 9ec8ea74e3d04dc4097f7586ae58f7a0, type: 3}
@@ -140,6 +141,7 @@ MonoBehaviour:
   _playerHealth: {fileID: 0}
   _playerHealthProxy: {fileID: 0}
   _playerWeapons: {fileID: 0}
+  _killCounter: {fileID: 0}
 --- !u!61 &5298414902714360037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,10 +152,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.027043268, y: 0.034054518}
+  m_Offset: {x: 0.0021107346, y: 0.014527347}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -164,7 +166,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.42908642, y: 0.39503193}
+  m_Size: {x: 0.2069228, y: 0.20894948}
   m_EdgeRadius: 0
 --- !u!50 &4035659799640324754
 Rigidbody2D:
@@ -243,7 +245,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

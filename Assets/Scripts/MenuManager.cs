@@ -36,24 +36,29 @@ public class MenuManager : MonoBehaviour
     }
     public void TogglePopupMenu()
     {
-        if (popupMenu.activeSelf)
+        GameOver gameOver = FindObjectOfType<GameOver>();
+        if (gameOver == null || !gameOver.gameOver)
         {
-            popupMenu.SetActive(false);
-            Time.timeScale = 1;
-        }
-        else
-        {
-            popupMenu.SetActive(true);
-            Time.timeScale = 0;
-            if (SceneManager.GetActiveScene().name != "Title")
+            if (popupMenu.activeSelf)
             {
-                back_button.gameObject.SetActive(true);
+                popupMenu.SetActive(false);
+                Time.timeScale = 1;
             }
             else
             {
-                back_button.gameObject.SetActive(false);
+                popupMenu.SetActive(true);
+                Time.timeScale = 0;
+                if (SceneManager.GetActiveScene().name != "Title")
+                {
+                    back_button.gameObject.SetActive(true);
+                }
+                else
+                {
+                    back_button.gameObject.SetActive(false);
+                }
             }
         }
+        
     }
     public void ToggleMainMenu()
     {

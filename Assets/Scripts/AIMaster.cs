@@ -38,6 +38,7 @@ public class AIMaster : MonoBehaviour
     public PlayerHealth _playerHealth;
     public PlayerHealthProxy _playerHealthProxy;
     public PlayerWeapons _playerWeapons;
+    public KillCounter _killCounter;
 
     private Rigidbody2D rb;
 
@@ -81,6 +82,7 @@ public class AIMaster : MonoBehaviour
         RandomDrop();
         DropXp();
         ReturnToPool();
+        _killCounter.AddKill();
     }
 
     private void RandomDrop()
@@ -145,8 +147,7 @@ public class AIMaster : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
@@ -154,8 +155,7 @@ public class AIMaster : MonoBehaviour
             _playerHealth.StartCoroutine(_playerHealth.TakeDamageOverTime(damage));
         }
     }
-
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {

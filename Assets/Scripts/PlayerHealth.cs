@@ -15,16 +15,36 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
 
     [SerializeField] private Slider hpBar;
     [SerializeField] private Image fill;
+    [SerializeField] private GameObject gameOverPanel;
+
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip playerHitClip;
 
     public void TakeDamage(float damage)
     {
         hp -= damage;
+        _audioSource.PlayOneShot(playerHitClip);
+        if (hp <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Update()
+    {
         UpdateHpBar();
+    }
+
+    private void Die()
+    {
+        Time.timeScale = 0;
+        gameOverPanel.GetComponent<GameOver>().gameOver = true;
+        gameOverPanel.SetActive(true);
     }
 
     public IEnumerator TakeDamageOverTime(float damage)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         
         if (dot) 
         {
@@ -47,6 +67,7 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
 
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         hp = maxHp;
         UpdateHpBar();
     }

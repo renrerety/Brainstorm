@@ -24,6 +24,7 @@ public abstract class AbstractFactory : MonoBehaviour
     [Inject] private DamagePopupPool _damagePopupPool;
     [Inject] public PlayerWeapons _playerWeapons;
     [Inject] public EnemySpawner _enemySpawner;
+    [Inject] private KillCounter _killCounter;
 
     private void Start()
     {
@@ -52,6 +53,7 @@ public abstract class AbstractFactory : MonoBehaviour
             weakMaster._damagePopupPool = _damagePopupPool;
             weakMaster._playerWeapons = _playerWeapons;
             weakMaster._enemySpawner = _enemySpawner;
+            weakMaster._killCounter = _killCounter;
             weakEnemyList.Add(weakEnemyInst);
             weakEnemyInst.SetActive(false);
 
@@ -65,6 +67,7 @@ public abstract class AbstractFactory : MonoBehaviour
             strongMaster._damagePopupPool = _damagePopupPool;
             strongMaster._playerWeapons = _playerWeapons;
             strongMaster._enemySpawner = _enemySpawner;
+            strongMaster._killCounter = _killCounter;
             strongEnemyList.Add(strongEnemyInst);
             strongEnemyInst.SetActive(false);
         }

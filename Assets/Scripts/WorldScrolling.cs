@@ -8,17 +8,17 @@ using UnityEngine;
 public class WorldScrolling : MonoBehaviour
 {
     [SerializeField] Transform player;
-    Vector2Int currentTilePos = new Vector2Int(0,0);
+    Vector2Int currentTilePos = new Vector2Int(1,1);
     [SerializeField] Vector2Int playerTilePosition;
     Vector2Int onTileGridPlayerPosition;
     float tileSize = 10;
-    GameObject[,] terrainTiles;
+    [SerializeField] GameObject[,] terrainTiles;
 
-    int terrainHeight = 3;
-    int terrainWidth = 3;
+    int terrainHeight = 5;
+    int terrainWidth = 5;
 
-    int fovHeight = 3;
-    int fovWidth = 3;
+    int fovHeight = 5;
+    int fovWidth = 5;
 
     public void Add(GameObject tileObj, Vector2Int tilePosition)
     {

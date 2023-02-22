@@ -19,5 +19,7 @@ public class Installer : MonoInstaller
         Container.Bind<FireballPool>().FromComponentInHierarchy().AsSingle().NonLazy();
         Container.Bind<LightningPool>().FromComponentInHierarchy().AsSingle().NonLazy();
         Container.Bind<DamagePopupPool>().FromComponentInHierarchy().AsSingle().NonLazy();
+
+        Container.Bind<KillCounter>().FromComponentInHierarchy().AsSingle().NonLazy();
     }
 }
