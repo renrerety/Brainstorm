@@ -7,6 +7,7 @@ public class Installer : MonoInstaller
     {
         Container.Bind<EasyEnemyFactory>().FromComponentInHierarchy().AsSingle().NonLazy();
         Container.Bind<MediumEnemyFactory>().FromComponentInHierarchy().AsSingle().NonLazy();
+        Container.Bind<HardEnemyFactory>().FromComponentInHierarchy().AsSingle().NonLazy();
         Container.Bind<EnemySpawner>().FromComponentInHierarchy().AsSingle().NonLazy();
         
         Container.Bind<PlayerHealth>().FromComponentInHierarchy().AsSingle().NonLazy();

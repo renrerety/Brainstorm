@@ -29,7 +29,7 @@ public class XpPool : MonoBehaviour
 
     public GameObject TakeXpFromPool()
     {
-        if (index > xpPoolList.Count)
+        if (index >= xpPoolList.Count)
         {
             index = 0;
         }

@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af79eec0989ba434fb9aeaf42d7acacb, type: 3}
   m_Name: ThrowingKnifeWeapon
   m_EditorClassIdentifier: 
+  _enemySpawner: {fileID: 0}
+  _playerWeapons: {fileID: 0}
   playerTransform: {fileID: 0}
   weaponObj: {fileID: 4081422539227622916, guid: f0e7ec26d44923f4db837bcaed676f6c, type: 3}
-  cooldown: 2
+  cooldown: 1.5
   damage: 10
   delay: 0
   duration: 0
@@ -29,3 +31,4 @@ MonoBehaviour:
   maxHit: 1
   image: {fileID: 21300000, guid: 8bcf97616f7a21d469a5c6b2576744ce, type: 3}
   timer: 0.9191964
+  _throwingKnifePool: {fileID: 0}

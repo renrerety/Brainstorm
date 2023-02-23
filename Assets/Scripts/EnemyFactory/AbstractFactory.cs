@@ -101,6 +101,7 @@ public abstract class AbstractFactory : MonoBehaviour
         GameObject enemy = strongEnemyList[strongIndex++];
         enemy.GetComponent<AIMaster>().enemyDifficulty = EnemyDifficulty.easy;
         enemy.SetActive(true);
+        enemy.transform.parent = null;
         return enemy;
     }
 }

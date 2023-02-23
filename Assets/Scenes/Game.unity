@@ -755,8 +755,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 86.3, y: 41.2}
+  m_AnchoredPosition: {x: -59.2, y: 0}
+  m_SizeDelta: {x: 70.4, y: 41.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &95903665
 MonoBehaviour:
@@ -811,9 +811,9 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_fontStyle: 1
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -821,9 +821,9 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_overflowMode: 4
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -2489,7 +2489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakEnemy: {fileID: 7243359876181220711, guid: 71e5f1719373394408af06fd249eeccc, type: 3}
   strongEnemy: {fileID: 8999577890411439925, guid: 4f0d5feb0923677489626bbed8ef3023, type: 3}
-  waveSize: 10
+  waveSize: 15
   _playerHealthProxy: {fileID: 0}
   _playerHealth: {fileID: 0}
   _playerWeapons: {fileID: 0}
@@ -2540,7 +2540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakEnemy: {fileID: 1903743500657717813, guid: 8f496cc2c3ca5894aa8e31eae713035e, type: 3}
   strongEnemy: {fileID: 4379532488627730502, guid: 2fc232df10071204abc5ee88d353df09, type: 3}
-  waveSize: 15
+  waveSize: 20
   _playerHealthProxy: {fileID: 0}
   _playerHealth: {fileID: 0}
   _playerWeapons: {fileID: 0}
@@ -4752,6 +4752,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1543064570}
+  - component: {fileID: 1543064571}
   m_Layer: 0
   m_Name: HardEnemyFactory
   m_TagString: Untagged
@@ -4774,6 +4775,25 @@ Transform:
   m_Father: {fileID: 650129439}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1543064571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543064569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ba423dd302cf147bf35f069eeff866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weakEnemy: {fileID: 5244772559631427704, guid: 9826f46c2d763a743aac19b052a445f7, type: 3}
+  strongEnemy: {fileID: 5482843841189036764, guid: bf5f8de0a4fccd4479fba6733d8299a8, type: 3}
+  waveSize: 20
+  _playerHealthProxy: {fileID: 0}
+  _playerHealth: {fileID: 0}
+  _playerWeapons: {fileID: 0}
+  _enemySpawner: {fileID: 0}
 --- !u!1 &1561346077
 GameObject:
   m_ObjectHideFlags: 0
@@ -6070,9 +6090,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0

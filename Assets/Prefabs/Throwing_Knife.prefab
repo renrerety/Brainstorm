@@ -99,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0099006295}
+  m_Offset: {x: -0.009836614, y: -0.015802637}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.14854753}
+  m_Size: {x: 1.094432, y: 0.3452811}
   m_EdgeRadius: 0
 --- !u!114 &6099650955495329751
 MonoBehaviour:
@@ -124,7 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37dfe462b33c244f82978b69a726208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerWeapons: {fileID: 0}
+  _throwingKnifePool: {fileID: 0}
   damage: 10
   speed: 5
   max_range: 20
-  maxHit: 4

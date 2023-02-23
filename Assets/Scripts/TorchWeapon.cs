@@ -51,7 +51,7 @@ public class TorchWeapon : WeaponMaster
             (weapon as TorchWeapon).duration = 2.5f;
         }
                 
-        weapon.damage += 1;
+        weapon.damage += 3;
     }
 
     public override void ReturnWeaponToPool(GameObject weapon)

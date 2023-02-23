@@ -40,6 +40,7 @@ public class FireballPool : MonoBehaviour
     public void ReturnFireballToPool(GameObject fireball)
     {
         fireball.SetActive(false);
+        fireball.GetComponent<FireballProjectile>().maxHit = _playerWeapons.FindWeapon("Fireball").maxHit;
         fireball.transform.position = Vector3.zero;
         fireball.transform.rotation = Quaternion.identity;
     }

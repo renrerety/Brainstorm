@@ -60,20 +60,30 @@ public class AIMaster : MonoBehaviour
             StartCoroutine(Die());
         }
     }
+
+    private bool isFlickering;
     IEnumerator Flicker()
     {
-        Color temp = spriteRenderer.color;
-        spriteRenderer.color = Color.red;
+        if (!isFlickering)
+        {
+            isFlickering = true;
+            Color temp = spriteRenderer.color;
+            spriteRenderer.color = Color.red;
 
-        float speedTemp = speed;
-        speed = 0;
+            float speedTemp = speed;
+            speed = 0;
 
-        Vector2 direction = (transform.position - player.position).normalized;
-        rb.AddForce(direction * knockbackForce,ForceMode2D.Impulse);
-        yield return new WaitForSeconds(0.5f);
+            Vector2 direction = (transform.position - player.position).normalized;
+            rb.AddForce(direction * knockbackForce,ForceMode2D.Impulse);
+            yield return new WaitForSeconds(0.5f);
 
-        speed = speedTemp;
-        spriteRenderer.color = temp;
+            speed = speedTemp;
+            spriteRenderer.color = temp;
+            rb.velocity = Vector2.zero;
+
+            isFlickering = false;
+        }
+        
     }
     IEnumerator Die()
     {
@@ -171,6 +181,6 @@ public enum EnemyType
 public enum EnemyDifficulty
 {
     easy,
-    hard,
-    medium
+    medium,
+    hard
 }

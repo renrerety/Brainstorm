@@ -33,7 +33,7 @@ public class FireballWeapon : WeaponMaster
         {
             weapon.cooldown = 0.5f;
         }
-        weapon.damage += 1;
+        weapon.damage += 3;
     }
     
     public override void ReturnWeaponToPool(GameObject weapon)

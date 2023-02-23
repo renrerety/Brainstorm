@@ -19,7 +19,7 @@ public class BombWeapon : WeaponMaster
         BombWeapon bomb = (_playerWeapons.FindWeapon("Bomb") as BombWeapon);
         bomb.delay -= 0.2f;
         bomb.cooldown -= 0.5f;
-        bomb.damage += 2;
+        bomb.damage += 3;
 
         foreach (GameObject bombObj in _bombPool.bombPoolList)
         {

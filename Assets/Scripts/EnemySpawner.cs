@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
 {
     //public static EnemySpawner Instance { get; private set; }
 
-    public AbstractFactory factory;
+    [HideInInspector] public AbstractFactory factory;
     [SerializeField] float spawnRadius;
     [SerializeField] float spawnInterval;
 
@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Inject] private EasyEnemyFactory _easyEnemyFactory;
     [Inject] private MediumEnemyFactory _mediumEnemyFactory;
+    [Inject] private HardEnemyFactory _hardEnemyFactory;
 
     private Transform playerTransform;
 
@@ -28,12 +29,21 @@ public class EnemySpawner : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
+    private int index = 1;
     IEnumerator SwapFactory()
     {
         factory = _easyEnemyFactory;
-        yield return new WaitForSeconds(300);
+        yield return new WaitForSeconds(120);
         factory = _mediumEnemyFactory;
-        yield return new WaitForSeconds(300);
+        yield return new WaitForSeconds(120);
+        factory = _hardEnemyFactory;
+        yield return new WaitForSeconds(120);
+        
+        index++;
+        _easyEnemyFactory.waveSize *= index;
+        _mediumEnemyFactory.waveSize *= index;
+        _hardEnemyFactory.waveSize *= index;
+        
         StartCoroutine(SwapFactory());
     }
 

@@ -27,10 +27,10 @@ public class LightningRodWeapon : WeaponMaster
         foreach (GameObject lightning in _lightningPool.lightningPoolList)
         {
             BoxCollider2D col = lightning.GetComponent<BoxCollider2D>();
-            col.size = new Vector2(col.size.x + 0.2f, col.size.y + 0.2f);
+            col.size = new Vector2(col.size.x + 0.15f, col.size.y + 0.15f);
         }
         
-        damage += 1;
+        damage += 2;
         cooldown -= 0.5f;
         if (cooldown < 1)
         {

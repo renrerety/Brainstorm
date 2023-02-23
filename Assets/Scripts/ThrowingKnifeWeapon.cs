@@ -38,12 +38,12 @@ public class ThrowingKnifeWeapon : WeaponMaster
                     if (weapon.name == "Throwing Knife")
                     {
                         weapon.maxHit += 1;
-                        weapon.cooldown -= 0.2f;
-                        if (weapon.cooldown < 1)
+                        weapon.cooldown -= 0.1f;
+                        if (weapon.cooldown < 0.5f)
                         {
-                            weapon.cooldown = 1;
+                            weapon.cooldown = 0.5f;
                         }
-                        weapon.damage += 2;
+                        weapon.damage += 3;
                     }
                 }
     }
