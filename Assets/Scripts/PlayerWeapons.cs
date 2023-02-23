@@ -85,7 +85,7 @@ public class PlayerWeapons : MonoBehaviour
         }
         weaponInst._playerWeapons = this;
         weaponInst._enemySpawner = _enemySpawner;
-        weaponInst.Init(weaponRef.weaponObj,weaponRef.delay,weaponRef.duration,weaponRef.cooldown,weaponRef.damage,weaponRef.maxHit,weaponRef.name,weaponRef.desc,weaponRef.levelUpDesc,weaponRef.image);
+        weaponInst.Init(weaponRef.weaponObj,weaponRef.delay,weaponRef.duration,weaponRef.cooldown,weaponRef.damage,weaponRef.attackAmount,weaponRef.maxHit,weaponRef.name,weaponRef.desc,weaponRef.levelUpDesc,weaponRef.image);
         
         
         weaponInst.timer = weaponInst.cooldown;

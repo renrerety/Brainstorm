@@ -33,11 +33,11 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SwapFactory()
     {
         factory = _easyEnemyFactory;
-        yield return new WaitForSeconds(120);
+        yield return new WaitForSeconds(180);
         factory = _mediumEnemyFactory;
-        yield return new WaitForSeconds(120);
+        yield return new WaitForSeconds(180);
         factory = _hardEnemyFactory;
-        yield return new WaitForSeconds(120);
+        yield return new WaitForSeconds(180);
         
         index++;
         _easyEnemyFactory.waveSize *= index;

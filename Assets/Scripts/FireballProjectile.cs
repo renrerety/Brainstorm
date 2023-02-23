@@ -17,7 +17,7 @@ public class FireballProjectile : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] int max_range;
     public int maxHit;
-    int hit;
+    public int hit;
 
     private WeaponMaster fireballWeapon;
     public PlayerWeapons _playerWeapons;

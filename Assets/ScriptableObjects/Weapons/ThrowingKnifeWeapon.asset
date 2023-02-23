@@ -18,15 +18,17 @@ MonoBehaviour:
   weaponObj: {fileID: 4081422539227622916, guid: f0e7ec26d44923f4db837bcaed676f6c, type: 3}
   cooldown: 1.5
   damage: 10
+  attackAmount: 1
   delay: 0
   duration: 0
   name: Throwing Knife
   desc: Fire in the last input direction
   levelUpDesc: '+Pass through more ennemies
 
-    +Damage Up
+    +Fire an additional projectile
 
-    +Cooldown Reduced'
+    +Cooldown
+    Reduced'
   level: 1
   maxHit: 1
   image: {fileID: 21300000, guid: 8bcf97616f7a21d469a5c6b2576744ce, type: 3}

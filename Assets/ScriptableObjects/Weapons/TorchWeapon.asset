@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51fe3f817417354887ff0c287cc4e09, type: 3}
   m_Name: TorchWeapon
   m_EditorClassIdentifier: 
+  _enemySpawner: {fileID: 0}
+  _playerWeapons: {fileID: 0}
   playerTransform: {fileID: 0}
   weaponObj: {fileID: 5916770647547581669, guid: 0c18852680b6bf644b66d4cd4e6f6194, type: 3}
   cooldown: 4
   damage: 3
+  attackAmount: 1
   delay: 0
   duration: 1
   name: Torch
   desc: Create a fire ring around you
   levelUpDesc: '+Bigger radius
-
-    +Damage up
 
     +Longer duration'
   level: 1

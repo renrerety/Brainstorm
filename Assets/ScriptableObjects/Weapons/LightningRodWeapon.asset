@@ -18,13 +18,12 @@ MonoBehaviour:
   weaponObj: {fileID: 5450115732084115972, guid: a591186bb58ba014faf3a97af4e7811d, type: 3}
   cooldown: 4
   damage: 5
+  attackAmount: 1
   delay: 0
   duration: 0
   name: Lightning Rod
   desc: Strike at random enemy
-  levelUpDesc: '+Damage up
-
-    +Bigger area
+  levelUpDesc: '+Bigger area
 
     +Cooldown reduced'
   level: 1

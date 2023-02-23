@@ -14,7 +14,7 @@ public class ThrowingKnifeProjectile : MonoBehaviour
 
     [SerializeField] int speed;
     [SerializeField] int max_range;
-    int hit;
+    public int hit;
     
     private WeaponMaster throwingKnifeWeapon;
     

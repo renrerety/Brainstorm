@@ -41,6 +41,7 @@ public class ThrowingKnifePool : MonoBehaviour
     public void ReturnThrowingKnifeToPool(GameObject throwingKnife)
     {
         throwingKnife.SetActive(false);
+        throwingKnife.GetComponent<ThrowingKnifeProjectile>().hit = 0;
         throwingKnife.transform.position = Vector3.zero;
         throwingKnife.transform.rotation = Quaternion.identity;
     }
