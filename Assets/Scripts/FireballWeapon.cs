@@ -13,14 +13,19 @@ public class FireballWeapon : WeaponMaster
     Transform nearestEnemy;
     float temp = 100f;
 
+    private int spread = 3;
     public override void Attack()
     {
-        Transform nearestEnemy = _enemySpawner.FindNearestEnemy();
+        for (int i = 0; i < attackAmount; i++)
+        {
+            Transform nearestEnemy = _enemySpawner.FindNearestEnemy();
 
-        GameObject fireball = _fireballPool.TakeFireballFromPool();
-        fireball.transform.position = playerTransform.position;
-        fireball.transform.right = nearestEnemy.position - playerTransform.position;
-        
+            GameObject fireball = _fireballPool.TakeFireballFromPool();
+            fireball.transform.position = playerTransform.position;
+            fireball.transform.right = ((nearestEnemy.position - playerTransform.position) / 2 );
+            fireball.transform.Rotate(new Vector3(0,0,i*spread /2 *attackAmount));
+        }
+
         timer = cooldown;
     }
 
@@ -29,6 +34,7 @@ public class FireballWeapon : WeaponMaster
         WeaponMaster weapon =_playerWeapons.FindWeapon("Fireball");
         weapon.maxHit += 1;
         weapon.cooldown -= 0.2f;
+        weapon.attackAmount += 1;
         if (weapon.cooldown < 0.5f)
         {
             weapon.cooldown = 0.5f;
