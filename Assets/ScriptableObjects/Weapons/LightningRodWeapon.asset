@@ -25,7 +25,9 @@ MonoBehaviour:
   desc: Strike at random enemy
   levelUpDesc: '+Bigger area
 
-    +Cooldown reduced'
+    +Cooldown reduced
+
+    +Fire an additionnal projectile'
   level: 1
   maxHit: 0
   image: {fileID: 21300000, guid: 5a7f1923be5bac14f9cda5e157059c5c, type: 3}

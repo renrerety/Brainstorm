@@ -31,15 +31,14 @@ public class FireballWeapon : WeaponMaster
 
     public override void LevelUp()
     {
-        WeaponMaster weapon =_playerWeapons.FindWeapon("Fireball");
-        weapon.maxHit += 1;
-        weapon.cooldown -= 0.2f;
-        weapon.attackAmount += 1;
-        if (weapon.cooldown < 0.5f)
+        maxHit += 1;
+        cooldown -= 0.2f;
+        attackAmount += 1;
+        if (cooldown < 0.5f)
         {
-            weapon.cooldown = 0.5f;
+            cooldown = 0.5f;
         }
-        weapon.damage += 3;
+        damage += 3;
     }
     
     public override void ReturnWeaponToPool(GameObject weapon)

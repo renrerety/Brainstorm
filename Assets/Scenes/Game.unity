@@ -5936,10 +5936,10 @@ GameObject:
   - component: {fileID: 1972805153}
   - component: {fileID: 1972805155}
   - component: {fileID: 1972805156}
+  - component: {fileID: 1972805160}
   - component: {fileID: 1972805157}
   - component: {fileID: 1972805158}
   - component: {fileID: 1972805159}
-  - component: {fileID: 1972805160}
   - component: {fileID: 1972805163}
   - component: {fileID: 1972805165}
   - component: {fileID: 1972805166}
@@ -6131,7 +6131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons: []
-  criticalChance: 50
+  criticalChance: 15
 --- !u!82 &1972805163
 AudioSource:
   m_ObjectHideFlags: 0

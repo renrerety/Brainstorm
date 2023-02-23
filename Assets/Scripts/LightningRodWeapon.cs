@@ -9,10 +9,14 @@ public class LightningRodWeapon : WeaponMaster
     public LightningPool _lightningPool;
     public override void Attack()
     {
-        Vector3 randomPos = _enemySpawner.FindRandomEnemy().position;
-        GameObject obj = _lightningPool.GetPooledObject(randomPos);
+        for (int i = 0; i < attackAmount; i++)
+        {
+            Vector3 randomPos = _enemySpawner.FindRandomEnemy().position;
+            GameObject obj = _lightningPool.GetPooledObject(randomPos);
 
-        MonoBehaviourRef.Instance.StartCoroutine(DisableLightning(obj));
+            MonoBehaviourRef.Instance.StartCoroutine(DisableLightning(obj));
+        }
+        
         timer = cooldown;
     }
 
@@ -27,9 +31,10 @@ public class LightningRodWeapon : WeaponMaster
         foreach (GameObject lightning in _lightningPool.lightningPoolList)
         {
             BoxCollider2D col = lightning.GetComponent<BoxCollider2D>();
-            col.size = new Vector2(col.size.x + 0.15f, col.size.y + 0.15f);
+            col.size = new Vector2(col.size.x + 0.1f, col.size.y + 0.1f);
         }
-        
+
+        attackAmount += 1;
         damage += 2;
         cooldown -= 0.5f;
         if (cooldown < 1)

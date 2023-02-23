@@ -97,7 +97,7 @@ public class AIMaster : MonoBehaviour
 
     private void RandomDrop()
     {
-        int rng = Random.Range(0, 101);
+        int rng = Random.Range(0, 301);
         if (rng <= 1)
         {
             GameObject powerUp;
