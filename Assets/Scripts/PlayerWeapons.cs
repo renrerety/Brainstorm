@@ -23,7 +23,7 @@ public class PlayerWeapons : MonoBehaviour
 // Start is called before the first frame update
     void Start()
     {
-        AddWeaponToList("Lightning Rod");
+        AddWeaponToList("Throwing Knife");
     }
 
     // Update is called once per frame

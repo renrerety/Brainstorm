@@ -99,11 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cdbb62bf9f9714cb57c0ac646022bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fireballPool: {fileID: 0}
   damage: 10
   fireballClip: {fileID: 8300000, guid: 55d62d9dc29464a4080932778b49edd4, type: 3}
   speed: 5
   max_range: 20
   maxHit: 2
+  hit: 0
+  _playerWeapons: {fileID: 0}
 --- !u!61 &1755393595072038788
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -117,7 +120,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0010232329, y: 0.021485627}
+  m_Offset: {x: 0.12190306, y: 0.02733925}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -128,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.94065845, y: 0.5314077}
+  m_Size: {x: 0.2772472, y: 0.28165287}
   m_EdgeRadius: 0
 --- !u!82 &5444946884345255247
 AudioSource:

@@ -127,5 +127,6 @@ MonoBehaviour:
   _playerWeapons: {fileID: 0}
   _throwingKnifePool: {fileID: 0}
   damage: 10
-  speed: 5
+  speed: 8
   max_range: 20
+  hit: 0

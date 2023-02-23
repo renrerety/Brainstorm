@@ -56,9 +56,9 @@ public class ThrowingKnifeWeapon : WeaponMaster
         knife.cooldown -= 0.1f;
         knife.attackAmount += 1;
         
-            if (knife.cooldown < 0.5f)
+            if (knife.cooldown < 0.75f)
             {
-                knife.cooldown = 0.5f;
+                knife.cooldown = 0.75f;
             }
         knife.damage += 1;
     }

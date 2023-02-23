@@ -16,8 +16,8 @@ MonoBehaviour:
   _playerWeapons: {fileID: 0}
   playerTransform: {fileID: 0}
   weaponObj: {fileID: 4081422539227622916, guid: f0e7ec26d44923f4db837bcaed676f6c, type: 3}
-  cooldown: 1.5
-  damage: 4
+  cooldown: 2
+  damage: 5
   attackAmount: 1
   delay: 0
   duration: 0

@@ -13,8 +13,8 @@ public abstract class AbstractFactory : MonoBehaviour
     public int waveSize;
     int weakIndex;
     int strongIndex;
-    List<GameObject> weakEnemyList = new List<GameObject>();
-    List<GameObject> strongEnemyList = new List<GameObject>();
+    public List<GameObject> weakEnemyList = new List<GameObject>();
+     public List<GameObject> strongEnemyList = new List<GameObject>();
 
     [HideInInspector] [Inject] public PlayerHealthProxy _playerHealthProxy;
     [HideInInspector] [Inject] public PlayerHealth _playerHealth;
@@ -41,7 +41,7 @@ public abstract class AbstractFactory : MonoBehaviour
     }
     void CreatePool()
     {
-        for(int i = 0; i < 500; i++)
+        for(int i = 0; i < 3000; i++)
         {
             GameObject weakEnemyInst = Instantiate(weakEnemy, gameObject.transform);
             AIMaster weakMaster =  weakEnemyInst.GetComponent<AIMaster>();
@@ -80,8 +80,10 @@ public abstract class AbstractFactory : MonoBehaviour
         }
         GameObject enemy = weakEnemyList[weakIndex++];
         enemy.SetActive(true);
-        enemy.GetComponent<AIMaster>().enemyDifficulty = EnemyDifficulty.easy;
-        enemy.GetComponent<AIMaster>()._playerHealthProxy = _playerHealthProxy;
+        AIMaster aiMaster = enemy.GetComponent<AIMaster>();
+        aiMaster.enemyDifficulty = EnemyDifficulty.easy;
+        aiMaster._playerHealthProxy = _playerHealthProxy;
+        aiMaster.hp = aiMaster.maxHp;
         enemy.transform.parent = null;
         return enemy;
     }
@@ -103,5 +105,19 @@ public abstract class AbstractFactory : MonoBehaviour
         enemy.SetActive(true);
         enemy.transform.parent = null;
         return enemy;
+    }
+
+    public void ScaleEnemies()
+    {
+        foreach (GameObject enemy in weakEnemyList)
+        {
+            AIMaster aiMaster = enemy.GetComponent<AIMaster>();
+                aiMaster.maxHp *= 2;
+        }
+        foreach (GameObject enemy in strongEnemyList)
+        {
+            AIMaster aiMaster = enemy.GetComponent<AIMaster>();
+                aiMaster.maxHp *= 2;
+        }
     }
 }

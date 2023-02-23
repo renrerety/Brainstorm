@@ -21,7 +21,8 @@ public class AIMaster : MonoBehaviour
     [SerializeField] private float knockbackForce;
     [SerializeField] float damage;
     [SerializeField] float speed;
-    [SerializeField] int hp;
+    public int hp;
+    public int maxHp;
     [SerializeField] AudioClip enemyHit;
 
     [HideInInspector] public EasyEnemyFactory _easyEnemyFactory;
@@ -97,7 +98,7 @@ public class AIMaster : MonoBehaviour
 
     private void RandomDrop()
     {
-        int rng = Random.Range(0, 301);
+        int rng = Random.Range(0, 1001);
         if (rng <= 1)
         {
             GameObject powerUp;
@@ -136,6 +137,7 @@ public class AIMaster : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
         movementStrategy = new WalkTowardsPlayer();
+        hp = maxHp;
     }
 
     public virtual void Update()

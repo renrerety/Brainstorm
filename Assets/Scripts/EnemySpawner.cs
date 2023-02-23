@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     [HideInInspector] public AbstractFactory factory;
     [SerializeField] float spawnRadius;
     [SerializeField] float spawnInterval;
+    [SerializeField] private float factorySwapTime;
 
     public List<GameObject> activeEnemyList = new List<GameObject>();
 
@@ -33,26 +34,28 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SwapFactory()
     {
         factory = _easyEnemyFactory;
-        yield return new WaitForSeconds(180);
+        yield return new WaitForSeconds(factorySwapTime);
         factory = _mediumEnemyFactory;
-        yield return new WaitForSeconds(180);
+        yield return new WaitForSeconds(factorySwapTime);
         factory = _hardEnemyFactory;
-        yield return new WaitForSeconds(180);
+        yield return new WaitForSeconds(factorySwapTime);
         
         index++;
-        _easyEnemyFactory.waveSize *= index;
-        _mediumEnemyFactory.waveSize *= index;
-        _hardEnemyFactory.waveSize *= index;
-        
+        ScaleFactories();
+
         StartCoroutine(SwapFactory());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ScaleFactories()
     {
+        _easyEnemyFactory.waveSize *= index;
+        _mediumEnemyFactory.waveSize *= index;
+        _hardEnemyFactory.waveSize *= index;
 
+        _easyEnemyFactory.ScaleEnemies();
+        _mediumEnemyFactory.ScaleEnemies();
+        _hardEnemyFactory.ScaleEnemies();
     }
-
     IEnumerator SpawnWave()
     {
         yield return new WaitForSeconds(2);
@@ -71,6 +74,7 @@ public class EnemySpawner : MonoBehaviour
                 }
 
                 Vector3 randomPos = Random.insideUnitCircle.normalized * spawnRadius;
+                randomPos += new Vector3(Random.Range(0f, 10f), Random.Range(0f, 10f));
                 enemy.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + randomPos;
                 activeEnemyList.Add(enemy);
             }
