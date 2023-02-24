@@ -18,8 +18,8 @@ public class Timer : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        float min = timer / 60;
-        float sec = Mathf.Floor(timer % 60);
+        float min = Mathf.FloorToInt(timer / 60);
+        float sec = Mathf.FloorToInt(timer % 60);
 
         tmp.text = String.Format("{0:00}:{1:00}", min, sec);
     }

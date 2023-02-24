@@ -27,6 +27,7 @@ public class AIMaster : MonoBehaviour
 
     [HideInInspector] public EasyEnemyFactory _easyEnemyFactory;
     [HideInInspector] public MediumEnemyFactory _mediumEnemyFactory;
+    [HideInInspector] public HardEnemyFactory _hardEnemyFactory;
     [HideInInspector] public DamagePopupPool _damagePopupPool;
     [HideInInspector] public XpPool _xpPool;
     [HideInInspector] public EnemySpawner _enemySpawner;
@@ -119,15 +120,32 @@ public class AIMaster : MonoBehaviour
                 _easyEnemyFactory.ReturnEnemyToPool(gameObject);
                 break;
             case EnemyDifficulty.medium:
+                _mediumEnemyFactory.ReturnEnemyToPool(gameObject);
                 break;
             case EnemyDifficulty.hard:
+                _hardEnemyFactory.ReturnEnemyToPool(gameObject);
                 break;
         }
     }
 
     private void DropXp()
     {
-        GameObject xp = _xpPool.TakeXpFromPool();
+        GameObject xp;
+        switch (enemyDifficulty)
+        {
+            case EnemyDifficulty.easy:
+               xp = _xpPool.TakeBlueXpFromPool();
+                break;
+            case EnemyDifficulty.medium:
+                xp = _xpPool.TakeYellowXpFromPool();
+                break;
+            case EnemyDifficulty.hard:
+                xp = _xpPool.TakeRedXpFromPool();
+                break;
+            default:
+                xp = _xpPool.TakeRedXpFromPool();
+                break;
+        }
         xp.transform.position = gameObject.transform.position;
     }
 

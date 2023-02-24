@@ -359,6 +359,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34830970}
   m_CullTransparentMesh: 1
+--- !u!1 &55862796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 55862797}
+  m_Layer: 0
+  m_Name: Red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &55862797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55862796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 83798706}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &57301130
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +587,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &83798705
 MonoBehaviour:
@@ -570,7 +601,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 654ea7c3aba84144da42c7fb54a22b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpGem: {fileID: 5943842069799521723, guid: 4a0a16d5a250d654d839efefd29b8c3c, type: 3}
+  xpGemBlue: {fileID: 5943842069799521723, guid: 4a0a16d5a250d654d839efefd29b8c3c, type: 3}
+  xpGemYellow: {fileID: 8428715277528428620, guid: b9c1ed577f30d234e959cf15d1a624f4, type: 3}
+  xpGemRed: {fileID: 5435054698032836364, guid: f6c7130b9605dfd40ab1b9966e4d2c63, type: 3}
+  blueObj: {fileID: 86255852}
+  yellowObj: {fileID: 858495079}
+  redObj: {fileID: 55862796}
 --- !u!4 &83798706
 Transform:
   m_ObjectHideFlags: 0
@@ -582,8 +618,42 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 86255853}
+  - {fileID: 858495080}
+  - {fileID: 55862797}
   m_Father: {fileID: 696109139}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &86255852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86255853}
+  m_Layer: 0
+  m_Name: Blue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86255853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86255852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 83798706}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &86926084
@@ -2178,7 +2248,7 @@ MonoBehaviour:
   factory: {fileID: 0}
   spawnRadius: 30
   spawnInterval: 5
-  factorySwapTime: 300
+  factorySwapTime: 240
   activeEnemyList: []
 --- !u!1 &641015625
 GameObject:
@@ -2543,7 +2613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakEnemy: {fileID: 1903743500657717813, guid: 8f496cc2c3ca5894aa8e31eae713035e, type: 3}
   strongEnemy: {fileID: 4379532488627730502, guid: 2fc232df10071204abc5ee88d353df09, type: 3}
-  waveSize: 15
+  waveSize: 12
   weakEnemyList: []
   strongEnemyList: []
   _playerHealthProxy: {fileID: 0}
@@ -2698,6 +2768,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852150216}
   m_CullTransparentMesh: 1
+--- !u!1 &858495079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 858495080}
+  m_Layer: 0
+  m_Name: Yellow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &858495080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858495079}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 83798706}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &918243150
 GameObject:
   m_ObjectHideFlags: 0
@@ -4794,7 +4895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakEnemy: {fileID: 5244772559631427704, guid: 9826f46c2d763a743aac19b052a445f7, type: 3}
   strongEnemy: {fileID: 5482843841189036764, guid: bf5f8de0a4fccd4479fba6733d8299a8, type: 3}
-  waveSize: 15
+  waveSize: 14
   weakEnemyList: []
   strongEnemyList: []
   _playerHealthProxy: {fileID: 0}

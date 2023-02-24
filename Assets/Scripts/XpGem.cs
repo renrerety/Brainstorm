@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class XpGem : MonoBehaviour
 {
-    public XpPool _xpPool;
+    [HideInInspector] public XpPool _xpPool;
     
     [SerializeField] private float xpAmount;
     [SerializeField] private AudioClip expClip;
 
-    public bool moveToward;
+    [HideInInspector] public bool moveToward;
 
     private Transform player;
 

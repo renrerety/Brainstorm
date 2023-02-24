@@ -36,7 +36,7 @@ public class PlayerLevel : MonoBehaviour
 
     private void CalculateRequiredXp()
     {
-        requiredXP = (float)Math.Pow((level / 0.3f),2);
+        requiredXP = (float)Math.Pow((level / 0.3f),1.5f);
     }
 
     private void CheckLevelUp()

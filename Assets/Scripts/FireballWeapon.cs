@@ -13,7 +13,7 @@ public class FireballWeapon : WeaponMaster
     Transform nearestEnemy;
     float temp = 100f;
 
-    private int spread = 3;
+    private float spread = 1f;
     public override void Attack()
     {
         for (int i = 0; i < attackAmount; i++)
@@ -34,11 +34,11 @@ public class FireballWeapon : WeaponMaster
         maxHit += 1;
         cooldown -= 0.2f;
         attackAmount += 1;
-        if (cooldown < 0.5f)
+        if (cooldown < 2f)
         {
-            cooldown = 0.5f;
+            cooldown = 2f;
         }
-        damage += 3;
+        damage += 1;
     }
     
     public override void ReturnWeaponToPool(GameObject weapon)

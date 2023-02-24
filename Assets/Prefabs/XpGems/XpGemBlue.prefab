@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5943842069799521716}
   - component: {fileID: 3108336785387768359}
   m_Layer: 0
-  m_Name: XpGem
+  m_Name: XpGemBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -20,6 +20,7 @@ public abstract class AbstractFactory : MonoBehaviour
     [HideInInspector] [Inject] public PlayerHealth _playerHealth;
     [HideInInspector] [Inject] private EasyEnemyFactory _easyEnemyFactory;
     [HideInInspector] [Inject] private MediumEnemyFactory _mediumEnemyFactory;
+    [HideInInspector] [Inject] private HardEnemyFactory _hardEnemyFactory;
     [HideInInspector] [Inject] private XpPool _xpPool;
     [HideInInspector] [Inject] private DamagePopupPool _damagePopupPool;
     [HideInInspector] [Inject] public PlayerWeapons _playerWeapons;
@@ -47,6 +48,7 @@ public abstract class AbstractFactory : MonoBehaviour
             AIMaster weakMaster =  weakEnemyInst.GetComponent<AIMaster>();
             weakMaster._easyEnemyFactory = _easyEnemyFactory;
             weakMaster._mediumEnemyFactory = _mediumEnemyFactory;
+            weakMaster._hardEnemyFactory = _hardEnemyFactory;
             weakMaster._xpPool = _xpPool;
             weakMaster._playerHealth = _playerHealth;
             weakMaster._playerHealthProxy = _playerHealthProxy;
@@ -61,6 +63,7 @@ public abstract class AbstractFactory : MonoBehaviour
             AIMaster strongMaster = strongEnemyInst.GetComponent<AIMaster>();
             strongMaster._easyEnemyFactory = _easyEnemyFactory;
             strongMaster._mediumEnemyFactory = _mediumEnemyFactory;
+            strongMaster._hardEnemyFactory = _hardEnemyFactory;
             strongMaster._playerHealth = _playerHealth;
             strongMaster._playerHealthProxy = _playerHealthProxy;
             strongMaster._xpPool = _xpPool;
@@ -81,7 +84,6 @@ public abstract class AbstractFactory : MonoBehaviour
         GameObject enemy = weakEnemyList[weakIndex++];
         enemy.SetActive(true);
         AIMaster aiMaster = enemy.GetComponent<AIMaster>();
-        aiMaster.enemyDifficulty = EnemyDifficulty.easy;
         aiMaster._playerHealthProxy = _playerHealthProxy;
         aiMaster.hp = aiMaster.maxHp;
         enemy.transform.parent = null;
@@ -101,7 +103,6 @@ public abstract class AbstractFactory : MonoBehaviour
             strongIndex = 0;
         }
         GameObject enemy = strongEnemyList[strongIndex++];
-        enemy.GetComponent<AIMaster>().enemyDifficulty = EnemyDifficulty.easy;
         enemy.SetActive(true);
         enemy.transform.parent = null;
         return enemy;

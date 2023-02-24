@@ -48,9 +48,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void ScaleFactories()
     {
-        _easyEnemyFactory.waveSize *= index;
-        _mediumEnemyFactory.waveSize *= index;
-        _hardEnemyFactory.waveSize *= index;
+        _easyEnemyFactory.waveSize *= 2;
+        _mediumEnemyFactory.waveSize *= 2;
+        _hardEnemyFactory.waveSize *= 2;
 
         _easyEnemyFactory.ScaleEnemies();
         _mediumEnemyFactory.ScaleEnemies();

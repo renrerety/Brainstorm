@@ -38,12 +38,17 @@ public class TorchWeapon : WeaponMaster
     public override void LevelUp()
     {
         circle.transform.localScale = new Vector3(
-                    circle.transform.localScale.x + 0.5f,
-                    circle.transform.localScale.y + 0.5f,
-                    circle.transform.localScale.z + 0.5f);
+                    circle.transform.localScale.x + 0.05f,
+                    circle.transform.localScale.y + 0.05f,
+                    circle.transform.localScale.z + 0.05f);
 
+        cooldown -= 0.15f;
+        if (cooldown <= 2)
+        {
+            cooldown = 2;
+        }
        duration += 0.5f;
-       damage += 3;
+       damage += 1;
         if (duration > 2.5f)
         {
             duration = 2.5f;

@@ -7,9 +7,22 @@ using UnityEngine;
 public class XpPool : MonoBehaviour
 {
 
-    [SerializeField] private GameObject xpGem;
-    private List<GameObject> xpPoolList = new List<GameObject>();
-    private int index;
+    [SerializeField] private GameObject xpGemBlue;
+    [SerializeField] private GameObject xpGemYellow;
+    [SerializeField] private GameObject xpGemRed;
+
+    [SerializeField] private GameObject blueObj;
+    [SerializeField] private GameObject yellowObj;
+    [SerializeField] private GameObject redObj;
+    
+    
+    private List<GameObject> blueXpPoolList = new List<GameObject>();
+    private List<GameObject> yellowXpPoolList = new List<GameObject>();
+    private List<GameObject> redXpPoolList = new List<GameObject>();
+    
+    private int blueIndex;
+    private int yellowIndex;
+    private int redIndex;
     
     private void Start()
     {
@@ -18,22 +31,52 @@ public class XpPool : MonoBehaviour
 
     void CreatePool()
     {
-        for (int i = 0; i < 200; i++)
+        for (int i = 0; i < 500; i++)
         {
-            GameObject xp = Instantiate(xpGem,gameObject.transform);
-            xp.GetComponent<XpGem>()._xpPool = this;
-            xpPoolList.Add(xp);
-            xp.SetActive(false);
+            GameObject xpBlue = Instantiate(xpGemBlue,blueObj.transform);
+            xpBlue.GetComponent<XpGem>()._xpPool = this;
+            blueXpPoolList.Add(xpBlue);
+            xpBlue.SetActive(false);
+            
+            GameObject xpYellow = Instantiate(xpGemYellow,yellowObj.transform);
+            xpYellow.GetComponent<XpGem>()._xpPool = this;
+            yellowXpPoolList.Add(xpYellow);
+            xpYellow.SetActive(false);
+            
+            GameObject xpRed = Instantiate(xpGemRed,redObj.transform);
+            xpRed.GetComponent<XpGem>()._xpPool = this;
+            redXpPoolList.Add(xpRed);
+            xpRed.SetActive(false);
         }
     }
 
-    public GameObject TakeXpFromPool()
+    public GameObject TakeBlueXpFromPool()
     {
-        if (index >= xpPoolList.Count)
+        if (blueIndex >= blueXpPoolList.Count)
         {
-            index = 0;
+            blueIndex = 0;
         }
-        GameObject xp = xpPoolList[index++];
+        GameObject xp = blueXpPoolList[blueIndex++];
+        xp.SetActive(true);
+        return xp;
+    }
+    public GameObject TakeYellowXpFromPool()
+    {
+        if (yellowIndex >= yellowXpPoolList.Count)
+        {
+            yellowIndex = 0;
+        }
+        GameObject xp = yellowXpPoolList[yellowIndex++];
+        xp.SetActive(true);
+        return xp;
+    }
+    public GameObject TakeRedXpFromPool()
+    {
+        if (redIndex >= redXpPoolList.Count)
+        {
+            redIndex = 0;
+        }
+        GameObject xp = redXpPoolList[redIndex++];
         xp.SetActive(true);
         return xp;
     }
