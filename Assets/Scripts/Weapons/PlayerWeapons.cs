@@ -17,13 +17,14 @@ public class PlayerWeapons : MonoBehaviour
     [Inject] private BombPool _bombPool;
     [Inject] private EnemySpawner _enemySpawner;
     [Inject] private LightningPool _lightningPool;
+    [Inject] private LaserPool _laserPool;
 
     public int criticalChance;
 
 // Start is called before the first frame update
     void Start()
     {
-        AddWeaponToList("Fireball");
+        AddWeaponToList("Laser Gun");
     }
 
     // Update is called once per frame
@@ -78,6 +79,10 @@ public class PlayerWeapons : MonoBehaviour
             case "Lightning Rod":
                 weaponInst = ScriptableObject.CreateInstance<LightningRodWeapon>();
                 (weaponInst as LightningRodWeapon)._lightningPool = _lightningPool;
+                break;
+            case "Laser Gun":
+                weaponInst = ScriptableObject.CreateInstance<LaserGunWeapon>();
+                (weaponInst as LaserGunWeapon)._laserPool = _laserPool;
                 break;
             default:
                 weaponInst = ScriptableObject.CreateInstance<FireballWeapon>();

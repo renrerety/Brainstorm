@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -77,6 +80,8 @@ public class EnemySpawner : MonoBehaviour
                 randomPos += new Vector3(Random.Range(0f, 10f), Random.Range(0f, 10f));
                 enemy.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + randomPos;
                 activeEnemyList.Add(enemy);
+                
+                
             }
 
             yield return new WaitForSeconds(spawnInterval);
@@ -84,22 +89,19 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
-    public Transform FindNearestEnemy()
+    private void LateUpdate()
     {
-        float temp = 200;
-        Transform nearestEnemy = null;
-        foreach (GameObject enemy in activeEnemyList)
-        {
-            float distance = Vector2.Distance(playerTransform.position, enemy.transform.position);
-            if (distance < temp)
-            {
-                nearestEnemy = enemy.transform;
-                temp = distance;
-            }
-        }
+        activeEnemyList = activeEnemyList.OrderBy(x => Vector2.Distance(x.transform.position,playerTransform.position)).ToList();
+    }
 
-        temp = 100;
-        return nearestEnemy.transform;
+    public Transform FindNearestEnemy(float maxDistance)
+    {
+        Transform enemyPos = activeEnemyList[0].transform;
+        if (Vector2.Distance(enemyPos.position, playerTransform.position) > maxDistance)
+        {
+            return null;
+        }
+        return activeEnemyList[0].transform;
     }
 
     public Transform FindRandomEnemy()

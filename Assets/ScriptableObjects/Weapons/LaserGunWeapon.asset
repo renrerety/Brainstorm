@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1b796c62c8b2c04caf53168407ee5a1, type: 3}
+  m_Name: LaserGunWeapon
+  m_EditorClassIdentifier: 
+  _enemySpawner: {fileID: 0}
+  _playerWeapons: {fileID: 0}
+  playerTransform: {fileID: 0}
+  weaponObj: {fileID: 0}
+  cooldown: 3
+  damage: 5
+  attackAmount: 1
+  delay: 0
+  duration: 0
+  name: Laser Gun
+  desc: Fire rapidly at closest enemy
+  levelUpDesc: '+Cooldown Reduced
+
+    +Fire an additional projectile
+
+    +Damage
+    up'
+  level: 1
+  maxHit: 0
+  image: {fileID: 21300000, guid: ad0b121d4ef7043428dec68243c35fb4, type: 3}
+  timer: 0
+  _laserPool: {fileID: 0}
