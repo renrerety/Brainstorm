@@ -117,12 +117,12 @@ public abstract class AbstractFactory : MonoBehaviour
         foreach (GameObject enemy in weakEnemyList)
         {
             AIMaster aiMaster = enemy.GetComponent<AIMaster>();
-                aiMaster.maxHp *= 2;
+                aiMaster.maxHp *= 3;
         }
         foreach (GameObject enemy in strongEnemyList)
         {
             AIMaster aiMaster = enemy.GetComponent<AIMaster>();
-                aiMaster.maxHp *= 2;
+                aiMaster.maxHp *= 3;
         }
     }
 }

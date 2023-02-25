@@ -2561,7 +2561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakEnemy: {fileID: 7243359876181220711, guid: 71e5f1719373394408af06fd249eeccc, type: 3}
   strongEnemy: {fileID: 8999577890411439925, guid: 4f0d5feb0923677489626bbed8ef3023, type: 3}
-  waveSize: 10
+  waveSize: 13
   weakEnemyList: []
   strongEnemyList: []
   _playerHealthProxy: {fileID: 0}
@@ -2614,7 +2614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakEnemy: {fileID: 1903743500657717813, guid: 8f496cc2c3ca5894aa8e31eae713035e, type: 3}
   strongEnemy: {fileID: 4379532488627730502, guid: 2fc232df10071204abc5ee88d353df09, type: 3}
-  waveSize: 12
+  waveSize: 15
   weakEnemyList: []
   strongEnemyList: []
   _playerHealthProxy: {fileID: 0}
@@ -4896,7 +4896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakEnemy: {fileID: 5244772559631427704, guid: 9826f46c2d763a743aac19b052a445f7, type: 3}
   strongEnemy: {fileID: 5482843841189036764, guid: bf5f8de0a4fccd4479fba6733d8299a8, type: 3}
-  waveSize: 14
+  waveSize: 17
   weakEnemyList: []
   strongEnemyList: []
   _playerHealthProxy: {fileID: 0}

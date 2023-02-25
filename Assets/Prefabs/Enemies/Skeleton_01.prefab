@@ -107,10 +107,11 @@ MonoBehaviour:
   damage: 5
   speed: 0.9
   hp: 0
-  maxHp: 40
+  maxHp: 30
   enemyHit: {fileID: 8300000, guid: b68e8f88720539643a0573adb8088598, type: 3}
   _easyEnemyFactory: {fileID: 0}
   _mediumEnemyFactory: {fileID: 0}
+  _hardEnemyFactory: {fileID: 0}
   _damagePopupPool: {fileID: 0}
   _xpPool: {fileID: 0}
   _enemySpawner: {fileID: 0}

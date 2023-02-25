@@ -31,7 +31,6 @@ public class FireballWeapon : WeaponMaster
 
     public override void LevelUp()
     {
-        maxHit += 1;
         cooldown -= 0.2f;
         attackAmount += 1;
         if (cooldown < 2f)
