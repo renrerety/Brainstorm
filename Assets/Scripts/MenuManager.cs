@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Button back_button;
     [SerializeField] GameObject popupMenu;
     [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject optionMenu;
     [SerializeField] Button backToMenu_btn;
     // Start is called before the first frame update
     void Start()
@@ -68,6 +69,18 @@ public class MenuManager : MonoBehaviour
         else
         {
             mainMenu.SetActive(true);
+        }
+    }
+
+    public void ToggleOptionMenu()
+    {
+        if (optionMenu.activeSelf)
+        {
+            optionMenu.SetActive(false);
+        }
+        else
+        {
+            optionMenu.SetActive(true);
         }
     }
     public void BackToMainMenu()

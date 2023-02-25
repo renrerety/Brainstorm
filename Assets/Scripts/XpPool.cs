@@ -26,10 +26,10 @@ public class XpPool : MonoBehaviour
     
     private void Start()
     {
-        CreatePool();
+        StartCoroutine(CreatePool());
     }
 
-    void CreatePool()
+    IEnumerator CreatePool()
     {
         for (int i = 0; i < 500; i++)
         {
@@ -37,16 +37,19 @@ public class XpPool : MonoBehaviour
             xpBlue.GetComponent<XpGem>()._xpPool = this;
             blueXpPoolList.Add(xpBlue);
             xpBlue.SetActive(false);
+            yield return new WaitForFixedUpdate();
             
             GameObject xpYellow = Instantiate(xpGemYellow,yellowObj.transform);
             xpYellow.GetComponent<XpGem>()._xpPool = this;
             yellowXpPoolList.Add(xpYellow);
             xpYellow.SetActive(false);
+            yield return new WaitForFixedUpdate();
             
             GameObject xpRed = Instantiate(xpGemRed,redObj.transform);
             xpRed.GetComponent<XpGem>()._xpPool = this;
             redXpPoolList.Add(xpRed);
             xpRed.SetActive(false);
+            yield return new WaitForFixedUpdate();
         }
     }
 

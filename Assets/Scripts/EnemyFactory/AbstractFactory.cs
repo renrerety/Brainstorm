@@ -29,7 +29,7 @@ public abstract class AbstractFactory : MonoBehaviour
 
     private void Start()
     {
-        CreatePool();
+        StartCoroutine(CreatePool());
     }
     public GameObject CreateStrongEnemy()
     {
@@ -40,7 +40,7 @@ public abstract class AbstractFactory : MonoBehaviour
     {
         return TakeWeakEnemyFromPool();
     }
-    void CreatePool()
+    IEnumerator CreatePool()
     {
         for(int i = 0; i < 3000; i++)
         {
@@ -58,6 +58,8 @@ public abstract class AbstractFactory : MonoBehaviour
             weakMaster._killCounter = _killCounter;
             weakEnemyList.Add(weakEnemyInst);
             weakEnemyInst.SetActive(false);
+            yield return new WaitForFixedUpdate();
+            
 
             GameObject strongEnemyInst = Instantiate(strongEnemy, gameObject.transform);
             AIMaster strongMaster = strongEnemyInst.GetComponent<AIMaster>();
@@ -73,6 +75,8 @@ public abstract class AbstractFactory : MonoBehaviour
             strongMaster._killCounter = _killCounter;
             strongEnemyList.Add(strongEnemyInst);
             strongEnemyInst.SetActive(false);
+            
+            yield return new WaitForFixedUpdate();
         }
     }
     GameObject TakeWeakEnemyFromPool()
