@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 using Zenject;
 
 public class DamagePopup : MonoBehaviour
 {
-    public DamagePopupPool _damagePopupPool;
+    [HideInInspector] public DamagePopupPool _damagePopupPool;
     
     public Color textColor;
     public TMP_Text tmp;

@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject popupMenu;
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject optionMenu;
+    [SerializeField] GameObject confirmationPrompt;
     [SerializeField] Button backToMenu_btn;
     // Start is called before the first frame update
     void Start()
@@ -83,11 +84,22 @@ public class MenuManager : MonoBehaviour
             optionMenu.SetActive(true);
         }
     }
+
+    public void ToggleConfirmation()
+    {
+        if (confirmationPrompt.activeSelf)
+        {
+            confirmationPrompt.SetActive(false);
+        }
+        else
+        {
+            confirmationPrompt.SetActive(true);
+        }
+    }
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("Title");
         ToggleMainMenu();
-        TogglePopupMenu();
     }
     public void Exit()
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class ButtonSound : MonoBehaviour
     private AudioSource _audioSource;
     [SerializeField] private AudioClip hoverClip;
     [SerializeField] private AudioClip clickClip;
+    
     public void HoverSound()
     {
         _audioSource.PlayOneShot(hoverClip);

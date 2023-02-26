@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KillCounter : MonoBehaviour
 {
     public int killCount;
-    private TMP_Text tmp;
+    private Text tmp;
 
     public void AddKill()
     {
@@ -21,6 +22,6 @@ public class KillCounter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tmp = GetComponent<TMP_Text>();
+        tmp = GetComponent<Text>();
     }
 }

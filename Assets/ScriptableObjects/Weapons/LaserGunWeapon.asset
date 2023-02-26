@@ -25,10 +25,9 @@ MonoBehaviour:
   desc: Fire rapidly at closest enemy
   levelUpDesc: '+Cooldown Reduced
 
-    +Fire an additional projectile
+    +Additional projectile
 
-    +Damage
-    up'
+    +Damage up'
   level: 1
   maxHit: 0
   image: {fileID: 21300000, guid: ad0b121d4ef7043428dec68243c35fb4, type: 3}

@@ -31,7 +31,7 @@ public class XpPool : MonoBehaviour
 
     IEnumerator CreatePool()
     {
-        for (int i = 0; i < 500; i++)
+        for (int i = 0; i < 1500; i++)
         {
             GameObject xpBlue = Instantiate(xpGemBlue,blueObj.transform);
             xpBlue.GetComponent<XpGem>()._xpPool = this;

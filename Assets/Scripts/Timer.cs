@@ -3,15 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    private TMP_Text tmp;
+    private Text text;
     private float timer;
 
     private void Start()
     {
-        tmp = GetComponent<TMP_Text>();
+        text = GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -21,6 +22,6 @@ public class Timer : MonoBehaviour
         float min = Mathf.FloorToInt(timer / 60);
         float sec = Mathf.FloorToInt(timer % 60);
 
-        tmp.text = String.Format("{0:00}:{1:00}", min, sec);
+        text.text = String.Format("{0:00}:{1:00}", min, sec);
     }
 }

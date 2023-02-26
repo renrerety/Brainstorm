@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1096085098142306417}
   - component: {fileID: 1096085098142306416}
-  - component: {fileID: 1096085098142306431}
   - component: {fileID: -1869037605948976294}
+  - component: {fileID: -3558418910184647099}
+  - component: {fileID: 6626582348675538305}
+  - component: {fileID: 1325187360330525531}
   m_Layer: 0
   m_Name: DamagePopup
   m_TagString: Untagged
@@ -37,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.65, y: 0.45}
+  m_SizeDelta: {x: 1, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1096085098142306416
 MeshRenderer:
@@ -59,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  - {fileID: -2245247701332661946, guid: df6cf3b396a82f4478d630d53c4dd978, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,7 +83,47 @@ MeshRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1096085098142306431
+--- !u!114 &-1869037605948976294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096085098142306430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf763430540c10b43a30d4b1a7aaebdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damagePopupPool: {fileID: 0}
+  textColor: {r: 0, g: 0, b: 0, a: 0}
+  tmp: {fileID: 1325187360330525531}
+  criticalHitColor: {r: 0.7924528, g: 0.1119486, b: 0.063545756, a: 1}
+  HitColor: {r: 0.7843138, g: 0.54901963, b: 0.0627451, a: 1}
+--- !u!222 &-3558418910184647099
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096085098142306430}
+  m_CullTransparentMesh: 1
+--- !u!114 &6626582348675538305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096085098142306430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 2, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &1325187360330525531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,15 +145,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: df6cf3b396a82f4478d630d53c4dd978, type: 2}
+  m_sharedMaterial: {fileID: -2245247701332661946, guid: df6cf3b396a82f4478d630d53c4dd978, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279274696
-  m_fontColor: {r: 0.7830189, g: 0.5485728, b: 0.06278926, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -128,14 +170,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -173,20 +215,3 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1096085098142306416}
   m_maskType: 0
---- !u!114 &-1869037605948976294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096085098142306430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf763430540c10b43a30d4b1a7aaebdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagePopupPool: {fileID: 0}
-  textColor: {r: 0, g: 0, b: 0, a: 0}
-  tmp: {fileID: 1096085098142306431}
-  criticalHitColor: {r: 0.7924528, g: 0.1119486, b: 0.063545756, a: 1}
-  HitColor: {r: 0.7843138, g: 0.54901963, b: 0.0627451, a: 1}

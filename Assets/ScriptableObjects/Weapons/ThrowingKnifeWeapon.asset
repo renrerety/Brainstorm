@@ -23,12 +23,11 @@ MonoBehaviour:
   duration: 0
   name: Throwing Knife
   desc: Fire in the last input direction
-  levelUpDesc: '+Pass through more ennemies
+  levelUpDesc: '+Pass through 1 more
 
-    +Fire an additional projectile
+    +Additional projectile
 
-    +Cooldown
-    Reduced'
+    +Cooldown Reduced'
   level: 1
   maxHit: 1
   image: {fileID: 21300000, guid: 8bcf97616f7a21d469a5c6b2576744ce, type: 3}

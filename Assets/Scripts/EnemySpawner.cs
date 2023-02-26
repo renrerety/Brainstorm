@@ -89,9 +89,12 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
-        activeEnemyList = activeEnemyList.OrderBy(x => Vector2.Distance(x.transform.position,playerTransform.position)).ToList();
+        if (Time.frameCount % 10 == 0)
+        {
+            activeEnemyList = activeEnemyList.OrderBy(x => Vector2.Distance(x.transform.position,playerTransform.position)).ToList();
+        }
     }
 
     public Transform FindNearestEnemy(float maxDistance)

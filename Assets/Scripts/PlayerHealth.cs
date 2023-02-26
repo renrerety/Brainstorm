@@ -84,7 +84,6 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
     void UpdateHpBar()
     {
         hpBar.value = (float)(hp / maxHp);
-        Debug.Log((float)(hp / maxHp));
         fill.color = Color.Lerp(Color.red,Color.green , hp/maxHp);
     }
 

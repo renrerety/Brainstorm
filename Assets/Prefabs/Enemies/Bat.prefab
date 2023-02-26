@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7243359876181220705}
   - component: {fileID: 7243359876181220704}
   - component: {fileID: 1129832744923048086}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -131,6 +131,7 @@ MonoBehaviour:
   enemyHit: {fileID: 8300000, guid: b68e8f88720539643a0573adb8088598, type: 3}
   _easyEnemyFactory: {fileID: 0}
   _mediumEnemyFactory: {fileID: 0}
+  _hardEnemyFactory: {fileID: 0}
   _damagePopupPool: {fileID: 0}
   _xpPool: {fileID: 0}
   _enemySpawner: {fileID: 0}

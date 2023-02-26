@@ -36,18 +36,21 @@ public class LevelOption : MonoBehaviour
 
     public void SelectWeapon()
     {
-        foreach (WeaponMaster playerWeapon in _playerWeapons.weapons)
+        Debug.Log(weapon.name);
+        WeaponMaster findWeapon = _playerWeapons.FindWeapon(weapon.name);
+
+        if (findWeapon)
         {
-            if (weapon.name == playerWeapon.name)
-            {
-                playerWeapon.LevelUp();
-                playerWeapon.level++;
-                LevelUpPanel.Instance.ClosePanel();
-                return;
-            }
+            findWeapon.LevelUp();
+            findWeapon.level++;
+            LevelUpPanel.Instance.ClosePanel();
+            return;
         }
-        _playerWeapons.AddWeaponToList(weapon.name);
-        LevelUpPanel.Instance.ClosePanel();
+        else
+        {
+            _playerWeapons.AddWeaponToList(this.weapon.name);
+            LevelUpPanel.Instance.ClosePanel();
+        }
     }
 
     // Start is called before the first frame update

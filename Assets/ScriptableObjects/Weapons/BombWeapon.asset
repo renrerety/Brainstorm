@@ -23,7 +23,7 @@ MonoBehaviour:
   duration: 0
   name: Bomb
   desc: Drop bombs on the ground
-  levelUpDesc: '+Bigger explosion size
+  levelUpDesc: '+Radius Up
 
     +Cooldown reduced
 
