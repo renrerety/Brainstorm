@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3317625934763218198}
   - component: {fileID: 3317625934763218408}
   - component: {fileID: 3317625934763218411}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PowerUp_Magnet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29e5cd76a5e8024abcff48fa963f437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemySpawner: {fileID: 0}
   pickupZone: {fileID: 0}
 --- !u!61 &3317625934763218411
 BoxCollider2D:
