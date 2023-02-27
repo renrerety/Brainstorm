@@ -154,7 +154,7 @@ public class AIMaster : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        movementStrategy = new WalkTowardsPlayer();
+        movementStrategy = ScriptableObject.CreateInstance<WalkTowardsPlayer>();
         hp = maxHp;
     }
 

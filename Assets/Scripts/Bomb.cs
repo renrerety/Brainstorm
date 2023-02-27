@@ -20,7 +20,8 @@ public class Bomb : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_playerWeapons.FindWeapon("Bomb"))
+        WeaponMaster weapon = _playerWeapons.FindWeapon("Bomb");
+        if (weapon.name == "Bomb")
         {
             StartCoroutine(Explode());
         }

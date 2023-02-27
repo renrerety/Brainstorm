@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1096085098142306417}
   - component: {fileID: 1096085098142306416}
   - component: {fileID: -1869037605948976294}
-  - component: {fileID: -3558418910184647099}
   - component: {fileID: 6626582348675538305}
   - component: {fileID: 1325187360330525531}
   m_Layer: 0
@@ -100,14 +99,6 @@ MonoBehaviour:
   tmp: {fileID: 1325187360330525531}
   criticalHitColor: {r: 0.7924528, g: 0.1119486, b: 0.063545756, a: 1}
   HitColor: {r: 0.7843138, g: 0.54901963, b: 0.0627451, a: 1}
---- !u!222 &-3558418910184647099
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096085098142306430}
-  m_CullTransparentMesh: 1
 --- !u!114 &6626582348675538305
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2902391626594154213
 Transform:
   m_ObjectHideFlags: 0
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerWeapons: {fileID: 0}
-  explosionObj: {fileID: 2902391627380136026}
   _bombPool: {fileID: 0}
+  explosionObj: {fileID: 2902391627380136026}
 --- !u!82 &7966975272841395001
 AudioSource:
   m_ObjectHideFlags: 0

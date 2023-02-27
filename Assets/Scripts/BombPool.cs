@@ -17,11 +17,10 @@ public class BombPool : MonoBehaviour
         {
             GameObject bombInst = Instantiate(bombRef,gameObject.transform);
             Bomb bomb = bombInst.GetComponent<Bomb>();
-
+            
             bomb._bombPool = this;
             bomb._playerWeapons = _playerWeapons;
             
-            bombInst.SetActive(false);
             bombPoolList.Add(bombInst);
         }
     }
