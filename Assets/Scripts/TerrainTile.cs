@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TerrainTile : MonoBehaviour
 {
+    //Script come from this tutorial : https://www.youtube.com/watch?v=m0Ik1K02xfo&list=PL0GUZtUkX6t7zQEcvKtdc0NvjVuVcMe6U&index=2
     [SerializeField] Vector2Int tilePosition;
     // Start is called before the first frame update
     void Start()

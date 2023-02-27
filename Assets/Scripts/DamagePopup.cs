@@ -9,6 +9,8 @@ using Zenject;
 
 public class DamagePopup : MonoBehaviour
 {
+    //Script come from this tutorial : https://www.youtube.com/watch?v=iD1_JczQcFY
+    
     [HideInInspector] public DamagePopupPool _damagePopupPool;
     
     public Color textColor;

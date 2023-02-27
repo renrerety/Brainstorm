@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class WorldScrolling : MonoBehaviour
 {
+    //Script come from this tutorial : https://www.youtube.com/watch?v=m0Ik1K02xfo&list=PL0GUZtUkX6t7zQEcvKtdc0NvjVuVcMe6U&index=2
     [SerializeField] Transform player;
     Vector2Int currentTilePos = new Vector2Int(1,1);
     [SerializeField] Vector2Int playerTilePosition;

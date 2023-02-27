@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelData : ScriptableObject
 {
+    //Script come from class exercice
     public string sceneName;
 
 #if UNITY_EDITOR

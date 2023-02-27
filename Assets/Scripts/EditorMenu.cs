@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class EditorMenu : MonoBehaviour
 {
+    //Script come from class exercise
     static List<LevelData> scenesSO = new List<LevelData>();
     [MenuItem("Tools/Count Scene Number")]
     static void CountSceneNumber()
