@@ -80,7 +80,7 @@ public class Signup : MonoBehaviour
                 Debug.LogError(request.error);
                 yield break;
             }
-            
+
             if (request.downloadHandler.text != "{\"results\":[]}")
             {
                 Error.instance.DisplayError("Error : the mail is already in use");
@@ -100,62 +100,64 @@ public class Signup : MonoBehaviour
                 error = true;
             }*/
         }
+
         if (!error)
+        {
+            using (var request = new UnityWebRequest("https://parseapi.back4app.com/users",
+                       "POST"))
             {
-                using (var request = new UnityWebRequest("https://parseapi.back4app.com/users",
-                           "POST"))
+                request.SetRequestHeader("X-Parse-Application-Id",
+                    Secrets.appId);
+                request.SetRequestHeader("X-Parse-REST-API-Key",
+                    Secrets.restApi);
+                request.SetRequestHeader("X-Parse-Revocable-Session", "1");
+                request.SetRequestHeader("Content-Type",
+                    "application/json");
+
+                var data = new
+                    { username = usernameInput.text, email = emailInput.text, password = passwordInput.text };
+                string json = JsonConvert.SerializeObject(data);
+
+                request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
+                request.downloadHandler = new DownloadHandlerBuffer();
+                yield return request.SendWebRequest();
+                if (request.result != UnityWebRequest.Result.Success)
                 {
-                    request.SetRequestHeader("X-Parse-Application-Id",
-                        Secrets.appId);
-                    request.SetRequestHeader("X-Parse-REST-API-Key",
-                        Secrets.restApi);
-                    request.SetRequestHeader("X-Parse-Revocable-Session", "1");
-                    request.SetRequestHeader("Content-Type",
-                        "application/json");
-
-                    var data = new
-                        { username = usernameInput.text, email = emailInput.text, password = passwordInput.text };
-                    string json = JsonConvert.SerializeObject(data);
-
-                    request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
-                    request.downloadHandler = new DownloadHandlerBuffer();
-                    yield return request.SendWebRequest();
-                    if (request.result != UnityWebRequest.Result.Success)
-                    {
-                        Debug.LogError(request.error);
-                        yield break;
-                    }
-                    else if (request.result == UnityWebRequest.Result.Success)
-                    {
-                        Error.instance.DisplayError("Success !");
-                    }
+                    Debug.LogError(request.error);
+                    yield break;
                 }
-
-                //Send verification email
-                using (var request = new UnityWebRequest("https://parseapi.back4app.com/verificationEmailRequest",
-                           "POST"))
+                else if (request.result == UnityWebRequest.Result.Success)
                 {
-                    request.SetRequestHeader("X-Parse-Application-Id",
-                        Secrets.appId);
-                    request.SetRequestHeader("X-Parse-REST-API-Key",
-                        Secrets.restApi);
-                    request.SetRequestHeader("Content-Type",
-                        "application/json");
-
-                    var data = new { email = emailInput.text };
-                    string json = JsonConvert.SerializeObject(data);
-
-                    request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
-                    request.downloadHandler = new DownloadHandlerBuffer();
-                    yield return request.SendWebRequest();
-                    if (request.result != UnityWebRequest.Result.Success)
-                    {
-                        Debug.LogError(request.error);
-                        yield break;
-                    }
-
+                    Error.instance.DisplayError("Success !");
                 }
             }
-        error = false;
+
+            //Send verification email
+            /*using (var request = new UnityWebRequest("https://parseapi.back4app.com/verificationEmailRequest",
+                       "POST"))
+            {
+                request.SetRequestHeader("X-Parse-Application-Id",
+                    Secrets.appId);
+                request.SetRequestHeader("X-Parse-REST-API-Key",
+                    Secrets.restApi);
+                request.SetRequestHeader("Content-Type",
+                    "application/json");
+
+                var data = new { email = emailInput.text };
+                string json = JsonConvert.SerializeObject(data);
+
+                request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
+                request.downloadHandler = new DownloadHandlerBuffer();
+                yield return request.SendWebRequest();
+                if (request.result != UnityWebRequest.Result.Success)
+                {
+                    Debug.LogError(request.error);
+                    yield break;
+                }
+
+            }
+        }*/
+            error = false;
         }
     }
+}
