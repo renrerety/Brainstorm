@@ -45,6 +45,7 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
         Time.timeScale = 0;
         gameOverPanel.GetComponent<GameOver>().gameOver = true;
         gameOverPanel.SetActive(true);
+        BinarySaveFormatter.Serialize();
     }
     
     
