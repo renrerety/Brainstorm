@@ -19,19 +19,25 @@ public class LevelOption : MonoBehaviour
     {
         int rng = UnityEngine.Random.Range(0, WeaponRefs.Instance.weaponRefs.Count);
         weapon = WeaponRefs.Instance.weaponRefs[rng];
-        
+
         image.sprite = weapon.image;
-        name.text = weapon.name;
-        desc.text = weapon.desc;
+
+        name.text = Localization.Localization.instance.GetString(weapon.translateKey);
+        desc.text = Localization.Localization.instance.GetString(weapon.translateKey+"Desc");
+
+
+        if (_playerWeapons.FindWeapon(weapon.name))
+        {
+            desc.text = Localization.Localization.instance.GetString(weapon.translateKey + "LvlDesc");
+        }
         
-        
-        foreach (WeaponMaster playerWeapon in _playerWeapons.weapons)
+        /*foreach (WeaponMaster playerWeapon in _playerWeapons.weapons)
         {
             if (weapon.name == playerWeapon.name)
             {
                 desc.text = playerWeapon.levelUpDesc;
             }
-        }
+        }*/
     }
 
     public void SelectWeapon()

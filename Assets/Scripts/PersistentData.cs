@@ -19,7 +19,7 @@ public class PersistentData
 
 public sealed class BinarySaveFormatter
 {
-    public static PersistentData Deserialize()
+    public static void Deserialize()
     {
         PersistentData data  = null;
 
@@ -43,13 +43,14 @@ public sealed class BinarySaveFormatter
             fs.Close();
         }
         
-        Debug.Log("Deserialized data :" +data.gold+ data.kills);
-        return data;
+        Debug.Log("Deserialized data :" +data.gold+" "+ data.kills);
+        PlayerData.instance.gold = data.gold;
+        PlayerData.instance.kills = data.kills;
     }
 
-    public static void Serialize()
+    public static void Serialize(int gold, int kills)
     {
-        var data = new PersistentData(200,200);
+        var data = new PersistentData(gold,kills);
         
         // To serialize the hashtable and its key/value pairs,
         // you must first open a stream for writing.
@@ -71,6 +72,6 @@ public sealed class BinarySaveFormatter
         {
             fs.Close();
         }
-        Debug.Log("Serialized data :" +data.gold+ data.kills);
+        Debug.Log("Serialized data :" +data.gold+" " +data.kills);
     }
 }

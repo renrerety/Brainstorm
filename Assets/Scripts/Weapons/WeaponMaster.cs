@@ -6,6 +6,7 @@ using Zenject;
 
 public abstract class WeaponMaster : ScriptableObject
 {
+    public string translateKey;
     [HideInInspector] public EnemySpawner _enemySpawner;
     [HideInInspector] public PlayerWeapons _playerWeapons;
     [HideInInspector] public Transform playerTransform;
@@ -43,6 +44,13 @@ public abstract class WeaponMaster : ScriptableObject
         this.desc = desc;
         this.levelUpDesc = levelUpDesc;
         this.image = image;
+    }
+
+    public void Translate()
+    {
+        name = Localization.Localization.instance.GetString(translateKey);
+        desc = Localization.Localization.instance.GetString(translateKey + "Desc");
+        levelUpDesc = Localization.Localization.instance.GetString(translateKey + "LvlDesc");
     }
 
     public abstract void ReturnWeaponToPool(GameObject weapon);

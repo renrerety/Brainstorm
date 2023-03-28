@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4718434414819d24496a9fd06f20f3bb, type: 3}
   m_Name: BombWeapon
   m_EditorClassIdentifier: 
+  translateKey: bomb
   _enemySpawner: {fileID: 0}
   _playerWeapons: {fileID: 0}
   playerTransform: {fileID: 0}
@@ -23,7 +24,7 @@ MonoBehaviour:
   duration: 0
   name: Bomb
   desc: Drop bombs on the ground
-  levelUpDesc: '+Radius Up
+  levelUpDesc: '+Bigger radius
 
     +Cooldown reduced
 

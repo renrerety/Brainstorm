@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8f89f448d636d44bfb0263c28cbcb9, type: 3}
   m_Name: FireballWeapon
   m_EditorClassIdentifier: 
+  translateKey: fireball
   _enemySpawner: {fileID: 0}
   _playerWeapons: {fileID: 0}
   playerTransform: {fileID: 0}

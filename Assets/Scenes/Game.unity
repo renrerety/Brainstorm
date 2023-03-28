@@ -1415,6 +1415,7 @@ GameObject:
   - component: {fileID: 444261515}
   - component: {fileID: 444261514}
   - component: {fileID: 444261516}
+  - component: {fileID: 444261517}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -1499,6 +1500,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &444261517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444261512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: game_over
+  text: {fileID: 0}
 --- !u!1 &474925370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2992,6 +3007,7 @@ GameObject:
   - component: {fileID: 852150219}
   - component: {fileID: 852150218}
   - component: {fileID: 852150220}
+  - component: {fileID: 852150221}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -3076,6 +3092,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &852150221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852150216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: levelup
+  text: {fileID: 0}
 --- !u!1 &858495079
 GameObject:
   m_ObjectHideFlags: 0
@@ -6426,6 +6456,7 @@ GameObject:
   - component: {fileID: 1939809767}
   - component: {fileID: 1939809766}
   - component: {fileID: 1939809768}
+  - component: {fileID: 1939809769}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -6510,6 +6541,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &1939809769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939809764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: exit_btn
+  text: {fileID: 0}
 --- !u!1 &1972805152
 GameObject:
   m_ObjectHideFlags: 0

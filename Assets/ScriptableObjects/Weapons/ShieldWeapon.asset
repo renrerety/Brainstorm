@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18ae5a13ce0a804aa83cc3a441feccc, type: 3}
   m_Name: ShieldWeapon
   m_EditorClassIdentifier: 
+  translateKey: shield
   _enemySpawner: {fileID: 0}
   _playerWeapons: {fileID: 0}
   playerTransform: {fileID: 0}
@@ -25,7 +26,7 @@ MonoBehaviour:
   desc: Negate damage while active
   levelUpDesc: '+Cooldown Reduced
 
-    +Duration up'
+    +Longer duration'
   level: 1
   maxHit: 0
   image: {fileID: 21300000, guid: 0cbf57cb7d0155e4c924a49c70efc412, type: 3}

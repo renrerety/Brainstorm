@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51fe3f817417354887ff0c287cc4e09, type: 3}
   m_Name: TorchWeapon
   m_EditorClassIdentifier: 
+  translateKey: torch
   _enemySpawner: {fileID: 0}
   _playerWeapons: {fileID: 0}
   playerTransform: {fileID: 0}

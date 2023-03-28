@@ -7,8 +7,8 @@ public class PlayerData : MonoBehaviour
 {
     public static PlayerData instance;
     
-    public static int gold;
-    public static int kills;
+    public int gold;
+    public int kills;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -23,11 +23,10 @@ public class PlayerData : MonoBehaviour
 
     private void Start()
     {
-        BinarySaveFormatter.Serialize();
+        BinarySaveFormatter.Serialize(120,120);
         
-        var data = BinarySaveFormatter.Deserialize();
-        PlayerData.gold = data.gold;
-        PlayerData.kills = data.kills;
+        BinarySaveFormatter.Deserialize();
+        
         
         Debug.Log("gold : "+gold+"Kill : "+kills);
     }
