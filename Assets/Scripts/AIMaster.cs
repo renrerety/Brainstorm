@@ -93,6 +93,7 @@ public class AIMaster : MonoBehaviour
         
         RandomDrop();
         DropXp();
+        IncrementPlayerStats();
         ReturnToPool();
         _killCounter.AddKill();
     }
@@ -147,6 +148,12 @@ public class AIMaster : MonoBehaviour
                 break;
         }
         xp.transform.position = gameObject.transform.position;
+    }
+
+    private void IncrementPlayerStats()
+    {
+        PlayerData.instance.persistentData.gold++;
+        PlayerData.instance.persistentData.kills++;
     }
 
     public virtual void Start()

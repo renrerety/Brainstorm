@@ -6,9 +6,8 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     public static PlayerData instance;
-    
-    public int gold;
-    public int kills;
+
+    public PersistentData persistentData;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -21,13 +20,13 @@ public class PlayerData : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void LoadPlayerData()
     {
-        BinarySaveFormatter.Serialize(120,120);
-        
         BinarySaveFormatter.Deserialize();
-        
-        
-        Debug.Log("gold : "+gold+"Kill : "+kills);
     }
+
+    /*private void Start()
+    {
+        Debug.Log("gold : "+gold+"Kill : "+kills);
+    }*/
 }

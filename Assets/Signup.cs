@@ -18,6 +18,9 @@ public class Signup : MonoBehaviour
     [SerializeField] private TMP_InputField emailInput;
     [SerializeField] private TMP_InputField passwordInput;
 
+    [SerializeField] private GameObject loginCanvas;
+    [SerializeField] private GameObject signupCanvas;
+
     public void Submit()
     {
         StartCoroutine(CreateAccount());
@@ -87,18 +90,6 @@ public class Signup : MonoBehaviour
                 error = true;
                 //yield break;
             }
-
-            Debug.Log("download handler :" + request.downloadHandler.text);
-
-
-            /*var matches = Regex.Matches(request.downloadHandler.text,
-                "\"email\":\"(.[^,]+)",
-                RegexOptions.Multiline);
-            if (matches.Count > 0)
-            {
-                
-                error = true;
-            }*/
         }
 
         if (!error)
@@ -131,9 +122,8 @@ public class Signup : MonoBehaviour
                     Error.instance.DisplayError("Success !");
                 }
             }
-
-            //Send verification email
-            /*using (var request = new UnityWebRequest("https://parseapi.back4app.com/verificationEmailRequest",
+            
+            using (var request = new UnityWebRequest("https://parseapi.back4app.com/classes/UserSaveData",
                        "POST"))
             {
                 request.SetRequestHeader("X-Parse-Application-Id",
@@ -143,20 +133,36 @@ public class Signup : MonoBehaviour
                 request.SetRequestHeader("Content-Type",
                     "application/json");
 
-                var data = new { email = emailInput.text };
+                var data = new
+                    { username = usernameInput.text};
                 string json = JsonConvert.SerializeObject(data);
 
                 request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
                 request.downloadHandler = new DownloadHandlerBuffer();
+                
+                var matches = Regex.Matches(request.downloadHandler.text,
+                    "\\\"objectId\\\":\\\"(.[^,]+)\"",
+                    RegexOptions.Multiline);
+
+                Secrets.saveObjectId = matches[0].Groups[1].ToString();
+                
                 yield return request.SendWebRequest();
                 if (request.result != UnityWebRequest.Result.Success)
                 {
                     Debug.LogError(request.error);
                     yield break;
                 }
-
+                else if (request.result == UnityWebRequest.Result.Success)
+                {
+                    Error.instance.DisplayError("Success !");
+                }
             }
-        }*/
+            
+            
+            
+            
+            loginCanvas.SetActive(true);
+            signupCanvas.SetActive(false);
             error = false;
         }
     }

@@ -1,8 +1,14 @@
 using System;
+using System.Collections;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Networking;
 
 [Serializable]
 public class PersistentData
@@ -19,6 +25,40 @@ public class PersistentData
 
 public sealed class BinarySaveFormatter
 {
+    public static IEnumerator UploadToDb()
+    {
+        Debug.Log("Upload to DB");
+        
+        using (var request = new UnityWebRequest("https://parseapi.back4app.com/users/"+Secrets.userObject,
+                   "PUT"))
+        {
+            request.SetRequestHeader("X-Parse-Application-Id",
+                Secrets.appId);
+            request.SetRequestHeader("X-Parse-REST-API-Key",
+                Secrets.restApi);
+            request.SetRequestHeader("X-Parse-Session-Token",Secrets.sessionToken);
+            request.SetRequestHeader("Content-Type","application/json");
+
+            string path = Path.Combine(Application.persistentDataPath,"Save.data");
+
+            var data = new {saveData = path};
+
+            Debug.Log("Path : "+path);
+
+            var json = JsonConvert.SerializeObject(data);
+            
+            request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
+            request.downloadHandler = new DownloadHandlerBuffer();
+            
+            yield return request.SendWebRequest();
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError(request.error);
+                yield break;
+            }
+        }
+        
+    }
     public static void Deserialize()
     {
         PersistentData data  = null;
@@ -44,8 +84,7 @@ public sealed class BinarySaveFormatter
         }
         
         Debug.Log("Deserialized data :" +data.gold+" "+ data.kills);
-        PlayerData.instance.gold = data.gold;
-        PlayerData.instance.kills = data.kills;
+        PlayerData.instance.persistentData = data;
     }
 
     public static void Serialize(int gold, int kills)
