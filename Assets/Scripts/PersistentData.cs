@@ -29,22 +29,58 @@ public sealed class BinarySaveFormatter
     {
         Debug.Log("Upload to DB");
         
-        using (var request = new UnityWebRequest("https://parseapi.back4app.com/users/"+Secrets.userObject,
+        using (var request = new UnityWebRequest("https://parseapi.back4app.com/parse/files/Save.data",
+                   "POST"))
+        {
+            request.SetRequestHeader("X-Parse-Application-Id",
+                Secrets.appId);
+            request.SetRequestHeader("X-Parse-REST-API-Key",
+                Secrets.restApi);
+            request.SetRequestHeader("Content-Type","application/octet-stream");
+
+            string path = Application.persistentDataPath + "/Save.data";
+
+            var data = new {saveData = path};
+
+            Debug.Log("Path : "+path);
+
+            //var json = JsonConvert.SerializeObject(data);
+            
+            request.uploadHandler = new UploadHandlerFile(path);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            
+            yield return request.SendWebRequest();
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError(request.error);
+                yield break;
+            }
+            
+            var match = Regex.Match(request.downloadHandler.text,
+                "\\\"url\\\":\\\"(.[^,]+)\",",
+                RegexOptions.Multiline);
+
+            PlayerData.instance.saveUrl = match.Groups[1].ToString();
+            
+            match = Regex.Match(request.downloadHandler.text,
+                "\\\"name\\\":\"(.+)\"",
+                RegexOptions.Multiline);
+
+            PlayerData.instance.saveName = match.Groups[1].ToString();
+            Debug.Log(PlayerData.instance.saveName);
+        }
+        
+        using (var request = new UnityWebRequest("https://parseapi.back4app.com/classes/PlayerProfile/HVBGYBfmNn",
                    "PUT"))
         {
             request.SetRequestHeader("X-Parse-Application-Id",
                 Secrets.appId);
             request.SetRequestHeader("X-Parse-REST-API-Key",
                 Secrets.restApi);
-            request.SetRequestHeader("X-Parse-Session-Token",Secrets.sessionToken);
             request.SetRequestHeader("Content-Type","application/json");
 
-            string path = Path.Combine(Application.persistentDataPath,"Save.data");
-
-            var data = new {saveData = path};
-
-            Debug.Log("Path : "+path);
-
+            var data = new {saveName = PlayerData.instance.saveName,saveUrl = PlayerData.instance.saveUrl};
+            
             var json = JsonConvert.SerializeObject(data);
             
             request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
@@ -56,6 +92,7 @@ public sealed class BinarySaveFormatter
                 Debug.LogError(request.error);
                 yield break;
             }
+            Debug.Log(request.downloadHandler.text);
         }
         
     }

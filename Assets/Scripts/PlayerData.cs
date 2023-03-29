@@ -8,6 +8,11 @@ public class PlayerData : MonoBehaviour
     public static PlayerData instance;
 
     public PersistentData persistentData;
+    //public string email;
+    public string username;
+    public string saveUrl;
+    public string saveName;
+    
     private void Awake()
     {
         if (instance != null && instance != this)

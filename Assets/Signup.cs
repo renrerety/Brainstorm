@@ -28,6 +28,8 @@ public class Signup : MonoBehaviour
 
     public IEnumerator CreateAccount()
     {
+        string saveIdBuffer = "";
+        
         bool error = false;
         //Check if email is valid
         try
@@ -94,6 +96,43 @@ public class Signup : MonoBehaviour
 
         if (!error)
         {
+            using (var request = new UnityWebRequest("https://parseapi.back4app.com/classes/PlayerProfile",
+                       "POST"))
+            {
+                request.SetRequestHeader("X-Parse-Application-Id",
+                    Secrets.appId);
+                request.SetRequestHeader("X-Parse-REST-API-Key",
+                    Secrets.restApi);
+                request.SetRequestHeader("Content-Type",
+                    "application/json");
+
+                var data = new
+                    { username = usernameInput.text, email = emailInput.text};
+                string json = JsonConvert.SerializeObject(data);
+
+                request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
+                request.downloadHandler = new DownloadHandlerBuffer();
+                
+                yield return request.SendWebRequest();
+                if (request.result != UnityWebRequest.Result.Success)
+                {
+                    Debug.LogError(request.error);
+                    yield break;
+                }
+                else if (request.result == UnityWebRequest.Result.Success)
+                {
+                    Error.instance.DisplayError("Success !");
+                    
+                    
+                    var matches = Regex.Match(request.downloadHandler.text,
+                        "\\\"objectId\\\":\\\"(.[^,]+)\"",
+                        RegexOptions.Multiline);
+                    
+                    saveIdBuffer = matches.Groups[1].ToString();
+                    Debug.Log(saveIdBuffer);
+                }
+            }
+            
             using (var request = new UnityWebRequest("https://parseapi.back4app.com/users",
                        "POST"))
             {
@@ -106,7 +145,7 @@ public class Signup : MonoBehaviour
                     "application/json");
 
                 var data = new
-                    { username = usernameInput.text, email = emailInput.text, password = passwordInput.text };
+                    { username = usernameInput.text, email = emailInput.text, password = passwordInput.text, saveId = saveIdBuffer };
                 string json = JsonConvert.SerializeObject(data);
 
                 request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
@@ -123,44 +162,8 @@ public class Signup : MonoBehaviour
                 }
             }
             
-            using (var request = new UnityWebRequest("https://parseapi.back4app.com/classes/UserSaveData",
-                       "POST"))
-            {
-                request.SetRequestHeader("X-Parse-Application-Id",
-                    Secrets.appId);
-                request.SetRequestHeader("X-Parse-REST-API-Key",
-                    Secrets.restApi);
-                request.SetRequestHeader("Content-Type",
-                    "application/json");
+           
 
-                var data = new
-                    { username = usernameInput.text};
-                string json = JsonConvert.SerializeObject(data);
-
-                request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(json));
-                request.downloadHandler = new DownloadHandlerBuffer();
-                
-                var matches = Regex.Matches(request.downloadHandler.text,
-                    "\\\"objectId\\\":\\\"(.[^,]+)\"",
-                    RegexOptions.Multiline);
-
-                Secrets.saveObjectId = matches[0].Groups[1].ToString();
-                
-                yield return request.SendWebRequest();
-                if (request.result != UnityWebRequest.Result.Success)
-                {
-                    Debug.LogError(request.error);
-                    yield break;
-                }
-                else if (request.result == UnityWebRequest.Result.Success)
-                {
-                    Error.instance.DisplayError("Success !");
-                }
-            }
-            
-            
-            
-            
             loginCanvas.SetActive(true);
             signupCanvas.SetActive(false);
             error = false;

@@ -8,11 +8,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class Login : MonoBehaviour
 {
     [SerializeField] private LevelData scene;
-    [SerializeField] private TMP_InputField emailInput;
+    [SerializeField] private TMP_InputField usernameInput;
     [SerializeField] private TMP_InputField passwordInput;
 
     public bool logged;
@@ -24,7 +25,7 @@ public class Login : MonoBehaviour
 
     public IEnumerator UserLogin()
     {
-        var data = new { email = emailInput.text, password = passwordInput.text };
+        var data = new { email = usernameInput.text, password = passwordInput.text };
         
         string json = JsonConvert.SerializeObject(data);
         
@@ -48,21 +49,14 @@ public class Login : MonoBehaviour
 
             Debug.Log(request.downloadHandler.text);
             
+            
             var matches = Regex.Matches(request.downloadHandler.text,
-                "\\\"sessionToken\\\":\\\"(.[^,]+)\"}",
+                "\"username\":\"(.[^,]+)\"",
                 RegexOptions.Multiline);
+
+            PlayerData.instance.username = matches[0].Groups[1].ToString();
             
-            Secrets.sessionToken = matches[0].Groups[1].ToString();
-            
-            matches = Regex.Matches(request.downloadHandler.text,
-                "\\\"objectId\\\":\\\"(.[^,]+)\"",
-                RegexOptions.Multiline);
-            
-            Secrets.userObject = matches[0].Groups[1].ToString();
-            
-            Debug.Log("Session token : "+Secrets.sessionToken);
-            Debug.Log("UserId: "+Secrets.userObject);
-            
+
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError(request.error);
@@ -71,8 +65,6 @@ public class Login : MonoBehaviour
             }
 
             SceneManager.LoadScene(scene.name);
-            
-            
         }
     }
 }
