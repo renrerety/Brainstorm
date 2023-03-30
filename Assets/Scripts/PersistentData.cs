@@ -27,8 +27,12 @@ public sealed class BinarySaveFormatter
 {
     public static IEnumerator UploadToDb()
     {
-        Debug.Log("Upload to DB");
-        
+        string saveNameBuffer = "";
+        if (PlayerData.instance.saveName.Length != 0)
+        {
+            saveNameBuffer = PlayerData.instance.saveName;
+        }
+
         using (var request = new UnityWebRequest("https://parseapi.back4app.com/parse/files/Save.data",
                    "POST"))
         {
@@ -36,20 +40,18 @@ public sealed class BinarySaveFormatter
                 Secrets.appId);
             request.SetRequestHeader("X-Parse-REST-API-Key",
                 Secrets.restApi);
+            request.SetRequestHeader("X-Parse-Master-Key",Secrets.masterKey);
+            request.SetRequestHeader("X-Parse-File-Key",Secrets.fileKey);
+            
             request.SetRequestHeader("Content-Type","application/octet-stream");
 
             string path = Application.persistentDataPath + "/Save.data";
-
-            var data = new {saveData = path};
-
-            Debug.Log("Path : "+path);
-
-            //var json = JsonConvert.SerializeObject(data);
             
             request.uploadHandler = new UploadHandlerFile(path);
             request.downloadHandler = new DownloadHandlerBuffer();
             
             yield return request.SendWebRequest();
+
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError(request.error);
@@ -70,7 +72,7 @@ public sealed class BinarySaveFormatter
             Debug.Log(PlayerData.instance.saveName);
         }
         
-        using (var request = new UnityWebRequest("https://parseapi.back4app.com/classes/PlayerProfile/HVBGYBfmNn",
+        using (var request = new UnityWebRequest("https://parseapi.back4app.com/classes/PlayerProfile/"+PlayerData.instance.saveId,
                    "PUT"))
         {
             request.SetRequestHeader("X-Parse-Application-Id",
@@ -94,7 +96,30 @@ public sealed class BinarySaveFormatter
             }
             Debug.Log(request.downloadHandler.text);
         }
-        
+
+        if (saveNameBuffer.Length > 0)
+        {
+            using (var request = new UnityWebRequest(
+                       "https://parseapi.back4app.com/parse/files/"+saveNameBuffer,
+                       "DELETE"))
+            {
+                request.SetRequestHeader("X-Parse-Application-Id",
+                    Secrets.appId);
+                request.SetRequestHeader("X-Parse-REST-API-Key",Secrets.restApi);
+                request.SetRequestHeader("X-Parse-Master-Key",Secrets.masterKey);
+                
+                request.downloadHandler = new DownloadHandlerBuffer();
+            
+                yield return request.SendWebRequest();
+                if (request.result != UnityWebRequest.Result.Success)
+                {
+                    Debug.LogError(request.error);
+                    yield break;
+                }
+                Debug.Log("DELETE");
+                Debug.Log(request.downloadHandler.text);
+            }
+        }
     }
     public static void Deserialize()
     {

@@ -12,6 +12,7 @@ public class PlayerData : MonoBehaviour
     public string username;
     public string saveUrl;
     public string saveName;
+    public string saveId;
     
     private void Awake()
     {

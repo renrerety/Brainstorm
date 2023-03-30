@@ -94,6 +94,7 @@ public class Signup : MonoBehaviour
             }
         }
 
+        //Create PlayerProfile
         if (!error)
         {
             using (var request = new UnityWebRequest("https://parseapi.back4app.com/classes/PlayerProfile",
@@ -129,7 +130,7 @@ public class Signup : MonoBehaviour
                         RegexOptions.Multiline);
                     
                     saveIdBuffer = matches.Groups[1].ToString();
-                    Debug.Log(saveIdBuffer);
+                    PlayerData.instance.saveId = saveIdBuffer;
                 }
             }
             
