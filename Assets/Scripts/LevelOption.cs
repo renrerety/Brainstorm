@@ -30,14 +30,6 @@ public class LevelOption : MonoBehaviour
         {
             desc.text = Localization.Localization.instance.GetString(weapon.translateKey + "LvlDesc");
         }
-        
-        /*foreach (WeaponMaster playerWeapon in _playerWeapons.weapons)
-        {
-            if (weapon.name == playerWeapon.name)
-            {
-                desc.text = playerWeapon.levelUpDesc;
-            }
-        }*/
     }
 
     public void SelectWeapon()

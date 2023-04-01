@@ -36,3 +36,10 @@ main_menu	Main menu	Menu principal	Hauptmenü	Menú principal	Menu principal	主
 go_back	Go back to main menu ?	Revenir au menu principal ?	Zurück zum Hauptmenü ?	¿Volver al menú principal?	Voltar ao menu principal?	返回主菜单?	Вернуться в главное меню?
 yes	Yes	Oui	Ja	Sí	Sim	是的	Да
 no	No	Non	NEIN	No	Não	不	Нет
+login_btn	>Login	>Connexion	>Anmelden	>Acceso	>Conecte-se	>登录	>авторизоваться
+signup_btn	>Signup	>S'inscrire	>Anmeldung	>Inscribirse	>Inscrever-se	>报名	>зарегистрироваться
+guest_btn	>Guest	>Invité	>Gast	>Invitado	>Convidado	>客人	>Гость
+username	Username :	Nom d'utilisateur : 	Nutzername :	Nombre de usuario :	Nome de usuário :	用户名 :	Имя пользователя :
+email	Email :	Email :	Email :	Correo electrónico :	E-mail :	电子邮件 :	Электронная почта :
+password	Password :	Mot de passe :	Passwort :	Contraseña :	Senha :	密码 :	Пароль :
+submit_btn	­>Submit	>Soumettre	>Einreichen	>Entregar	>Enviar	>提交	>Представлять на рассмотрение

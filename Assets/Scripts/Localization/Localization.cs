@@ -16,15 +16,7 @@ namespace Localization
 
         private void Start()
         {
-            string[] text = File.ReadAllLines(path);
             
-
-            foreach (string data in text)
-            {
-                string[] datas = data.Split("	");
-                LanguageData languageData = new LanguageData(datas[0],datas[1] ,datas[2],datas[3],datas[4],datas[5],datas[6],datas[7]);
-                strings.Add(datas[0],languageData);
-            }
         }
         private void Awake()
         {
@@ -35,6 +27,16 @@ namespace Localization
             else if (instance == null)
             {
                 instance = this;
+            }
+            
+            string[] text = File.ReadAllLines(path);
+            
+
+            foreach (string data in text)
+            {
+                string[] datas = data.Split("	");
+                LanguageData languageData = new LanguageData(datas[0],datas[1] ,datas[2],datas[3],datas[4],datas[5],datas[6],datas[7]);
+                strings.Add(datas[0],languageData);
             }
         }
         public string GetString(string stringKey)

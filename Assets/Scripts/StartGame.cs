@@ -41,8 +41,8 @@ public class StartGame : MonoBehaviour
                 operation.allowSceneActivation = true;
                 yield return new WaitForEndOfFrame();
                 loadingProgress.gameObject.SetActive(false);
+                GameObject.Find("Music").GetComponent<AudioSource>().Stop();
             }
-
             yield return null;
         }
     }
