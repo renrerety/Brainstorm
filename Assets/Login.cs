@@ -17,8 +17,6 @@ public class Login : MonoBehaviour
     [SerializeField] private TMP_InputField usernameInput;
     [SerializeField] private TMP_InputField passwordInput;
 
-    public bool logged;
-
     public void Submit()
     {
         StartCoroutine(UserLogin());
@@ -131,6 +129,7 @@ public class Login : MonoBehaviour
         }
         
         BinarySaveFormatter.Deserialize();
+        PlayerData.instance.logged = true;
         SceneManager.LoadScene(scene.name);
     }
 }

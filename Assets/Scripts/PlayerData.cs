@@ -8,7 +8,7 @@ public class PlayerData : MonoBehaviour
     public static PlayerData instance;
 
     public PersistentData persistentData;
-    //public string email;
+    public bool logged;
     public string username;
     public string saveUrl;
     public string saveName;
