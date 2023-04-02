@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af79eec0989ba434fb9aeaf42d7acacb, type: 3}
   m_Name: ThrowingKnifeWeapon
   m_EditorClassIdentifier: 
-  translateKey: throwingknife
+  translateKey: throwingKnife
   _enemySpawner: {fileID: 0}
   _playerWeapons: {fileID: 0}
   playerTransform: {fileID: 0}

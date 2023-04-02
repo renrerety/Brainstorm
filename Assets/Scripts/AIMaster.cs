@@ -13,6 +13,7 @@ using Random = UnityEngine.Random;
 
 public class AIMaster : MonoBehaviour
 {
+
     public EnemyDifficulty enemyDifficulty;
     public EnemyType enemyType;
 

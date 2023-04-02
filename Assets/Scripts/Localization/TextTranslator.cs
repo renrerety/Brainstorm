@@ -18,12 +18,14 @@ namespace Localization
 
         private void OnEnable()
         {
-            text.text = Localization.instance.GetString(key);
+            string txt = Localization.instance.GetString(key);
+            text.text = txt;
         }
 
         public void Translate()
         {
-            text.text = Localization.instance.GetString(key);
+            string txt = Localization.instance.GetString(key);
+            text.text = txt;
         }
     }
 }

@@ -24,11 +24,14 @@ public class LevelOption : MonoBehaviour
 
         name.text = Localization.Localization.instance.GetString(weapon.translateKey);
         desc.text = Localization.Localization.instance.GetString(weapon.translateKey+"Desc");
+        
+        
 
 
         if (_playerWeapons.FindWeapon(weapon.name))
         {
             desc.text = Localization.Localization.instance.GetString(weapon.translateKey + "LvlDesc");
+            Debug.Log(desc.text);
         }
     }
 

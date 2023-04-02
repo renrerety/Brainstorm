@@ -31,10 +31,17 @@ namespace Localization
             
             string[] text = File.ReadAllLines(path);
             
-
             foreach (string data in text)
             {
                 string[] datas = data.Split("	");
+
+                for (int i = 0; i < datas.Length - 1; i++)
+                {
+                    string oldString = datas[i];
+                    string newString = oldString.Replace('|', '\n');
+                    
+                    datas[i] = newString;
+                }
                 LanguageData languageData = new LanguageData(datas[0],datas[1] ,datas[2],datas[3],datas[4],datas[5],datas[6],datas[7]);
                 strings.Add(datas[0],languageData);
             }
