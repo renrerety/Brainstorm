@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350912565b7a10745bf7135518a1e206, type: 3}
   m_Name: LightningRodWeapon
   m_EditorClassIdentifier: 
-  translateKey: lightningwand
+  translateKey: lightningWand
   _enemySpawner: {fileID: 0}
   _playerWeapons: {fileID: 0}
   playerTransform: {fileID: 0}

@@ -9,6 +9,7 @@ namespace Localization
     {
         [SerializeField] public string key;
          public Text text;
+         private bool started = false;
 
         private void Awake()
         {
@@ -16,10 +17,20 @@ namespace Localization
             //text.text = Localization.instance.GetString(key);
         }
 
-        private void OnEnable()
+        private void Start()
         {
             string txt = Localization.instance.GetString(key);
             text.text = txt;
+            started = true;
+        }
+
+        private void OnEnable()
+        {
+            if (started)
+            {
+                string txt = Localization.instance.GetString(key);
+                text.text = txt;
+            }
         }
 
         public void Translate()

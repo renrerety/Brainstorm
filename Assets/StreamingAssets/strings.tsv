@@ -18,9 +18,9 @@ fireballLvlDesc	+Cooldown Reduced|+Additional projectile	+Temps de recharge réd
 lasergun	Laser Gun	Pistolet laser	Laserpistole	Pistola laser	Arma a laser	激光枪	Лазерная пушка
 lasergunDesc	Fire rapidly at closest enemy	Tire rapidement sur l'ennemi le plus proche	Feuere schnell auf den nächsten Feind	Dispara rápidamente al enemigo más cercano	Atire rapidamente no inimigo mais próximo	快速向最近的敌人开火	Быстрый огонь по ближайшему врагу
 lasergunLvlDesc	+Cooldown Reduced|+Additional projectile|+Damage up	+Temps de recharge réduit|+ Projectile supplémentaire|+ Dégâts en hausse	+ Abklingzeit reduziert|+Zusätzliches Projektil|+Schaden auf	+Enfriamiento reducido|+Proyectil adicional|+Daño arriba	+Resfriamento reduzido|+Projétil adicional|+Danos	+冷却时间减少\n+附加弹丸\n+伤害上升	+Перезарядка уменьшена|+Дополнительный снаряд|+Увеличение урона
-lightningwand	Lightning Wand	Baguette éclair	Blitzstab	Varita relámpago	Varinha de Relâmpago	闪电魔杖	Жезл молнии
-lightningwandDesc	Strike at random enemy	Frappe un ennemi aléatoire	Schlagen Sie auf einen zufälligen Feind zu	Golpea a un enemigo al azar	Golpeie um inimigo aleatório	随机攻击敌人	Удар по случайному врагу
-lightningwandLvlDesc	+Bigger area|+Cooldown reduced|+Additionnal projectile	+Zone plus grande|+ Temps de recharge réduit|+Projectile supplémentaire	+ Größere Fläche|+ Abklingzeit reduziert|+Zusätzliches Projektil	+Área más grande|+Enfriamiento reducido|+Proyectil adicional	+Área maior|+Resfriamento reduzido|+Projétil adicional	+更大的面积|+冷却时间减少|+附加弹丸	+Большая площадь|+Перезарядка уменьшена|+Дополнительный снаряд
+lightningWand	Lightning Wand	Baguette éclair	Blitzstab	Varita relámpago	Varinha de Relâmpago	闪电魔杖	Жезл молнии
+lightningWandDesc	Strike at random enemy	Frappe un ennemi aléatoire	Schlagen Sie auf einen zufälligen Feind zu	Golpea a un enemigo al azar	Golpeie um inimigo aleatório	随机攻击敌人	Удар по случайному врагу
+lightningWandLvlDesc	+Bigger area|+Cooldown reduced|+Additionnal projectile	+Zone plus grande|+ Temps de recharge réduit|+Projectile supplémentaire	+ Größere Fläche|+ Abklingzeit reduziert|+Zusätzliches Projektil	+Área más grande|+Enfriamiento reducido|+Proyectil adicional	+Área maior|+Resfriamento reduzido|+Projétil adicional	+更大的面积|+冷却时间减少|+附加弹丸	+Большая площадь|+Перезарядка уменьшена|+Дополнительный снаряд
 shield	Shield	Bouclier	Schild	Blindaje	Escudo	盾	Щит
 shieldDesc	Negate damage while active	Annule les dégâts tant qu'il est actif	Negiert Schaden, während es aktiv ist	Niega daño mientras está activo	Nega dano enquanto ativo	激活时抵消伤害	Отражение урона во время действия
 shieldLvlDesc	+Cooldown Reduced|+Longer duration	+Temps de recharge réduit|+Durée plus longue	+Abklingzeit reduziert|+Längere Dauer	+Enfriamiento reducido|+Mayor duración	+Resfriamento reduzido|+ Duração mais longa	+冷却时间减少|+持续时间更长	+Перезарядка уменьшена|+Большая продолжительность
@@ -43,4 +43,3 @@ username	Username :	Nom d'utilisateur : 	Nutzername :	Nombre de usuario :	Nome d
 email	Email :	Email :	Email :	Correo electrónico :	E-mail :	电子邮件 :	Электронная почта :
 password	Password :	Mot de passe :	Passwort :	Contraseña :	Senha :	密码 :	Пароль :
 submit_btn	­>Submit	>Soumettre	>Einreichen	>Entregar	>Enviar	>提交	>Представлять на рассмотрение
-back_btn	>Back	>Retour	>Zurück	>Atrás	>Voltar	>后退	>Назад
