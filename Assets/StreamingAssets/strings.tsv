@@ -46,3 +46,6 @@ submit_btn	­>Submit	>Soumettre	>Einreichen	>Entregar	>Enviar	>提交	>Пред�
 promo_btn	>Promo code	>Code promo	>Aktionscode	>Código promocional	>Código promocional	>促销代码	>Промо-код
 check_btn	>Check	>Vérifier	>Überprüfen	>Controlar	>Verificar	>查看	>Проверять
 enter_promo	Enter promo code...	Saisir le code promotionnel...	Aktionscode eingeben...	Introduce el código de promoción...	Insira o código promocional...	输入促销代码...	Введите промо-код...
+invalid_promo	The code is invalid	Le code est invalide	Der Code ist ungültig	El código no es válido	O código é inválido	代码无效	Код недействителен
+used_promo	The code has already been used	Le code a déjà été utilisé	Der Code wurde bereits verwendet	El código ya ha sido utilizado.	O código já foi usado	该代码已被使用	Код уже использован
+valid_promo	Successful	Réussi	Erfolgreich	Exitoso	Bem-sucedido	成功的	Успешный
