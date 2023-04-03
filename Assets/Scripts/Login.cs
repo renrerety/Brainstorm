@@ -54,9 +54,11 @@ public class Login : MonoBehaviour
                 "\"username\":\"(.[^,]+)\"",
                 RegexOptions.Multiline);
             var saveIdMatch = Regex.Match(request.downloadHandler.text, "\"saveId\":\"(.[^,]+)\"");
+            
 
             PlayerData.instance.username = matches[0].Groups[1].ToString();
             PlayerData.instance.saveId = saveIdMatch.Groups[1].ToString();
+            
 
             if (request.result != UnityWebRequest.Result.Success)
             {
@@ -88,9 +90,11 @@ public class Login : MonoBehaviour
             var nameMatch = Regex.Match(request.downloadHandler.text,
                 "\"saveName\":\"(.[^,]+)\"",
                 RegexOptions.Multiline);
+            var profileIdMatch = Regex.Match(request.downloadHandler.text, "\"objectId\":\"(.[^,]+)\"");
 
             PlayerData.instance.saveUrl = urlMatch.Groups[1].ToString();
             PlayerData.instance.saveName = nameMatch.Groups[1].ToString();
+            PlayerData.instance.profileId = profileIdMatch.Groups[1].ToString();
             
             if (request.result != UnityWebRequest.Result.Success)
             {

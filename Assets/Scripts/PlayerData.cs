@@ -13,6 +13,7 @@ public class PlayerData : MonoBehaviour
     public string saveUrl;
     public string saveName;
     public string saveId;
+    public string profileId;
     
     private void Awake()
     {
