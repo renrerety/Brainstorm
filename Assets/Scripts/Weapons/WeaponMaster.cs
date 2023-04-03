@@ -31,8 +31,9 @@ public abstract class WeaponMaster : ScriptableObject
     public abstract void Attack();
     public abstract void LevelUp();
 
-    public void Init(GameObject weaponObj,float delay,float duration, float cooldown,int damage,int attackAmount,int maxHit,string name,string desc,string levelUpDesc,Sprite image)
+    public void Init(string translateKey,GameObject weaponObj,float delay,float duration, float cooldown,int damage,int attackAmount,int maxHit,string name,string desc,string levelUpDesc,Sprite image)
     {
+        this.translateKey = translateKey;
         this.weaponObj = weaponObj;
         this.delay = delay;
         this.duration = duration;

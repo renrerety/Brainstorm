@@ -76,7 +76,7 @@ public class PlayerWeapons : MonoBehaviour
             case "Shield":
                 weaponInst = ScriptableObject.CreateInstance<ShieldWeapon>();
                 break;
-            case "Lightning Rod":
+            case "Lightning Wand":
                 weaponInst = ScriptableObject.CreateInstance<LightningRodWeapon>();
                 (weaponInst as LightningRodWeapon)._lightningPool = _lightningPool;
                 break;
@@ -90,7 +90,7 @@ public class PlayerWeapons : MonoBehaviour
         }
         weaponInst._playerWeapons = this;
         weaponInst._enemySpawner = _enemySpawner;
-        weaponInst.Init(weaponRef.weaponObj,weaponRef.delay,weaponRef.duration,weaponRef.cooldown,weaponRef.damage,weaponRef.attackAmount,weaponRef.maxHit,weaponRef.name,weaponRef.desc,weaponRef.levelUpDesc,weaponRef.image);
+        weaponInst.Init(weaponRef.translateKey,weaponRef.weaponObj,weaponRef.delay,weaponRef.duration,weaponRef.cooldown,weaponRef.damage,weaponRef.attackAmount,weaponRef.maxHit,weaponRef.name,weaponRef.desc,weaponRef.levelUpDesc,weaponRef.image);
         
         
         weaponInst.timer = weaponInst.cooldown;
