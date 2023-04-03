@@ -7,6 +7,7 @@ namespace Localization
 {
     public class TextTranslator : MonoBehaviour
     {
+        [SerializeField] public bool translateAtStart = true;
         [SerializeField] public string key;
          public Text text;
          private bool started = false;
@@ -19,9 +20,12 @@ namespace Localization
 
         private void Start()
         {
-            string txt = Localization.instance.GetString(key);
-            text.text = txt;
-            started = true;
+            if (translateAtStart)
+            {
+                string txt = Localization.instance.GetString(key);
+                text.text = txt;
+                started = true;
+            }
         }
 
         private void OnEnable()
