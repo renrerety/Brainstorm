@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -48,6 +49,10 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
         
         BinarySaveFormatter.Serialize(PlayerData.instance.persistentData.gold,PlayerData.instance.persistentData.kills);
         
+        if (PlayerData.instance.logged)
+        {
+            StartCoroutine(BinarySaveFormatter.UploadToDb());
+        }
     }
     
     
