@@ -8778,7 +8778,7 @@ GameObject:
   - component: {fileID: 2095200836}
   - component: {fileID: 2095200841}
   - component: {fileID: 2095200843}
-  - component: {fileID: 2095200840}
+  - component: {fileID: 2095200844}
   m_Layer: 5
   m_Name: PersistentCanvas
   m_TagString: Untagged
@@ -8870,18 +8870,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
---- !u!114 &2095200840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2095200834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c4ee68289e03854ca3afab850c5fd7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &2095200841
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8993,6 +8981,18 @@ MonoBehaviour:
   scene: {fileID: 11400000, guid: 27d019123fceaf74a8bce1c9693f419c, type: 2}
   loadingProgress: {fileID: 985058429}
   loadingSpeed: 0.9
+--- !u!114 &2095200844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095200834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533513e302c63f74c9432a79143ff986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2135700090
 GameObject:
   m_ObjectHideFlags: 0
