@@ -11,6 +11,6 @@ public class GameOver : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1;
-        MenuManager.instance.BackToMainMenu();
+        PopupManager.instance.BackToMainMenu();
     }
 }

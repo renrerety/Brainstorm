@@ -26,41 +26,6 @@ public class MenuManager : MonoBehaviour
             instance = this;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Title" && !confirmationPrompt.activeSelf)
-        {
-            TogglePopupMenu();
-        }
-    }
-    public void TogglePopupMenu()
-    {
-        GameOver gameOver = FindObjectOfType<GameOver>();
-        if (gameOver == null || !gameOver.gameOver)
-        {
-            if (popupMenu.activeSelf)
-            {
-                popupMenu.SetActive(false);
-                Time.timeScale = 1;
-            }
-            else
-            {
-                popupMenu.SetActive(true);
-                Time.timeScale = 0;
-                if (SceneManager.GetActiveScene().name != "Title")
-                {
-                    back_button.gameObject.SetActive(true);
-                }
-                else
-                {
-                    back_button.gameObject.SetActive(false);
-                }
-            }
-        }
-        
-    }
     public void ToggleMainMenu()
     {
         if (mainMenu.activeSelf)
@@ -95,11 +60,6 @@ public class MenuManager : MonoBehaviour
         {
             confirmationPrompt.SetActive(true);
         }
-    }
-    public void BackToMainMenu()
-    {
-        SceneManager.LoadScene("Title");
-        ToggleMainMenu();
     }
     public void Exit()
     {
