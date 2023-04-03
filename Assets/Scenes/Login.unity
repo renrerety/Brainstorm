@@ -639,6 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: back_btn
   text: {fileID: 0}
 --- !u!114 &111856756
@@ -1166,6 +1167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: username
   text: {fileID: 0}
 --- !u!1 &244286317
@@ -2161,6 +2163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: signup_btn
   text: {fileID: 0}
 --- !u!114 &397939878
@@ -2452,6 +2455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: back_btn
   text: {fileID: 0}
 --- !u!114 &461316724
@@ -3763,6 +3767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: sfx_vol
   text: {fileID: 0}
 --- !u!114 &884117835
@@ -4348,6 +4353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: music_vol
   text: {fileID: 0}
 --- !u!114 &972020411
@@ -4591,7 +4597,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1038319994}
   - component: {fileID: 1038319993}
-  - component: {fileID: 1038319992}
   - component: {fileID: 1038319991}
   m_Layer: 0
   m_Name: ButtonSound
@@ -4696,18 +4701,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1038319992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038319990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c4ee68289e03854ca3afab850c5fd7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1038319993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5086,6 +5079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: email
   text: {fileID: 0}
 --- !u!1 &1175074264
@@ -5642,6 +5636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: submit_btn
   text: {fileID: 0}
 --- !u!114 &1245701936
@@ -6045,6 +6040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: submit_btn
   text: {fileID: 0}
 --- !u!114 &1301418857
@@ -6312,6 +6308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: email
   text: {fileID: 0}
 --- !u!114 &1313039231
@@ -6421,6 +6418,7 @@ MonoBehaviour:
   saveUrl: 
   saveName: 
   saveId: 
+  profileId: 
 --- !u!4 &1316536417
 Transform:
   m_ObjectHideFlags: 0
@@ -6545,6 +6543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: password
   text: {fileID: 0}
 --- !u!1 &1377146984
@@ -6676,6 +6675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: login_btn
   text: {fileID: 0}
 --- !u!114 &1395553614
@@ -6987,6 +6987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: language
   text: {fileID: 0}
 --- !u!114 &1448918383
@@ -7692,6 +7693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: play_btn
   text: {fileID: 0}
 --- !u!114 &1595326209
@@ -7983,6 +7985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: guest_btn
   text: {fileID: 0}
 --- !u!114 &1631786591
@@ -8850,6 +8853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: main_vol
   text: {fileID: 0}
 --- !u!114 &1802759172
@@ -8993,6 +8997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: options_btn
   text: {fileID: 0}
 --- !u!114 &1817331441
@@ -9522,6 +9527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: password
   text: {fileID: 0}
 --- !u!114 &1922200319
@@ -10129,6 +10135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: back_btn
   text: {fileID: 0}
 --- !u!114 &2097253058
