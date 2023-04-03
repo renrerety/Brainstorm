@@ -43,3 +43,6 @@ username	Username :	Nom d'utilisateur : 	Nutzername :	Nombre de usuario :	Nome d
 email	Email :	Email :	Email :	Correo electrónico :	E-mail :	电子邮件 :	Электронная почта :
 password	Password :	Mot de passe :	Passwort :	Contraseña :	Senha :	密码 :	Пароль :
 submit_btn	­>Submit	>Soumettre	>Einreichen	>Entregar	>Enviar	>提交	>Представлять на рассмотрение
+promo_btn	>Promo code	>Code promo	>Aktionscode	>Código promocional	>Código promocional	>促销代码	>Промо-код
+check_btn	>Check	>Vérifier	>Überprüfen	>Controlar	>Verificar	>查看	>Проверять
+enter_promo	Enter promo code...	Saisir le code promotionnel...	Aktionscode eingeben...	Introduce el código de promoción...	Insira o código promocional...	输入促销代码...	Введите промо-код...
