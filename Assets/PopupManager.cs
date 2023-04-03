@@ -50,12 +50,17 @@ public class PopupManager : MonoBehaviour
             }
         }
     }
-    public void BackToMainMenu()
+    private IEnumerator BackToMainMenu()
     {
         confirmationPrompt.SetActive(false);
         SceneManager.LoadScene("Title");
-        GameObject musicObj = GameObject.Instantiate(music);
-        musicObj.gameObject.name = "Music";
+        yield return new WaitForEndOfFrame();
+        GameObject.Find("Music").GetComponent<AudioSource>().Play();
         Time.timeScale = 1;
+    }
+
+    public void ReturnToMainMenu()
+    {
+        StartCoroutine(BackToMainMenu());
     }
 }
