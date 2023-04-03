@@ -56,5 +56,6 @@ public class PopupManager : MonoBehaviour
         SceneManager.LoadScene("Title");
         GameObject musicObj = GameObject.Instantiate(music);
         musicObj.gameObject.name = "Music";
+        Time.timeScale = 1;
     }
 }

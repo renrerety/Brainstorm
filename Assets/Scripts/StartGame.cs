@@ -14,25 +14,23 @@ public class StartGame : MonoBehaviour
     private float progressValue;
     public void LoadGame()
     {
-        StartCoroutine(LoadSyncAsync());
         loadingProgress.gameObject.SetActive(true);
         MenuManager.instance.ToggleMainMenu();
+        StartCoroutine(LoadSyncAsync());
     }
 
     private float t;
+    private AsyncOperation operation;
     IEnumerator LoadSyncAsync()
     {
         t = 0;
         loadingProgress.value = 0;
         
-        AsyncOperation operation = SceneManager.LoadSceneAsync(scene.name);
+        operation = SceneManager.LoadSceneAsync(scene.name,LoadSceneMode.Single);
         operation.allowSceneActivation = false;
-        
-        
-        while (loadingProgress.value != 1)
+
+        while (operation.progress <= 1)
         {
-            progressValue = Mathf.Clamp01(operation.progress / 0.9f);
-            
             t += Time.deltaTime;
             loadingProgress.value = Mathf.Lerp(0, 1, t);
             
@@ -42,6 +40,7 @@ public class StartGame : MonoBehaviour
                 yield return new WaitForEndOfFrame();
                 loadingProgress.gameObject.SetActive(false);
                 GameObject.Find("Music").GetComponent<AudioSource>().Stop();
+                loadingProgress.value = 0;
             }
             yield return null;
         }
