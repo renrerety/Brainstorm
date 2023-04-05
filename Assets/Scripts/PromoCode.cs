@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Text.RegularExpressions;
 using Localization;
@@ -205,7 +206,13 @@ public class PromoCode : MonoBehaviour
             switch (userType)
             { 
                     
-                case "Gold": //TODO : Give gold
+                case "Gold":
+                    PlayerData.instance.persistentData.gold += 50000;
+                    int gold = PlayerData.instance.persistentData.gold;
+                    int kills = PlayerData.instance.persistentData.kills;
+                    BinarySaveFormatter.Serialize(gold,kills);
+                    StartCoroutine(BinarySaveFormatter.UploadToDb());
+                    LoadPlayerData.instance.UpdateDisplay();
                     break;
                 case "Skin": //TODO : Give exclusive skin access
                     break;
