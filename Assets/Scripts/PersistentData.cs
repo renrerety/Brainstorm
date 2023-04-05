@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 [Serializable]
 public class PersistentData
@@ -121,6 +122,7 @@ public sealed class BinarySaveFormatter
             }
         }
     }
+    
     public static void Deserialize()
     {
         PersistentData data  = null;

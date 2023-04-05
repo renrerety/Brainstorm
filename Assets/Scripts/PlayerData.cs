@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerData : MonoBehaviour
 {
     public static PlayerData instance;
+
+    [SerializeField] private Text goldText;
 
     public PersistentData persistentData;
     public bool logged;
@@ -32,8 +35,8 @@ public class PlayerData : MonoBehaviour
         BinarySaveFormatter.Deserialize();
     }
 
-    /*private void Start()
+    private void Start()
     {
-        Debug.Log("gold : "+gold+"Kill : "+kills);
-    }*/
+        goldText.text = persistentData.gold.ToString();
+    }
 }

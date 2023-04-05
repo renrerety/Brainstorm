@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Promo_btn : MonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
         if (PlayerData.instance.logged == false)
         {

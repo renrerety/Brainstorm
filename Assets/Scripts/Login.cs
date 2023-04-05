@@ -115,7 +115,7 @@ public class Login : MonoBehaviour
 
                 string path = Path.Combine(Application.persistentDataPath, "Save.data");
 
-                request.downloadHandler = new DownloadHandlerFile(path,true);
+                request.downloadHandler = new DownloadHandlerFile(path,false);
 
                 yield return request.SendWebRequest();
             
@@ -130,9 +130,9 @@ public class Login : MonoBehaviour
         else if (PlayerData.instance.saveUrl.Length == 0)
         {
             BinarySaveFormatter.Serialize(0,0);
+            Debug.Log("Save url leght is 0");
         }
         
-        BinarySaveFormatter.Deserialize();
         PlayerData.instance.logged = true;
         SceneManager.LoadScene(scene.name);
     }
