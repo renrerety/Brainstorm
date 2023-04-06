@@ -128,63 +128,68 @@ public sealed class BinarySaveFormatter
     
     public static void Deserialize()
     {
-        PersistentData data  = null;
+        if (PlayerData.instance.logged)
+        {
+            PersistentData data  = null;
 
-        // Open the file containing the data that you want to deserialize.
-        FileStream fs = new FileStream(Path.Combine(Application.persistentDataPath,"Save.data"), FileMode.Open);
-        try
-        {
-            BinaryFormatter saveFormatter = new BinaryFormatter();
+            // Open the file containing the data that you want to deserialize.
+            FileStream fs = new FileStream(Path.Combine(Application.persistentDataPath,"Save.data"), FileMode.Open);
+            try
+            {
+                BinaryFormatter saveFormatter = new BinaryFormatter();
 
-            // Deserialize the hashtable from the file and
-            // assign the reference to the local variable.
-            data = (PersistentData) saveFormatter.Deserialize(fs);
-        }
-        catch (SerializationException e)
-        {
-            Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
-            throw;
-        }
-        finally
-        {
-            fs.Close();
-        }
+                // Deserialize the hashtable from the file and
+                // assign the reference to the local variable.
+                data = (PersistentData) saveFormatter.Deserialize(fs);
+            }
+            catch (SerializationException e)
+            {
+                Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
         
-        Debug.Log("Deserialized data :" +data.gold+" "+ data.kills);
-        PlayerData.instance.persistentData = data;
-        PlayerData.instance.persistentData.upgrades = data.upgrades;
-        
-        Serialize();
+            Debug.Log("Deserialized data :" +data.gold+" "+ data.kills);
+            PlayerData.instance.persistentData = data;
+            PlayerData.instance.persistentData.upgrades = data.upgrades;
+            
+        }
     }
 
     public static void Serialize()
     {
-        var data = new PersistentData(PlayerData.instance.persistentData.gold, PlayerData.instance.persistentData.kills, new PlayerUpgrades
+        if (PlayerData.instance.logged)
+        {
+            var data = new PersistentData(PlayerData.instance.persistentData.gold, PlayerData.instance.persistentData.kills, new PlayerUpgrades
             (PlayerData.instance.persistentData.upgrades.hpUp,
-            PlayerData.instance.persistentData.upgrades.damageUp,
-            PlayerData.instance.persistentData.upgrades.speedUp,
-            PlayerData.instance.persistentData.upgrades.speedUp));
+                PlayerData.instance.persistentData.upgrades.damageUp,
+                PlayerData.instance.persistentData.upgrades.speedUp,
+                PlayerData.instance.persistentData.upgrades.speedUp));
         
-        // To serialize the hashtable and its key/value pairs,
-        // you must first open a stream for writing.
-        // In this case, use a file stream.
-        FileStream fs = new FileStream(Path.Combine(Application.persistentDataPath,"Save.data"), FileMode.Create);
+            // To serialize the hashtable and its key/value pairs,
+            // you must first open a stream for writing.
+            // In this case, use a file stream.
+            FileStream fs = new FileStream(Path.Combine(Application.persistentDataPath,"Save.data"), FileMode.Create);
 
-        // Construct a BinaryFormatter and use it to serialize the data to the stream.
-        BinaryFormatter saveFormatter = new BinaryFormatter();
-        try
-        {
-            saveFormatter.Serialize(fs, data);
+            // Construct a BinaryFormatter and use it to serialize the data to the stream.
+            BinaryFormatter saveFormatter = new BinaryFormatter();
+            try
+            {
+                saveFormatter.Serialize(fs, data);
+            }
+            catch (SerializationException e)
+            {
+                Console.WriteLine("Failed to serialize. Reason: " + e.Message);
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
+            Debug.Log("Serialized data :" +data.gold+" " +data.kills);
         }
-        catch (SerializationException e)
-        {
-            Console.WriteLine("Failed to serialize. Reason: " + e.Message);
-            throw;
-        }
-        finally
-        {
-            fs.Close();
-        }
-        Debug.Log("Serialized data :" +data.gold+" " +data.kills);
     }
 }
