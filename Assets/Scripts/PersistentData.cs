@@ -17,10 +17,13 @@ public class PersistentData
     public int gold;
     public int kills;
 
-    public PersistentData(int gold, int kills)
+    public PlayerUpgrades upgrades;
+
+    public PersistentData(int gold, int kills, PlayerUpgrades upgrades)
     {
         this.gold = gold;
         this.kills = kills;
+        this.upgrades = upgrades;
     }
 }
 
@@ -153,7 +156,7 @@ public sealed class BinarySaveFormatter
 
     public static void Serialize(int gold, int kills)
     {
-        var data = new PersistentData(gold,kills);
+        var data = new PersistentData(gold, kills, PlayerUpgrades.instance);
         
         // To serialize the hashtable and its key/value pairs,
         // you must first open a stream for writing.

@@ -51,3 +51,8 @@ used_promo	The code has already been used	Le code a déjà été utilisé	Der Co
 valid_promo	Successful	Réussi	Erfolgreich	Exitoso	Bem-sucedido	成功的	Успешный
 error	Error	Erreur	Fehler	Error	Erro	错误	Ошибка
 duplicate_promo	You can only redeem one code of each type	Vous ne pouvez échanger qu'un seul code de chaque type	Sie können nur einen Code jeder Art einlösen	Solo puedes canjear un código de cada tipo	Você só pode resgatar um código de cada tipo	每种类型只能兑换一个代码	Вы можете использовать только один код каждого типа
+shop_btn	>Shop	>Boutique	>Geschäft	>Comercio	>Comprar	>店铺	>магазин
+hpUp	Health upgrade : 	Amélioration de la santé :	Gesundheits-Upgrade : 	Mejora de salud : 	Atualização de saúde : 	健康升级 : 	Обновление здоровья : 
+damageUp	Damage upgrade : 	Amélioration des dégâts :	Schadens-Upgrade : 	Actualización de daños : 	Atualização de dano : 	伤害升级 : 	Повышение урона : 
+speedUp	Speed upgrade : 	Amélioration de la vitesse :	Geschwindigkeits-Upgrade : 	Mejora de velocidad : 	Atualização de velocidade : 	速度升级 : 	Повышение скорости : 
+xpUp	EXP upgrade : 	Amélioration de l'EXP :	EXP-Upgrade : 	Actualización de experiencia : 	Atualização de EXP : 	经验升级 : 	Обновление опыта : 
