@@ -7,9 +7,7 @@ using UnityEngine.UI;
 public class PlayerData : MonoBehaviour
 {
     public static PlayerData instance;
-
-    [SerializeField] private Text goldText;
-
+    
     public PersistentData persistentData;
     public bool logged;
     public string username;
@@ -33,10 +31,5 @@ public class PlayerData : MonoBehaviour
     public void LoadPlayerData()
     {
         BinarySaveFormatter.Deserialize();
-    }
-
-    private void Start()
-    {
-        goldText.text = persistentData.gold.ToString();
     }
 }

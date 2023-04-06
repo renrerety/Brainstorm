@@ -33,50 +33,67 @@ public class Shop : MonoBehaviour
         switch (upgrade)
         {
             case "health":
-                if (hpUp < 5)
+                if (PlayerData.instance.persistentData.gold >= hpPrice)
                 {
-                    hpUp = Mathf.Clamp(++hpUp, 0, 5);
-                    hpPrice *= 2;
-                    hpPriceTxt.text = hpPrice.ToString();
-                    if (hpUp == 5)
+                    if (hpUp < 5)
                     {
-                        hpPriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
+                        PlayerData.instance.persistentData.gold -= hpPrice;
+                        hpUp = Mathf.Clamp(++hpUp, 0, 5);
+                        hpPrice *= 2;
+                        hpPriceTxt.text = hpPrice.ToString();
+                        if (hpUp == 5)
+                        {
+                            hpPriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
+                        }
                     }
                 }
                 break;
             case "damage":
-                if (damageUp < 5)
+                if (PlayerData.instance.persistentData.gold >= damagePrice)
                 {
-                    damageUp = Mathf.Clamp(++damageUp, 0, 5);
-                    damagePrice *= 2;
-                    damagePriceTxt.text = damagePrice.ToString();
-                    if (damageUp == 5)
+                    if (damageUp < 5)
                     {
-                        damagePriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
+                        PlayerData.instance.persistentData.gold -= damagePrice;
+                        damageUp = Mathf.Clamp(++damageUp, 0, 5);
+                        damagePrice *= 2;
+                        damagePriceTxt.text = damagePrice.ToString();
+                        if (damageUp == 5)
+                        {
+                            damagePriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
+                        }
                     }
                 }
                 break;
             case "speed":
-                if (speedUp < 5)
+                if (PlayerData.instance.persistentData.gold > speedPrice)
                 {
-                    speedUp = Mathf.Clamp(++speedUp, 0, 5);
-                    speedPrice *= 2;
-                    speedPriceTxt.text = speedPrice.ToString();
-                    if (speedUp == 5)
+                    if (speedUp < 5)
                     {
-                        speedPriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
+                        PlayerData.instance.persistentData.gold -= speedPrice;
+                        speedUp = Mathf.Clamp(++speedUp, 0, 5);
+                        speedPrice *= 2;
+                        speedPriceTxt.text = speedPrice.ToString();
+                        if (speedUp == 5)
+                        {
+                            speedPriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
+                        }
                     }
                 }
                 break;
             case "xp":
-                if (xpUp < 5)
+                if (PlayerData.instance.persistentData.gold > xpPrice)
                 {
-                    xpUp = Mathf.Clamp(++xpUp, 0, 5);
-                    xpPrice *= 2;
-                    xpPriceTxt.text = xpPrice.ToString();
-                    if (xpUp == 5)
+                    if (xpUp < 5)
                     {
-                        xpPriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
+                        PlayerData.instance.persistentData.gold -= xpPrice;
+                        xpUp = Mathf.Clamp(++xpUp, 0, 5);
+                        xpPrice *= 2;
+                        xpPriceTxt.text = xpPrice.ToString();
+                        if (xpUp == 5)
+                        {
+                            xpPriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
+                        }
+                        
                     }
                 }
                 break;
@@ -95,6 +112,7 @@ public class Shop : MonoBehaviour
                     hpPriceTxt.gameObject.transform.parent.gameObject.SetActive(true);
                     hpUp = Mathf.Clamp(--hpUp, 0, 5);
                     hpPrice /= 2;
+                    PlayerData.instance.persistentData.gold += hpPrice;
                     hpPriceTxt.text = hpPrice.ToString();
                 }
                 break;
@@ -104,6 +122,7 @@ public class Shop : MonoBehaviour
                     damagePriceTxt.gameObject.transform.parent.gameObject.SetActive(true);
                     damageUp = Mathf.Clamp(--damageUp, 0, 5);
                     damagePrice /= 2;
+                    PlayerData.instance.persistentData.gold += damagePrice;
                     damagePriceTxt.text = damagePrice.ToString();
                 }
                 break;
@@ -113,6 +132,7 @@ public class Shop : MonoBehaviour
                     speedPriceTxt.gameObject.transform.parent.gameObject.SetActive(true);
                     speedUp = Mathf.Clamp(--speedUp, 0, 5);
                     speedPrice /= 2;
+                    PlayerData.instance.persistentData.gold += speedPrice;
                     speedPriceTxt.text = speedPrice.ToString();
                 }
                 break;
@@ -122,6 +142,7 @@ public class Shop : MonoBehaviour
                     xpPriceTxt.gameObject.transform.parent.gameObject.SetActive(true);
                     xpUp = Mathf.Clamp(--xpUp, 0, 5);
                     xpPrice /= 2;
+                    PlayerData.instance.persistentData.gold += xpPrice;
                     xpPriceTxt.text = xpPrice.ToString();
                 }
                 break;

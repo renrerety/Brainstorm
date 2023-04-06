@@ -32,5 +32,7 @@ public class PlayerUpgrades : MonoBehaviour
         this.damageUp = damageUp;
         this.speedUp = speedUp;
         this.xpUp = xpUp;
+        
+        LoadPlayerData.instance.UpdateDisplay();
     }
 }

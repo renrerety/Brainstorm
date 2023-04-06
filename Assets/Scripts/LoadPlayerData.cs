@@ -20,14 +20,11 @@ public class LoadPlayerData : MonoBehaviour
             instance = this;
         }
     }
-
     // Start is called before the first frame update
     void Start()
     {
         BinarySaveFormatter.Deserialize();
-        UpdateDisplay();
     }
-
     public void UpdateDisplay()
     {
         goldText.text = PlayerData.instance.persistentData.gold.ToString();
