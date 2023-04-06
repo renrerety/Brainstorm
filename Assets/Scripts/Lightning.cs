@@ -11,7 +11,7 @@ public class Lightning : MonoBehaviour
     {
         if (col.CompareTag("Enemy"))
         {
-            int damage = _playerWeapons.FindWeapon("Lightning Rod").damage;
+            int damage = _playerWeapons.FindWeapon("Lightning Wand").damage;
             col.GetComponent<AIMaster>().TakeDamage(damage);
         }
     }
