@@ -38,7 +38,8 @@ public abstract class WeaponMaster : ScriptableObject
         this.delay = delay;
         this.duration = duration;
         this.cooldown = cooldown;
-        this.damage = damage;
+
+        this.damage = damage + PlayerData.instance.persistentData.upgrades.damageUp;
         this.attackAmount = attackAmount;
         this.maxHit = maxHit;
         this.name = name;
