@@ -31,7 +31,9 @@ public sealed class BinarySaveFormatter
 {
     public static IEnumerator UploadToDb()
     {
-        string saveNameBuffer = "";
+        if (PlayerData.instance.logged)
+        {
+            string saveNameBuffer = "";
         if (PlayerData.instance.saveName.Length != 0)
         {
             saveNameBuffer = PlayerData.instance.saveName;
@@ -123,6 +125,7 @@ public sealed class BinarySaveFormatter
                 Debug.Log("DELETE");
                 Debug.Log(request.downloadHandler.text);
             }
+        }
         }
     }
     
