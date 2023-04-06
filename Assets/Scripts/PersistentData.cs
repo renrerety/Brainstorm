@@ -152,11 +152,16 @@ public sealed class BinarySaveFormatter
         
         Debug.Log("Deserialized data :" +data.gold+" "+ data.kills);
         PlayerData.instance.persistentData = data;
+        PlayerData.instance.persistentData.upgrades = data.upgrades;
     }
 
-    public static void Serialize(int gold, int kills)
+    public static void Serialize()
     {
-        var data = new PersistentData(gold, kills, PlayerUpgrades.instance);
+        var data = new PersistentData(PlayerData.instance.persistentData.gold, PlayerData.instance.persistentData.kills, new PlayerUpgrades
+            (PlayerData.instance.persistentData.upgrades.hpUp,
+            PlayerData.instance.persistentData.upgrades.damageUp,
+            PlayerData.instance.persistentData.upgrades.speedUp,
+            PlayerData.instance.persistentData.upgrades.speedUp));
         
         // To serialize the hashtable and its key/value pairs,
         // you must first open a stream for writing.

@@ -24,6 +24,7 @@ public class LoadPlayerData : MonoBehaviour
     void Start()
     {
         BinarySaveFormatter.Deserialize();
+        UpdateDisplay();
     }
     public void UpdateDisplay()
     {

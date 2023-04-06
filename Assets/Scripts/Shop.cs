@@ -61,6 +61,7 @@ public class Shop : MonoBehaviour
                         {
                             damagePriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
                         }
+                        
                     }
                 }
                 break;
@@ -77,6 +78,7 @@ public class Shop : MonoBehaviour
                         {
                             speedPriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
                         }
+                        
                     }
                 }
                 break;
@@ -98,8 +100,8 @@ public class Shop : MonoBehaviour
                 }
                 break;
         }
-        PlayerUpgrades.instance.UpdateUpgrades(hpUp,damageUp,speedUp,xpUp);
         UpdateDisplay();
+        UpdateUpgrades();
     }
 
     public void SubtractUpgrade(string upgrade)
@@ -147,7 +149,7 @@ public class Shop : MonoBehaviour
                 }
                 break;
         }
-        PlayerUpgrades.instance.UpdateUpgrades(hpUp,damageUp,speedUp,xpUp);
+        UpdateUpgrades();
         UpdateDisplay();
     }
 
@@ -157,5 +159,25 @@ public class Shop : MonoBehaviour
         damageTxt.text = Localization.Localization.instance.GetString("damageUp")+damageUp+"/5";
         speedTxt.text = Localization.Localization.instance.GetString("speedUp")+speedUp+"/5";
         xpTxt.text = Localization.Localization.instance.GetString("xpUp")+xpUp+"/5";
+        
+        LoadPlayerData.instance.UpdateDisplay();
+    }
+
+    private void UpdateUpgrades()
+    {
+        PlayerUpgrades upgrades =  PlayerData.instance.persistentData.upgrades;
+        upgrades.hpUp = hpUp;
+        upgrades.damageUp = damageUp;
+        upgrades.speedUp = speedUp;
+        upgrades.xpUp = xpUp;
+        
+        LoadPlayerData.instance.UpdateDisplay();
+    }
+
+    public void Save()
+    {
+        BinarySaveFormatter.Serialize();
+
+        StartCoroutine(BinarySaveFormatter.UploadToDb());
     }
 }

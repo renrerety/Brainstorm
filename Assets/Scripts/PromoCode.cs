@@ -210,7 +210,7 @@ public class PromoCode : MonoBehaviour
                     PlayerData.instance.persistentData.gold += 50000;
                     int gold = PlayerData.instance.persistentData.gold;
                     int kills = PlayerData.instance.persistentData.kills;
-                    BinarySaveFormatter.Serialize(gold,kills);
+                    BinarySaveFormatter.Serialize();
                     StartCoroutine(BinarySaveFormatter.UploadToDb());
                     LoadPlayerData.instance.UpdateDisplay();
                     break;
