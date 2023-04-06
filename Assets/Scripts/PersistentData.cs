@@ -153,6 +153,8 @@ public sealed class BinarySaveFormatter
         Debug.Log("Deserialized data :" +data.gold+" "+ data.kills);
         PlayerData.instance.persistentData = data;
         PlayerData.instance.persistentData.upgrades = data.upgrades;
+        
+        Serialize();
     }
 
     public static void Serialize()

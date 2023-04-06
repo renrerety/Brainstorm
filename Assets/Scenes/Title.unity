@@ -1706,6 +1706,7 @@ GameObject:
   - component: {fileID: 251308604}
   - component: {fileID: 251308606}
   - component: {fileID: 251308605}
+  - component: {fileID: 251308607}
   m_Layer: 5
   m_Name: DamageUpgrade_text
   m_TagString: Untagged
@@ -1778,6 +1779,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251308603}
   m_CullTransparentMesh: 1
+--- !u!114 &251308607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251308603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translateAtStart: 1
+  key: damageUp
+  text: {fileID: 0}
 --- !u!1 &251783234
 GameObject:
   m_ObjectHideFlags: 0
@@ -5616,6 +5632,7 @@ GameObject:
   - component: {fileID: 732694539}
   - component: {fileID: 732694541}
   - component: {fileID: 732694540}
+  - component: {fileID: 732694542}
   m_Layer: 5
   m_Name: SpeedUpgrade_text
   m_TagString: Untagged
@@ -5688,6 +5705,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732694538}
   m_CullTransparentMesh: 1
+--- !u!114 &732694542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732694538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translateAtStart: 1
+  key: speedUp
+  text: {fileID: 0}
 --- !u!1 &753834588
 GameObject:
   m_ObjectHideFlags: 0
@@ -7626,6 +7658,7 @@ GameObject:
   - component: {fileID: 1215320830}
   - component: {fileID: 1215320832}
   - component: {fileID: 1215320831}
+  - component: {fileID: 1215320833}
   m_Layer: 5
   m_Name: HealthUpgrade_text
   m_TagString: Untagged
@@ -7698,6 +7731,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215320829}
   m_CullTransparentMesh: 1
+--- !u!114 &1215320833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215320829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translateAtStart: 1
+  key: hpUp
+  text: {fileID: 0}
 --- !u!1 &1225358781
 GameObject:
   m_ObjectHideFlags: 0
@@ -8274,6 +8322,7 @@ GameObject:
   - component: {fileID: 1344918690}
   - component: {fileID: 1344918692}
   - component: {fileID: 1344918691}
+  - component: {fileID: 1344918693}
   m_Layer: 5
   m_Name: xpUpgrade_text
   m_TagString: Untagged
@@ -8346,6 +8395,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344918689}
   m_CullTransparentMesh: 1
+--- !u!114 &1344918693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344918689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translateAtStart: 1
+  key: xpUp
+  text: {fileID: 0}
 --- !u!1 &1370457497
 GameObject:
   m_ObjectHideFlags: 0
@@ -10400,6 +10464,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 251783236}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: LoadValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 251783236}
+        m_TargetAssemblyTypeName: Shop, Assembly-CSharp
+        m_MethodName: LoadDisplay
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

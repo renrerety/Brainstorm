@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Localization;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -7,10 +9,10 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    private int hpUp;
-    private int damageUp;
-    private int speedUp;
-    private int xpUp;
+    private int hpUp = 0;
+    private int damageUp = 0;
+    private int speedUp = 0;
+    private int xpUp = 0;
 
     private int hpPrice = 500;
     private int damagePrice = 500;
@@ -40,10 +42,9 @@ public class Shop : MonoBehaviour
                         PlayerData.instance.persistentData.gold -= hpPrice;
                         hpUp = Mathf.Clamp(++hpUp, 0, 5);
                         hpPrice *= 2;
-                        hpPriceTxt.text = hpPrice.ToString();
                         if (hpUp == 5)
                         {
-                            hpPriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
+                            HideParent(hpPriceTxt.gameObject);
                         }
                     }
                 }
@@ -56,10 +57,9 @@ public class Shop : MonoBehaviour
                         PlayerData.instance.persistentData.gold -= damagePrice;
                         damageUp = Mathf.Clamp(++damageUp, 0, 5);
                         damagePrice *= 2;
-                        damagePriceTxt.text = damagePrice.ToString();
                         if (damageUp == 5)
                         {
-                            damagePriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
+                            HideParent(damagePriceTxt.gameObject);
                         }
                         
                     }
@@ -73,10 +73,9 @@ public class Shop : MonoBehaviour
                         PlayerData.instance.persistentData.gold -= speedPrice;
                         speedUp = Mathf.Clamp(++speedUp, 0, 5);
                         speedPrice *= 2;
-                        speedPriceTxt.text = speedPrice.ToString();
                         if (speedUp == 5)
                         {
-                            speedPriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
+                            HideParent(speedPriceTxt.gameObject);
                         }
                         
                     }
@@ -90,18 +89,16 @@ public class Shop : MonoBehaviour
                         PlayerData.instance.persistentData.gold -= xpPrice;
                         xpUp = Mathf.Clamp(++xpUp, 0, 5);
                         xpPrice *= 2;
-                        xpPriceTxt.text = xpPrice.ToString();
                         if (xpUp == 5)
                         {
-                            xpPriceTxt.gameObject.transform.parent.gameObject.SetActive(false);
+                            HideParent(xpPriceTxt.gameObject);
                         }
                         
                     }
                 }
                 break;
         }
-        UpdateDisplay();
-        UpdateUpgrades();
+        LoadDisplay();
     }
 
     public void SubtractUpgrade(string upgrade)
@@ -115,7 +112,6 @@ public class Shop : MonoBehaviour
                     hpUp = Mathf.Clamp(--hpUp, 0, 5);
                     hpPrice /= 2;
                     PlayerData.instance.persistentData.gold += hpPrice;
-                    hpPriceTxt.text = hpPrice.ToString();
                 }
                 break;
             case "damage":
@@ -125,7 +121,6 @@ public class Shop : MonoBehaviour
                     damageUp = Mathf.Clamp(--damageUp, 0, 5);
                     damagePrice /= 2;
                     PlayerData.instance.persistentData.gold += damagePrice;
-                    damagePriceTxt.text = damagePrice.ToString();
                 }
                 break;
             case "speed":
@@ -135,7 +130,6 @@ public class Shop : MonoBehaviour
                     speedUp = Mathf.Clamp(--speedUp, 0, 5);
                     speedPrice /= 2;
                     PlayerData.instance.persistentData.gold += speedPrice;
-                    speedPriceTxt.text = speedPrice.ToString();
                 }
                 break;
             case "xp":
@@ -145,22 +139,44 @@ public class Shop : MonoBehaviour
                     xpUp = Mathf.Clamp(--xpUp, 0, 5);
                     xpPrice /= 2;
                     PlayerData.instance.persistentData.gold += xpPrice;
-                    xpPriceTxt.text = xpPrice.ToString();
                 }
                 break;
         }
-        UpdateUpgrades();
-        UpdateDisplay();
+
+        LoadDisplay();
     }
 
-    public void UpdateDisplay()
+    public void LoadDisplay()
     {
-        hpTxt.text = Localization.Localization.instance.GetString("hpUp")+hpUp+"/5";
-        damageTxt.text = Localization.Localization.instance.GetString("damageUp")+damageUp+"/5";
-        speedTxt.text = Localization.Localization.instance.GetString("speedUp")+speedUp+"/5";
-        xpTxt.text = Localization.Localization.instance.GetString("xpUp")+xpUp+"/5";
+        StartCoroutine(UpdateDisplay());
+    }
+
+    public IEnumerator UpdateDisplay()
+    {
+        UpdatePrices();
+        UpdateUpgrades();
+        
+        hpTxt.GetComponent<TextTranslator>().Translate();
+        damageTxt.GetComponent<TextTranslator>().Translate();
+        speedTxt.GetComponent<TextTranslator>().Translate();
+        xpTxt.GetComponent<TextTranslator>().Translate();
+
+        yield return new WaitForEndOfFrame();
+        
+        hpTxt.text += hpUp+"/5";
+        damageTxt.text += damageUp+"/5";
+        speedTxt.text += speedUp+"/5";
+        xpTxt.text += xpUp+"/5";
         
         LoadPlayerData.instance.UpdateDisplay();
+    }
+
+    public void UpdatePrices()
+    {
+        hpPriceTxt.text = hpPrice.ToString();
+        damagePriceTxt.text = damagePrice.ToString();
+        speedPriceTxt.text = speedPrice.ToString();
+        xpPriceTxt.text = xpPrice.ToString();
     }
 
     private void UpdateUpgrades()
@@ -180,4 +196,61 @@ public class Shop : MonoBehaviour
 
         StartCoroutine(BinarySaveFormatter.UploadToDb());
     }
+
+    public void LoadValue()
+    {
+        PlayerUpgrades upgrades =  PlayerData.instance.persistentData.upgrades;
+        
+        hpUp = upgrades.hpUp;
+        hpPrice *= hpUp;
+        if (hpUp == 5)
+        {
+            HideParent(hpPriceTxt.gameObject);
+        }
+
+        if (hpUp == 0)
+        {
+            hpPrice = 500;
+        }
+
+        damageUp = upgrades.damageUp;
+        damagePrice *= hpUp;
+        if (damageUp == 5)
+        {
+            HideParent(damagePriceTxt.gameObject);
+        }
+        if (damageUp == 0)
+        {
+            damagePrice = 500;
+        }
+        
+        speedUp = upgrades.speedUp;
+        speedPrice *= speedUp;
+        if (speedUp == 5)
+        {
+            HideParent(speedPriceTxt.gameObject);
+        }
+        if (speedUp == 0)
+        {
+            speedPrice = 500;
+        }
+        
+        xpUp = upgrades.xpUp;
+        xpPrice *= xpUp;
+        if (xpUp == 5)
+        {
+            HideParent(xpPriceTxt.gameObject);
+        }
+        if (xpUp == 0)
+        {
+            xpPrice = 500;
+        }
+
+    }
+
+    public void HideParent(GameObject obj)
+    {
+        obj.transform.parent.gameObject.SetActive(false);
+    }
 }
+
