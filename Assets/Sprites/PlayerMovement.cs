@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -10,7 +11,18 @@ public class PlayerMovement : MonoBehaviour
     public static Vector3 lastDirection = new Vector3();
 
     [Inject] private DamagePopupPool _damagePopupPool;
-    
+
+
+    private void Start()
+    {
+        float speedModifier = 0;
+        for (int i = 0; i < PlayerData.instance.persistentData.upgrades.speedUp; i++)
+        {
+            speedModifier += 0.05f;
+        }
+
+        speed += speedModifier;
+    }
 
     // Update is called once per frame
     void Update()
