@@ -18,6 +18,7 @@ public class PlayerLevel : MonoBehaviour
     
     public void AddXp(float xpToAdd)
     {
+        xpToAdd += (PlayerData.instance.persistentData.upgrades.xpUp / 2f);
         xp += xpToAdd;
         GetComponent<AudioSource>().PlayOneShot(xpClip);
         
