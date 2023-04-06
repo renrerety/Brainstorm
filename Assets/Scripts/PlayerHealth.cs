@@ -99,6 +99,8 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _audioSource = GetComponent<AudioSource>();
+
+        maxHp += (PlayerData.instance.persistentData.upgrades.hpUp * 5);
         
         hp = maxHp;
         
