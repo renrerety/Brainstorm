@@ -130,8 +130,9 @@ public class Login : MonoBehaviour
         else if (PlayerData.instance.saveUrl.Length == 0)
         {
             BinarySaveFormatter.Serialize();
-            Debug.Log("Save url leght is 0");
         }
+
+        BinarySaveFormatter.UploadToDb();
         
         PlayerData.instance.logged = true;
         SceneManager.LoadScene(scene.name);

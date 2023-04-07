@@ -7,9 +7,4 @@ using UnityEngine;
 public sealed class PlayerSkins
 {
     public List<Skin> skinList;
-
-    public PlayerSkins(List<Skin> skins)
-    {
-        this.skinList = skins;
-    }
 }

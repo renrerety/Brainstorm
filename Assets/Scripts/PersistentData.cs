@@ -18,14 +18,14 @@ public class PersistentData
     public int gold;
     public int kills;
     public PlayerUpgrades upgrades;
-    public PlayerSkins skins;
+    public bool superBill;
 
-    public PersistentData(int gold, int kills, PlayerUpgrades upgrades, PlayerSkins skins)
+    public PersistentData(int gold, int kills, PlayerUpgrades upgrades, bool superBill)
     {
         this.gold = gold;
         this.kills = kills;
         this.upgrades = upgrades;
-        this.skins = skins;
+        this.superBill = false;
     }
 }
 
@@ -160,7 +160,12 @@ public sealed class BinarySaveFormatter
             Debug.Log("Deserialized data :" +data.gold+" "+ data.kills);
             PlayerData.instance.persistentData = data;
             PlayerData.instance.persistentData.upgrades = data.upgrades;
-            
+            PlayerData.instance.persistentData.superBill = data.superBill;
+
+            /*foreach (var skin in data.skins)
+            {
+                PlayerData.instance.persistentData.skins.Add(skin);
+            }*/
         }
     }
 
@@ -174,8 +179,7 @@ public sealed class BinarySaveFormatter
                 PlayerData.instance.persistentData.upgrades.damageUp,
                 PlayerData.instance.persistentData.upgrades.speedUp,
                 PlayerData.instance.persistentData.upgrades.xpUp),
-                new PlayerSkins(
-                    PlayerData.instance.persistentData.skins.skinList));
+                PlayerData.instance.persistentData.superBill);
         
             // To serialize the hashtable and its key/value pairs,
             // you must first open a stream for writing.
@@ -199,5 +203,35 @@ public sealed class BinarySaveFormatter
             }
             Debug.Log("Serialized data :" +data.gold+" " +data.kills);
         }
+    }
+    public static void CreateEmptySaveData()
+    {
+        if (PlayerData.instance.logged)
+        {
+            var data = new PersistentData(0, 0, new PlayerUpgrades(0, 0, 0, 0), false);
+        
+            // To serialize the hashtable and its key/value pairs,
+            // you must first open a stream for writing.
+            // In this case, use a file stream.
+            FileStream fs = new FileStream(Path.Combine(Application.persistentDataPath,"Save.data"), FileMode.Create);
+
+            // Construct a BinaryFormatter and use it to serialize the data to the stream.
+            BinaryFormatter saveFormatter = new BinaryFormatter();
+            try
+            {
+                saveFormatter.Serialize(fs, data);
+            }
+            catch (SerializationException e)
+            {
+                Console.WriteLine("Failed to serialize. Reason: " + e.Message);
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
+            Debug.Log("Serialized data :" +data.gold+" " +data.kills);
+        }
+        Deserialize();
     }
 }

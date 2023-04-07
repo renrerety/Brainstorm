@@ -168,7 +168,9 @@ public class Signup : MonoBehaviour
             loginCanvas.SetActive(true);
             signupCanvas.SetActive(false);
             error = false;
-            PlayerData.instance.persistentData.upgrades = new PlayerUpgrades(0,0,0,0);
+            
+            BinarySaveFormatter.CreateEmptySaveData();
+            
         }
     }
 }

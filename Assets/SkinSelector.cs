@@ -8,6 +8,8 @@ public class SkinSelector : MonoBehaviour
 {
     public static SkinSelector instance;
 
+    public Sprite lockedSkin;
+    
     public List<Skin> skins;
     [SerializeField] private Image img;
     public int index;
@@ -47,21 +49,28 @@ public class SkinSelector : MonoBehaviour
         img.sprite = skins[index].sprite;
     }
 
-    public void LoadSkins()
+    public IEnumerator LoadSkins()
     {
-        foreach (Skin skin in PlayerData.instance.persistentData.skins.skinList)
+        yield return new WaitForEndOfFrame();
+        SkinRefs.instance.LoadSkins();
+
+        if (PlayerData.instance.persistentData.superBill)
         {
-            if (skin.unlocked)
+            Debug.Log("SUper bill");
+            skins[1].unlocked = true;
+        }
+        foreach (var skin in skins)
+        {
+            if (!skin.unlocked)
             {
-                skins.Add(skin);
+                skin.sprite = lockedSkin;
             }
         }
     }
 
     private void Start()
     {
-        LoadSkins();
-        UpdateDisplay();
+        StartCoroutine(LoadSkins());
     }
 }
 [Serializable]

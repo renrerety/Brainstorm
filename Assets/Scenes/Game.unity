@@ -1512,6 +1512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: game_over
   text: {fileID: 0}
 --- !u!1 &474925370
@@ -3104,6 +3105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: levelup
   text: {fileID: 0}
 --- !u!1 &858495079
@@ -6553,6 +6555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750e48cebca4304b9b203604385f941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  translateAtStart: 1
   key: exit_btn
   text: {fileID: 0}
 --- !u!1 &1972805152

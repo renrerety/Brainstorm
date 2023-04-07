@@ -214,7 +214,7 @@ public class PromoCode : MonoBehaviour
                     LoadPlayerData.instance.UpdateDisplay();
                     break;
                 case "Skin":
-                    PlayerData.instance.persistentData.skins.skinList.Add(superBill);
+                    PlayerData.instance.persistentData.superBill = true;
                     break;
                 case "Map": //TODO : Give exclusive map access
                     break;
