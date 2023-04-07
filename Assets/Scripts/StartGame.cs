@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,9 +15,12 @@ public class StartGame : MonoBehaviour
     private float progressValue;
     public void LoadGame()
     {
-        loadingProgress.gameObject.SetActive(true);
-        MenuManager.instance.ToggleMainMenu();
-        StartCoroutine(LoadSyncAsync());
+        if(SkinSelector.instance.skins[SkinSelector.instance.index].unlocked)
+        {
+            loadingProgress.gameObject.SetActive(true);
+            PlayerData.instance.currentSkin = SkinSelector.instance.skins[SkinSelector.instance.index].sprite;
+            StartCoroutine(LoadSyncAsync());
+        }
     }
 
     private float t;

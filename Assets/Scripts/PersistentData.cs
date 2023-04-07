@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -16,14 +17,15 @@ public class PersistentData
 {
     public int gold;
     public int kills;
-
     public PlayerUpgrades upgrades;
+    public PlayerSkins skins;
 
-    public PersistentData(int gold, int kills, PlayerUpgrades upgrades)
+    public PersistentData(int gold, int kills, PlayerUpgrades upgrades, PlayerSkins skins)
     {
         this.gold = gold;
         this.kills = kills;
         this.upgrades = upgrades;
+        this.skins = skins;
     }
 }
 
@@ -166,11 +168,14 @@ public sealed class BinarySaveFormatter
     {
         if (PlayerData.instance.logged)
         {
-            var data = new PersistentData(PlayerData.instance.persistentData.gold, PlayerData.instance.persistentData.kills, new PlayerUpgrades
+            var data = new PersistentData(PlayerData.instance.persistentData.gold, PlayerData.instance.persistentData.kills,
+                new PlayerUpgrades
             (PlayerData.instance.persistentData.upgrades.hpUp,
                 PlayerData.instance.persistentData.upgrades.damageUp,
                 PlayerData.instance.persistentData.upgrades.speedUp,
-                PlayerData.instance.persistentData.upgrades.speedUp));
+                PlayerData.instance.persistentData.upgrades.xpUp),
+                new PlayerSkins(
+                    PlayerData.instance.persistentData.skins.skinList));
         
             // To serialize the hashtable and its key/value pairs,
             // you must first open a stream for writing.

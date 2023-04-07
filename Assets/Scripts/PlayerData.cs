@@ -15,6 +15,8 @@ public class PlayerData : MonoBehaviour
     public string saveName;
     public string saveId;
     public string profileId;
+
+    public Sprite currentSkin;
     
     private void Awake()
     {

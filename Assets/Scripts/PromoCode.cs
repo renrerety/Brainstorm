@@ -16,6 +16,7 @@ public class PromoCode : MonoBehaviour
     public InputField codeInput;
 
     [SerializeField] TextTranslator _textTranslator;
+    [SerializeField] private Skin superBill;
 
     private string objectId;
 
@@ -210,11 +211,10 @@ public class PromoCode : MonoBehaviour
                     PlayerData.instance.persistentData.gold += 50000;
                     int gold = PlayerData.instance.persistentData.gold;
                     int kills = PlayerData.instance.persistentData.kills;
-                    BinarySaveFormatter.Serialize();
-                    StartCoroutine(BinarySaveFormatter.UploadToDb());
                     LoadPlayerData.instance.UpdateDisplay();
                     break;
-                case "Skin": //TODO : Give exclusive skin access
+                case "Skin":
+                    PlayerData.instance.persistentData.skins.skinList.Add(superBill);
                     break;
                 case "Map": //TODO : Give exclusive map access
                     break;
@@ -224,6 +224,8 @@ public class PromoCode : MonoBehaviour
                     break;
             }
             DisplaySuccess("valid_promo");
+            BinarySaveFormatter.Serialize();
+            StartCoroutine(BinarySaveFormatter.UploadToDb());
         }
     }
     public void DisplayError(string key)
