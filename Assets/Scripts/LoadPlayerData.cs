@@ -23,7 +23,10 @@ public class LoadPlayerData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BinarySaveFormatter.Deserialize();
+        if (!Signup.instance.firstLogin)
+        {
+            BinarySaveFormatter.Deserialize();
+        }
         UpdateDisplay();
     }
     public void UpdateDisplay()

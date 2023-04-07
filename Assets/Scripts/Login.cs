@@ -127,14 +127,14 @@ public class Login : MonoBehaviour
                 }
             }
         }
-        else if (PlayerData.instance.saveUrl.Length == 0)
-        {
-            BinarySaveFormatter.Serialize();
-        }
-
-        BinarySaveFormatter.UploadToDb();
-        
         PlayerData.instance.logged = true;
+        
+        if (PlayerData.instance.saveUrl.Length == 0)
+        {
+            BinarySaveFormatter.CreateEmptySaveData();
+            StartCoroutine(BinarySaveFormatter.UploadToDb());
+        }
+        StartCoroutine(BinarySaveFormatter.UploadToDb());
         SceneManager.LoadScene(scene.name);
     }
 }

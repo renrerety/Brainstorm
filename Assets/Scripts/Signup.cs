@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
@@ -14,13 +15,29 @@ using UnityEngine.UIElements;
 
 public class Signup : MonoBehaviour
 {
+    public static Signup instance;
+    
     [SerializeField] private TMP_InputField usernameInput;
     [SerializeField] private TMP_InputField emailInput;
     [SerializeField] private TMP_InputField passwordInput;
 
     [SerializeField] private GameObject loginCanvas;
     [SerializeField] private GameObject signupCanvas;
+    
+    public bool firstLogin;
 
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    
     public void Submit()
     {
         StartCoroutine(CreateAccount());
@@ -168,9 +185,7 @@ public class Signup : MonoBehaviour
             loginCanvas.SetActive(true);
             signupCanvas.SetActive(false);
             error = false;
-            
-            BinarySaveFormatter.CreateEmptySaveData();
-            
+            firstLogin = true;
         }
     }
 }
