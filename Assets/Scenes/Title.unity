@@ -3340,7 +3340,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockedSkin: {fileID: 21300000, guid: ec5a7c346da303842b6a49075d5fc4fd, type: 3}
   skins: []
-  img: {fileID: 2130921391}
   index: 0
 --- !u!1 &494571936
 GameObject:
@@ -9931,9 +9930,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   codeInput: {fileID: 595583481}
   _textTranslator: {fileID: 714415360}
-  superBill:
-    sprite: {fileID: 0}
-    unlocked: 0
 --- !u!1 &1511280040
 GameObject:
   m_ObjectHideFlags: 0
@@ -14003,7 +13999,7 @@ GameObject:
   - component: {fileID: 2130921392}
   - component: {fileID: 2130921391}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SkinImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

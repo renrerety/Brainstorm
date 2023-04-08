@@ -16,7 +16,8 @@ public class PlayerData : MonoBehaviour
     public string saveId;
     public string profileId;
 
-    public Sprite currentSkin;
+    public SkinList currentSkin;
+    
     
     private void Awake()
     {
@@ -35,3 +36,4 @@ public class PlayerData : MonoBehaviour
         BinarySaveFormatter.Deserialize();
     }
 }
+

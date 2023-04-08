@@ -10,9 +10,10 @@ public class SkinRefs : MonoBehaviour
     public Skin Bill;
     public Skin superBill;
 
+    private bool loaded;
+
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -29,8 +30,11 @@ public class SkinRefs : MonoBehaviour
         {
             superBill.unlocked = true;
         }
-        SkinSelector.instance.skins.Add(Bill);
-        SkinSelector.instance.skins.Add(superBill);
-        
+
+        if (!loaded)
+        {
+            SkinSelector.instance.skins.Add(Bill);
+            SkinSelector.instance.skins.Add(superBill);
+        }
     }
 }

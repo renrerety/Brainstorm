@@ -16,7 +16,6 @@ public class PromoCode : MonoBehaviour
     public InputField codeInput;
 
     [SerializeField] TextTranslator _textTranslator;
-    [SerializeField] private Skin superBill;
 
     private string objectId;
 
@@ -215,6 +214,8 @@ public class PromoCode : MonoBehaviour
                     break;
                 case "Skin":
                     PlayerData.instance.persistentData.superBill = true;
+                    SkinRefs.instance.superBill.unlocked = true;
+                    SkinSelector.instance.skins[1].sprite = SkinRefs.instance.superBill.sprite;
                     break;
                 case "Map": //TODO : Give exclusive map access
                     break;

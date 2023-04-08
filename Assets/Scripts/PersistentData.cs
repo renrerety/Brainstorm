@@ -25,7 +25,7 @@ public class PersistentData
         this.gold = gold;
         this.kills = kills;
         this.upgrades = upgrades;
-        this.superBill = false;
+        this.superBill = superBill;
     }
 }
 

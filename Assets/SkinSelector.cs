@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SkinSelector : MonoBehaviour
@@ -11,11 +12,14 @@ public class SkinSelector : MonoBehaviour
     public Sprite lockedSkin;
     
     public List<Skin> skins;
-    [SerializeField] private Image img;
     public int index;
+
+    public void ResetIndex()
+    {
+        index = 0;
+    }
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         if (instance != this && instance != null)
         {
             Destroy(gameObject);
@@ -25,7 +29,6 @@ public class SkinSelector : MonoBehaviour
             instance = this;
         }
     }
-
     public void Increment()
     {
         if (index < skins.Count-1)
@@ -43,13 +46,25 @@ public class SkinSelector : MonoBehaviour
             UpdateDisplay();
         }
     }
+    public void UpdateCurrentSkin()
+    {
+        PlayerData.instance.currentSkin = skins[index].type;
+    }
 
     private void UpdateDisplay()
     {
-        img.sprite = skins[index].sprite;
+        if (skins[index].unlocked)
+        {
+            GameObject.Find("SkinImage").GetComponent<Image>().sprite = skins[index].sprite;
+        }
+        else
+        {
+            GameObject.Find("SkinImage").GetComponent<Image>().sprite = skins[index].lockedSprite;
+        }
+        UpdateCurrentSkin();
     }
 
-    public IEnumerator LoadSkins()
+    private IEnumerator LoadSkins()
     {
         yield return new WaitForEndOfFrame();
         SkinRefs.instance.LoadSkins();
@@ -59,23 +74,24 @@ public class SkinSelector : MonoBehaviour
             Debug.Log("SUper bill");
             skins[1].unlocked = true;
         }
-        foreach (var skin in skins)
-        {
-            if (!skin.unlocked)
-            {
-                skin.sprite = lockedSkin;
-            }
-        }
+    }
+
+    public void StartLoadSkins()
+    {
+        StartCoroutine(LoadSkins());
     }
 
     private void Start()
     {
-        StartCoroutine(LoadSkins());
+        ResetIndex();
+        StartLoadSkins();
     }
 }
 [Serializable]
 public class Skin
 {
     public Sprite sprite;
+    public Sprite lockedSprite;
     public bool unlocked;
+    public SkinList type;
 }

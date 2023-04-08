@@ -18,7 +18,7 @@ public class StartGame : MonoBehaviour
         if(SkinSelector.instance.skins[SkinSelector.instance.index].unlocked)
         {
             loadingProgress.gameObject.SetActive(true);
-            PlayerData.instance.currentSkin = SkinSelector.instance.skins[SkinSelector.instance.index].sprite;
+            PlayerData.instance.currentSkin = SkinSelector.instance.skins[SkinSelector.instance.index].type;
             StartCoroutine(LoadSyncAsync());
         }
     }

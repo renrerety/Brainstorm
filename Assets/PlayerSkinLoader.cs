@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class PlayerSkinLoader : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private Animator anim;
+    
+    
+    [SerializeField] private RuntimeAnimatorController superBillController;
+    [SerializeField] private RuntimeAnimatorController billController;
+    
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = PlayerData.instance.currentSkin;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         
+        switch (PlayerData.instance.currentSkin)
+        {
+            case SkinList.Bill:
+                Debug.Log("Case bill");
+                anim.runtimeAnimatorController = billController;
+                break;
+            case SkinList.SuperBill:
+                Debug.Log("Case superBill");
+                anim.runtimeAnimatorController = superBillController;
+                break;
+        }
     }
 }
