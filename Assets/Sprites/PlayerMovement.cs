@@ -7,15 +7,23 @@ using Zenject;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private bool iceMovement;
     public float speed;
     public static Vector3 lastDirection = new Vector3();
 
     [Inject] private DamagePopupPool _damagePopupPool;
+    private Rigidbody2D rb;
 
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    private float speedModifier;
     private void Start()
     {
-        float speedModifier = 0;
+        speedModifier = 0;
         for (int i = 0; i < PlayerData.instance.persistentData.upgrades.speedUp; i++)
         {
             speedModifier += 0.05f;
@@ -71,6 +79,17 @@ public class PlayerMovement : MonoBehaviour
         
         movement = Vector3.ClampMagnitude(movement, 1f);
         movement *= Time.deltaTime * speed;
-        transform.Translate(movement);
+        //
+
+        if (iceMovement)
+        {
+            speed = 15+speedModifier;
+            rb.AddForce(movement);
+        }
+        else
+        {
+            speed = 3 + speedModifier;
+            transform.Translate(movement);
+        }
     }
 }
