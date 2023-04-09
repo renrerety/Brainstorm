@@ -9,6 +9,9 @@ public class SkinSelector : MonoBehaviour
 {
     public static SkinSelector instance;
 
+    [SerializeField] private GameObject skinSelection;
+    [SerializeField] private GameObject mapSelection;
+
     public Sprite lockedSkin;
     
     public List<Skin> skins;
@@ -85,6 +88,19 @@ public class SkinSelector : MonoBehaviour
     {
         ResetIndex();
         StartLoadSkins();
+    }
+
+    public void ValidateSkin()
+    {
+        if (skins[index].unlocked)
+        {
+            skinSelection.SetActive(false);
+            mapSelection.SetActive(true);
+        }
+        else
+        {
+            
+        }
     }
 }
 [Serializable]

@@ -19,13 +19,15 @@ public class PersistentData
     public int kills;
     public PlayerUpgrades upgrades;
     public bool superBill;
+    public bool iceMap;
 
-    public PersistentData(int gold, int kills, PlayerUpgrades upgrades, bool superBill)
+    public PersistentData(int gold, int kills, PlayerUpgrades upgrades, bool superBill, bool iceMap)
     {
         this.gold = gold;
         this.kills = kills;
         this.upgrades = upgrades;
         this.superBill = superBill;
+        this.iceMap = iceMap;
     }
 }
 
@@ -179,7 +181,8 @@ public sealed class BinarySaveFormatter
                 PlayerData.instance.persistentData.upgrades.damageUp,
                 PlayerData.instance.persistentData.upgrades.speedUp,
                 PlayerData.instance.persistentData.upgrades.xpUp),
-                PlayerData.instance.persistentData.superBill);
+                PlayerData.instance.persistentData.superBill,
+                PlayerData.instance.persistentData.iceMap);
         
             // To serialize the hashtable and its key/value pairs,
             // you must first open a stream for writing.
@@ -208,7 +211,7 @@ public sealed class BinarySaveFormatter
     {
         if (PlayerData.instance.logged)
         {
-            var data = new PersistentData(0, 0, new PlayerUpgrades(0, 0, 0, 0), false);
+            var data = new PersistentData(0, 0, new PlayerUpgrades(0, 0, 0, 0), false,false);
         
             // To serialize the hashtable and its key/value pairs,
             // you must first open a stream for writing.

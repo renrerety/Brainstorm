@@ -10,14 +10,18 @@ public class MapSelector : MonoBehaviour
 {
     public static MapSelector instance;
     
-    [Inject] public StartGame _startGame;
+    [Inject] private StartGame _startGame;
     
+    [SerializeField] private Sprite lockedSprite;
     [SerializeField] public List<Map> mapList;
     [SerializeField] private Image img;
     [SerializeField] private Text label;
     public int index;
-
-
+    
+    private void Start()
+    {
+        LoadMapData();
+    }
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -33,11 +37,11 @@ public class MapSelector : MonoBehaviour
     public void Increment()
     {
         index++;
-        if (index == mapList.Count -1)
+        if (index >= mapList.Count -1)
         {
             index = mapList.Count - 1;
         }
-        UpdateData();
+        UpdateDisplay();
     }
 
     public void Decrement()
@@ -47,29 +51,56 @@ public class MapSelector : MonoBehaviour
         {
             index = 0;
         }
-        UpdateData();
+        UpdateDisplay();
     }
 
-    private void UpdateData()
+    private void UpdateDisplay()
     {
         img.sprite = mapList[index].img;
         label.text = mapList[index].label;
         _startGame.scene = mapList[index].level;
+        UpdateData();
     }
-    
+
+    public void LoadMapData()
+    {
+        if (PlayerData.instance.persistentData.iceMap)
+        {
+            mapList[1].unlocked = true;
+        }
+        UpdateData();
+    }
+    public void UpdateData()
+    {
+        foreach (var map in mapList)
+        {
+            if (map.unlocked)
+            {
+                map.img = map.unlockedSprite;
+            }
+            else
+            {
+                map.img = lockedSprite;
+            }
+        }
+    }
 }
 
 [Serializable]
 public class Map
 {
     public Sprite img;
+    
+    public Sprite unlockedSprite;
     public string label;
     public LevelData level;
+    public bool unlocked;
 
-    public Map()
+    public Map(Sprite img,string label,LevelData level, bool unlocked)
     {
         this.img = img;
         this.label = label;
         this.level = level;
+        this.unlocked = unlocked;
     }
 }

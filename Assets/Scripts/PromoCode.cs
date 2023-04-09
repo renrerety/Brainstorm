@@ -217,7 +217,9 @@ public class PromoCode : MonoBehaviour
                     SkinRefs.instance.superBill.unlocked = true;
                     SkinSelector.instance.skins[1].sprite = SkinRefs.instance.superBill.sprite;
                     break;
-                case "Map": //TODO : Give exclusive map access
+                case "Map":
+                    PlayerData.instance.persistentData.iceMap = true;
+                    MapSelector.instance.mapList[1].unlocked = true;
                     break;
                 default:
                     json = null;

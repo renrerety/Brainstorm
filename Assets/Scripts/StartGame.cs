@@ -9,6 +9,8 @@ using Zenject;
 
 public class StartGame : MonoBehaviour
 {
+    [SerializeField] private GameObject mapSelection;
+    
     [SerializeField] public LevelData scene;
     [SerializeField] private Slider loadingProgress;
     [SerializeField] private float loadingSpeed;
@@ -16,8 +18,9 @@ public class StartGame : MonoBehaviour
     private float progressValue;
     public void LoadGame()
     {
-        if(SkinSelector.instance.skins[SkinSelector.instance.index].unlocked)
+        if(MapSelector.instance.mapList[MapSelector.instance.index].unlocked)
         {
+            mapSelection.gameObject.SetActive(false);
             scene = MapSelector.instance.mapList[MapSelector.instance.index].level;
             loadingProgress.gameObject.SetActive(true);
             PlayerData.instance.currentSkin = SkinSelector.instance.skins[SkinSelector.instance.index].type;

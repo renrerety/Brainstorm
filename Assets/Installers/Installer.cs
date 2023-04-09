@@ -13,6 +13,7 @@ public class Installer : MonoInstaller
         Container.Bind<PlayerHealth>().FromComponentInHierarchy().AsSingle().NonLazy();
         Container.Bind<PlayerHealthProxy>().FromComponentInHierarchy().AsSingle().NonLazy();
         Container.Bind<PlayerWeapons>().FromComponentInHierarchy().AsSingle().NonLazy();
+        Container.Bind<PlayerMovement>().FromComponentInHierarchy().AsSingle().NonLazy();
         
         Container.Bind<ThrowingKnifePool>().FromComponentInHierarchy().AsSingle().NonLazy();
         Container.Bind<XpPool>().FromComponentInHierarchy().AsSingle().NonLazy();
@@ -23,5 +24,6 @@ public class Installer : MonoInstaller
         Container.Bind<LaserPool>().FromComponentInHierarchy().AsSingle().NonLazy();
 
         Container.Bind<KillCounter>().FromComponentInHierarchy().AsSingle().NonLazy();
+        Container.Bind<MapSetup>().FromComponentInHierarchy().AsSingle().NonLazy();
     }
 }

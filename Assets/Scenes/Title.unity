@@ -1069,10 +1069,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1034610210}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 491980221}
+        m_TargetAssemblyTypeName: SkinSelector, Assembly-CSharp
+        m_MethodName: ValidateSkin
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1080,18 +1080,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1858934966}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &145345999
 MonoBehaviour:
@@ -3546,6 +3534,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1613de885f6346045b5bc689352b2b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skinSelection: {fileID: 1034610210}
+  mapSelection: {fileID: 1858934966}
   lockedSkin: {fileID: 21300000, guid: ec5a7c346da303842b6a49075d5fc4fd, type: 3}
   skins: []
   index: 0
@@ -5423,18 +5413,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1858934966}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &596671165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5518,6 +5496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782128e64ea90de4cbdb51e6f523719c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapSelection: {fileID: 1858934966}
   scene: {fileID: 11400000, guid: 1eba9c57eadf7764f91f2543548c3095, type: 2}
   loadingProgress: {fileID: 985058429}
   loadingSpeed: 1
@@ -13028,14 +13007,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9cdef2a5f942e4e8741e2758d7f932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startGame: {fileID: 0}
+  lockedSprite: {fileID: 21300000, guid: 421141eb16057ca4aa65df9ff89a72e0, type: 3}
   mapList:
   - img: {fileID: 21300000, guid: 5e35338584021b843a639871c53fdbad, type: 3}
+    unlockedSprite: {fileID: 21300000, guid: 5e35338584021b843a639871c53fdbad, type: 3}
     label: Plains
     level: {fileID: 11400000, guid: b83b7341450ee30438d6846c120d83db, type: 2}
+    unlocked: 1
   - img: {fileID: 21300000, guid: 7d67f6f21aa313548a1762d84b2da913, type: 3}
+    unlockedSprite: {fileID: 21300000, guid: 7d67f6f21aa313548a1762d84b2da913, type: 3}
     label: Ice
     level: {fileID: 11400000, guid: 1eba9c57eadf7764f91f2543548c3095, type: 2}
+    unlocked: 0
   img: {fileID: 1803409387}
   label: {fileID: 305605901}
   index: 0
@@ -15372,6 +15355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782128e64ea90de4cbdb51e6f523719c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapSelection: {fileID: 0}
   scene: {fileID: 11400000, guid: 27d019123fceaf74a8bce1c9693f419c, type: 2}
   loadingProgress: {fileID: 985058429}
   loadingSpeed: 0.9

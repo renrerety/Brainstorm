@@ -7,7 +7,7 @@ using Zenject;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private bool iceMovement;
+    [SerializeField] public bool iceMovement;
     public float speed;
     public static Vector3 lastDirection = new Vector3();
 
