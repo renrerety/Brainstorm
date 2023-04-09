@@ -5,10 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Zenject;
 
 public class StartGame : MonoBehaviour
 {
-    [SerializeField] LevelData scene;
+    [SerializeField] public LevelData scene;
     [SerializeField] private Slider loadingProgress;
     [SerializeField] private float loadingSpeed;
 
@@ -17,6 +18,7 @@ public class StartGame : MonoBehaviour
     {
         if(SkinSelector.instance.skins[SkinSelector.instance.index].unlocked)
         {
+            scene = MapSelector.instance.mapList[MapSelector.instance.index].level;
             loadingProgress.gameObject.SetActive(true);
             PlayerData.instance.currentSkin = SkinSelector.instance.skins[SkinSelector.instance.index].type;
             StartCoroutine(LoadSyncAsync());
