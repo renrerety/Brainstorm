@@ -54,7 +54,7 @@ public class MapSelector : MonoBehaviour
         UpdateDisplay();
     }
 
-    private void UpdateDisplay()
+    public void UpdateDisplay()
     {
         img.sprite = mapList[index].img;
         label.text = mapList[index].label;
@@ -70,7 +70,7 @@ public class MapSelector : MonoBehaviour
         }
         UpdateData();
     }
-    public void UpdateData()
+    private void UpdateData()
     {
         foreach (var map in mapList)
         {

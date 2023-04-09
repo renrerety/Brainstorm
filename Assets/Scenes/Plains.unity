@@ -3926,6 +3926,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064285903}
   m_CullTransparentMesh: 1
+--- !u!1 &1097902420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1097902422}
+  - component: {fileID: 1097902421}
+  m_Layer: 0
+  m_Name: MapSetup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1097902421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097902420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae4bfbd803aa49488aa958a38349b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: Plains
+--- !u!4 &1097902422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097902420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1253.5444, y: 697.00543, z: 3.0333}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1147727836
 GameObject:
   m_ObjectHideFlags: 0
@@ -6666,6 +6711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef332b05c9ecde4f8882b1b00026072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iceMovement: 0
   speed: 3
 --- !u!95 &1972805156
 Animator:
@@ -6907,6 +6953,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058f59cc776aa8844b4acbb7890a8c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 0}
+  anim: {fileID: 0}
   superBillController: {fileID: 9100000, guid: 9d1138fee18a28243a48cf816fc2387d, type: 2}
   billController: {fileID: 9100000, guid: 987d98671103af24894e511956210b07, type: 2}
 --- !u!1 &1982183639

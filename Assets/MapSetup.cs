@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,7 +9,14 @@ public class MapSetup : MonoBehaviour
 {
     [Inject] private PlayerMovement playerMovement;
     
-    public void SetupMap(string map)
+    [SerializeField] private string map;
+
+    private void Start()
+    {
+        SetupMap();
+    }
+
+    private void SetupMap()
     {
         switch (map)
         {

@@ -220,6 +220,8 @@ public class PromoCode : MonoBehaviour
                 case "Map":
                     PlayerData.instance.persistentData.iceMap = true;
                     MapSelector.instance.mapList[1].unlocked = true;
+                    MapSelector.instance.mapList[1].img = MapSelector.instance.mapList[1].unlockedSprite;
+                    MapSelector.instance.UpdateDisplay();
                     break;
                 default:
                     json = null;
