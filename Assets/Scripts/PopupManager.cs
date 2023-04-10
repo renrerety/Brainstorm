@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PopupManager : MonoBehaviour
 {
+    [SerializeField] private LevelData scene;
+    
     public static PopupManager instance;
     [SerializeField] private GameObject popupMenu;
 
@@ -53,7 +55,7 @@ public class PopupManager : MonoBehaviour
     private IEnumerator BackToMainMenu()
     {
         confirmationPrompt.SetActive(false);
-        SceneManager.LoadScene("Title");
+        SceneLoader.instance.LoadScene(scene,new List<string>{"Menu"});
         yield return new WaitForEndOfFrame();
         GameObject.Find("Music").GetComponent<AudioSource>().Play();
         Time.timeScale = 1;

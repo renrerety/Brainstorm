@@ -11,6 +11,6 @@ public class GameOver : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1;
-        PopupManager.instance.ReturnToMainMenu();
+        SceneLoader.instance.LoadScene(mainMenu,new List<string>{"Menu"});
     }
 }

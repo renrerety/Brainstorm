@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
@@ -29,28 +30,28 @@ public class StartGame : MonoBehaviour
     }
 
     private float t;
-    private AsyncOperation operation;
     IEnumerator LoadSyncAsync()
     {
+        GameObject.Find("Music").GetComponent<AudioSource>().Stop();
+        SceneLoader.instance.LoadScene(scene,new List<string> {MapSelector.instance.mapList[MapSelector.instance.index].label.ToString()});
+        
         t = 0;
         loadingProgress.value = 0;
         
-        operation = SceneManager.LoadSceneAsync(scene.name,LoadSceneMode.Single);
-        operation.allowSceneActivation = false;
-
-        while (operation.progress <= 1)
+        while (loadingProgress.value <= 1)
         {
             t += Time.deltaTime;
             loadingProgress.value = Mathf.Lerp(0, 1, t);
-            
+
             if (loadingProgress.value >= 1)
             {
-                operation.allowSceneActivation = true;
                 yield return new WaitForEndOfFrame();
                 loadingProgress.gameObject.SetActive(false);
-                GameObject.Find("Music").GetComponent<AudioSource>().Stop();
+                
                 loadingProgress.value = 0;
+                //operation.Task.Result.ActivateAsync();
             }
+            
             yield return null;
         }
     }

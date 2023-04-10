@@ -6,15 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Title.unity
-    guid: a681090adbc6ad6489192699836b45f9
-  - enabled: 1
-    path: Assets/Scenes/Plains.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/Login.unity
-    guid: 924b6eb801d3b3f49b3b9ad242f6ede0
-  - enabled: 1
-    path: Assets/Scenes/Ice.unity
-    guid: cc7277a405c2e004fb70a6d00e717461
-  m_configObjects: {}
+    path: Assets/Scenes/Initialization.unity
+    guid: 22177d85cf5919d4fa389ce879ae10ca
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: d3752ffdd8596b04abfb131cb802dabf, type: 2}

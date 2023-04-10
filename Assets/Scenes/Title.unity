@@ -8257,6 +8257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1820921272862441ae64063582d45d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene: {fileID: 11400000, guid: cc2273c5b78ead84c9130cf8fb262f4f, type: 2}
   popupMenu: {fileID: 36563071}
   confirmationPrompt: {fileID: 1795571333}
   music: {fileID: 7529526372328216225, guid: 54751e186e2ff274a933415c5b0ef7c0, type: 3}

@@ -7065,6 +7065,7 @@ MonoBehaviour:
       speedUp: 0
       xpUp: 0
     superBill: 0
+    iceMap: 0
   logged: 0
   username: 
   saveUrl: 
@@ -7633,6 +7634,7 @@ GameObject:
   - component: {fileID: 1624642288}
   - component: {fileID: 1624642287}
   - component: {fileID: 1624642286}
+  - component: {fileID: 1624642290}
   m_Layer: 5
   m_Name: Guest_btn
   m_TagString: Untagged
@@ -7750,13 +7752,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1838668953}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 2
+      - m_Target: {fileID: 1624642290}
+        m_TargetAssemblyTypeName: Guest_btn, NewAssembly
+        m_MethodName: Click
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: cc2273c5b78ead84c9130cf8fb262f4f, type: 2}
-          m_ObjectArgumentAssemblyTypeName: LevelData, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7800,6 +7802,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624642284}
   m_CullTransparentMesh: 1
+--- !u!114 &1624642290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624642284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef347cb3a86f4e347bde3fbd0c157fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: {fileID: 11400000, guid: cc2273c5b78ead84c9130cf8fb262f4f, type: 2}
+  labels:
+  - Menu
 --- !u!1 &1631786588
 GameObject:
   m_ObjectHideFlags: 0
@@ -9116,6 +9133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b5cbc28bdb6bc4cb9b4032cfa9982c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene: {fileID: 11400000, guid: cc2273c5b78ead84c9130cf8fb262f4f, type: 2}
 --- !u!4 &1838668954
 Transform:
   m_ObjectHideFlags: 0
