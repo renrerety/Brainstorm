@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3422908312906711736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6325971519229363787}
+  - component: {fileID: 2678414975744392869}
+  - component: {fileID: 5817984537502613463}
+  m_Layer: 0
+  m_Name: ProjectContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6325971519229363787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3422908312906711736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2678414975744392869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3422908312906711736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e6589720da476459dc6dd71624b071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 5817984537502613463}
+  _installerPrefabs: []
+  _parentNewObjectsUnderContext: 1
+  _editorReflectionBakingCoverageMode: 0
+  _buildsReflectionBakingCoverageMode: 0
+  _settings:
+    _ensureDeterministicDestructionOrderOnApplicationQuit: 0
+    _displayWarningWhenResolvingDuringInstall: 1
+    _validationRootResolveMethod: 0
+    _validationErrorResponse: 0
+    _signalSettings:
+      _defaultSyncMode: 0
+      _missingHandlerDefaultResponse: 2
+      _requireStrictUnsubscribe: 0
+      _defaultAsyncTickPriority: 1
+--- !u!114 &5817984537502613463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3422908312906711736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b8d5777150a6d4a96cf43fc75e846b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  easyFactory: {fileID: 7166778676769138536, guid: e9bcaf681bb8e844384d7e470d43b025, type: 3}
+  mediumFactory: {fileID: 328543901959657136, guid: 26b0d5a457e96a0459c033200331df58, type: 3}
+  hardFactory: {fileID: 1951653807908445262, guid: 35d15e5b1ac34f446abb96d7d0c5aec2, type: 3}
+  enemySpawner: {fileID: 4167353154170672332, guid: ef106347a8fdcfa4a979cc6e911fb38e, type: 3}
+  player: {fileID: 3453706670755634018, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+  throwingKnifePool: {fileID: 2287070836357305238, guid: d3050888728aeb44fb6aacac64253c74, type: 3}
+  xpPool: {fileID: 5541925411894502858, guid: f4159f2389237c14bb58b1318895f318, type: 3}
+  bombPool: {fileID: 497995766222227689, guid: d240fadc1db39e444ac6ca78564a8472, type: 3}
+  fireballPool: {fileID: 4836804737712026690, guid: 57b5c7bc5670e3d4e95bfdfedcb0d382, type: 3}
+  lightningPool: {fileID: 1055317400329201456, guid: 98f81c051f8796e419eb257dfb327bba, type: 3}
+  damagePool: {fileID: 9124462904966701634, guid: b7303ffb74c75b94798c8ac190501d7f, type: 3}
+  laserPool: {fileID: 6877610194909421139, guid: 294efe747b6e156468ac04dce4abfb6c, type: 3}
+  killCounter: {fileID: 2208594014593805662, guid: e7d2226cc9a1e3b419eb1748baab7916, type: 3}

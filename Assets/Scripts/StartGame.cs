@@ -10,6 +10,7 @@ using Zenject;
 
 public class StartGame : MonoBehaviour
 {
+    [SerializeField] private LevelData gameSystems;
     [SerializeField] private GameObject mapSelection;
     
     [SerializeField] public LevelData scene;
@@ -33,7 +34,7 @@ public class StartGame : MonoBehaviour
     IEnumerator LoadSyncAsync()
     {
         GameObject.Find("Music").GetComponent<AudioSource>().Stop();
-        SceneLoader.instance.LoadScene(scene,new List<string> {MapSelector.instance.mapList[MapSelector.instance.index].label.ToString()});
+        SceneLoader.instance.LoadScene(scene, false , new List<string> {MapSelector.instance.mapList[MapSelector.instance.index].label.ToString()});
         
         t = 0;
         loadingProgress.value = 0;
@@ -51,8 +52,7 @@ public class StartGame : MonoBehaviour
                 loadingProgress.value = 0;
                 //operation.Task.Result.ActivateAsync();
             }
-            
-            yield return null;
+            yield break;
         }
     }
 }

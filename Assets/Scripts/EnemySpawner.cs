@@ -12,8 +12,8 @@ public class EnemySpawner : MonoBehaviour
     //public static EnemySpawner Instance { get; private set; }
 
     [HideInInspector] public AbstractFactory factory;
-    [SerializeField] float spawnRadius;
-    [SerializeField] float spawnInterval;
+    [SerializeField] public float spawnRadius;
+    [SerializeField] public float spawnInterval;
     [SerializeField] private float factorySwapTime;
 
     public List<GameObject> activeEnemyList = new List<GameObject>();
@@ -24,26 +24,24 @@ public class EnemySpawner : MonoBehaviour
 
     private Transform playerTransform;
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartWaveLoop()
     {
-        StartCoroutine(SwapFactory());
-        StartCoroutine(SpawnWave());
-
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        InvokeRepeating("WaveLoop",5,spawnInterval);
     }
-
-    private int index = 1;
-    IEnumerator SwapFactory()
+    public void WaveLoop()
     {
-        factory = _easyEnemyFactory;
+        if (factory.isActive)
+        {
+            StartCoroutine(factory.SpawnWave());
+        }
+    }
+    public IEnumerator SwapFactory()
+    {
         yield return new WaitForSeconds(factorySwapTime);
         factory = _mediumEnemyFactory;
         yield return new WaitForSeconds(factorySwapTime);
         factory = _hardEnemyFactory;
         yield return new WaitForSeconds(factorySwapTime);
-        
-        index++;
         ScaleFactories();
 
         StartCoroutine(SwapFactory());
@@ -59,35 +57,8 @@ public class EnemySpawner : MonoBehaviour
         _mediumEnemyFactory.ScaleEnemies();
         _hardEnemyFactory.ScaleEnemies();
     }
-    IEnumerator SpawnWave()
-    {
-        yield return new WaitForSeconds(2);
-        while (true)
-        {
-            GameObject enemy;
-            for (int i = 0; i < factory.waveSize; i++)
-            {
-                if (i > factory.waveSize - (factory.waveSize / 4))
-                {
-                    enemy = factory.CreateStrongEnemy();
-                }
-                else
-                {
-                    enemy = factory.CreateWeakEnemy();
-                }
+    
 
-                Vector3 randomPos = Random.insideUnitCircle.normalized * spawnRadius;
-                randomPos += new Vector3(Random.Range(0f, 10f), Random.Range(0f, 10f));
-                enemy.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + randomPos;
-                activeEnemyList.Add(enemy);
-                
-                
-            }
-
-            yield return new WaitForSeconds(spawnInterval);
-        }
-
-    }
 
     private void FixedUpdate()
     {

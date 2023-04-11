@@ -8,6 +8,6 @@ public class Guest_btn : MonoBehaviour
     [SerializeField] private List<string> labels;
     public void Click()
     {
-        SceneLoader.instance.LoadScene(scene,labels);
+        SceneLoader.instance.LoadScene(scene,false,labels);
     }
 }

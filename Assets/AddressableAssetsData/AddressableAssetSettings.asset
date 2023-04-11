@@ -44,6 +44,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d55d7d0d0a722c45a10147062873b78, type: 2}
   - {fileID: 11400000, guid: c8fb002d37be13d409aca09dad684ae8, type: 2}
   - {fileID: 11400000, guid: 5c76da89d9414d84eb386077ce54fcbb, type: 2}
+  - {fileID: 11400000, guid: e3e1660a352a3e94eb5b04a386b5ac21, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -88,6 +89,7 @@ MonoBehaviour:
     - Menu
     - Plains
     - Ice
+    - Systems
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 3f94901325b156c4784f2a77c0b286f1, type: 2}

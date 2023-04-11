@@ -10,6 +10,7 @@ public abstract class AbstractFactory : MonoBehaviour
     [SerializeField] protected GameObject weakEnemy;
     [SerializeField] protected GameObject strongEnemy;
 
+    public bool isActive;
     public int waveSize;
     int weakIndex;
     int strongIndex;
@@ -42,7 +43,7 @@ public abstract class AbstractFactory : MonoBehaviour
     }
     IEnumerator CreatePool()
     {
-        for(int i = 0; i < 3000; i++)
+        for(int i = 0; i < 500; i++)
         {
             GameObject weakEnemyInst = Instantiate(weakEnemy, gameObject.transform);
             AIMaster weakMaster =  weakEnemyInst.GetComponent<AIMaster>();
@@ -58,7 +59,7 @@ public abstract class AbstractFactory : MonoBehaviour
             weakMaster._killCounter = _killCounter;
             weakEnemyList.Add(weakEnemyInst);
             weakEnemyInst.SetActive(false);
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForEndOfFrame();
             
 
             GameObject strongEnemyInst = Instantiate(strongEnemy, gameObject.transform);
@@ -76,8 +77,32 @@ public abstract class AbstractFactory : MonoBehaviour
             strongEnemyList.Add(strongEnemyInst);
             strongEnemyInst.SetActive(false);
             
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForEndOfFrame();
+            isActive = true;
         }
+
+        
+    }
+    public IEnumerator SpawnWave()
+    {
+        GameObject enemy;
+            for (int i = 0; i < waveSize; i++)
+            {
+                if (i > waveSize - (waveSize / 4))
+                {
+                    enemy = CreateStrongEnemy();
+                }
+                else
+                {
+                    enemy = CreateWeakEnemy();
+                }
+
+                Vector3 randomPos = Random.insideUnitCircle.normalized * _enemySpawner.spawnRadius;
+                randomPos += new Vector3(Random.Range(0f, 10f), Random.Range(0f, 10f));
+                enemy.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + randomPos;
+                _enemySpawner.activeEnemyList.Add(enemy);
+            }
+            yield return new WaitForSeconds(_enemySpawner.spawnInterval);
     }
     GameObject TakeWeakEnemyFromPool()
     {

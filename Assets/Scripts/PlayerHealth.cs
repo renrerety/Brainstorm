@@ -18,10 +18,10 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
     [SerializeField] private Image fill;
     [SerializeField] private GameObject gameOverPanel;
 
-    private AudioSource _audioSource;
+    public AudioSource _audioSource;
     [SerializeField] private AudioClip playerHitClip;
     
-    private SpriteRenderer _spriteRenderer;
+    public SpriteRenderer _spriteRenderer;
     IEnumerator Flicker()
     {
         _spriteRenderer.color = Color.red;
@@ -32,8 +32,6 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
     private float damageTimer;
     private void Update()
     {
-        UpdateHpBar();
-        
         damageTimer -= Time.deltaTime;
         if (damageTimer <= 0)
         {
@@ -66,6 +64,7 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
             StartCoroutine(Flicker());
             canTakeDamage = false;
             damageTimer = damageCooldown;
+            UpdateHpBar();
             if (hp <= 0)
             {
                 Die();
@@ -89,7 +88,7 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
         dot = false;
     }
 
-    void UpdateHpBar()
+    public void UpdateHpBar()
     {
         hpBar.value = (float)(hp / maxHp);
         fill.color = Color.Lerp(Color.red,Color.green , hp/maxHp);
@@ -97,13 +96,7 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
 
     private void Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _audioSource = GetComponent<AudioSource>();
-
-        maxHp += (PlayerData.instance.persistentData.upgrades.hpUp * 5);
-        
-        hp = maxHp;
-        
+        hp = maxHp + (PlayerData.instance.persistentData.upgrades.hpUp) * 5;
         UpdateHpBar();
     }
 }

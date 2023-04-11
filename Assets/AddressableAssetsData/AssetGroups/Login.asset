@@ -22,610 +22,137 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-  - m_GUID: a3971cbd95321224ba6b283aae49e910
-    m_Address: Ghost
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 8c7898778fc4b9244a00ce20c9b64229
-    m_Address: Run
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 54751e186e2ff274a933415c5b0ef7c0
-    m_Address: Music
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Menu
-  - m_GUID: 2d5008d6e82080f43bea04b9560862b4
-    m_Address: DamagePopup
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: e3cb720e86c4cb04e8253a21825e141d
-    m_Address: GameLanguage
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Menu
-    - Plains
-    - Ice
-  - m_GUID: 8b73d557ae7104748822252d0777a18a
-    m_Address: Localization
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Menu
-    - Plains
-    - Ice
-  - m_GUID: 9826f46c2d763a743aac19b052a445f7
-    m_Address: Goblin
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: bf5f8de0a4fccd4479fba6733d8299a8
-    m_Address: Wizard
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 2fc232df10071204abc5ee88d353df09
-    m_Address: Skeleton_01
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 71e5f1719373394408af06fd249eeccc
-    m_Address: Bat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 8f496cc2c3ca5894aa8e31eae713035e
-    m_Address: Zombie_01
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 4f0d5feb0923677489626bbed8ef3023
-    m_Address: Ghost
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
+    - default
   - m_GUID: fac823bb39432254ebba24e2aea42194
     m_Address: OptionsMenu
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-  - m_GUID: d2840552ecb61cc418668388e0b21739
-    m_Address: PopupMenu
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Menu
+    - default
   - m_GUID: 087f815e690242d498d529101987e445
     m_Address: MainMenu
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-  - m_GUID: 9ec8ea74e3d04dc4097f7586ae58f7a0
-    m_Address: PowerUp_Clock
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: f01ea1e17c222dd43945f6e6dbf4cf5e
-    m_Address: PowerUp_Magnet
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: f0e7ec26d44923f4db837bcaed676f6c
-    m_Address: Throwing_Knife
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: a591186bb58ba014faf3a97af4e7811d
-    m_Address: Lightning
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 0c18852680b6bf644b66d4cd4e6f6194
-    m_Address: Fire_Circle
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 8e64e7fc805a39a45a852b0838c367a6
-    m_Address: LaserRay
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 2730488081ad60341bf05cfcaa0d13ca
-    m_Address: Fireball
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 80a8b3ac41c076042bf9c8398af36846
-    m_Address: Bomb
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: ba1214564e45dba43b6f6f4148a801c8
-    m_Address: Shield
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 4a0a16d5a250d654d839efefd29b8c3c
-    m_Address: XpGemBlue
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: f6c7130b9605dfd40ab1b9966e4d2c63
-    m_Address: XpGemRed
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: b9c1ed577f30d234e959cf15d1a624f4
-    m_Address: XpGemYellow
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 341aea2d8413f4b4291a96243c61d1c6
-    m_Address: StopMoving
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 56209a85f25306e44bf96a0eca487881
-    m_Address: WalkTowardsPlayer
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
+    - default
   - m_GUID: 63c646388bf4b5141923abe8cee8f770
     m_Address: grass_01
     m_ReadOnly: 0
     m_SerializedLabels:
     - Plains
-  - m_GUID: ff1ff96f8299a6d458e3b9d97283485d
-    m_Address: Zombie_02
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 2d94d06ab0ccb374c94a9e6c8a1982ed
-    m_Address: SuperBill
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Menu
-    - Plains
-    - Ice
-  - m_GUID: 680ad7faf9226154ca363f69d2c2b662
-    m_Address: Player
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Menu
-    - Plains
-    - Ice
-  - m_GUID: 182e06506474f4046af4322df0ec43c6
-    m_Address: Bill
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-    - Menu
-  - m_GUID: 04a5cc118db957b4fbe37eab2854d67c
-    m_Address: BombWeapon
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: d8be85c749661374b8ebca0ac39fc4cf
-    m_Address: FireballWeapon
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 5052499fb4eb45549880c565025db6e4
-    m_Address: LaserGunWeapon
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: fa97d843f59c9134c979128ea262b870
-    m_Address: LightningRodWeapon
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 721ce994813b35d4b8290a95e3231e0d
-    m_Address: ShieldWeapon
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: da7080e58a3f3d340aca5c9eb11e325c
-    m_Address: ThrowingKnifeWeapon
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 9913ff132987e1048b4c62a4dcc4dd52
-    m_Address: TorchWeapon
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 529325a90ff99f3459485eaea9d90d36
-    m_Address: Hover
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: a8d8822e3b64e3d45b43aee4e8b3cf5f
-    m_Address: Click
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: e79a4d1babaead64b90f522d17aff5fb
-    m_Address: TestMusic
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Menu
-  - m_GUID: ab6a3fe865caf2e4bba43a5e442bf636
-    m_Address: Bomb
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 55d62d9dc29464a4080932778b49edd4
-    m_Address: fireball
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: e2974a6d456e78a4aa180da0bafeb84e
-    m_Address: Game Music
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: b68e8f88720539643a0573adb8088598
-    m_Address: Hit
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 78932dcaa88c0754f834af6999712bce
-    m_Address: PlayerHit
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: ba86e6f77404c9a46b88c829f8804bb6
-    m_Address: Thunder
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 673b45c969a9c5a45969d40a9166fbc5
-    m_Address: xp_gem
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 0ca21d21d053f4944a94a0c2be8857fe
-    m_Address: Button
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
+    - default
   - m_GUID: 3d052694d994b63429d4273aa0ddbb53
     m_Address: SpeechBubble
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
+    - default
   - m_GUID: d508e4d2d40f83a4aa3cdec2efee5346
     m_Address: Title Screen
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
+    - default
   - m_GUID: ec5a7c346da303842b6a49075d5fc4fd
     m_Address: LockedSkin
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-  - m_GUID: e5e3785e7afe7f9489b946b73ef44ee7
-    m_Address: SliderHandle
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Menu
-    - Plains
-    - Ice
+    - default
   - m_GUID: 91fa1ad7d1792cb418c0f946d12ca000
     m_Address: grass_01
     m_ReadOnly: 0
     m_SerializedLabels:
     - Plains
-  - m_GUID: 8d916698d1cd5e648abe26e0db0832a9
-    m_Address: Bomb
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 8bcf97616f7a21d469a5c6b2576744ce
-    m_Address: Throwing_Knife
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 19a28ea773f102a40ad88301468f8840
-    m_Address: Magnet
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 823d9da8a54646a4698aeb3c7496dfbc
-    m_Address: Clock
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 10274a44d586b814eb60859d442c2b39
-    m_Address: Bat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 605f620d4bb4b1148b59e99437845d89
-    m_Address: Gem_Red
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 4a5d9af4cd530d0409bf96098414124b
-    m_Address: Fireball
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 545b52e94f23cf54a87305b01f792821
-    m_Address: Goblin
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 49cd66e41bb264244ba6ac323794a98b
-    m_Address: Gem_Yellow
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: f8262dc1132058d489d4cc932f46988e
-    m_Address: Gem_Blue
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 5ebd084ba2348414bb19c2c6d230dbe7
-    m_Address: Fire_Circle
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 57d39837990f2a54eb4754ba6cc281ad
-    m_Address: LaserRay
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 23dad48e51240f94abe5821ee01abd83
-    m_Address: Skeleton_02
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: e63f195eb24612f4186c0fe551b963d3
-    m_Address: Wizard
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
+    - default
   - m_GUID: 808d8d5bec572da4c90805b0b8fc632a
     m_Address: Terrain_01
     m_ReadOnly: 0
     m_SerializedLabels:
     - Plains
-  - m_GUID: d0b75c4b1eaedcf4cbfedd7cb9e11fb0
-    m_Address: Ghost
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
+    - default
   - m_GUID: 421141eb16057ca4aa65df9ff89a72e0
     m_Address: LockedMap
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
+    - default
   - m_GUID: d2744f3c2e62ef745bd22d3ddb937792
     m_Address: Gold
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-  - m_GUID: 73f829587fa0d89418aa71243000f964
-    m_Address: Torch
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: f336ce36c9d0d3d4885664b194f52bfa
-    m_Address: Lightning
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 442a791b1ad1ff54c98710bde7695ed8
-    m_Address: Skull
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 5a7f1923be5bac14f9cda5e157059c5c
-    m_Address: LightningRod
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 0cbf57cb7d0155e4c924a49c70efc412
-    m_Address: Shield
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
+    - default
   - m_GUID: 7d67f6f21aa313548a1762d84b2da913
     m_Address: IceMapIcon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-  - m_GUID: ad0b121d4ef7043428dec68243c35fb4
-    m_Address: LaserGun
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
+    - default
   - m_GUID: 5e35338584021b843a639871c53fdbad
     m_Address: PlainsMapIcon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-  - m_GUID: 6ff87e908369b2747858872982652742
-    m_Address: Skeleton_01
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
+    - default
   - m_GUID: bf72d269f87cc2647b79c3cdfc3eb4cf
     m_Address: IceTerrain_01
     m_ReadOnly: 0
     m_SerializedLabels:
     - Ice
-  - m_GUID: b3137c24f3153894791e05aef2efd2a5
-    m_Address: Fly
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 23aa48f0dec04894a85fbdca25bc7d9e
-    m_Address: Run
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 048a6e79243210748af56a2ba3288639
-    m_Address: Run
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: f97a97ef2765e8240ad5068fc1e8a390
-    m_Address: Player_Idle
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 725ab7a1bcfc5624f8e0e392fe250398
-    m_Address: Player_Run02
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: d9c2c31fcae636346af4afa850ab9884
-    m_Address: Skeleton01_Run
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 810e719cd4d3aff4f82a52523066fe6e
-    m_Address: Run
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 2167fcb188addfa4188bdc25e9df06d6
-    m_Address: Run
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 12f585b36b255834ea268ae7b6de54c8
-    m_Address: Idle
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 399ff18c148e4154d826054608bcaeb5
-    m_Address: Run
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 00d4e37bba4b2ed4c8665dc746f91333
-    m_Address: Zombie_01_Idle
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 8a12446682ac5ad4c9e7fbc8dfd9384b
-    m_Address: Zombie_01_Run
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 269b175b6c09bc647bd77d4536b3d4d8
-    m_Address: Run
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: 2a9b38fd6efd1f74eabc8b9ba8809b92
-    m_Address: Explosion
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
-  - m_GUID: ac0aa75c35d1301479872b992196813c
-    m_Address: Lightning
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Plains
-    - Ice
+    - default
   - m_GUID: a681090adbc6ad6489192699836b45f9
     m_Address: Title
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
+    - default
   - m_GUID: 2cda990e2423bbf4892e6590ba056729
     m_Address: Plains
     m_ReadOnly: 0
     m_SerializedLabels:
     - Plains
+    - default
   - m_GUID: cc7277a405c2e004fb70a6d00e717461
     m_Address: Ice
     m_ReadOnly: 0
     m_SerializedLabels:
+    - Ice
+    - default
+  - m_GUID: 352c8cd15f3f2d64aa66f0aa6670a4b2
+    m_Address: Login
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: 140f745696b827245a08c40d6b7c5129
+    m_Address: Initialization
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: b83b7341450ee30438d6846c120d83db
+    m_Address: Plains
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Menu
+    - Plains
+  - m_GUID: cc2273c5b78ead84c9130cf8fb262f4f
+    m_Address: Title
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Menu
+    - default
+  - m_GUID: 1eba9c57eadf7764f91f2543548c3095
+    m_Address: Ice
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ice
+    - Menu
+  - m_GUID: 7fe76d0eab2f52c4cb3c4936c21beb34
+    m_Address: GameSystems
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Systems
+    - Plains
     - Ice
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 33c0a5a4547c5e6488ae6e6b82f8be22, type: 2}

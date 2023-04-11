@@ -24,7 +24,7 @@ public class PlayerWeapons : MonoBehaviour
 // Start is called before the first frame update
     void Start()
     {
-        AddWeaponToList("Laser Gun");
+        
     }
 
     // Update is called once per frame

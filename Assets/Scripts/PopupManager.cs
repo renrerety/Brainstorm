@@ -55,7 +55,7 @@ public class PopupManager : MonoBehaviour
     private IEnumerator BackToMainMenu()
     {
         confirmationPrompt.SetActive(false);
-        SceneLoader.instance.LoadScene(scene,new List<string>{"Menu"});
+        SceneLoader.instance.LoadScene(scene,false,new List<string>{"Menu"});
         yield return new WaitForEndOfFrame();
         GameObject.Find("Music").GetComponent<AudioSource>().Play();
         Time.timeScale = 1;

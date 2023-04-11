@@ -8,7 +8,7 @@ using UnityEngine;
 public class WorldScrolling : MonoBehaviour
 {
     //Script come from this tutorial : https://www.youtube.com/watch?v=m0Ik1K02xfo&list=PL0GUZtUkX6t7zQEcvKtdc0NvjVuVcMe6U&index=2
-    [SerializeField] Transform player;
+    [SerializeField] public Transform player;
     Vector2Int currentTilePos = new Vector2Int(1,1);
     [SerializeField] Vector2Int playerTilePosition;
     Vector2Int onTileGridPlayerPosition;
@@ -36,19 +36,22 @@ public class WorldScrolling : MonoBehaviour
     }
     private void Update()
     {
-        playerTilePosition.x = (int)(player.position.x / tileSize);
-        playerTilePosition.y = (int)(player.position.y / tileSize);
-
-        playerTilePosition.x -= player.position.x < 0 ? 1 : 0;
-        playerTilePosition.y -= player.position.y < 0 ? 1 : 0;
-
-        if (currentTilePos != playerTilePosition)
+        if (player)
         {
-            currentTilePos = playerTilePosition;
+            playerTilePosition.x = (int)(player.position.x / tileSize);
+            playerTilePosition.y = (int)(player.position.y / tileSize);
 
-            onTileGridPlayerPosition.x = CalculatePositionOnAxis(onTileGridPlayerPosition.x, true);
-            onTileGridPlayerPosition.y = CalculatePositionOnAxis(onTileGridPlayerPosition.y, false);
-            UpdateTilesOnScreen();
+            playerTilePosition.x -= player.position.x < 0 ? 1 : 0;
+            playerTilePosition.y -= player.position.y < 0 ? 1 : 0;
+
+            if (currentTilePos != playerTilePosition)
+            {
+                currentTilePos = playerTilePosition;
+
+                onTileGridPlayerPosition.x = CalculatePositionOnAxis(onTileGridPlayerPosition.x, true);
+                onTileGridPlayerPosition.y = CalculatePositionOnAxis(onTileGridPlayerPosition.y, false);
+                UpdateTilesOnScreen();
+            }
         }
     }
 

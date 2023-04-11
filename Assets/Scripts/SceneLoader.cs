@@ -20,6 +20,7 @@ public class SceneLoader : MonoBehaviour
         else
         {
             instance = this;
+            DontDestroyOnLoad(this);
         }
     }
 
@@ -31,15 +32,28 @@ public class SceneLoader : MonoBehaviour
         Addressables
             .LoadAssetsAsync<UnityEngine.Object>(label, x => { }, Addressables.MergeMode.Union);
     }
-    public void LoadScene(LevelData scene, List<string> labels)
+    public void LoadScene(LevelData scene,bool additive, List<string> labels)
     {
         this.sceneName = scene.name;
-        Addressables
-            .LoadAssetsAsync<UnityEngine.Object>(labels, x => { }, Addressables.MergeMode.Union)
-            .Completed += SceneLoader_Completed;
+        if (!additive)
+        {
+            Addressables
+                .LoadAssetsAsync<UnityEngine.Object>(labels, x => { }, Addressables.MergeMode.Union)
+                .Completed += SceneLoader_Completed_Single;
+        }
+        else
+        {
+            Addressables
+                .LoadAssetsAsync<UnityEngine.Object>(labels, x => { }, Addressables.MergeMode.Union)
+                .Completed += SceneLoader_Completed_Additive;
+        }
     }
-    void SceneLoader_Completed(AsyncOperationHandle<IList<UnityEngine.Object>> obj)
+    void SceneLoader_Completed_Single(AsyncOperationHandle<IList<UnityEngine.Object>> obj)
     {
         Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+    }
+    void SceneLoader_Completed_Additive(AsyncOperationHandle<IList<UnityEngine.Object>> obj)
+    {
+        Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
     }
 }
