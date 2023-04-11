@@ -11,7 +11,7 @@ public class LightningRodWeapon : WeaponMaster
     {
         for (int i = 0; i < attackAmount; i++)
         {
-            Vector3 randomPos = _enemySpawner.FindRandomEnemy().position;
+            Vector3 randomPos = EnemySpawner.Instance.FindRandomEnemy().position;
             GameObject obj = _lightningPool.GetPooledObject(randomPos);
 
             MonoBehaviourRef.Instance.StartCoroutine(DisableLightning(obj));

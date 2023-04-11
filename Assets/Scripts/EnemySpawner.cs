@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    //public static EnemySpawner Instance { get; private set; }
+    public static EnemySpawner Instance { get; private set; }
 
     [HideInInspector] public AbstractFactory factory;
     [SerializeField] public float spawnRadius;
@@ -24,6 +24,22 @@ public class EnemySpawner : MonoBehaviour
 
     private Transform playerTransform;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
+    public void Init()
+    {
+        playerTransform = GameObject.Find("Player(Clone)").transform;
+    }
     public void StartWaveLoop()
     {
         InvokeRepeating("WaveLoop",5,spawnInterval);

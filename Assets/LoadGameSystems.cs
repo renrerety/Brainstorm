@@ -29,16 +29,7 @@ public class LoadGameSystems : MonoBehaviour
 
     public void LoadGameSystemsScene(AsyncOperationHandle<IList<UnityEngine.Object> > op)
     {
-        Addressables.LoadSceneAsync(scene.name, LoadSceneMode.Additive).Completed += SetupScene;
-    }
-
-    public void SetupScene(AsyncOperationHandle<SceneInstance> op)
-    {
-        _playerWeapons.AddWeaponToList("Laser Gun");
-
-        _enemySpawner.factory = _easyEnemyFactory;
-        StartCoroutine(_enemySpawner.SwapFactory());
-        _enemySpawner.StartWaveLoop();
+        Addressables.LoadSceneAsync(scene.name, LoadSceneMode.Additive);
     }
 
     private void SetupPlayerHealth()

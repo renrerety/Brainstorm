@@ -6,7 +6,6 @@ using Zenject;
 
 public class Explosion : MonoBehaviour
 {
-    [HideInInspector] public PlayerWeapons _playerWeapons;
     [HideInInspector] public BombPool _bombPool;
     private void OnEnable()
     {
@@ -17,7 +16,7 @@ public class Explosion : MonoBehaviour
     {
         if (col.CompareTag("Enemy"))
         {
-            col.GetComponent<AIMaster>().TakeDamage(_playerWeapons.FindWeapon("Bomb").damage);
+            col.GetComponent<AIMaster>().TakeDamage(PlayerWeapons.Instance.FindWeapon("Bomb").damage);
         }
     }
 

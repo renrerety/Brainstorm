@@ -10,8 +10,7 @@ public class ThrowingKnifePool : MonoBehaviour
     [SerializeField] private GameObject ThrowingKnife;
 
     private int index;
-
-    [Inject] private PlayerWeapons _playerWeapons;
+    
     private void CreatePool()
     {
         for (int i = 0; i < 50; i++)
@@ -20,8 +19,7 @@ public class ThrowingKnifePool : MonoBehaviour
             ThrowingKnifeProjectile tkProjectile = throwingKnife.GetComponent<ThrowingKnifeProjectile>();
             
             tkProjectile._throwingKnifePool = this;
-            tkProjectile._playerWeapons = _playerWeapons;
-            
+
             throwingKnife.SetActive(false);
             throwingKnifePoolList.Add(throwingKnife);
         }

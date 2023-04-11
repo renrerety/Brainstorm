@@ -1,9 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSkinLoader : MonoBehaviour
 {
+    public static PlayerSkinLoader instance;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Animator anim;
     
@@ -11,8 +26,7 @@ public class PlayerSkinLoader : MonoBehaviour
     [SerializeField] private RuntimeAnimatorController superBillController;
     [SerializeField] private RuntimeAnimatorController billController;
     
-    // Start is called before the first frame update
-    void Start()
+    public void Init()
     {
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();

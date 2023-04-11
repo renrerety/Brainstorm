@@ -9,8 +9,7 @@ public class BombPool : MonoBehaviour
     public List<GameObject> bombPoolList = new List<GameObject>();
     [SerializeField] private GameObject bombRef;
     private int index;
-
-    [Inject] private PlayerWeapons _playerWeapons;
+    
     private void CreatePool()
     {
         for (int i = 0; i < 50; i++)
@@ -19,8 +18,6 @@ public class BombPool : MonoBehaviour
             Bomb bomb = bombInst.GetComponent<Bomb>();
             
             bomb._bombPool = this;
-            bomb._playerWeapons = _playerWeapons;
-            
             bombPoolList.Add(bombInst);
         }
     }

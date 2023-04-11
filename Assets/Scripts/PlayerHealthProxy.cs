@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,19 +6,30 @@ using Zenject;
 
 public class PlayerHealthProxy : MonoBehaviour, IPlayerHealth
 {
-    [Inject] private PlayerWeapons _playerWeapons;
-    [Inject] private PlayerHealth _playerHealth;
+    public static PlayerHealthProxy instance;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     public void TakeDamage(float damage)
     {
-        ShieldWeapon shield = (_playerWeapons.FindWeapon("Shield") as ShieldWeapon);
+        ShieldWeapon shield = (PlayerWeapons.Instance.FindWeapon("Shield") as ShieldWeapon);
         if (shield && shield.isActive)
         {
             return;
         }
         else
         {
-            _playerHealth.TakeDamage(damage);
+            PlayerHealth.instance.TakeDamage(damage);
         }
     }
 }

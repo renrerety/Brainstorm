@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245d14704d2aa884d876052d66410706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  factory: {fileID: 0}
+  factory: {fileID: 7166778676769138538, guid: e9bcaf681bb8e844384d7e470d43b025, type: 3}
   spawnRadius: 30
   spawnInterval: 5
   factorySwapTime: 240

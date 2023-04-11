@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
+using Object = UnityEngine.Object;
 
 public class StartGame : MonoBehaviour
 {
@@ -34,6 +37,7 @@ public class StartGame : MonoBehaviour
     IEnumerator LoadSyncAsync()
     {
         GameObject.Find("Music").GetComponent<AudioSource>().Stop();
+
         SceneLoader.instance.LoadScene(scene, false , new List<string> {MapSelector.instance.mapList[MapSelector.instance.index].label.ToString()});
         
         t = 0;
@@ -54,5 +58,15 @@ public class StartGame : MonoBehaviour
             }
             yield break;
         }
+    }
+
+    public void LoadScene(AsyncOperationHandle<IList<UnityEngine.Object>> op)
+    {
+        Addressables.LoadSceneAsync(scene.sceneName, LoadSceneMode.Single).Completed += StartInit;
+    }
+
+    public void StartInit(AsyncOperationHandle<SceneInstance> op)
+    {
+        //GameInit.instance.Init();
     }
 }

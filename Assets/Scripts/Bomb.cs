@@ -8,7 +8,6 @@ using Zenject;
 
 public class Bomb : MonoBehaviour
 {
-    [HideInInspector] public PlayerWeapons _playerWeapons;
     [HideInInspector] public BombPool _bombPool;
     
     public GameObject explosionObj;
@@ -16,12 +15,11 @@ public class Bomb : MonoBehaviour
     {
         Explosion explosion = explosionObj.GetComponent<Explosion>();
         explosion._bombPool = _bombPool;
-        explosion._playerWeapons = _playerWeapons;
     }
 
     private void OnEnable()
     {
-        WeaponMaster weapon = _playerWeapons.FindWeapon("Bomb");
+        WeaponMaster weapon = PlayerWeapons.Instance.FindWeapon("Bomb");
         if (weapon.name == "Bomb")
         {
             StartCoroutine(Explode());
@@ -32,7 +30,7 @@ public class Bomb : MonoBehaviour
     {
         float delay = 1.5f;
 
-        WeaponMaster weapon = _playerWeapons.FindWeapon("Bomb");
+        WeaponMaster weapon = PlayerWeapons.Instance.FindWeapon("Bomb");
         delay = (weapon as BombWeapon).delay;
         yield return new WaitForSeconds(delay);
         

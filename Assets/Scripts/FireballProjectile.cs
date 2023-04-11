@@ -19,12 +19,10 @@ public class FireballProjectile : MonoBehaviour
     public int hit;
 
     private WeaponMaster fireballWeapon;
-    public PlayerWeapons _playerWeapons;
-    
+
     private void OnEnable()
     {
         GetComponent<AudioSource>().PlayOneShot(fireballClip);
-        fireballWeapon = _playerWeapons.FindWeapon("Fireball");
     }
 
     private void Start()

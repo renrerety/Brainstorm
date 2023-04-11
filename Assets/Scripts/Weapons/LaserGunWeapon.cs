@@ -13,11 +13,11 @@ public class LaserGunWeapon : WeaponMaster
         for (int i = 0; i < attackAmount; i++)
         {
             Transform nearestEnemy;
-            if (_enemySpawner.activeEnemyList.Count > 0)
+            if (EnemySpawner.Instance.activeEnemyList.Count > 0)
             {
                 try
                 {
-                    nearestEnemy = _enemySpawner.activeEnemyList[i].transform;
+                    nearestEnemy = EnemySpawner.Instance.activeEnemyList[i].transform;
                     if (Vector2.Distance(nearestEnemy.position, playerTransform.position) >= 5)
                     {
                         return;

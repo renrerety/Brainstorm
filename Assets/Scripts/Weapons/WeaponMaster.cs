@@ -7,8 +7,7 @@ using Zenject;
 public abstract class WeaponMaster : ScriptableObject
 {
     public string translateKey;
-    [HideInInspector] public EnemySpawner _enemySpawner;
-    [HideInInspector] public PlayerWeapons _playerWeapons;
+    [Inject] public PlayerWeapons _playerWeapons;
     [HideInInspector] public Transform playerTransform;
     public GameObject weaponObj;
     public float cooldown;

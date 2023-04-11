@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weakEnemy: {fileID: 5244772559631427704, guid: 9826f46c2d763a743aac19b052a445f7, type: 3}
   strongEnemy: {fileID: 5482843841189036764, guid: bf5f8de0a4fccd4479fba6733d8299a8, type: 3}
+  isActive: 0
   waveSize: 17
   weakEnemyList: []
   strongEnemyList: []

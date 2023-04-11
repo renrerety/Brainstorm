@@ -9,7 +9,6 @@ public class LightningPool : MonoBehaviour
     [SerializeField] private GameObject lightningRef;
 
     private int index;
-    [Inject] private PlayerWeapons _playerWeapons;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +20,6 @@ public class LightningPool : MonoBehaviour
         for (int i = 0; i < 20; i++)
         {
             GameObject obj = Instantiate(lightningRef,transform);
-            obj.GetComponent<Lightning>()._playerWeapons = _playerWeapons;
             lightningPoolList.Add(obj);
             obj.SetActive(false);
         }

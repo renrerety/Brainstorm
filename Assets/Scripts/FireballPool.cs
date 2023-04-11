@@ -11,15 +11,13 @@ public class FireballPool : MonoBehaviour
 
     [SerializeField] private GameObject fireball;
     private int index;
-
-    [Inject] private PlayerWeapons _playerWeapons;
+    
     
     private void CreatePool()
     {
         for (int i = 0; i < 50; i++)
         {
             GameObject fireball = Instantiate(this.fireball,gameObject.transform);
-            fireball.GetComponent<FireballProjectile>()._playerWeapons = this._playerWeapons;
             fireball.GetComponent<FireballProjectile>()._fireballPool = this;
             this.fireball.SetActive(false);
             fireballPoolList.Add(fireball);

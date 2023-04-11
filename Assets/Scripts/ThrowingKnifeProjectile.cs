@@ -5,7 +5,6 @@ using Zenject;
 
 public class ThrowingKnifeProjectile : MonoBehaviour
 {
-    [HideInInspector] public PlayerWeapons _playerWeapons;
     [HideInInspector] public ThrowingKnifePool _throwingKnifePool;
     
     public int damage;
@@ -22,7 +21,6 @@ public class ThrowingKnifeProjectile : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        throwingKnifeWeapon = _playerWeapons.FindWeapon("Throwing Knife");
     }
     // Update is called once per frame
     void Update()

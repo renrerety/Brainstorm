@@ -21,7 +21,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private float speedModifier;
-    private void Start()
+
+    public void Init()
     {
         speedModifier = 0;
         for (int i = 0; i < PlayerData.instance.persistentData.upgrades.speedUp; i++)

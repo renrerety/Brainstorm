@@ -6,13 +6,12 @@ using UnityEngine.Animations;
 
 public class LaserRay : MonoBehaviour
 {
-    [HideInInspector] public PlayerWeapons _playerWeapons;
     [HideInInspector] public LaserPool _laserPool;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<AIMaster>().TakeDamage(_playerWeapons.FindWeapon("Laser Gun").damage);
+            other.GetComponent<AIMaster>().TakeDamage(PlayerWeapons.Instance.FindWeapon("Laser Gun").damage);
         }
     }
 

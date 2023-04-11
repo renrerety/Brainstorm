@@ -18,7 +18,7 @@ public class FireballWeapon : WeaponMaster
     {
         for (int i = 0; i < attackAmount; i++)
         {
-            Transform nearestEnemy = _enemySpawner.FindNearestEnemy(200);
+            Transform nearestEnemy = EnemySpawner.Instance.FindNearestEnemy(200);
 
             GameObject fireball = _fireballPool.TakeFireballFromPool();
             fireball.transform.position = playerTransform.position;

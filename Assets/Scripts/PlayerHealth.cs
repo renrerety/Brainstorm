@@ -9,7 +9,7 @@ using Zenject;
 
 public class PlayerHealth : MonoBehaviour, IPlayerHealth
 {
-    [Inject] private PlayerHealthProxy _playerHealthProxy;
+    public static PlayerHealth instance;
     public float hp;
     public float maxHp;
     
@@ -22,6 +22,19 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
     [SerializeField] private AudioClip playerHitClip;
     
     public SpriteRenderer _spriteRenderer;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameOverPanel);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     IEnumerator Flicker()
     {
         _spriteRenderer.color = Color.red;
@@ -77,7 +90,7 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
     {
         if (dot) 
         {
-            _playerHealthProxy.TakeDamage(damage);
+            PlayerHealthProxy.instance.TakeDamage(damage);
             yield return new WaitForSeconds(0.2f);
             StartCoroutine(TakeDamageOverTime(damage));
         }
@@ -94,9 +107,11 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
         fill.color = Color.Lerp(Color.red,Color.green , hp/maxHp);
     }
 
-    private void Start()
+    public void Init()
     {
         hp = maxHp + (PlayerData.instance.persistentData.upgrades.hpUp) * 5;
+        hpBar = GameObject.Find("HpBar").GetComponent<Slider>();
+        fill = GameObject.Find("FillHp").GetComponent<Image>();
         UpdateHpBar();
     }
 }

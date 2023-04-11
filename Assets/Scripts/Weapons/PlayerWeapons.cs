@@ -8,34 +8,49 @@ using Zenject;
 
 public class PlayerWeapons : MonoBehaviour
 {
-    //public static PlayerWeapons Instance;
+    public static PlayerWeapons Instance;
 
     [SerializeField] public List<ScriptableObject> weapons = new List<ScriptableObject>();
 
     [Inject] private FireballPool _fireballPool;
     [Inject] private ThrowingKnifePool _throwingKnifePool;
     [Inject] private BombPool _bombPool;
-    [Inject] private EnemySpawner _enemySpawner;
     [Inject] private LightningPool _lightningPool;
     [Inject] private LaserPool _laserPool;
 
     public int criticalChance;
 
-// Start is called before the first frame update
-    void Start()
+    private bool initialized;
+
+    private void Awake()
     {
-        
+        if (Instance != null && Instance !=this)
+        {
+            Destroy(gameObject);
+        }
+        else if (Instance == null)
+        {
+            Instance = this;
+        }
     }
 
+    public void Init()
+    {
+        initialized = true;
+    }
+    
     // Update is called once per frame
     void Update()
     {
-        foreach (WeaponMaster weapon in weapons)
+        if (initialized)
         {
-            weapon.timer -= Time.deltaTime;
-            if (weapon.timer <= 0)
+            foreach (WeaponMaster weapon in weapons)
             {
-                weapon.Attack();
+                weapon.timer -= Time.deltaTime;
+                if (weapon.timer <= 0)
+                {
+                    weapon.Attack();
+                }
             }
         }
     }
@@ -89,7 +104,6 @@ public class PlayerWeapons : MonoBehaviour
                 break;
         }
         weaponInst._playerWeapons = this;
-        weaponInst._enemySpawner = _enemySpawner;
         weaponInst.Init(weaponRef.translateKey,weaponRef.weaponObj,weaponRef.delay,weaponRef.duration,weaponRef.cooldown,weaponRef.damage,weaponRef.attackAmount,weaponRef.maxHit,weaponRef.name,weaponRef.desc,weaponRef.levelUpDesc,weaponRef.image);
         
         

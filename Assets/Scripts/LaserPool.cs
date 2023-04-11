@@ -10,8 +10,7 @@ public class LaserPool : MonoBehaviour
     [SerializeField] private GameObject Laser;
     private int index;
     private Transform playerTransform;
-
-    [Inject] private PlayerWeapons _playerWeapons;
+    
     public void CreatePool()
     {
         for (int i = 0; i < 50; i++)
@@ -19,7 +18,6 @@ public class LaserPool : MonoBehaviour
             GameObject obj =  Instantiate(Laser,gameObject.transform);
             laserPoolList.Add(obj);
             LaserRay _laserRay = obj.GetComponent<LaserRay>();
-            _laserRay._playerWeapons = _playerWeapons;
             _laserRay._laserPool = this;
             obj.SetActive(false);
         }
