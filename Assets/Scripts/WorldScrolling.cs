@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class WorldScrolling : MonoBehaviour
 {
+    public static WorldScrolling instance;
     //Script come from this tutorial : https://www.youtube.com/watch?v=m0Ik1K02xfo&list=PL0GUZtUkX6t7zQEcvKtdc0NvjVuVcMe6U&index=2
     [SerializeField] public Transform player;
     Vector2Int currentTilePos = new Vector2Int(1,1);
@@ -28,6 +29,14 @@ public class WorldScrolling : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
         terrainTiles = new GameObject[terrainHeight,terrainWidth];
     }
     private void Start()

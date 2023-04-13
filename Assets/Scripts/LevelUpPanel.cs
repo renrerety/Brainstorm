@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelUpPanel : MonoBehaviour
 {
     public static LevelUpPanel Instance;
+    public LevelOption[] levelOptions;
 
     private void Awake()
     {
@@ -29,5 +30,13 @@ public class LevelUpPanel : MonoBehaviour
     {
         gameObject.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    public void RollWeapons()
+    {
+        foreach (var option in levelOptions)
+        {
+            option.RollWeapon();
+        }
     }
 }

@@ -13,9 +13,16 @@ public class PlayerLevel : MonoBehaviour
 
     [SerializeField] private Slider xpSlider;
     [SerializeField] private Text levelText;
-    [SerializeField] private GameObject levelUpPanel;
+    [SerializeField] private LevelUpPanel levelUpPanel;
     [SerializeField] private AudioClip xpClip;
-    
+
+    public void Init()
+    {
+        xpSlider = GameObject.Find("XPSlider").GetComponent<Slider>();
+        levelText = xpSlider.GetComponentInChildren<Text>();
+        levelUpPanel = GameObject.Find("LevelUpPanel").GetComponent<LevelUpPanel>();
+        levelUpPanel.gameObject.SetActive(false);
+    }
     public void AddXp(float xpToAdd)
     {
         xpToAdd += (PlayerData.instance.persistentData.upgrades.xpUp / 2f);
@@ -42,7 +49,8 @@ public class PlayerLevel : MonoBehaviour
             level++;
             xp = 0;
             CalculateRequiredXp();
-            levelUpPanel.SetActive(true);
+            levelUpPanel.gameObject.SetActive(true);
+            levelUpPanel.RollWeapons();
             Time.timeScale = 0;
         }
 

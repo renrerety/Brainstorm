@@ -112,6 +112,8 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
         hp = maxHp + (PlayerData.instance.persistentData.upgrades.hpUp) * 5;
         hpBar = GameObject.Find("HpBar").GetComponent<Slider>();
         fill = GameObject.Find("FillHp").GetComponent<Image>();
+        gameOverPanel = GameObject.Find("GameOverPanel");
+        gameOverPanel.SetActive(false);
         UpdateHpBar();
     }
 }

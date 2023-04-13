@@ -44,6 +44,7 @@ public class Installer : MonoInstaller
         
         Container.Bind<PlayerWeapons>().FromComponentOn(playerInst).AsSingle().NonLazy();
         Container.Bind<PlayerMovement>().FromComponentOn(playerInst).AsSingle().NonLazy();
+        Container.Bind<PlayerLevel>().FromComponentOn(playerInst).AsSingle().NonLazy();
 
         Container.Bind<KillCounter>().FromComponentInNewPrefab(killCounter).AsSingle().NonLazy();
         //Container.Bind<MapSetup>().FromComponentInHierarchy().AsSingle().NonLazy();

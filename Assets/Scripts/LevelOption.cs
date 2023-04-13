@@ -15,24 +15,24 @@ public class LevelOption : MonoBehaviour
 
     [Inject] private PlayerWeapons _playerWeapons;
 
-    private void OnEnable()
+    public void RollWeapon()
     {
         int rng = UnityEngine.Random.Range(0, WeaponRefs.Instance.weaponRefs.Count);
-        weapon = WeaponRefs.Instance.weaponRefs[rng];
+            weapon = WeaponRefs.Instance.weaponRefs[rng];
 
-        image.sprite = weapon.image;
+            image.sprite = weapon.image;
 
-        name.text = Localization.Localization.instance.GetString(weapon.translateKey);
-        desc.text = Localization.Localization.instance.GetString(weapon.translateKey+"Desc");
+            name.text = Localization.Localization.instance.GetString(weapon.translateKey);
+            desc.text = Localization.Localization.instance.GetString(weapon.translateKey+"Desc");
         
         
 
 
-        if (_playerWeapons.FindWeapon(weapon.name))
-        {
-            desc.text = Localization.Localization.instance.GetString(weapon.translateKey + "LvlDesc");
-            Debug.Log(desc.text);
-        }
+            if (_playerWeapons.FindWeapon(weapon.name))
+            {
+                desc.text = Localization.Localization.instance.GetString(weapon.translateKey + "LvlDesc");
+                Debug.Log(desc.text);
+            }
     }
 
     public void SelectWeapon()

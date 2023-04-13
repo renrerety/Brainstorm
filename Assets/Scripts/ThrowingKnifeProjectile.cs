@@ -21,6 +21,7 @@ public class ThrowingKnifeProjectile : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        throwingKnifeWeapon = player.GetComponent<PlayerWeapons>().FindWeapon("Throwing Knife");
     }
     // Update is called once per frame
     void Update()

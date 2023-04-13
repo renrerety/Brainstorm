@@ -17,6 +17,7 @@ public class GameInit : MonoBehaviour
     [Inject] private EasyEnemyFactory _easyEnemyFactory;
     [Inject] private PlayerMovement _playerMovement;
     [Inject] private PlayerHealth _playerHealth;
+    [Inject] private PlayerLevel _playerLevel;
 
     private void Awake()
     {
@@ -28,18 +29,14 @@ public class GameInit : MonoBehaviour
         {
             instance = this;
         }
-    }
-
-    private void Start()
-    {
         Init();
     }
-
     public void Init()
     {
         //systems.SetActive(true);
         Debug.Log("Game init");
 
+        _playerLevel.Init();
         _playerMovement.Init();
         _playerHealth.Init();
         _playerWeapons.Init();
