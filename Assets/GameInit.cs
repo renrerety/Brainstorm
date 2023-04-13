@@ -19,6 +19,9 @@ public class GameInit : MonoBehaviour
     [Inject] private PlayerHealth _playerHealth;
     [Inject] private PlayerLevel _playerLevel;
 
+    private AudioSource music;
+    [SerializeField] public AudioClip gameClip;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -36,13 +39,17 @@ public class GameInit : MonoBehaviour
         //systems.SetActive(true);
         Debug.Log("Game init");
 
+        music = GameObject.Find("Music").GetComponent<AudioSource>();
+        music.clip = gameClip;
+        music.Play();
+        
         _playerLevel.Init();
         _playerMovement.Init();
         _playerHealth.Init();
         _playerWeapons.Init();
         PlayerSkinLoader.instance.Init();
         _enemySpawner.Init();
-        _playerWeapons.AddWeaponToList("Fireball");
+        _playerWeapons.AddWeaponToList("Laser Gun");
 
         _enemySpawner.factory = _easyEnemyFactory;
         StartCoroutine(_enemySpawner.SwapFactory());
