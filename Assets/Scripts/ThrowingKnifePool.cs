@@ -6,10 +6,23 @@ using Zenject;
 
 public class ThrowingKnifePool : MonoBehaviour
 {
+    public static ThrowingKnifePool instance;
     public List<GameObject> throwingKnifePoolList = new List<GameObject>();
     [SerializeField] private GameObject ThrowingKnife;
 
     private int index;
+    
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
+    }
     
     private void CreatePool()
     {

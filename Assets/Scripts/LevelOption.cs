@@ -13,8 +13,6 @@ public class LevelOption : MonoBehaviour
     [SerializeField] private Text name;
     [SerializeField] private Text desc;
 
-    [Inject] private PlayerWeapons _playerWeapons;
-
     public void RollWeapon()
     {
         int rng = UnityEngine.Random.Range(0, WeaponRefs.Instance.weaponRefs.Count);
@@ -28,17 +26,16 @@ public class LevelOption : MonoBehaviour
         
 
 
-            if (_playerWeapons.FindWeapon(weapon.name))
+            if (PlayerWeapons.Instance.FindWeapon(weapon.name))
             {
                 desc.text = Localization.Localization.instance.GetString(weapon.translateKey + "LvlDesc");
                 Debug.Log(desc.text);
             }
     }
-
     public void SelectWeapon()
     {
         Debug.Log(weapon.name);
-        WeaponMaster findWeapon = _playerWeapons.FindWeapon(weapon.name);
+        WeaponMaster findWeapon = PlayerWeapons.Instance.FindWeapon(weapon.name);
 
         if (findWeapon)
         {
@@ -49,20 +46,8 @@ public class LevelOption : MonoBehaviour
         }
         else
         {
-            _playerWeapons.AddWeaponToList(this.weapon.name);
+            PlayerWeapons.Instance.AddWeaponToList(this.weapon.name);
             LevelUpPanel.Instance.ClosePanel();
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

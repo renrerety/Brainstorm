@@ -37,10 +37,7 @@ public class AIMaster : MonoBehaviour
     [HideInInspector] public Transform player;
 
     [SerializeField] GameObject[] powerUps = new GameObject[5];
-
-    [HideInInspector] public PlayerHealth _playerHealth;
-    [HideInInspector] public PlayerHealthProxy _playerHealthProxy;
-    [HideInInspector] public PlayerWeapons _playerWeapons;
+    
     [HideInInspector] public KillCounter _killCounter;
 
     private Rigidbody2D rb;
@@ -51,7 +48,7 @@ public class AIMaster : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(enemyHit);
         StartCoroutine(Flicker());
 
-        bool isCritical = Random.Range(0f, 100f) < _playerWeapons.criticalChance ? true : false;
+        bool isCritical = Random.Range(0f, 100f) < PlayerWeapons.Instance.criticalChance ? true : false;
         if (isCritical)
         {
             damage += damage/4;
@@ -189,15 +186,15 @@ public class AIMaster : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            _playerHealth.dot = true;
-            _playerHealth.StartCoroutine(_playerHealth.TakeDamageOverTime(damage));
+            PlayerHealth.instance.dot = true;
+            PlayerHealth.instance.StartCoroutine(PlayerHealth.instance.TakeDamageOverTime(damage));
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _playerHealth.StopDamageOverTime();
+            PlayerHealth.instance.StopDamageOverTime();
         }
     }
 }

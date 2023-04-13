@@ -6,10 +6,24 @@ using Zenject;
 
 public class BombPool : MonoBehaviour
 {
+    public static BombPool instance;
+    
     public List<GameObject> bombPoolList = new List<GameObject>();
     [SerializeField] private GameObject bombRef;
     private int index;
-    
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     private void CreatePool()
     {
         for (int i = 0; i < 50; i++)

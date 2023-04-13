@@ -8261,7 +8261,7 @@ MonoBehaviour:
   scene: {fileID: 11400000, guid: cc2273c5b78ead84c9130cf8fb262f4f, type: 2}
   popupMenu: {fileID: 36563071}
   confirmationPrompt: {fileID: 1795571333}
-  music: {fileID: 7529526372328216225, guid: 54751e186e2ff274a933415c5b0ef7c0, type: 3}
+  menuClip: {fileID: 8300000, guid: e79a4d1babaead64b90f522d17aff5fb, type: 3}
 --- !u!1 &1116713364
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,13 +17,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float factorySwapTime;
 
     public List<GameObject> activeEnemyList = new List<GameObject>();
-
-    [Inject] private EasyEnemyFactory _easyEnemyFactory;
-    [Inject] private MediumEnemyFactory _mediumEnemyFactory;
-    [Inject] private HardEnemyFactory _hardEnemyFactory;
-
+    
     private Transform playerTransform;
-
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -38,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void Init()
     {
-        playerTransform = GameObject.Find("Player(Clone)").transform;
+        playerTransform = GameObject.Find("Player").transform;
     }
     public void StartWaveLoop()
     {
@@ -54,9 +50,9 @@ public class EnemySpawner : MonoBehaviour
     public IEnumerator SwapFactory()
     {
         yield return new WaitForSeconds(factorySwapTime);
-        factory = _mediumEnemyFactory;
+        factory = MediumEnemyFactory.instance;
         yield return new WaitForSeconds(factorySwapTime);
-        factory = _hardEnemyFactory;
+        factory = HardEnemyFactory.instance;
         yield return new WaitForSeconds(factorySwapTime);
         ScaleFactories();
 
@@ -65,13 +61,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void ScaleFactories()
     {
-        _easyEnemyFactory.waveSize *= 3;
-        _mediumEnemyFactory.waveSize *= 3;
-        _hardEnemyFactory.waveSize *= 3;
+        EasyEnemyFactory.instance.waveSize *= 3;
+        MediumEnemyFactory.instance.waveSize *= 3;
+        HardEnemyFactory.instance.waveSize *= 3;
 
-        _easyEnemyFactory.ScaleEnemies();
-        _mediumEnemyFactory.ScaleEnemies();
-        _hardEnemyFactory.ScaleEnemies();
+        EasyEnemyFactory.instance.ScaleEnemies();
+        MediumEnemyFactory.instance.ScaleEnemies();
+        HardEnemyFactory.instance.ScaleEnemies();
     }
     
 

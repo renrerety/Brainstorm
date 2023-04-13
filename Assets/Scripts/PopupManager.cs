@@ -12,9 +12,7 @@ public class PopupManager : MonoBehaviour
     [SerializeField] private GameObject popupMenu;
 
     [SerializeField] private GameObject confirmationPrompt;
-
-    [SerializeField] private GameObject music;
-
+    
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -55,9 +53,9 @@ public class PopupManager : MonoBehaviour
     private IEnumerator BackToMainMenu()
     {
         confirmationPrompt.SetActive(false);
+        GameInit.instance.ResetGame();
         SceneLoader.instance.LoadScene(scene,false,new List<string>{"Menu"});
         yield return new WaitForEndOfFrame();
-        GameObject.Find("Music").GetComponent<AudioSource>().Play();
         Time.timeScale = 1;
     }
 

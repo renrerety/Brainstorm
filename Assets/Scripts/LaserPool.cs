@@ -6,10 +6,24 @@ using Zenject;
 
 public class LaserPool : MonoBehaviour
 {
+    public static LaserPool instance;
     public List<GameObject> laserPoolList = new List<GameObject>();
     [SerializeField] private GameObject Laser;
     private int index;
     private Transform playerTransform;
+    
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    
     
     public void CreatePool()
     {
@@ -48,6 +62,10 @@ public class LaserPool : MonoBehaviour
     private void Start()
     {
         CreatePool();
+        
+    }
+    public void Init()
+    {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 }

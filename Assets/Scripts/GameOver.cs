@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
@@ -11,6 +12,7 @@ public class GameOver : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1;
+        GameInit.instance.ResetGame();
         SceneLoader.instance.LoadScene(mainMenu,false,new List<string>{"Menu"});
     }
 }

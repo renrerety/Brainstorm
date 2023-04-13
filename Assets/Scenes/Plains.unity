@@ -1438,6 +1438,95 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1136766254
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3453706670755634018, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634018, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634021, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: fill
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634021, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: hpBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634021, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634023, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: xpSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634023, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634023, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: levelUpPanel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634042, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: weapons.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634046, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634046, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634046, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634046, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634046, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634046, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634046, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634046, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634046, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634046, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453706670755634046, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
 --- !u!1 &1147727836
 GameObject:
   m_ObjectHideFlags: 0

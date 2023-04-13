@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerLevel : MonoBehaviour
 {
+    public static PlayerLevel instance;
     public float xp;
     public float requiredXP;
 
@@ -15,6 +16,18 @@ public class PlayerLevel : MonoBehaviour
     [SerializeField] private Text levelText;
     [SerializeField] private LevelUpPanel levelUpPanel;
     [SerializeField] private AudioClip xpClip;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     public void Init()
     {

@@ -37,8 +37,7 @@ public class StartGame : MonoBehaviour
     IEnumerator LoadSyncAsync()
     {
         GameObject.Find("Music").GetComponent<AudioSource>().Stop();
-        
-        
+
         SceneLoader.instance.LoadGameScene(MapSelector.instance.mapList[MapSelector.instance.index].level.sceneName);
 
         t = 0;
@@ -59,15 +58,5 @@ public class StartGame : MonoBehaviour
             }
             yield break;
         }
-    }
-
-    public void LoadScene(AsyncOperationHandle<IList<UnityEngine.Object>> op)
-    {
-        Addressables.LoadSceneAsync(scene.sceneName, LoadSceneMode.Single).Completed += StartInit;
-    }
-
-    public void StartInit(AsyncOperationHandle<SceneInstance> op)
-    {
-        //GameInit.instance.Init();
     }
 }

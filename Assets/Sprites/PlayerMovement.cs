@@ -7,6 +7,7 @@ using Zenject;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
     [SerializeField] public bool iceMovement;
     public float speed;
     public static Vector3 lastDirection = new Vector3();
@@ -17,6 +18,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != this && instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
         rb = GetComponent<Rigidbody2D>();
     }
 

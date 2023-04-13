@@ -10,17 +10,9 @@ public class GameInit : MonoBehaviour
 {
     public static GameInit instance;
     
-    [Inject] private PlayerWeapons _playerWeapons;
-
-    [Inject] private EnemySpawner _enemySpawner;
-
-    [Inject] private EasyEnemyFactory _easyEnemyFactory;
-    [Inject] private PlayerMovement _playerMovement;
-    [Inject] private PlayerHealth _playerHealth;
-    [Inject] private PlayerLevel _playerLevel;
-
     private AudioSource music;
     [SerializeField] public AudioClip gameClip;
+    [SerializeField] private AudioClip menuClip;
 
     private void Awake()
     {
@@ -32,7 +24,6 @@ public class GameInit : MonoBehaviour
         {
             instance = this;
         }
-        Init();
     }
     public void Init()
     {
@@ -43,16 +34,30 @@ public class GameInit : MonoBehaviour
         music.clip = gameClip;
         music.Play();
         
-        _playerLevel.Init();
-        _playerMovement.Init();
-        _playerHealth.Init();
-        _playerWeapons.Init();
+        PlayerLevel.instance.Init();
+        PlayerMovement.instance.Init();
+        PlayerHealth.instance.Init();
+        PlayerWeapons.Instance.Init(FireballPool.instance,ThrowingKnifePool.instance,BombPool.instance,LightningPool.instance, LaserPool.instance);
         PlayerSkinLoader.instance.Init();
-        _enemySpawner.Init();
-        _playerWeapons.AddWeaponToList("Laser Gun");
+        EnemySpawner.Instance.Init();
+        LaserPool.instance.Init();
+        
+        PlayerWeapons.Instance.AddWeaponToList("Laser Gun");
 
-        _enemySpawner.factory = _easyEnemyFactory;
-        StartCoroutine(_enemySpawner.SwapFactory());
-        _enemySpawner.StartWaveLoop();
+        EnemySpawner.Instance.factory = EasyEnemyFactory.instance;
+        StartCoroutine(EnemySpawner.Instance.SwapFactory());
+        EnemySpawner.Instance.StartWaveLoop();
+
+        GameObject ennemies = GameObject.Find("Ennemies");
+        EasyEnemyFactory.instance.enemies = ennemies;
+        MediumEnemyFactory.instance.enemies = ennemies;
+        HardEnemyFactory.instance.enemies = ennemies;
+    }
+
+    public void ResetGame()
+    {
+        AudioSource music = GameObject.Find("Music").GetComponent<AudioSource>();
+        music.clip = menuClip;
+        music.Play();
     }
 }

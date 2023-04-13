@@ -16,17 +16,17 @@ public abstract class AbstractFactory : MonoBehaviour
     int strongIndex;
     public List<GameObject> weakEnemyList = new List<GameObject>();
      public List<GameObject> strongEnemyList = new List<GameObject>();
-
-    [HideInInspector] [Inject] public PlayerHealthProxy _playerHealthProxy;
-    [HideInInspector] [Inject] public PlayerHealth _playerHealth;
+     
+     
     [HideInInspector] [Inject] private EasyEnemyFactory _easyEnemyFactory;
     [HideInInspector] [Inject] private MediumEnemyFactory _mediumEnemyFactory;
     [HideInInspector] [Inject] private HardEnemyFactory _hardEnemyFactory;
     [HideInInspector] [Inject] private XpPool _xpPool;
     [HideInInspector] [Inject] private DamagePopupPool _damagePopupPool;
-    [HideInInspector] [Inject] public PlayerWeapons _playerWeapons;
     [HideInInspector] [Inject] public EnemySpawner _enemySpawner;
     [HideInInspector] [Inject] private KillCounter _killCounter;
+
+    public GameObject enemies;
 
     private void Start()
     {
@@ -51,10 +51,7 @@ public abstract class AbstractFactory : MonoBehaviour
             weakMaster._mediumEnemyFactory = _mediumEnemyFactory;
             weakMaster._hardEnemyFactory = _hardEnemyFactory;
             weakMaster._xpPool = _xpPool;
-            weakMaster._playerHealth = _playerHealth;
-            weakMaster._playerHealthProxy = _playerHealthProxy;
             weakMaster._damagePopupPool = _damagePopupPool;
-            weakMaster._playerWeapons = _playerWeapons;
             weakMaster._enemySpawner = _enemySpawner;
             weakMaster._killCounter = _killCounter;
             weakEnemyList.Add(weakEnemyInst);
@@ -67,11 +64,8 @@ public abstract class AbstractFactory : MonoBehaviour
             strongMaster._easyEnemyFactory = _easyEnemyFactory;
             strongMaster._mediumEnemyFactory = _mediumEnemyFactory;
             strongMaster._hardEnemyFactory = _hardEnemyFactory;
-            strongMaster._playerHealth = _playerHealth;
-            strongMaster._playerHealthProxy = _playerHealthProxy;
             strongMaster._xpPool = _xpPool;
             strongMaster._damagePopupPool = _damagePopupPool;
-            strongMaster._playerWeapons = _playerWeapons;
             strongMaster._enemySpawner = _enemySpawner;
             strongMaster._killCounter = _killCounter;
             strongEnemyList.Add(strongEnemyInst);
@@ -100,6 +94,7 @@ public abstract class AbstractFactory : MonoBehaviour
                 Vector3 randomPos = Random.insideUnitCircle.normalized * _enemySpawner.spawnRadius;
                 randomPos += new Vector3(Random.Range(0f, 10f), Random.Range(0f, 10f));
                 enemy.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + randomPos;
+                enemy.transform.parent = enemies.transform;
                 _enemySpawner.activeEnemyList.Add(enemy);
             }
             yield return new WaitForSeconds(_enemySpawner.spawnInterval);
@@ -113,7 +108,6 @@ public abstract class AbstractFactory : MonoBehaviour
         GameObject enemy = weakEnemyList[weakIndex++];
         enemy.SetActive(true);
         AIMaster aiMaster = enemy.GetComponent<AIMaster>();
-        aiMaster._playerHealthProxy = _playerHealthProxy;
         aiMaster.hp = aiMaster.maxHp;
         enemy.transform.parent = null;
         return enemy;

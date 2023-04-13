@@ -23,28 +23,10 @@ public class Installer : MonoInstaller
     public override void InstallBindings()
     {
         
-        Container.Bind<XpPool>().FromComponentInNewPrefab(xpPool).AsSingle();
-        Container.Bind<BombPool>().FromComponentInNewPrefab(bombPool).AsSingle().NonLazy();
-        
-        Container.Bind<LightningPool>().FromComponentInNewPrefab(lightningPool).AsSingle().NonLazy();
-        Container.Bind<DamagePopupPool>().FromComponentInNewPrefab(damagePool).AsSingle().NonLazy();
-        Container.Bind<LaserPool>().FromComponentInNewPrefab(laserPool).AsSingle().NonLazy();
-        Container.Bind<ThrowingKnifePool>().FromComponentInNewPrefab(throwingKnifePool).AsSingle().NonLazy();
-        Container.Bind<FireballPool>().FromComponentInNewPrefab(fireballPool).AsSingle().NonLazy();
-        
         Container.Bind<EasyEnemyFactory>().FromComponentInNewPrefab(easyFactory).AsSingle().NonLazy();
         Container.Bind<MediumEnemyFactory>().FromComponentInNewPrefab(mediumFactory).AsSingle().NonLazy();
         Container.Bind<HardEnemyFactory>().FromComponentInNewPrefab(hardFactory).AsSingle().NonLazy();
         Container.Bind<EnemySpawner>().FromComponentInNewPrefab(enemySpawner).AsSingle().NonLazy();
-        
-        GameObject playerInst = Container.InstantiatePrefab(player);
-        
-        Container.Bind<PlayerHealth>().FromComponentOn(playerInst).AsSingle().NonLazy();
-        Container.Bind<PlayerHealthProxy>().FromComponentOn(playerInst).AsSingle().NonLazy();
-        
-        Container.Bind<PlayerWeapons>().FromComponentOn(playerInst).AsSingle().NonLazy();
-        Container.Bind<PlayerMovement>().FromComponentOn(playerInst).AsSingle().NonLazy();
-        Container.Bind<PlayerLevel>().FromComponentOn(playerInst).AsSingle().NonLazy();
 
         Container.Bind<KillCounter>().FromComponentInNewPrefab(killCounter).AsSingle().NonLazy();
         //Container.Bind<MapSetup>().FromComponentInHierarchy().AsSingle().NonLazy();

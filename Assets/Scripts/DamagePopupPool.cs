@@ -5,9 +5,22 @@ using UnityEngine;
 
 public class DamagePopupPool : MonoBehaviour
 {
+    public static DamagePopupPool instance;
     private int index;
     [SerializeField] private GameObject damagePopup;
     public List<GameObject> damagePopupList = new List<GameObject>();
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    
 
     public void CreatePool()
     {

@@ -17,7 +17,7 @@ public class LoadGameSystems : MonoBehaviour
         Addressables
                     .LoadAssetsAsync<UnityEngine.Object>(new List<string>() { "Systems" }, x => { }, Addressables.MergeMode.Union)
                     .Completed += LoadGameSystemsScene;
-        WorldScrolling.instance.player = GameObject.Find("Player(Clone)").transform;
+        WorldScrolling.instance.player = GameObject.Find("Player").transform;
     }
 
     public void LoadGameSystemsScene(AsyncOperationHandle<IList<UnityEngine.Object> > op)

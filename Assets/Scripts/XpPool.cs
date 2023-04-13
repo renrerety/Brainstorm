@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class XpPool : MonoBehaviour
 {
+    public static XpPool instance;
 
     [SerializeField] private GameObject xpGemBlue;
     [SerializeField] private GameObject xpGemYellow;
@@ -23,6 +24,18 @@ public class XpPool : MonoBehaviour
     private int blueIndex;
     private int yellowIndex;
     private int redIndex;
+    
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
+    }
     
     private void Start()
     {

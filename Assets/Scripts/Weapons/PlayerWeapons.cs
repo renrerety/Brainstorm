@@ -12,11 +12,11 @@ public class PlayerWeapons : MonoBehaviour
 
     [SerializeField] public List<ScriptableObject> weapons = new List<ScriptableObject>();
 
-    [Inject] private FireballPool _fireballPool;
-    [Inject] private ThrowingKnifePool _throwingKnifePool;
-    [Inject] private BombPool _bombPool;
-    [Inject] private LightningPool _lightningPool;
-    [Inject] private LaserPool _laserPool;
+    private FireballPool _fireballPool;
+    private ThrowingKnifePool _throwingKnifePool;
+    private BombPool _bombPool;
+    private LightningPool _lightningPool;
+    private LaserPool _laserPool;
 
     public int criticalChance;
 
@@ -34,9 +34,14 @@ public class PlayerWeapons : MonoBehaviour
         }
     }
 
-    public void Init()
+    public void Init(FireballPool fireballPool, ThrowingKnifePool throwingKnifePool,BombPool bombPool,LightningPool lightningPool,LaserPool laserPool)
     {
         initialized = true;
+        this._fireballPool = fireballPool;
+        this._throwingKnifePool = throwingKnifePool;
+        this._bombPool = bombPool;
+        this._lightningPool = lightningPool;
+        this._laserPool = laserPool;
     }
     
     // Update is called once per frame

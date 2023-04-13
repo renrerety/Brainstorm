@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
@@ -54,6 +55,7 @@ public class SceneLoader : MonoBehaviour
         this.sceneName = scene;
         Addressables.LoadAssetsAsync<UnityEngine.Object>(new object[] { "Systems" }, null,
             Addressables.MergeMode.Union).Completed += SceneLoader_Completed_Additive;
+        
     }
     void SceneLoader_Completed_Single(AsyncOperationHandle<IList<UnityEngine.Object>> obj)
     {
@@ -62,6 +64,11 @@ public class SceneLoader : MonoBehaviour
     void SceneLoader_Completed_Additive(AsyncOperationHandle<IList<UnityEngine.Object>> obj)
     {
         Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Single);
-        Addressables.LoadSceneAsync("GameSystems", LoadSceneMode.Additive);
+        Addressables.LoadSceneAsync("GameSystems", LoadSceneMode.Additive).Completed += StartInit;
+    }
+
+    public void StartInit(AsyncOperationHandle<SceneInstance> op)
+    {
+        GameInit.instance.Init();
     }
 }

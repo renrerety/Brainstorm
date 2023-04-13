@@ -5,10 +5,23 @@ using Zenject;
 
 public class LightningPool : MonoBehaviour
 {
+    public static LightningPool instance;
     public List<GameObject> lightningPoolList = new List<GameObject>();
     [SerializeField] private GameObject lightningRef;
 
     private int index;
+    
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
