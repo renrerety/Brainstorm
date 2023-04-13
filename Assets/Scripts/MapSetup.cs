@@ -3,11 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using Zenject;
 
 public class MapSetup : MonoBehaviour
 {
-    [Inject] private PlayerMovement playerMovement;
+    private PlayerMovement playerMovement;
     
     [SerializeField] private string map;
 
@@ -20,11 +19,11 @@ public class MapSetup : MonoBehaviour
     {
         switch (map)
         {
-            case "Ice": 
-                playerMovement.iceMovement = true;
+            case "Ice":
+                PlayerMovement.instance.iceMovement = true;
                 break;
             case "Plains":
-                playerMovement.iceMovement = false;
+                PlayerMovement.instance.iceMovement = false;
                 break;
         }
     }

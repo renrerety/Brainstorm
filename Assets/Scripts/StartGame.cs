@@ -8,11 +8,11 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Zenject;
 using Object = UnityEngine.Object;
 
 public class StartGame : MonoBehaviour
 {
+    public static StartGame instance;
     [SerializeField] private LevelData gameSystems;
     [SerializeField] private GameObject mapSelection;
     
@@ -21,6 +21,19 @@ public class StartGame : MonoBehaviour
     [SerializeField] private float loadingSpeed;
 
     private float progressValue;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     public void LoadGame()
     {
         if(MapSelector.instance.mapList[MapSelector.instance.index].unlocked)

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Serialization;
-using Zenject;
 
 public class Bomb : MonoBehaviour
 {

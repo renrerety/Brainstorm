@@ -5,7 +5,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
-using Zenject;
 
 public class PlayerHealth : MonoBehaviour, IPlayerHealth
 {

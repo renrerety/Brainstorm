@@ -8,7 +8,6 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using Zenject;
 using Random = UnityEngine.Random;
 
 public class AIMaster : MonoBehaviour

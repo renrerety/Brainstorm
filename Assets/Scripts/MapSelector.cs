@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 public class MapSelector : MonoBehaviour
 {
     public static MapSelector instance;
     
-    [Inject] private StartGame _startGame;
+    private StartGame _startGame;
     
     [SerializeField] private Sprite lockedSprite;
     [SerializeField] public List<Map> mapList;
@@ -58,7 +57,7 @@ public class MapSelector : MonoBehaviour
     {
         img.sprite = mapList[index].img;
         label.text = mapList[index].label;
-        _startGame.scene = mapList[index].level;
+        StartGame.instance.scene = mapList[index].level;
         UpdateData();
     }
 

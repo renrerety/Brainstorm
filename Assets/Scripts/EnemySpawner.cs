@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using UnityEngine;
-using Zenject;
 using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour

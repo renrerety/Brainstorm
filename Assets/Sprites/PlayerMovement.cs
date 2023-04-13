@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using Zenject;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,8 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool iceMovement;
     public float speed;
     public static Vector3 lastDirection = new Vector3();
-
-    [Inject] private DamagePopupPool _damagePopupPool;
+    
     private Rigidbody2D rb;
 
 

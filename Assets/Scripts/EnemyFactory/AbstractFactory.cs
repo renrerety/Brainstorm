@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
-using Zenject;
 
 public abstract class AbstractFactory : MonoBehaviour
 {
@@ -18,13 +17,13 @@ public abstract class AbstractFactory : MonoBehaviour
      public List<GameObject> strongEnemyList = new List<GameObject>();
      
      
-    [HideInInspector] [Inject] private EasyEnemyFactory _easyEnemyFactory;
-    [HideInInspector] [Inject] private MediumEnemyFactory _mediumEnemyFactory;
-    [HideInInspector] [Inject] private HardEnemyFactory _hardEnemyFactory;
-    [HideInInspector] [Inject] private XpPool _xpPool;
-    [HideInInspector] [Inject] private DamagePopupPool _damagePopupPool;
-    [HideInInspector] [Inject] public EnemySpawner _enemySpawner;
-    [HideInInspector] [Inject] private KillCounter _killCounter;
+    [HideInInspector] private EasyEnemyFactory _easyEnemyFactory;
+    [HideInInspector] private MediumEnemyFactory _mediumEnemyFactory;
+    [HideInInspector] private HardEnemyFactory _hardEnemyFactory;
+    [HideInInspector] private XpPool _xpPool;
+    [HideInInspector] private DamagePopupPool _damagePopupPool;
+    [HideInInspector] public EnemySpawner _enemySpawner;
+    [HideInInspector] private KillCounter _killCounter;
 
     public GameObject enemies;
 

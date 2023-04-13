@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 [CreateAssetMenu(menuName ="Custom/Weapons/Bomb")]
 public class BombWeapon : WeaponMaster

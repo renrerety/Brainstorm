@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using Zenject;
 
 public class PlayerWeapons : MonoBehaviour
 {

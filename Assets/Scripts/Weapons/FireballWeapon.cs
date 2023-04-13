@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
-using Zenject;
 
 [CreateAssetMenu(menuName ="Custom/Weapons/Fireball")]
 public class FireballWeapon : WeaponMaster
