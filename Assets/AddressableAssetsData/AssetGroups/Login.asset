@@ -22,138 +22,111 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-    - default
   - m_GUID: fac823bb39432254ebba24e2aea42194
     m_Address: OptionsMenu
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-    - default
   - m_GUID: 087f815e690242d498d529101987e445
     m_Address: MainMenu
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-    - default
   - m_GUID: 63c646388bf4b5141923abe8cee8f770
     m_Address: grass_01
     m_ReadOnly: 0
     m_SerializedLabels:
     - Plains
-    - default
   - m_GUID: 3d052694d994b63429d4273aa0ddbb53
     m_Address: SpeechBubble
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-    - default
   - m_GUID: d508e4d2d40f83a4aa3cdec2efee5346
     m_Address: Title Screen
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-    - default
   - m_GUID: ec5a7c346da303842b6a49075d5fc4fd
     m_Address: LockedSkin
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-    - default
   - m_GUID: 91fa1ad7d1792cb418c0f946d12ca000
     m_Address: grass_01
     m_ReadOnly: 0
     m_SerializedLabels:
     - Plains
-    - default
   - m_GUID: 808d8d5bec572da4c90805b0b8fc632a
     m_Address: Terrain_01
     m_ReadOnly: 0
     m_SerializedLabels:
     - Plains
-    - default
   - m_GUID: 421141eb16057ca4aa65df9ff89a72e0
     m_Address: LockedMap
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-    - default
   - m_GUID: d2744f3c2e62ef745bd22d3ddb937792
     m_Address: Gold
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-    - default
   - m_GUID: 7d67f6f21aa313548a1762d84b2da913
     m_Address: IceMapIcon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-    - default
   - m_GUID: 5e35338584021b843a639871c53fdbad
     m_Address: PlainsMapIcon
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-    - default
   - m_GUID: bf72d269f87cc2647b79c3cdfc3eb4cf
     m_Address: IceTerrain_01
     m_ReadOnly: 0
     m_SerializedLabels:
     - Ice
-    - default
   - m_GUID: a681090adbc6ad6489192699836b45f9
     m_Address: Title
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-    - default
   - m_GUID: 2cda990e2423bbf4892e6590ba056729
     m_Address: Plains
     m_ReadOnly: 0
     m_SerializedLabels:
     - Plains
-    - default
   - m_GUID: cc7277a405c2e004fb70a6d00e717461
     m_Address: Ice
     m_ReadOnly: 0
     m_SerializedLabels:
     - Ice
-    - default
   - m_GUID: 352c8cd15f3f2d64aa66f0aa6670a4b2
     m_Address: Login
     m_ReadOnly: 0
     m_SerializedLabels:
-    - default
-  - m_GUID: 140f745696b827245a08c40d6b7c5129
-    m_Address: Initialization
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
+    - Menu
   - m_GUID: b83b7341450ee30438d6846c120d83db
     m_Address: Plains
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-    - Plains
   - m_GUID: cc2273c5b78ead84c9130cf8fb262f4f
     m_Address: Title
     m_ReadOnly: 0
     m_SerializedLabels:
     - Menu
-    - default
   - m_GUID: 1eba9c57eadf7764f91f2543548c3095
     m_Address: Ice
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Ice
     - Menu
   - m_GUID: 7fe76d0eab2f52c4cb3c4936c21beb34
     m_Address: GameSystems
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Systems
-    - Plains
-    - Ice
+    - Menu
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 33c0a5a4547c5e6488ae6e6b82f8be22, type: 2}
   m_SchemaSet:

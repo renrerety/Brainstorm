@@ -29,7 +29,7 @@ public class LoadGameSystems : MonoBehaviour
 
     public void LoadGameSystemsScene(AsyncOperationHandle<IList<UnityEngine.Object> > op)
     {
-        Addressables.LoadSceneAsync(scene.name, LoadSceneMode.Additive);
+        //Addressables.LoadSceneAsync(scene.name, LoadSceneMode.Additive);
     }
 
     private void SetupPlayerHealth()

@@ -37,9 +37,10 @@ public class StartGame : MonoBehaviour
     IEnumerator LoadSyncAsync()
     {
         GameObject.Find("Music").GetComponent<AudioSource>().Stop();
-
-        SceneLoader.instance.LoadScene(scene, false , new List<string> {MapSelector.instance.mapList[MapSelector.instance.index].label.ToString()});
         
+        
+        SceneLoader.instance.LoadGameScene(MapSelector.instance.mapList[MapSelector.instance.index].level.sceneName);
+
         t = 0;
         loadingProgress.value = 0;
         

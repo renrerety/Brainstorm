@@ -48,12 +48,20 @@ public class SceneLoader : MonoBehaviour
                 .Completed += SceneLoader_Completed_Additive;
         }
     }
+
+    public void LoadGameScene(string scene)
+    {
+        this.sceneName = scene;
+        Addressables.LoadAssetsAsync<UnityEngine.Object>(new object[] { "Systems" }, null,
+            Addressables.MergeMode.Union).Completed += SceneLoader_Completed_Additive;
+    }
     void SceneLoader_Completed_Single(AsyncOperationHandle<IList<UnityEngine.Object>> obj)
     {
         Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Single);
     }
     void SceneLoader_Completed_Additive(AsyncOperationHandle<IList<UnityEngine.Object>> obj)
     {
-        Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+        Addressables.LoadSceneAsync("GameSystems", LoadSceneMode.Additive);
     }
 }

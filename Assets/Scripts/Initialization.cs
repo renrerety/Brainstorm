@@ -13,7 +13,7 @@ public class Initialization : MonoBehaviour
     private void LoadScene()
     {
         Addressables
-            .LoadAssetsAsync<UnityEngine.Object>(new List<string>() { "Menu" }, x => { }, Addressables.MergeMode.Union)
+            .LoadAssetsAsync<UnityEngine.Object>(new List<string>() { "Menu" }, x => { }, Addressables.MergeMode.None)
             .Completed += SceneLoader_Completed;
     }
     void SceneLoader_Completed(AsyncOperationHandle<IList<UnityEngine.Object>> obj)
