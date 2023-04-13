@@ -5513,12 +5513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 610840891}
-  _identifier: 
-  _useSceneContext: 0
-  _context: {fileID: 0}
-  _bindType: 0
 --- !u!1 &613883362
 GameObject:
   m_ObjectHideFlags: 0
@@ -8261,7 +8255,6 @@ MonoBehaviour:
   scene: {fileID: 11400000, guid: cc2273c5b78ead84c9130cf8fb262f4f, type: 2}
   popupMenu: {fileID: 36563071}
   confirmationPrompt: {fileID: 1795571333}
-  menuClip: {fileID: 8300000, guid: e79a4d1babaead64b90f522d17aff5fb, type: 3}
 --- !u!1 &1116713364
 GameObject:
   m_ObjectHideFlags: 0
@@ -15093,8 +15086,7 @@ GameObject:
   - component: {fileID: 2095200837}
   - component: {fileID: 2095200836}
   - component: {fileID: 2095200841}
-  - component: {fileID: 2095200843}
-  - component: {fileID: 2095200844}
+  - component: {fileID: 2095200842}
   m_Layer: 5
   m_Name: PersistentCanvas
   m_TagString: Untagged
@@ -15282,24 +15274,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2095200843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2095200834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 782128e64ea90de4cbdb51e6f523719c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameSystems: {fileID: 0}
-  mapSelection: {fileID: 0}
-  scene: {fileID: 11400000, guid: 27d019123fceaf74a8bce1c9693f419c, type: 2}
-  loadingProgress: {fileID: 985058429}
-  loadingSpeed: 0.9
---- !u!114 &2095200844
+--- !u!114 &2095200842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

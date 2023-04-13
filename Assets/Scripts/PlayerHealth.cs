@@ -32,6 +32,7 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
         {
             instance = this;
         }
+        Init();
     }
 
     IEnumerator Flicker()
@@ -109,10 +110,6 @@ public class PlayerHealth : MonoBehaviour, IPlayerHealth
     public void Init()
     {
         hp = maxHp + (PlayerData.instance.persistentData.upgrades.hpUp) * 5;
-        hpBar = GameObject.Find("HpBar").GetComponent<Slider>();
-        fill = GameObject.Find("FillHp").GetComponent<Image>();
-        gameOverPanel = GameObject.Find("GameOverPanel");
-        gameOverPanel.SetActive(false);
         UpdateHpBar();
     }
 }

@@ -33,14 +33,10 @@ public class GameInit : MonoBehaviour
         music.clip = gameClip;
         music.Play();
         
-        PlayerLevel.instance.Init();
-        PlayerMovement.instance.Init();
-        PlayerHealth.instance.Init();
         PlayerWeapons.Instance.Init(FireballPool.instance,ThrowingKnifePool.instance,BombPool.instance,LightningPool.instance, LaserPool.instance);
         PlayerSkinLoader.instance.Init();
         EnemySpawner.Instance.Init();
-        LaserPool.instance.Init();
-        
+
         PlayerWeapons.Instance.AddWeaponToList("Laser Gun");
 
         EnemySpawner.Instance.factory = EasyEnemyFactory.instance;
@@ -51,6 +47,8 @@ public class GameInit : MonoBehaviour
         EasyEnemyFactory.instance.enemies = ennemies;
         MediumEnemyFactory.instance.enemies = ennemies;
         HardEnemyFactory.instance.enemies = ennemies;
+        
+        WorldScrolling.instance.player = GameObject.Find("Player").transform;
     }
 
     public void ResetGame()

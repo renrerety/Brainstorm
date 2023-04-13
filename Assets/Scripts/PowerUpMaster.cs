@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class PowerUpMaster : MonoBehaviour
 {
-    public EnemySpawner _enemySpawner;
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))

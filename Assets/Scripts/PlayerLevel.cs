@@ -28,14 +28,6 @@ public class PlayerLevel : MonoBehaviour
             instance = this;
         }
     }
-
-    public void Init()
-    {
-        xpSlider = GameObject.Find("XPSlider").GetComponent<Slider>();
-        levelText = xpSlider.GetComponentInChildren<Text>();
-        levelUpPanel = GameObject.Find("LevelUpPanel").GetComponent<LevelUpPanel>();
-        levelUpPanel.gameObject.SetActive(false);
-    }
     public void AddXp(float xpToAdd)
     {
         xpToAdd += (PlayerData.instance.persistentData.upgrades.xpUp / 2f);

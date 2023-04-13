@@ -73,9 +73,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Time.frameCount % 10 == 0)
+        if (activeEnemyList.Count > 0)
         {
-            activeEnemyList = activeEnemyList.OrderBy(x => Vector2.Distance(x.transform.position,playerTransform.position)).ToList();
+            if (Time.frameCount % 10 == 0)
+            {
+                activeEnemyList = activeEnemyList.OrderBy(x => Vector2.Distance(x.transform.position,playerTransform.position)).ToList();
+            }
         }
     }
 

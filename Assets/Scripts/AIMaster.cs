@@ -24,20 +24,12 @@ public class AIMaster : MonoBehaviour
     public int hp;
     public int maxHp;
     [SerializeField] AudioClip enemyHit;
-
-    [HideInInspector] public EasyEnemyFactory _easyEnemyFactory;
-    [HideInInspector] public MediumEnemyFactory _mediumEnemyFactory;
-    [HideInInspector] public HardEnemyFactory _hardEnemyFactory;
-    [HideInInspector] public DamagePopupPool _damagePopupPool;
-    [HideInInspector] public XpPool _xpPool;
-    [HideInInspector] public EnemySpawner _enemySpawner;
-
+    
     SpriteRenderer spriteRenderer;
     [HideInInspector] public Transform player;
 
     [SerializeField] GameObject[] powerUps = new GameObject[5];
     
-    [HideInInspector] public KillCounter _killCounter;
 
     private Rigidbody2D rb;
 
@@ -53,7 +45,7 @@ public class AIMaster : MonoBehaviour
             damage += damage/4;
         }
 
-        _damagePopupPool.TakePooledObject(transform.position,damage,isCritical);
+        DamagePopupPool.instance.TakePooledObject(transform.position,damage,isCritical);
         if (hp <= 0)
         {
             StartCoroutine(Die());
@@ -92,7 +84,7 @@ public class AIMaster : MonoBehaviour
         DropXp();
         IncrementPlayerStats();
         ReturnToPool();
-        _killCounter.AddKill();
+        KillCounter.instance.AddKill();
     }
 
     private void RandomDrop()
@@ -105,7 +97,6 @@ public class AIMaster : MonoBehaviour
             powerUp = powerUps[rng];
             
             GameObject obj = Instantiate(powerUp);
-            obj.GetComponent<PowerUpMaster>()._enemySpawner = _enemySpawner;
             obj.transform.position = gameObject.transform.position;
         }
     }
@@ -115,13 +106,13 @@ public class AIMaster : MonoBehaviour
         switch (enemyDifficulty)
         {
             case EnemyDifficulty.easy:
-                _easyEnemyFactory.ReturnEnemyToPool(gameObject);
+                EasyEnemyFactory.instance.ReturnEnemyToPool(gameObject);
                 break;
             case EnemyDifficulty.medium:
-                _mediumEnemyFactory.ReturnEnemyToPool(gameObject);
+                MediumEnemyFactory.instance.ReturnEnemyToPool(gameObject);
                 break;
             case EnemyDifficulty.hard:
-                _hardEnemyFactory.ReturnEnemyToPool(gameObject);
+                HardEnemyFactory.instance.ReturnEnemyToPool(gameObject);
                 break;
         }
     }
@@ -132,16 +123,16 @@ public class AIMaster : MonoBehaviour
         switch (enemyDifficulty)
         {
             case EnemyDifficulty.easy:
-               xp = _xpPool.TakeBlueXpFromPool();
+               xp = XpPool.instance.TakeBlueXpFromPool();
                 break;
             case EnemyDifficulty.medium:
-                xp = _xpPool.TakeYellowXpFromPool();
+                xp = XpPool.instance.TakeYellowXpFromPool();
                 break;
             case EnemyDifficulty.hard:
-                xp = _xpPool.TakeRedXpFromPool();
+                xp = XpPool.instance.TakeRedXpFromPool();
                 break;
             default:
-                xp = _xpPool.TakeRedXpFromPool();
+                xp = XpPool.instance.TakeRedXpFromPool();
                 break;
         }
         xp.transform.position = gameObject.transform.position;
