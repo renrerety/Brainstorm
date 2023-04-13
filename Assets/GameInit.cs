@@ -42,7 +42,7 @@ public class GameInit : MonoBehaviour
         _playerWeapons.Init();
         PlayerSkinLoader.instance.Init();
         _enemySpawner.Init();
-        _playerWeapons.AddWeaponToList("Laser Gun");
+        _playerWeapons.AddWeaponToList("Fireball");
 
         _enemySpawner.factory = _easyEnemyFactory;
         StartCoroutine(_enemySpawner.SwapFactory());

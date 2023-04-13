@@ -28,6 +28,7 @@ public class FireballProjectile : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        fireballWeapon = player.GetComponent<PlayerWeapons>().FindWeapon("Fireball");
     }
     // Update is called once per frame
     void Update()
