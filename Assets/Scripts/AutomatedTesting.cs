@@ -10,7 +10,8 @@ public class AutomatedTesting : MonoBehaviour
     public static AutomatedTesting instance;
     
     private Transform player;
-    
+
+    public float timeScale = 1;
     public bool isTesting;
     public float speed;
     private float speedBuffer;
@@ -54,6 +55,7 @@ public class AutomatedTesting : MonoBehaviour
     }
     private void Update()
     {
+        Time.timeScale = timeScale;
         if (isTesting)
         {
             float posX = player.position.x;
@@ -61,7 +63,7 @@ public class AutomatedTesting : MonoBehaviour
             Vector2 playerPos = new Vector2(posX, posY);
             
             
-            player.position = Vector2.MoveTowards(playerPos, randomPos, speed/100);
+            player.position = Vector2.MoveTowards(playerPos, randomPos, (speed/100)*Time.timeScale);
             
             if (Vector2.Distance(playerPos, randomPos) <= 0.5f)
             {
