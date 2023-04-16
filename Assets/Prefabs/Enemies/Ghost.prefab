@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5298414902714360037}
   - component: {fileID: 4035659799640324754}
   - component: {fileID: -6466206933908838528}
-  - component: {fileID: 6448712120094571974}
   m_Layer: 6
   m_Name: Ghost
   m_TagString: Enemy
@@ -130,20 +129,10 @@ MonoBehaviour:
   hp: 0
   maxHp: 10
   enemyHit: {fileID: 8300000, guid: b68e8f88720539643a0573adb8088598, type: 3}
-  _easyEnemyFactory: {fileID: 0}
-  _mediumEnemyFactory: {fileID: 0}
-  _hardEnemyFactory: {fileID: 0}
-  _damagePopupPool: {fileID: 0}
-  _xpPool: {fileID: 0}
-  _enemySpawner: {fileID: 0}
   player: {fileID: 0}
   powerUps:
   - {fileID: 3895817023703774224, guid: 9ec8ea74e3d04dc4097f7586ae58f7a0, type: 3}
   - {fileID: 3317625934763218199, guid: f01ea1e17c222dd43945f6e6dbf4cf5e, type: 3}
-  _playerHealth: {fileID: 0}
-  _playerHealthProxy: {fileID: 0}
-  _playerWeapons: {fileID: 0}
-  _killCounter: {fileID: 0}
 --- !u!61 &5298414902714360037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -287,21 +276,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6448712120094571974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8999577890411439925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 0}
-  _identifier: 
-  _useSceneContext: 0
-  _context: {fileID: 0}
-  _bindType: 0

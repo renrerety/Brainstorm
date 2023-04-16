@@ -26,9 +26,6 @@ public class GameInit : MonoBehaviour
     }
     public void Init()
     {
-        //systems.SetActive(true);
-        Debug.Log("Game init");
-
         music = GameObject.Find("Music").GetComponent<AudioSource>();
         music.clip = gameClip;
         music.Play();

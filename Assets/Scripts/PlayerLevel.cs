@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class PlayerLevel : MonoBehaviour
 {
@@ -57,8 +58,12 @@ public class PlayerLevel : MonoBehaviour
             levelUpPanel.gameObject.SetActive(true);
             levelUpPanel.RollWeapons();
             Time.timeScale = 0;
+            if (AutomatedTesting.instance.isTesting)
+            {
+                int rng = Random.Range(0, 3);
+                levelUpPanel.levelOptions[rng].SelectWeapon();
+            }
         }
-
         levelText.text = level.ToString();
     }
     private void Start()

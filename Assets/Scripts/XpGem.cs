@@ -31,7 +31,7 @@ public class XpGem : MonoBehaviour
     {
         if (moveToward)
         {
-            transform.position  = Vector3.MoveTowards(transform.position, player.position,Time.deltaTime * 5);
+            transform.position  = Vector3.MoveTowards(transform.position, player.position,Time.deltaTime * 10);
             if (Vector3.Distance(transform.position,player.position)<0.5f)
             {
                 player.GetComponent<PlayerLevel>().AddXp(xpAmount);
