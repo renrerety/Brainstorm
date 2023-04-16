@@ -48,6 +48,11 @@ public class Login : MonoBehaviour
             yield return request.SendWebRequest();
 
             Debug.Log(request.downloadHandler.text);
+            var errorMatch = Regex.Match(request.downloadHandler.text,"\\\"error\\\":\\\"(.[^,]+)\\\"");
+            if (errorMatch.Length > 0)
+            {
+                Error.instance.DisplayError(errorMatch.Groups[1].ToString());
+            }
             
             
             var matches = Regex.Matches(request.downloadHandler.text,

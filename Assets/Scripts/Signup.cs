@@ -56,6 +56,7 @@ public class Signup : MonoBehaviour
         catch (FormatException)
         {
             Error.instance.DisplayError("Error : Email format invalid");
+            yield break;
         }
 
         //Check if username is already used
