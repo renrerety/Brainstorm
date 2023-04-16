@@ -13,6 +13,7 @@ public class AutomatedTesting : MonoBehaviour
     
     public bool isTesting;
     public float speed;
+    private float speedBuffer;
 
     private void Awake()
     {
@@ -33,10 +34,17 @@ public class AutomatedTesting : MonoBehaviour
     }
     public void StartAutomatedTesting()
     {
+        speedBuffer = PlayerMovement.instance.speed;
         isTesting = true;
         PlayerHealth.instance.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         GameObject.Find("PickupZone").transform.localScale = new Vector3(200, 200, 200);
         GenerateRandomPos();
+    }
+
+    public void StopAutomatedTesting()
+    {
+        isTesting = false;
+        PlayerMovement.instance.speed = speedBuffer;
     }
     
     private Vector2 randomPos;

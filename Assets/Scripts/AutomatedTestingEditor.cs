@@ -19,7 +19,7 @@ public class AutomatedTestingEditor : Editor
 
         if (GUILayout.Button("Stop automated testing"))
         {
-            script.isTesting = false;
+            script.StopAutomatedTesting();
         }
     }
 }
