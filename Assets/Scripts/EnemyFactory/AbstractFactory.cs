@@ -35,7 +35,7 @@ public abstract class AbstractFactory : MonoBehaviour
     }
     IEnumerator CreatePool()
     {
-        for(int i = 0; i < 500; i++)
+        for(int i = 0; i < 1000; i++)
         {
             GameObject weakEnemyInst = Instantiate(weakEnemy, gameObject.transform);
             AIMaster weakMaster =  weakEnemyInst.GetComponent<AIMaster>();

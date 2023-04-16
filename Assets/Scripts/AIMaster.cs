@@ -37,8 +37,11 @@ public class AIMaster : MonoBehaviour
     {
         hp -= damage;
         GetComponent<AudioSource>().PlayOneShot(enemyHit);
-        StartCoroutine(Flicker());
-
+        if (gameObject.activeSelf)
+        {
+            StartCoroutine(Flicker());
+        }
+        
         bool isCritical = Random.Range(0f, 100f) < PlayerWeapons.Instance.criticalChance ? true : false;
         if (isCritical)
         {
@@ -48,7 +51,10 @@ public class AIMaster : MonoBehaviour
         DamagePopupPool.instance.TakePooledObject(transform.position,damage,isCritical);
         if (hp <= 0)
         {
-            StartCoroutine(Die());
+            if (gameObject.activeSelf)
+            {
+                StartCoroutine(Die());
+            }
         }
     }
 
