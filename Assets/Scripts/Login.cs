@@ -135,6 +135,6 @@ public class Login : MonoBehaviour
             StartCoroutine(BinarySaveFormatter.UploadToDb());
         }
         StartCoroutine(BinarySaveFormatter.UploadToDb());
-        SceneManager.LoadScene(scene.name);
+        SceneLoader.instance.LoadScene(scene,false,new List<string>{"Menu"});
     }
 }

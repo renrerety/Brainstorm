@@ -12,7 +12,6 @@ public class GameOver : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1;
-        GameInit.instance.ResetGame();
         SceneLoader.instance.LoadScene(mainMenu,false,new List<string>{"Menu"});
     }
 }

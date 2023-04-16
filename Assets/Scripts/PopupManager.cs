@@ -53,7 +53,6 @@ public class PopupManager : MonoBehaviour
     private IEnumerator BackToMainMenu()
     {
         confirmationPrompt.SetActive(false);
-        GameInit.instance.ResetGame();
         SceneLoader.instance.LoadScene(scene,false,new List<string>{"Menu"});
         yield return new WaitForEndOfFrame();
         Time.timeScale = 1;

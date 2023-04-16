@@ -50,11 +50,4 @@ public class GameInit : MonoBehaviour
         
         WorldScrolling.instance.player = GameObject.Find("Player").transform;
     }
-
-    public void ResetGame()
-    {
-        AudioSource music = GameObject.Find("Music").GetComponent<AudioSource>();
-        music.clip = menuClip;
-        music.Play();
-    }
 }
