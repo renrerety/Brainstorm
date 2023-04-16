@@ -20,10 +20,14 @@ public class MapSetup : MonoBehaviour
         switch (map)
         {
             case "Ice":
+                
                 PlayerMovement.instance.iceMovement = true;
+                PlayerMovement.instance.speed = 15 + PlayerMovement.instance.speedModifier;
                 break;
             case "Plains":
+                PlayerMovement.instance.Init();
                 PlayerMovement.instance.iceMovement = false;
+                PlayerMovement.instance.speed = 3 + PlayerMovement.instance.speedModifier;
                 break;
         }
     }

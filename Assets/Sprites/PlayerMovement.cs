@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private float speedModifier;
+    public float speedModifier;
 
     public void Init()
     {
@@ -91,7 +91,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (iceMovement)
         {
-            speed = 15+speedModifier;
             rb.AddForce(movement);
         }
         else

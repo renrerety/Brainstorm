@@ -194,6 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceMovement: 0
   speed: 3
+  speedModifier: 0
 --- !u!95 &3453706670755634043
 Animator:
   serializedVersion: 4
@@ -265,7 +266,7 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0
