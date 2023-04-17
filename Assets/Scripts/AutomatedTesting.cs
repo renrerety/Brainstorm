@@ -16,6 +16,8 @@ public class AutomatedTesting : MonoBehaviour
     public float speed;
     private float speedBuffer;
 
+    private BoxCollider2D collider;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -32,12 +34,13 @@ public class AutomatedTesting : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").transform;
+        collider = PlayerHealth.instance.gameObject.GetComponent<BoxCollider2D>();
     }
     public void StartAutomatedTesting()
     {
         speedBuffer = PlayerMovement.instance.speed;
         isTesting = true;
-        PlayerHealth.instance.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        collider.enabled = false;
         GameObject.Find("PickupZone").transform.localScale = new Vector3(200, 200, 200);
         GenerateRandomPos();
     }
@@ -46,6 +49,7 @@ public class AutomatedTesting : MonoBehaviour
     {
         isTesting = false;
         PlayerMovement.instance.speed = speedBuffer;
+        collider.enabled = true;
     }
     
     private Vector2 randomPos;
@@ -55,9 +59,9 @@ public class AutomatedTesting : MonoBehaviour
     }
     private void Update()
     {
-        Time.timeScale = timeScale;
         if (isTesting)
         {
+            Time.timeScale = timeScale;
             float posX = player.position.x;
             float posY = player.position.y;
             Vector2 playerPos = new Vector2(posX, posY);

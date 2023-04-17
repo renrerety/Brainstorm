@@ -158,8 +158,7 @@ public sealed class BinarySaveFormatter
             {
                 fs.Close();
             }
-        
-            Debug.Log("Deserialized data :" +data.gold+" "+ data.kills);
+            
             PlayerData.instance.persistentData = data;
             PlayerData.instance.persistentData.upgrades = data.upgrades;
             PlayerData.instance.persistentData.superBill = data.superBill;

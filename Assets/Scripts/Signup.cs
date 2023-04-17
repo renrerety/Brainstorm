@@ -218,5 +218,6 @@ public class Signup : MonoBehaviour
         signupCanvas.SetActive(false);
         error = false;
         firstLogin = true;
+        BinarySaveFormatter.CreateEmptySaveData();
     }
 }

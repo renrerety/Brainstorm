@@ -95,12 +95,40 @@ public class Login : MonoBehaviour
             PlayerData.instance.saveName = nameMatch.Groups[1].ToString();
             PlayerData.instance.profileId = profileIdMatch.Groups[1].ToString();
             
+            
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError(request.error);
                 yield break;
             }
-            SceneLoader.instance.LoadScene(scene,false,new List<string>{"Menu"});
+
+           
         }
+        if (PlayerData.instance.saveUrl.Length > 0)
+        {
+            using (var request = new WebRequestBuilder()
+                       .SetURLFull(PlayerData.instance.saveUrl,"GET")
+                       .SetDownloadHandler(
+                           new DownloadHandlerFile(Path.Combine(Application.persistentDataPath, "Save.data"),
+                               false))
+                       .Build())
+            {
+                yield return request.SendWebRequest();
+                
+                if (request.result != UnityWebRequest.Result.Success)
+                {
+                    Debug.LogError(request.error);
+                    yield break;
+                }
+            }
+        }
+        
+        PlayerData.instance.logged = true;
+        if (PlayerData.instance.saveUrl == "")
+        {
+            BinarySaveFormatter.CreateEmptySaveData();
+            StartCoroutine(BinarySaveFormatter.UploadToDb());
+        }
+        SceneLoader.instance.LoadScene(scene,false,new List<string>{"Menu"});
     }
 }

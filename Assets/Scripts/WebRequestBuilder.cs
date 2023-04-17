@@ -38,6 +38,12 @@ public class WebRequestBuilder : IDisposable
         this.method = method;
         return this;
     }
+    public WebRequestBuilder SetURLFull(string url,string method)
+    {
+        this.url = url;
+        this.method = method;
+        return this;
+    }
     public WebRequestBuilder Revocable()
     {
         request.SetRequestHeader("X-Parse-Revocable-Session","1");
