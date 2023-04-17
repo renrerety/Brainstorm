@@ -16,7 +16,7 @@ public class LaserGunWeapon : WeaponMaster
             {
                 try
                 {
-                    nearestEnemy = EnemySpawner.Instance.activeEnemyList[i].transform;
+                    nearestEnemy = EnemySpawner.Instance.nearEnemyList[i].transform;
                     if (Vector2.Distance(nearestEnemy.position, playerTransform.position) >= 5)
                     {
                         return;

@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float factorySwapTime;
 
     public List<GameObject> activeEnemyList = new List<GameObject>();
+    public List<Collider2D> nearEnemyList = new List<Collider2D>();
     
     private Transform playerTransform;
     
@@ -60,9 +61,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void ScaleFactories()
     {
-        EasyEnemyFactory.instance.waveSize *= 3;
-        MediumEnemyFactory.instance.waveSize *= 3;
-        HardEnemyFactory.instance.waveSize *= 3;
+        EasyEnemyFactory.instance.waveSize *= 2;
+        MediumEnemyFactory.instance.waveSize *= 2;
+        HardEnemyFactory.instance.waveSize *= 2;
 
         EasyEnemyFactory.instance.ScaleEnemies();
         MediumEnemyFactory.instance.ScaleEnemies();
@@ -73,22 +74,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (activeEnemyList.Count > 0)
+        if (activeEnemyList.Count > 0 && Time.frameCount % 10 == 0 &&PlayerWeapons.Instance.FindWeapon("Laser Gun"))
         {
-            if (Time.frameCount % 10 == 0)
-            {
-                if (PlayerWeapons.Instance.FindWeapon("Laser Gun"))
-                {
-                    //Physics2D.OverlapCircle()
-                    //TODO: Optimize code for finding closest enemies
-                }
-                
-                /*activeEnemyList.Sort((a, b) => Vector2.Distance(playerTransform.position, a.transform.position)
-                    .CompareTo(
-                        Vector2.Distance(playerTransform.position, b.transform.position)));*/
-                 
-                 activeEnemyList.Sort((x, y) => { return (playerTransform.position - x.transform.position).sqrMagnitude.CompareTo((playerTransform.position - y.transform.position).sqrMagnitude); });
-            }
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(playerTransform.position, 5, 1 << LayerMask.NameToLayer("Enemy"));
+                    nearEnemyList = hitColliders.ToList();
+                    nearEnemyList.Sort((x, y) => 
+                        { return (playerTransform.position - x.transform.position).sqrMagnitude
+                            .CompareTo((playerTransform.position - y.transform.position).sqrMagnitude); });
         }
     }
 
