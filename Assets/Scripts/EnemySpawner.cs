@@ -77,7 +77,17 @@ public class EnemySpawner : MonoBehaviour
         {
             if (Time.frameCount % 10 == 0)
             {
-                activeEnemyList = activeEnemyList.OrderBy(x => Vector2.Distance(x.transform.position,playerTransform.position)).ToList();
+                if (PlayerWeapons.Instance.FindWeapon("Laser Gun"))
+                {
+                    //Physics2D.OverlapCircle()
+                    //TODO: Optimize code for finding closest enemies
+                }
+                
+                /*activeEnemyList.Sort((a, b) => Vector2.Distance(playerTransform.position, a.transform.position)
+                    .CompareTo(
+                        Vector2.Distance(playerTransform.position, b.transform.position)));*/
+                 
+                 activeEnemyList.Sort((x, y) => { return (playerTransform.position - x.transform.position).sqrMagnitude.CompareTo((playerTransform.position - y.transform.position).sqrMagnitude); });
             }
         }
     }
