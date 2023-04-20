@@ -12,6 +12,8 @@ public class PopupManager : MonoBehaviour
     [SerializeField] private GameObject popupMenu;
 
     [SerializeField] private GameObject confirmationPrompt;
+
+    [SerializeField] private AudioClip menuClip;
     
     private void Awake()
     {
@@ -53,7 +55,13 @@ public class PopupManager : MonoBehaviour
     private IEnumerator BackToMainMenu()
     {
         confirmationPrompt.SetActive(false);
+        
+        AudioSource music = GameObject.Find("Music").GetComponent<AudioSource>();
+            music.clip = menuClip;
+            music.Play();
+            
         SceneLoader.instance.LoadScene(scene,false,new List<string>{"Menu"});
+        
         yield return new WaitForEndOfFrame();
         Time.timeScale = 1;
     }

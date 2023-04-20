@@ -8239,9 +8239,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1820921272862441ae64063582d45d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: {fileID: 0}
+  scene: {fileID: 11400000, guid: cc2273c5b78ead84c9130cf8fb262f4f, type: 2}
   popupMenu: {fileID: 36563071}
   confirmationPrompt: {fileID: 1795571333}
+  menuClip: {fileID: 8300000, guid: e79a4d1babaead64b90f522d17aff5fb, type: 3}
 --- !u!1 &1116713364
 GameObject:
   m_ObjectHideFlags: 0
