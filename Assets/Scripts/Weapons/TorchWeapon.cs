@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Custom/Weapons/Torch")]
 public class TorchWeapon : WeaponMaster
 {
+    private Vector3 pos = new Vector3(0, 0.5f, 0);
     public GameObject circle;
 
     private bool isActivated = false;
@@ -18,7 +19,7 @@ public class TorchWeapon : WeaponMaster
             {
                 circle = Instantiate(weaponObj, GameObject.FindGameObjectWithTag("Player").transform);
                 circle.GetComponent<FireCircleAOE>()._playerWeapons = _playerWeapons;
-                circle.transform.localPosition = Vector3.zero;
+                circle.transform.localPosition = pos;
                 circle.transform.rotation = quaternion.identity;
                 MonoBehaviourRef.Instance.StartCoroutine(ActivateCircle());
                 isActivated = true;

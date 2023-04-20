@@ -33,7 +33,7 @@ public class ThrowingKnifeWeapon : WeaponMaster
             if (PlayerMovement.lastDirection.z == 0)
             {
                 float posX = playerTransform.position.x + Random.Range(0f, 1f);
-                float posY = (playerTransform.position.y) + (i * spread);
+                float posY = (playerTransform.position.y + 0.5f) + (i * spread);
                 posY -= (spread * attackAmount) / 2;
                 knife.transform.position = new Vector3(posX,posY);
             }

@@ -1575,6 +1575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979de1fd2fb734140aeea3d8694443b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeScale: 1
   isTesting: 0
   speed: 1
 --- !u!4 &563909941
@@ -1745,7 +1746,7 @@ Transform:
   - {fileID: 1670710622}
   - {fileID: 1674928714}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &585411997
 MonoBehaviour:
@@ -2875,7 +2876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -47}
+  m_AnchoredPosition: {x: 0, y: -15}
   m_SizeDelta: {x: 72.9, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &920648165
@@ -3949,7 +3950,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1282290176
 PrefabInstance:
@@ -4038,6 +4039,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5602015231428587242, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602015231428587242, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1590835221
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602015231428587248, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: xpSlider
+      value: 
+      objectReference: {fileID: 865045533}
+    - target: {fileID: 5602015231428587248, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 292655957}
+    - target: {fileID: 5602015231428587248, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: levelUpPanel
+      value: 
+      objectReference: {fileID: 369097725}
+    - target: {fileID: 5602015231428587250, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: fill
+      value: 
+      objectReference: {fileID: 803282193}
+    - target: {fileID: 5602015231428587250, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: hpBar
+      value: 
+      objectReference: {fileID: 920648165}
+    - target: {fileID: 5602015231428587250, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: gameOverPanel
+      value: 
+      objectReference: {fileID: 484874312}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
 --- !u!1 &1283220088

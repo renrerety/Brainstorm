@@ -8372,6 +8372,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5602015231428587242, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602015231428587242, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1590835221
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602015231428587242, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5602015231428587248, guid: 9cd07d5863e73f9489eeae8d0bf70479, type: 3}
       propertyPath: xpSlider
       value: 

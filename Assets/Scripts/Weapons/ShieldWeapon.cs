@@ -8,13 +8,14 @@ public class ShieldWeapon : WeaponMaster
 {
     private GameObject shield;
     public bool isActive;
+    private Vector3 pos = new Vector3(0, 0.5f, 0);
     public override void Attack()
     {
         if(shield == null)
         {
             shield = Instantiate(weaponObj);
             shield.transform.SetParent(playerTransform);
-            shield.transform.localPosition = Vector3.zero;
+            shield.transform.localPosition = pos;
             MonoBehaviourRef.Instance.StartCoroutine(ToggleShield());
         }
     }
