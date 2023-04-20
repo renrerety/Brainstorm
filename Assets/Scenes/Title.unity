@@ -12931,12 +12931,12 @@ MonoBehaviour:
   - img: {fileID: 21300000, guid: 5e35338584021b843a639871c53fdbad, type: 3}
     unlockedSprite: {fileID: 21300000, guid: 5e35338584021b843a639871c53fdbad, type: 3}
     label: Plains
-    level: {fileID: 0}
+    level: {fileID: 11400000, guid: b83b7341450ee30438d6846c120d83db, type: 2}
     unlocked: 1
   - img: {fileID: 21300000, guid: 7d67f6f21aa313548a1762d84b2da913, type: 3}
     unlockedSprite: {fileID: 21300000, guid: 7d67f6f21aa313548a1762d84b2da913, type: 3}
     label: Ice
-    level: {fileID: 0}
+    level: {fileID: 11400000, guid: 1eba9c57eadf7764f91f2543548c3095, type: 2}
     unlocked: 0
   - img: {fileID: 21300000, guid: 7d67f6f21aa313548a1762d84b2da913, type: 3}
     unlockedSprite: {fileID: 21300000, guid: 7d67f6f21aa313548a1762d84b2da913, type: 3}
