@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
-  m_Name: Login_ContentUpdateGroupSchema
+  m_Script: {fileID: 11500000, guid: 5bd45fca88c2f8c498ab73656fcd1312, type: 3}
+  m_Name: Forest
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: c8fb002d37be13d409aca09dad684ae8, type: 2}
-  m_StaticContent: 0
+  sceneName: Forest
+  sceneAsset: {fileID: 102900000, guid: 6be1b4c915c841b4f86f32a40e96ab77, type: 3}

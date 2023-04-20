@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 12f585b36b255834ea268ae7b6de54c8
+guid: b175e918b9d18ed4e90d368ca616a01e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_0
+      name: Pine_01
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 1
+        y: 263
+        width: 63
+        height: 148
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,41 +130,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4a27ba55df79bc45b01846ac5ea51e1
-      internalID: 118373398
+      spriteID: a21537b482513964eaf9fd2f05d6b5fd
+      internalID: 826047596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_1
+      name: Tree_01
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 192
+        y: 131
+        width: 97
+        height: 144
+      alignment: 9
+      pivot: {x: 0.49269137, y: 0.09876537}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6dd3cb05eeb0e9479798a2be414db75
-      internalID: -1887971100
+      spriteID: a5df8722577e3bf4d8d657012804ea03
+      internalID: 794016444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_2
+      name: stump_01
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
+        x: 358
+        y: 297
+        width: 53
+        height: 45
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +172,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a30056e1ea40bfa45a4770301044853a
-      internalID: 103735540
+      spriteID: 9597e16588e7ee54f9d515a8fe7ddd8b
+      internalID: 871211601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bush_H
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 352
+        width: 128
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6348f0a4ccb72c42b9f37a154e83aa2
+      internalID: -1006795942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bush_V
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 223
+        width: 40
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9118446d678f343499c8a52d20d82ed1
+      internalID: -1838690124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DeadTree
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 130
+        width: 76
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5456293bf83c37547b981ce9ee821a13
+      internalID: -776270109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pine_0
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 136
+        width: 86
+        height: 148
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 932b076b1d214cb49b76b258200b03b4
+      internalID: 2114626427
       vertices: []
       indices: 
       edges: []
@@ -189,9 +273,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle_1: -1887971100
-      Idle_0: 118373398
-      Idle_2: 103735540
+      DeadTree: -776270109
+      plant repack_1: 393272958
+      Bush_H: -1006795942
+      stump_01: 871211601
+      Pine_01: 826047596
+      Pine_0: 2114626427
+      Tree_01: 794016444
+      Bush_V: -1838690124
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
